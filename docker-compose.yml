@@ -30,3 +30,14 @@ services:
     hostname: localhost
     ports:
       - 8080:8080
+
+  userloginservice:
+    build: user-login-service
+    restart: always
+    network_mode: "host"
+    depends_on:
+      - eureka-server
+      - zuul-api
+      - config-service
+    ports:
+      - 8088:8088
