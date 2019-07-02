@@ -39,5 +39,17 @@ services:
       - eureka-server
       - zuul-api
       - config-service
+      - mysqldb
     ports:
       - 8088:8088
+
+  mysqldb:
+    image: mysql:5.7
+    restart: always
+    network_mode: 'host'
+    volumes:
+      - ./data/storemysql:/var/lib/mysql
+    environment:
+            - MYSQL_ROOT_PASSWORD=Root@123
+            - MYSQL_DATABASE=logindb
+
