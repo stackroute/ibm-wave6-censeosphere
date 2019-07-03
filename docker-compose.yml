@@ -43,13 +43,18 @@ services:
     ports:
       - 8088:8088
 
-  mysqldb:
+  mysql:
     image: mysql:5.7
-    restart: always
-    network_mode: 'host'
-    volumes:
-      - ./data/storemysql:/var/lib/mysql
+    ports:
+        - 3306:3306
+    container_name: mysql
     environment:
-            - MYSQL_ROOT_PASSWORD=Root@123
-            - MYSQL_DATABASE=logindb
+      MYSQL_DATABASE: LoginDb
+      MYSQL_USER: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "YES"
+    volumes:
+        - $HOME/data/datasql:/var/lib/mysql
+    network_mode: "host"
+    hostname: localhost
+    restart: always
 
