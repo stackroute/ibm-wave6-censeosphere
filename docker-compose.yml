@@ -30,3 +30,33 @@ services:
     hostname: localhost
     ports:
       - 8080:8080
+
+  userloginservice:
+    build: user-login-service
+    restart: always
+    network_mode: "host"
+    depends_on:
+      - eureka-server
+      - zuul-api
+      - config-service
+      - mysqldb
+    ports:
+      - 8088:8088
+
+  mysqldb:
+    image: mysql:5.7
+    ports:
+    - 3306:3306
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: logindb
+      MYSQL_PASSWORD: root
+      MYSQL_USER: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "YES"
+    volumes:
+        - $HOME/data/datasql:/var/lib/mysql
+    network_mode: "host"
+    hostname: localhost
+    restart: always
+

@@ -1,7 +1,6 @@
 [![Build Status](https://travis-ci.org/stackroute/ibm-wave6-censeosphere.svg?branch=master)](https://travis-ci.org/stackroute/ibm-wave6-censeosphere)
 [![codecov](https://codecov.io/gh/stackroute/ibm-wave6-censeosphere/branch/master/graph/badge.svg)](https://codecov.io/gh/stackroute/ibm-wave6-censeosphere)
 ![](https://img.shields.io/codecov/c/github/stackroute/ibm-wave6-censeosphere/master.svg?style=flat)
-
 ![](https://img.shields.io/github/issues/stackroute/ibm-wave6-censeosphere.svg?style=popout)
 
 ![](https://img.shields.io/github/contributors/stackroute/ibm-wave6-censeosphere.svg?style=popout)

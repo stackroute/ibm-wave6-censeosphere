@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.stackroute</groupId>
-	<artifactId>your-product-name</artifactId>
+	<artifactId>ibm-wave6-censeosphere</artifactId>
 	<version>1.0.0</version>
 	<packaging>pom</packaging>
 
@@ -29,6 +29,7 @@
 		<module>config-server</module>
 		<module>eureka-server</module>
 		<module>zuul-api</module>
+		<module>user-login-service</module>
 	</modules>
 
 	<dependencies>
@@ -67,6 +68,10 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.8.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-autoconfigure</artifactId>
 		</dependency>
 	</dependencies>
 

@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.stackroute</groupId>
-		<artifactId>your-product-name</artifactId>
+		<artifactId>ibm-wave6-censeosphere</artifactId>
 		<version>1.0.0</version>
 	</parent>
 	<groupId>com.stackroute</groupId>
