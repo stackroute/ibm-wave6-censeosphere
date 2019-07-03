@@ -7,7 +7,7 @@ services:
   - docker
 
 before_script:
-  - docker-compose up --build -d config-service mysql
+  - docker-compose up --build -d config-service mysqldb
   - docker ps -a
 after_success:
   - bash <(curl -s https://codecov.io/bash)
