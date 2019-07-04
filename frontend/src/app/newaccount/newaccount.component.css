@@ -1,0 +1,34 @@
+
+.navbar{
+    background-color:aliceblue;
+    position: relative;
+    height: 80px;
+}
+nav img{
+    height: 60px;
+    width: 200px;
+    
+    position: fixed;
+    margin-left: 70px;
+}
+h2{
+    margin-left: 580px;
+}
+
+.containerbody{
+    font-family: 'Work Sans', sans-serif;
+}
+#submitbutton{
+margin-left: 350px;
+}
+form{
+    margin-left: 150px;
+    font-family: 'Work Sans', sans-serif;
+    margin-top:100px;
+    
+}
+
+#sidebar{
+    font-size: 35px;
+    color: black;
+}
