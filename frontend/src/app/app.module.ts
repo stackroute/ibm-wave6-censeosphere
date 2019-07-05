@@ -16,7 +16,9 @@ import { LoginService } from './login.service';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NewaccountComponent } from './newaccount/newaccount.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-
+import { MatTabsModule } from '@angular/material';
+import { UpdateprofileComponent } from './updateprofile/updateprofile.component';
+import { ReviwerdashComponent } from './reviwerdash/reviwerdash.component';
 
 
 @NgModule({
@@ -25,6 +27,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     UserLoginComponent,
     LandingPageComponent,
     NewaccountComponent,
+    UpdateprofileComponent,
+    ReviwerdashComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     FormsModule,
     HttpClientModule,
     MatSidenavModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTabsModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent],

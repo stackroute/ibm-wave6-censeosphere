@@ -17,7 +17,11 @@ export class LandingPageComponent implements OnInit {
   onClick(){
     this.router.navigateByUrl("/account");
   }
-
+  reViwer()
+  {
+    this.router.navigateByUrl("/reviwerdashboard");
+  }
+  
 
 }
 
