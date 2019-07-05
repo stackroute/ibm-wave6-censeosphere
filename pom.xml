@@ -31,6 +31,7 @@
 		<module>zuul-api</module>
 		<module>user-login-service</module>
 		<module>write-a-review-service</module>
+		<module>reviewer-profile-service</module>
 	</modules>
 
 	<dependencies>

@@ -78,3 +78,14 @@ services:
     network_mode: host
     volumes:
       - ./registration:/data/db
+
+  reviewerprofileservice:
+    build: reviewer-profile-service
+    restart: always
+    network_mode: "host"
+    depends_on:
+      - eureka-server
+      - zuul-api
+      - config-service
+    ports:
+      - 8087:8087
