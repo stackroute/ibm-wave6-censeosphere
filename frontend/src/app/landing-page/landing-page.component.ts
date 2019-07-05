@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 })
 export class LandingPageComponent implements OnInit {
 
+  showFiller = false;
+
   constructor(private router:Router) { }
 
   ngOnInit() {
@@ -15,10 +17,9 @@ export class LandingPageComponent implements OnInit {
   onClick(){
     this.router.navigateByUrl("/account");
   }
-  
+
+
 }
 
-export class SidenavAutosizeExample {
-  showFiller = false;
-}
+
 

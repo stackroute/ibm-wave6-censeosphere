@@ -2,6 +2,7 @@
     background-color:aliceblue;
     position: relative;
     height: 80px;
+    position: fixed;
 }
 nav img{
     height: 60px;
@@ -22,7 +23,7 @@ nav img{
     color:rgb(4, 11, 119);
     font-size: 30px;
 }
-.containerbody,.modal,.jumbotron    {
+.containerbody,.modal,.jumbotron, footer    {
     font-family: 'Work Sans', sans-serif;
 }
 .icon-bar{
@@ -39,10 +40,6 @@ nav img{
 label{
     text-align: left;
 }
-/* #sidebar{
-    font-size: 35px;
-    color: black;
-} */
 .jumbotron{
     height: 400px;
     background: url('../../assets/img/appliances-home.png') center center no-repeat;
@@ -57,12 +54,46 @@ label{
    
 }
 #jumbotroninput{
-    width: 900px;
-    margin-left: 130px;
+    width: 600px;
+    margin-left: 250px;
     
 }
 #jumbotronheading{
     background: rgba(0,0,0,0.4);
     color:white;
     margin-top: 80px;
+}
+footer
+{
+    margin-top: 250px;
+    padding-top: 40px;
+    background-color: grey;
+    font-size: 20px;
+    height: 150px;
+    position: relative;
+    display: block;
+}
+footer a{
+    color: black;
+}
+#socialsite{
+    padding-left: 30px;
+}
+#envelope{
+    padding-right: 50px;
+    
+}
+footer a:hover{
+    color:rgb(88, 75, 75);
+    font-size: 25px;
+}
+.example-sidenav-container{
+    top: 80px;
+    bottom: 100px;
+}
+
+.example-sidenav {
+    /* display: flex; */
+    width: 250px;
+    
 }

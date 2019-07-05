@@ -5,7 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatStepperModule, MatInputModule, MatButtonModule} from '@angular/material'
+import {MatStepperModule, MatInputModule, MatButtonModule, MatCheckboxModule} from '@angular/material'
+import {MatSidenavModule} from '@angular/material/sidenav';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +16,8 @@ import { LoginService } from './login.service';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NewaccountComponent } from './newaccount/newaccount.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
+
 
 @NgModule({
   declarations: [
@@ -31,12 +35,15 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     MatStepperModule, 
     MatInputModule, 
     MatButtonModule,
+    MatCheckboxModule,
     FormsModule,
     HttpClientModule,
+    MatSidenavModule,
     ReactiveFormsModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  exports: [MatButtonModule, MatCheckboxModule]
 })
 export class AppModule { }
