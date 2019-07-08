@@ -43,6 +43,9 @@ export class LandingPageComponent implements OnInit {
   reviewer(){
     this.router.navigateByUrl("/reviwerdashboard");
   }
+  productOwner(){
+    this.router.navigateByUrl("/productownerdashboard");
+  }
 
 }
 
