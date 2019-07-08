@@ -65,7 +65,7 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onClick()">Revierwer</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onClick()">Reviewer</button>
           <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onClick()">Product
             Owner</button>
         </div>
@@ -100,7 +100,7 @@
         <div class="modal-footer">
           <label for="rsubmitbutton" id="newaccountlabel">New Account </label>
           <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onClick()"
-            id="rsubmitbutton">Revierwer</button>
+            id="rsubmitbutton">Reviewer</button>
         </div>
       </div>
     </div>
@@ -127,10 +127,11 @@
               <label for="productownerpassword">Password</label>
               <input type="password" name="password" id="productownerpassword" class="form-control">
             </div>
-            <button type="submit" class="btn btn-success" id="productownersigninbutton">Sign In</button>
+            <button type="submit" class="btn btn-success" (click)="productOwner()" id="productownersigninbutton">Sign In</button>
           </form>
         </div>
         <div class="modal-footer">
+          <label for="psubmitbutton" id="newaccountlabel">New Account </label>
           <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onClick()"
             id="psubmitbutton">Product Owner</button>
         </div>

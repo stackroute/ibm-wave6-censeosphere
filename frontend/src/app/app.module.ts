@@ -19,6 +19,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatTabsModule } from '@angular/material';
 import { UpdateprofileComponent } from './updateprofile/updateprofile.component';
 import { ReviwerdashComponent } from './reviwerdash/reviwerdash.component';
+import { ProductownerDashboardComponent } from './productowner-dashboard/productowner-dashboard.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ReviwerdashComponent } from './reviwerdash/reviwerdash.component';
     LandingPageComponent,
     NewaccountComponent,
     UpdateprofileComponent,
-    ReviwerdashComponent
+    ReviwerdashComponent,
+    ProductownerDashboardComponent
   ],
   imports: [
     BrowserModule,

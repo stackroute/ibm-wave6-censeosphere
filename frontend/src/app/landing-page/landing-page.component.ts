@@ -21,7 +21,10 @@ export class LandingPageComponent implements OnInit {
   {
     this.router.navigateByUrl("/reviwerdashboard");
   }
-  
+  productOwner()
+  {
+    this.router.navigateByUrl("/productowner-dashboard");
+  }
 
 }
 
