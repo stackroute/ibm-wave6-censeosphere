@@ -22,6 +22,6 @@ export class ReviwerdashComponent implements OnInit {
   }
   lpage()
   {
-   this.router.navigateByUrl("/returnlanding"); 
+   this.router.navigateByUrl("/"); 
   }
 }
