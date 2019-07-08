@@ -19,8 +19,10 @@ h2{
 .containerbody{
     font-family: 'Work Sans', sans-serif;
 }
+
 #submitbutton{
-margin-left: 350px;
+margin: auto;
+/* margin-left: 350px; */
 }
 form{
     margin-left: 150px;
@@ -28,11 +30,6 @@ form{
     margin-top:100px;
     
 }
-/* 
-#sidebar{
-    font-size: 35px;
-    color: black;
-} */
 footer
 {
     margin-top: 167px;
@@ -55,3 +52,6 @@ footer a:hover{
     color:rgb(88, 75, 75);
     font-size: 25px;
 }
+/* .bodyy{
+    background: url('../../assets/img/newaccountback.jpg') center center no-repeat;
+} */

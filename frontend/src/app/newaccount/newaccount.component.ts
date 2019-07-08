@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-newaccount',
   templateUrl: './newaccount.component.html',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewaccountComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
 
+  onClickS()
+  {
+    this.router.navigateByUrl("/**");
+  }
+  onClickC()
+  {
+    this.router.navigateByUrl("/**");
+  }
 }

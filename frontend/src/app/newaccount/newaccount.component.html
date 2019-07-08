@@ -1,15 +1,10 @@
+<div class="bodyy">
 <div class="containerbody">
   <nav class="navbar navbar-expand-lg fixed-top">
-      <button id="sidebar" class="hamburger mat-button" mat-button>
-          <i class="fa fa-bars" aria-hidden="true"></i>
-        </button>
     <img src="assets/img/CenseoSphere_logo.png">
     <h2>Create New Account</h2>
   </nav>
 </div>
-
-
-
 <div class="container">
 <form class="form-horizontal">
     <div class="form-group">
@@ -41,13 +36,11 @@
       </div>
     </div>
   
-    <button class="btn btn-success" type="submit" id="submitbutton">Submit</button>
+    <button class="btn btn-success" type="submit" id="submitbutton" (click)="onClickS()">Submit</button>&nbsp;
+    <button class="btn btn-danger" type="submit" id="cancelbutton" (click)="onClickC()">cancel</button>
   
   </form>
 </div>
-
-
-
 <!-- footer -->
 <footer>
     <div class="container">
@@ -98,4 +91,4 @@
     </div>
   </footer>
   <!-- end footer -->
-  
+</div>
