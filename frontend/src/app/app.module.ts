@@ -20,7 +20,7 @@ import { MatTabsModule } from '@angular/material';
 import { UpdateprofileComponent } from './updateprofile/updateprofile.component';
 import { ReviwerdashComponent } from './reviwerdash/reviwerdash.component';
 import { ProductownerDashboardComponent } from './productowner-dashboard/productowner-dashboard.component';
-
+import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 
 @NgModule({
   declarations: [
@@ -46,7 +46,8 @@ import { ProductownerDashboardComponent } from './productowner-dashboard/product
     HttpClientModule,
     MatSidenavModule,
     ReactiveFormsModule,
-    MatTabsModule
+    MatTabsModule,
+    Ng2CarouselamosModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent],
