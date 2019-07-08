@@ -40,7 +40,9 @@ export class LandingPageComponent implements OnInit {
   onClick(){
     this.router.navigateByUrl("/account");
   }
-
+  reviewer(){
+    this.router.navigateByUrl("/reviwerdashboard");
+  }
 
 }
 

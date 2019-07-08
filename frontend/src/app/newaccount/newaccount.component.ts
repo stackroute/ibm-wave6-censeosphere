@@ -14,10 +14,10 @@ export class NewaccountComponent implements OnInit {
 
   onClickS()
   {
-    this.router.navigateByUrl("/**");
+    this.router.navigateByUrl("/");
   }
   onClickC()
   {
-    this.router.navigateByUrl("/**");
+    this.router.navigateByUrl("/");
   }
 }
