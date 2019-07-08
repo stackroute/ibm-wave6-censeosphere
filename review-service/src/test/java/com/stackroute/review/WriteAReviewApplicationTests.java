@@ -1,4 +1,4 @@
-package com.stackroute.writeareview;
+package com.stackroute.review;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

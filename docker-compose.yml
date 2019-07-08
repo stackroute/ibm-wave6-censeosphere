@@ -43,8 +43,8 @@ services:
     ports:
       - 8088:8088
 
-  writeareviewservice:
-    build: write-a-review-service
+  reviewservice:
+    build: review-service
     restart: always
     network_mode: "host"
     depends_on:

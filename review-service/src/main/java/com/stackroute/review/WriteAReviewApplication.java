@@ -1,4 +1,4 @@
-package com.stackroute.writeareviewservice;
+package com.stackroute.review;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

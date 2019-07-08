@@ -1,7 +1,7 @@
-package com.stackroute.writeareviewservice.service;
+package com.stackroute.review.service;
 
-import com.stackroute.writeareviewservice.domain.Review;
-import com.stackroute.writeareviewservice.repository.ReviewRepository;
+import com.stackroute.review.domain.Review;
+import com.stackroute.review.repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +21,7 @@ public class ReviewServiceImpl implements ReviewService {
     @Override
     public Review addReview(Review review) {
 
+        //rabbitmq queue, exchange,routingkey generation
         Review savedReview = reviewRepository.save(review);
         return savedReview;
     }
@@ -29,4 +30,7 @@ public class ReviewServiceImpl implements ReviewService {
     public List<Review> getAllReviews() {
         return reviewRepository.findAll();
     }
+
+
+
 }
