@@ -16,4 +16,8 @@ export class UpdateprofileComponent implements OnInit {
   {
    this.router.navigateByUrl("/rprofile"); 
   }
+  lpage()
+  {
+   this.router.navigateByUrl("/returnlanding"); 
+  }
 }

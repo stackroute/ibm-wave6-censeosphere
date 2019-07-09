@@ -1,10 +1,13 @@
 package com.stackroute.reviewerprofile.service;
 
 import com.stackroute.reviewerprofile.domain.Reviewer;
+import com.stackroute.reviewerprofile.dto.ReviewerDTO;
 import com.stackroute.reviewerprofile.exceptions.ReviewerAlreadyExistsException;
 import com.stackroute.reviewerprofile.exceptions.ReviewerNotFoundException;
 import com.stackroute.reviewerprofile.repository.ReviewerRepository;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
@@ -13,6 +16,15 @@ import java.util.Optional;
 public class ReviewerServiceImpl implements ReviewerService {
     ReviewerRepository reviewerRepository;
     Reviewer reviewer=null;
+
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
+
+    @Value("${stackroute.rabbitmq.exchange}")
+    private String exchange;
+
+    @Value("${stackroute.rabbitmq.routingkeyone}")
+    private String routingkeyone;
 
     @Autowired
     public ReviewerServiceImpl(ReviewerRepository reviewerRepository)
@@ -28,7 +40,8 @@ public class ReviewerServiceImpl implements ReviewerService {
             throw new ReviewerAlreadyExistsException("Reviewer already exists");
         }
         Reviewer savedReviewer=reviewerRepository.save(reviewer);
-
+        ReviewerDTO reviewerDTO=new ReviewerDTO(reviewer.getEmailId(),reviewer.getReconfirmPassword(),reviewer.getRole());
+         sendreviewer(reviewerDTO);
         if(savedReviewer==null)
         {
             throw new ReviewerAlreadyExistsException("Reviewer already exists");
@@ -102,5 +115,13 @@ public class ReviewerServiceImpl implements ReviewerService {
 //    {
 //        return reviewerRepository.findAll();
 //    }
+    @Override
+    public void sendreviewer(ReviewerDTO reviewerDTO)
+    {
+
+        rabbitTemplate.convertAndSend(exchange, routingkeyone, reviewerDTO);
+        System.out.println("Send msg = " + reviewerDTO.toString());
+
+    }
 
 }
