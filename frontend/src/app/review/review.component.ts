@@ -14,10 +14,12 @@ export class ReviewComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.reviewService.getAllReviews().subscribe((data:any) => {
       console.log(data);
       this.reviews=data;
     })
+
   }
   
   onSubmit(){
