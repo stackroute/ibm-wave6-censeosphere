@@ -7,8 +7,10 @@
         </button>
       </div>
       <img src="assets/img/CenseoSphere_logo.png">
+      <div class="addclass">
+      <button type="submit" class="btn btn-info" id="addproduct" (click)="add()" >Add Product</button>
+      </div>
       <div class="dropdown">
-        <button type="submit" class="btn btn-info" id="addproduct" data-target="#add">Add Product</button>
         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
          <span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
         </a>
@@ -110,6 +112,7 @@
           <p class="specification">15MP back and 8MP front,6GB RAM and 64GB ROM</p>
           <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
           <p class="timestamp">Uploaded on 2017-12-25 20:15:56</p>
+        <br>
         <br>
         <button type="submit" class="btn btn-info" id="editproduct" data-target="#edit">Edit</button>
         <button type="submit" class="btn btn-info" id="deleteproduct" data-target="#delete">Delete</button>

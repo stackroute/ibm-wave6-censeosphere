@@ -1,3 +1,8 @@
+.containerbody{
+    margin: 0;
+    padding: 0;
+    
+  }
 .navbar{
     background-color:aliceblue;
     position: relative;
@@ -21,9 +26,12 @@ nav img{
    margin-right:100px;
    
  }
-#addproduct{
+
+/* #addproduct{
     margin-right: 35px;
-}
+} */
+.addclass{
+   margin-left: 1060px;}
 
 .jumbotron{
     height: 400px;

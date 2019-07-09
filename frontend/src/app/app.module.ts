@@ -20,6 +20,7 @@ import { MatTabsModule } from '@angular/material';
 import { UpdateprofileComponent } from './updateprofile/updateprofile.component';
 import { ReviwerdashComponent } from './reviwerdash/reviwerdash.component';
 import { ProductownerdashboardComponent } from './productownerdashboard/productownerdashboard.component';
+import { ProdownerupdateprofileComponent } from './prodownerupdateprofile/prodownerupdateprofile.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { ProductownerdashboardComponent } from './productownerdashboard/producto
     NewaccountComponent,
     UpdateprofileComponent,
     ReviwerdashComponent,
-    ProductownerdashboardComponent
+    ProductownerdashboardComponent,
+    ProdownerupdateprofileComponent
   ],
   imports: [
     BrowserModule,
