@@ -19,4 +19,9 @@ export class ReviwerdashComponent implements OnInit {
   {
    this.router.navigateByUrl("/returnlanding"); 
   }
+  search()
+  {
+    this.router.navigateByUrl("/rsearch"); 
+  } 
+  
 }

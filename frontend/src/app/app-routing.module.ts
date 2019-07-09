@@ -6,6 +6,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { UpdateprofileComponent } from './updateprofile/updateprofile.component';
 import { ReviwerdashComponent } from './reviwerdash/reviwerdash.component';
 import { ProductownerDashboardComponent } from './productowner-dashboard/productowner-dashboard.component';
+import { SearchForReviewComponent } from './search-for-review/search-for-review.component';
 const routes: Routes = [  
   { path: '',component:LandingPageComponent},
   { path: 'login', component:UserLoginComponent },
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path:'rprofile',component:UpdateprofileComponent},
   {path:'reviwerdashboard',component:ReviwerdashComponent},
   {path:'returnlanding',component:LandingPageComponent},
-  { path: 'productownerdashboard',component:ProductownerDashboardComponent}
+  { path: 'productownerdashboard',component:ProductownerDashboardComponent},
+  { path: 'rsearch',component:SearchForReviewComponent},
   // { path: '**',component:LandingPageComponent}
   
 
