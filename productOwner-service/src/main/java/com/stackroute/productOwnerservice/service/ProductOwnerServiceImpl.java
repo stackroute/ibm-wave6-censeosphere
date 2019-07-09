@@ -1,10 +1,13 @@
 package com.stackroute.productOwnerservice.service;
 
 import com.stackroute.productOwnerservice.domain.ProductOwner;
+import com.stackroute.productOwnerservice.dto.ProductOwnerDTO;
 import com.stackroute.productOwnerservice.exception.ProductOwnerDetailsAlreadyExistsException;
 import com.stackroute.productOwnerservice.exception.ProductOwnerDetailsNotFoundException;
 import com.stackroute.productOwnerservice.repository.ProductOwnerRepository;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,6 +25,14 @@ public class ProductOwnerServiceImpl implements ProductOwnerService {
         this.productownerRepository=productownerRepository;
     }
 
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
+
+    @Value("${stackroute.rabbitmq.exchange}")
+    private String exchange;
+
+    @Value("${stackroute.rabbitmq.routingkeytwo}")
+    private String routingkeytwo;
 
     @Override
     public ProductOwner saveDetails(ProductOwner productowner) throws ProductOwnerDetailsAlreadyExistsException {
@@ -30,6 +41,9 @@ public class ProductOwnerServiceImpl implements ProductOwnerService {
             throw new ProductOwnerDetailsAlreadyExistsException("Details already exists");
         }
         ProductOwner savedDetails=productownerRepository.save(productowner);
+
+        ProductOwnerDTO productOwnerDTO=new ProductOwnerDTO(productowner.getEmailId(),productowner.getConfirmPassword(),productowner.getRole());
+        sendproductOwnner(productOwnerDTO);
 
         if(savedDetails==null)
         {
@@ -79,4 +93,10 @@ public class ProductOwnerServiceImpl implements ProductOwnerService {
         return productowner1;
     }
 
+    @Override
+    public void sendproductOwnner(ProductOwnerDTO productOwnerDTO) {
+
+        rabbitTemplate.convertAndSend(exchange, routingkeytwo, productOwnerDTO);
+        System.out.println("Send msg = " + productOwnerDTO.toString());
+    }
 }

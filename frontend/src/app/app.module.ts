@@ -3,12 +3,9 @@ import { NgModule } from '@angular/core';
 import { CustomMaterialModule } from './core/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatStepperModule, MatInputModule, MatButtonModule, MatCheckboxModule} from '@angular/material'
 import {MatSidenavModule} from '@angular/material/sidenav';
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserLoginComponent } from './user-login/user-login.component';
@@ -19,10 +16,12 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatTabsModule } from '@angular/material';
 import { UpdateprofileComponent } from './updateprofile/updateprofile.component';
 import { ReviwerdashComponent } from './reviwerdash/reviwerdash.component';
+// import { ProductownerDashboardComponent } from './productowner-dashboard/productowner-dashboard.component';
+import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 import { ProductownerdashboardComponent } from './productownerdashboard/productownerdashboard.component';
 import { AddProductComponent } from './add-product/add-product.component';
-
-
+import { ReviewComponent } from './review/review.component';
+import { ReviewerdashboardComponent } from './reviewerdashboard/reviewerdashboard.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +32,9 @@ import { AddProductComponent } from './add-product/add-product.component';
     UpdateprofileComponent,
     ReviwerdashComponent,
     ProductownerdashboardComponent,
-    AddProductComponent
+    AddProductComponent,
+    ReviewComponent,
+    ReviewerdashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +50,8 @@ import { AddProductComponent } from './add-product/add-product.component';
     HttpClientModule,
     MatSidenavModule,
     ReactiveFormsModule,
-    MatTabsModule
+    MatTabsModule,
+    Ng2CarouselamosModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent],

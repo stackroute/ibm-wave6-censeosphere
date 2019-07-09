@@ -15,7 +15,9 @@ const routes: Routes = [
   {path:'reviwerdashboard',component:ReviwerdashComponent},
   {path:'returnlanding',component:LandingPageComponent},
   {path:'productownerdashboard',component:ProductownerdashboardComponent},
-  {path:'add-product',component:AddProductComponent}
+  {path:'add-product',component:AddProductComponent},
+  {path:'productownerdashboard',component:ProductownerdashboardComponent},
+  {path:'reviewerdash',component:ReviwerdashComponent}
   // { path: '**',component:LandingPageComponent}
   
 
