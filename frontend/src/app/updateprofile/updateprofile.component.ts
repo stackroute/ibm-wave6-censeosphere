@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
+
 @Component({
   selector: 'app-updateprofile',
   templateUrl: './updateprofile.component.html',
@@ -10,7 +12,7 @@ export class UpdateprofileComponent implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit() {
-  }
+}
 
   update()
   {
