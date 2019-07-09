@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-productownerdashboard',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductownerdashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
+
 
   ngOnInit() {
+  }
+  
+  add()
+  {
+    this.router.navigateByUrl("/add-product");
   }
 
 }

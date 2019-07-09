@@ -1,0 +1,183 @@
+<!-- header -->
+
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="example-sidenav-content">
+      <button id="sidebar" class="hamburger mat-button" mat-button (click)="snav.toggle()">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </button>
+    </div>
+    <img src="assets/img/CenseoSphere_logo.png">
+    <div class="dropdown">
+      <!-- <button type="submit" class="btn btn-info" id="addproduct" (click)="add()">Add Product</button> -->
+      <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       <span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
+      </a>
+      <ul id="drop" class="dropdown-menu">
+       <li><button class="dropdown-item" (click)="update()" ><span><i class="fa fa-refresh"></i></span>  Update profile</button></li>
+       <li><button class="dropdown-item" (click)="lpage()" ><span><i class="fa fa-power-off"></i></span> Log out</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container" id="main">
+      <h2 align="center">Add a Product</h2>
+     
+    <hr>
+    <div class="form-group">
+        <label for="category" class="col-sm-3 control-label">Product Category</label>
+        <div class="col-sm-3">
+       <select class="form-control">
+      <option value="">Electronic Devices</option>
+      <option value="1">Education</option>
+      <option value="2">Hospitals</option>
+       </select>
+    </div>
+    </div>
+    
+        <!--Produt Subcategory-->
+    
+     <div class="form-group">
+        <label for="tech" class="col-sm-3 control-label">Product Subcategory</label>
+        <div class="col-sm-3">
+       <select class="form-control">
+      <option value="">T.V</option>
+      <option value="1">Mobiles</option>
+      <option value="2">A.C</option>
+       </select>
+     </div>
+    </div>
+    
+    <!--Product Name-->
+    
+     <div class="form-group">
+        <label for="qty" class="col-sm-4 control-label">Product Name</label>
+        <div class="col-sm-4">         
+            <input type="text" class="form-control" id="pname" placeholder="Enter Product Name" name="pname">
+          </div>
+        </div>
+    
+    <!--Product Family-->
+    
+     <div class="form-group">
+        <label for="qty" class="col-sm-4 control-label">Product Family</label>
+        <div class="col-sm-4">
+       <input type="text" class="form-control" name="qty" id="qty" placeholder="Enter Product Family">
+        </div>
+    </div>
+    
+    <!--Product Price-->
+
+    <div class="form-group">
+      <label for="qty" class="col-sm-4 control-label">Product Price</label>
+      <div class="col-sm-4">         
+          <input type="text" class="form-control" id="pname" placeholder="Enter Product Price" name="pname">
+        </div>
+      </div>
+  
+
+    <!--Product Specifications-->
+    
+     <div class="form-group">
+        <label for="about" class="col-sm-3 control-label">Product Specifications</label>
+        <!--<div class="col-sm-9">
+          <textarea class="form-control"></textarea>
+        </div>-->
+    <div class="col-sm-9">
+    <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Property Name">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Value name">
+    
+        </div>
+      </div>
+    
+      </div>
+    </div>
+    <button type="button" class="btn btn-link">add more specifications</button>
+
+    <br>
+    
+    
+    <!--Product Description-->
+    
+     <div class="form-group">
+        <label for="about" class="col-sm-3 control-label">Product Description</label>
+        <div class="col-sm-9">
+          <textarea class="form-control"></textarea>
+        </div>
+      </div>
+    
+    
+    <!--Adding a image-->
+     
+      <div class="form-group">
+        <label for="name" class="col-sm-3 control-label">Add a Image</label>
+        <div class="col-sm-3">
+          <label class="control-label small" for="file_img">Product Image(jpg/png):</label> <input type="file" name="file_img">
+        </div>
+      </div> 
+    
+    <!--Save Product-->
+    
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+          <button type="submit" class="btn btn-primary">Save Product</button>
+        </div>
+      </div> 
+    
+  </div>
+    
+
+
+
+  
+
+
+<!-- footer -->
+ <footer class="page-footer font-small blue pt-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2">
+        <ul class="list-unstyled lead">
+          <li>
+            <a href="#"><strong> About Us</strong></a>
+          </li>
+        </ul>
+
+      </div>
+      <div class="col-sm-2">
+        <ul class="list-unstyled lead">
+          <li>
+            <a href="#"><Strong>Contact Us</Strong></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-2">
+        <ul class="list-unstyled lead">
+          <li>
+            <a href="#"><Strong>Feedback <i class="fa fa-comments"></i></Strong></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-3">
+        <ul class="list-unstyled lead">
+          <li>
+            <a href="#"><Strong>Terms & Condition</Strong></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-3">
+        <ul class="list-unstyled lead">
+          <li id="socialsite">
+            <a href="#"><i class="fa fa-twitter-square"></i> </a>&nbsp;
+            <a href="#"><i class="fa fa-facebook-square"></i> </a>&nbsp;
+            <a href="#" id="envelope"><i class="fa fa-envelope"></i> </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- end footer -->
