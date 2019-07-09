@@ -17,8 +17,6 @@
     <div *ngFor="let category of categories">
       <mat-nav-list class="matlist">
         <h3 id="sidebarheading">{{category.category}}</h3>
-        <!-- <a mat-list-item matButton routerLink="." *ngFor="let subCategory of subCategories">{{subCategory.subCategory}}</a>
-       -->
         <ul>
           <h4>
             <li *ngFor="let subCategory of subCategories"><a href="#"

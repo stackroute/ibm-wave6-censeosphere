@@ -20,6 +20,7 @@ import { ReviwerdashComponent } from './reviwerdash/reviwerdash.component';
 import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 import { ProductownerdashboardComponent } from './productownerdashboard/productownerdashboard.component';
 import { ReviewComponent } from './review/review.component';
+import { ReviewerdashboardComponent } from './reviewerdashboard/reviewerdashboard.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ReviewComponent } from './review/review.component';
     UpdateprofileComponent,
     ReviwerdashComponent,
     ProductownerdashboardComponent,
-    ReviewComponent
+    ReviewComponent,
+    ReviewerdashboardComponent
   ],
   imports: [
     BrowserModule,
