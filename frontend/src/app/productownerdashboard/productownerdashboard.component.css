@@ -1,0 +1,119 @@
+.navbar{
+    background-color:aliceblue;
+    position: relative;
+    height: 80px;
+    position: fixed;
+}
+nav img{
+    height: 60px;
+    width: 200px;
+    position: fixed;
+    margin-left: 70px;
+}
+ nav .dropdown{
+  
+   color: black;
+   font-size: 20px;
+   position: absolute;
+   right: 0;
+   top: 0;
+   margin-top:20px;
+   margin-right:100px;
+   
+ }
+#addproduct{
+    margin-right: 35px;
+}
+
+.jumbotron{
+    height: 400px;
+    background: url('../../assets/img/appliances-home.png') center center no-repeat;
+}
+#jumbotroninput{
+    width: 600px;
+    margin-left: 250px;
+    
+}
+#jumbotronheading{
+    background: rgba(0,0,0,0.4);
+    color:white;
+    margin-top: 80px;
+}
+.row-footer{
+    float: right;
+}
+
+footer
+{
+    margin-top: 250px;
+    padding-top: 40px;
+    background-color: grey;
+    font-size: 20px;
+    height: 150px;
+    position: relative;
+    display: block;
+}
+footer a{
+    color: black;
+}
+#socialsite{
+    padding-left: 30px;
+}
+#envelope{
+    padding-right: 50px;
+    
+}
+footer a:hover{
+    color:rgb(88, 75, 75);
+    font-size: 25px;
+}
+#deleteproduct{
+    margin-left: 10px;
+}
+.row-footer{
+    margin-top: 10px;
+}
+
+
+.thumb-wrapper {
+	padding: 25px 15px;
+	background: #fff;
+	border-radius: 6px;
+	text-align: center;
+	position: relative;
+	box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+}
+.img-box {
+	height: 120px;
+	margin-bottom: 20px;
+	width: 100%;
+	position: relative;
+}
+ .img-box img {	
+	max-width: 100%;
+	max-height: 100%;
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+}
+h4 {
+	font-size: 18px;
+}
+ h4,   p,  ul {
+	margin-bottom: 5px;
+}
+
+.item-price {
+	font-size: 13px;
+	padding: 2px 0;
+}
+.star-rating li {
+	padding: 0;
+}
+.star-rating i {
+	font-size: 14px;
+	color: #ffc000;
+}

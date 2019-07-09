@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LandingpageService } from '../landingpage.service';
 @Component({
   selector: 'app-reviwerdash',
   templateUrl: './reviwerdash.component.html',
   styleUrls: ['./reviwerdash.component.css']
 })
 export class ReviwerdashComponent implements OnInit {
-
-  constructor(private router:Router) { }
+  products = [];
+  constructor(private router:Router,private landingpageservice:LandingpageService) { }
 
   ngOnInit() {
+    this.landingpageservice.getAllProducts().subscribe((data:any) => {
+      console.log(data);
+      this.products=data;
+    })
   }
   update()
   {
@@ -17,7 +22,7 @@ export class ReviwerdashComponent implements OnInit {
   }
   lpage()
   {
-   this.router.navigateByUrl("/returnlanding"); 
+   this.router.navigateByUrl("/"); 
   }
   search()
   {
