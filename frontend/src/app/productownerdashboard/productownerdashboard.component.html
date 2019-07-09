@@ -37,17 +37,16 @@
     </div>
     <!-- end jumbotron -->
 
-<hr>
 
 <div class="container">
   <h3>My Products</h3>
   <hr>
-  <div *ngFor="let product of productOwners">
+  <div *ngFor="let product of products">
   <div class="row d-outline-block bg-light">
     <div class="col-sm-4">
         <div class="thumb-wrapper">
             <div class="img-box">
-              <img src="{{product.productOwners.image}}" class="img-responsive img-fluid" alt="">									
+              <img src="{{product.image}}" class="img-responsive img-fluid" alt="">									
             </div>
             <div class="thumb-content">
               <h4>{{product.productName}}</h4>									
@@ -60,28 +59,24 @@
                   <li class="list-inline-item"><i class="fa fa-star"></i></li>
                 </ul>
               </div>
-              <p class="item-price"><b>{{product.product.price}}</b></p>
-              <h6>2 reviews</h6>
             </div>						
           </div>
     </div>
-    <div class="col-sm-8">
-      
-      <h5>{{product.productOwners.products.productName}</h5>
-      <p class="item-price"><b>{{product.product.price}}</b></p>
-      <p class="specification">{{product.productOwners.specification}}</p>
-      <p>{{product.productOwners.description}}</p>
-      <p class="timestamp">{{product.productOwners.uploaded_on}}</p>
-      <br>
+    <div class="col-sm-8"> 
+      <h5>{{product.productName}}</h5>
+      <h6>{{product.rating}}</h6>
+      <p class="item-price"><b>{{product.price}}</b></p>
+      <p class="specification">{{product.specification}}</p>
+      <p>{{product.description}}</p>
+      <p class="timestamp">{{product.uploaded_on}}</p>
       <button type="submit" class="btn btn-info" id="editproduct" data-target="#edit">Edit</button>
-        <button type="submit" class="btn btn-info" id="deleteproduct" data-target="#delete">Delete</button>
+      <button type="submit" class="btn btn-info" id="deleteproduct" data-target="#delete">Delete</button>
    </div>
   </div>
   </div>
+  <div class="row-footer"><a href="#">View All</a></div>
 </div>
 
-<br>
-<br>
 <!-- <div class="container">
     <div class="row d-outline-block bg-light">
       <div class="col-sm-4">

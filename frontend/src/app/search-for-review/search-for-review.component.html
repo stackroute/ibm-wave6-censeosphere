@@ -15,13 +15,12 @@
 
 <div>
    <h3 id="searchheading">Product Details</h3>
-</div>
    <hr>
 <div class="row">
    <div class="col-sm-6">
        <div class="prod">
 
-       <img src="../assets/img/nikon.jpeg" alt="product">
+       <!-- <img src="../assets/img/nikon.jpeg" alt="product">
        <h3>NIKON D5600</h3>
        <div>
            <button class="btn-primary" type="button" (click)="wreview()" name="write a review">Write A Review</button>
@@ -40,9 +39,11 @@
            </div>
            <h3> 5 Reviews</h3>
        </div>
+   </div> 
    </div>
-   
- </div>
+ </div>-->
+
+ 
 
         <img src="../assets/img/nikon.jpeg" alt="product">
         <h3>NIKON D5600</h3>
@@ -79,7 +80,8 @@
              <div class="container-fluid">
              <div class="row mt-3">
                <div class="col-3">
-                 <img alt="nikon" src="{{review.image}}" class="w-100"><br><h4>{{review.reviewer}}</h4></div>
+                 <img alt="nikon" src="{{review.image}}" class="w-100"><br><h4>{{review.reviewer}}</h4>
+               </div>
                <div class="col-9">
                            <p class="h4">{{review.reviewTitle}}</p>
                            <div class="star-rating">
@@ -94,10 +96,10 @@
                  <div>
                                    <button class="btn-primary" type="button" name="useful">Most helpful??</button>
                          </div>
-                       </div>
+               </div>
              </div>
            </div>
-           </div>
+          </div>
      </div>
            
            <!-- <div class="tab-pane active" id="home" role="tabpanel">

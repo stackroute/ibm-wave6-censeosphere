@@ -9,14 +9,13 @@
             "productFamily": "iphone",
             "price": 50000,
             "rating": "5 star",
-            "specification": [
+            "specification": 
                 {
                     "pixels": "48 mega pixel",
                     "display": "4.2 inch",
                     "RAM": "4GB",
                     "battery life": "3400 mAh"
-                }
-            ],
+                },
             "description": "Battery life is good.Camera quality is awesome",
             "uploaded_on": "July 5 2019"
         },
