@@ -17,13 +17,13 @@ import { MatTabsModule } from '@angular/material';
 import { UpdateprofileComponent } from './updateprofile/updateprofile.component';
 import { ReviwerdashComponent } from './reviwerdash/reviwerdash.component';
 import { SearchForReviewComponent } from './search-for-review/search-for-review.component';
-
-// import { ProductownerDashboardComponent } from './productowner-dashboard/productowner-dashboard.component';
 import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 import { ProductownerdashboardComponent } from './productownerdashboard/productownerdashboard.component';
+import { ProdownerupdateprofileComponent } from './prodownerupdateprofile/prodownerupdateprofile.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { ReviewComponent } from './review/review.component';
 import { ReviewerdashboardComponent } from './reviewerdashboard/reviewerdashboard.component';
+
 
 
 @NgModule({
@@ -34,8 +34,9 @@ import { ReviewerdashboardComponent } from './reviewerdashboard/reviewerdashboar
     NewaccountComponent,
     UpdateprofileComponent,
     ReviwerdashComponent,
-    SearchForReviewComponent,
     ProductownerdashboardComponent,
+    ProdownerupdateprofileComponent,
+    SearchForReviewComponent,
     AddProductComponent,
     ReviewComponent,
     ReviewerdashboardComponent
