@@ -34,18 +34,18 @@ nav img{
    margin-left: 1060px;}
 
 .jumbotron{
-    height: 400px;
-    background: url('../../assets/img/appliances-home.png') center center no-repeat;
+    height: 500px;
+    background: url('../../assets/img/Electronics-Supply-Chain-1024x375.jpg') center center no-repeat;
+    background-size: 100%;
 }
 #jumbotroninput{
     width: 600px;
     margin-left: 250px;
-    
 }
 #jumbotronheading{
     background: rgba(0,0,0,0.4);
     color:white;
-    margin-top: 80px;
+    margin-top: 100px;
 }
 .row-footer{
     float: right;

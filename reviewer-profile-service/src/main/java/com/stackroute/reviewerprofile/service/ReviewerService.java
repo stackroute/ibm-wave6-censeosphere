@@ -1,6 +1,7 @@
 package com.stackroute.reviewerprofile.service;
 
 import com.stackroute.reviewerprofile.domain.Reviewer;
+import com.stackroute.reviewerprofile.dto.ReviewerDTO;
 import com.stackroute.reviewerprofile.exceptions.ReviewerAlreadyExistsException;
 import com.stackroute.reviewerprofile.exceptions.ReviewerNotFoundException;
 
@@ -14,4 +15,5 @@ public interface ReviewerService {
     public List<Reviewer> deleteReviewer(String emailId) throws ReviewerNotFoundException;
     public Reviewer updateReviewer(Reviewer reviewer) throws ReviewerNotFoundException;
 //    public List <Reviewer> getAllReviews() throws ReviewerNotFoundException;
+    public void sendreviewer(ReviewerDTO reviewerDTO);
 }

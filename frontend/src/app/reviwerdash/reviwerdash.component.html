@@ -1,25 +1,29 @@
 <div class="containerbody">
-    <nav class="navbar navbar-expand-lg fixed-top">
-     <img src="assets/img/CenseoSphere_logo.png">
-      <div class="dropdown">
-        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         <span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
-        </a>
-        <ul id="drop" class="dropdown-menu">
-         <li><button class="dropdown-item" (click)="update()" ><span><i class="fa fa-refresh"></i></span>  Update profile</button></li>
-         <li><button class="dropdown-item" (click)="lpage()" ><span><i class="fa fa-power-off"></i></span> Log out</button></li>
-        </ul>
-      </div>
- </nav>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <img src="assets/img/CenseoSphere_logo.png">
+    <div class="dropdown">
+      <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
+      </a>
+      <ul id="drop" class="dropdown-menu">
+        <li><button class="dropdown-item" (click)="update()"><span><i class="fa fa-refresh"></i></span> Update
+            profile</button></li>
+        <li><button class="dropdown-item" (click)="lpage()"><span><i class="fa fa-power-off"></i></span> Log
+            out</button></li>
+      </ul>
+    </div>
+  </nav>
 </div>
 <!-- jumbotron start -->
 <div class="jumbotron jumbotron-fluid text-center">
+<<<<<<< HEAD
         <div class="container">
           <h1 id="jumbotronheading">India's Largest Review Platform</h1>
           <form>
             <div class="form-group">
               <input type="text" placeholder="search here to write a review" name="search" class="form-control"
-                id="jumbotroninput"><br>
+				id="jumbotroninput"><br>
+				<button (click)="search()">search</button>
               </div>
           </form>
         </div>
@@ -326,53 +330,105 @@
 		</div>
 		</div>
 	</div>
+=======
+  <div class="container">
+    <h1 id="jumbotronheading">India's Largest Review Platform</h1>
+    <form>
+      <div class="form-group">
+        <input type="text" placeholder="search here to write a review" name="search" class="form-control"
+          id="jumbotroninput"><br>
+      </div>
+    </form>
+  </div>
+>>>>>>> 4cfe773e81de75690c7653aff0849f4faf90fc22
 </div>
+<!-- end jumbotron -->
 
-        <footer>
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-2">
-              <ul class="list-unstyled lead">
-               <li>
-                  <a href="#"><strong> About Us</strong></a>
-                </li>
-              </ul>
-       
-              </div>
-              <div class="col-sm-2">
-                  <ul class="list-unstyled lead">
-                <li>
-                  <a href="#"><Strong>Contact Us</Strong></a>
-                </li>
-                  </ul>
-              </div>
-              <div class="col-sm-2">
-                  <ul class="list-unstyled lead">
-                <li>
-                  <a href="#"><Strong>Feedback <i class="fa fa-comments"></i></Strong></a>
-                </li>
-              </ul>
-              </div>
-              <div class="col-sm-3">
-                  <ul class="list-unstyled lead">
-                <li>
-                  <a href="#"><Strong>Terms & Condition</Strong></a>
-                </li>
-              </ul>
-              </div>
-            <div class="col-sm-3">
-              <ul class="list-unstyled lead">
-                <li>
-                  <h5><strong>Social Sites</strong></h5>
-                </li>
-                <li id="socialsite">
-                   <a href="#"><i class="fa fa-twitter-square"></i> </a>&nbsp;
-                <a href="#"><i class="fa fa-facebook-square"></i> </a>&nbsp;
-                <a href="#" id="envelope"><i class="fa fa-envelope"></i> </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+<!-- carousel for recommended products -->
+<div id="container">
+  <h2>Recommended Products</h2>
+  <div ng2-carouselamos class="slides-wrapper" [items]="products" [width]="900" [$prev]="prev" [$next]="next"
+    [$item]="product">
+  </div>
+
+  <ng-template #prev>
+    <img src="../../assets/img/iconfinder_icon-ios7-arrow-back_211686.png" class="arrow">
+  </ng-template>
+
+  <ng-template #next>
+    <img src="../../assets/img/iconfinder_icon-ios7-arrow-forward_211688.png" class="arrow">
+  </ng-template>
+
+  <ng-template #product let-product let-i="index">
+    <div class="products">
+      <div class="thumb-wrapper">
+        <div class="img-box">
+          <img src="{{product.image}}" class="img-responsive img-fluid" alt="Image not available">
         </div>
-       </footer>
-       <!-- end footer -->
+        <div class="thumb-content">
+          <h4>{{product.productName}}</h4>
+          <div class="star-rating">
+            <ul class="list-inline">
+              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+              <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+            </ul>
+          </div>
+          <p class="item-price"><b>{{product.price}}</b></p>
+          <h6>2 reviews</h6>
+        </div>
+      </div>
+    </div>&nbsp;
+  </ng-template>
+</div>
+<!-- end carousel for recommended products-->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2">
+        <ul class="list-unstyled lead">
+          <li>
+            <a href="#"><strong> About Us</strong></a>
+          </li>
+        </ul>
+
+      </div>
+      <div class="col-sm-2">
+        <ul class="list-unstyled lead">
+          <li>
+            <a href="#"><Strong>Contact Us</Strong></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-2">
+        <ul class="list-unstyled lead">
+          <li>
+            <a href="#"><Strong>Feedback <i class="fa fa-comments"></i></Strong></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-3">
+        <ul class="list-unstyled lead">
+          <li>
+            <a href="#"><Strong>Terms & Condition</Strong></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-3">
+        <ul class="list-unstyled lead">
+          <li>
+            <h5><strong>Social Sites</strong></h5>
+          </li>
+          <li id="socialsite">
+            <a href="#"><i class="fa fa-twitter-square"></i> </a>&nbsp;
+            <a href="#"><i class="fa fa-facebook-square"></i> </a>&nbsp;
+            <a href="#" id="envelope"><i class="fa fa-envelope"></i> </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- end footer -->
