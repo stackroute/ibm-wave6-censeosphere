@@ -1,5 +1,5 @@
 {
-  "name": "user",
+  "name": "jsonserver",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -49,5 +49,9 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "~3.4.3"
-  }
+  },
+  "description": "fake rest api for testing",
+  "main": "karma.conf.js",
+  "author": "",
+  "license": "ISC"
 }
