@@ -1,378 +1,118 @@
 <div class="containerbody">
-    <nav class="navbar navbar-expand-lg fixed-top">
-     <img src="assets/img/CenseoSphere_logo.png">
-      <div class="dropdown">
-        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         <span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
-        </a>
-        <ul id="drop" class="dropdown-menu">
-         <li><button class="dropdown-item" (click)="update()" ><span><i class="fa fa-refresh"></i></span>  Update profile</button></li>
-         <li><button class="dropdown-item" (click)="lpage()" ><span><i class="fa fa-power-off"></i></span> Log out</button></li>
-        </ul>
-      </div>
- </nav>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <img src="assets/img/CenseoSphere_logo.png">
+    <div class="dropdown">
+      <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
+      </a>
+      <ul id="drop" class="dropdown-menu">
+        <li><button class="dropdown-item" (click)="update()"><span><i class="fa fa-refresh"></i></span> Update
+            profile</button></li>
+        <li><button class="dropdown-item" (click)="lpage()"><span><i class="fa fa-power-off"></i></span> Log
+            out</button></li>
+      </ul>
+    </div>
+  </nav>
 </div>
 <!-- jumbotron start -->
 <div class="jumbotron jumbotron-fluid text-center">
-        <div class="container">
-          <h1 id="jumbotronheading">India's Largest Review Platform</h1>
-          <form>
-            <div class="form-group">
-              <input type="text" placeholder="search here to write a review" name="search" class="form-control"
-                id="jumbotroninput"><br>
-              </div>
-          </form>
-        </div>
-       </div>
-       
-       <!-- end jumbotron -->
-<div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<h2>Recommended  <b>Products</b></h2>
-			<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
-			<!-- Carousel indicators -->
-			<!-- <ol class="carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="1"></li>
-				<li data-target="#myCarousel" data-slide-to="2"></li>
-			</ol>    -->
-			<!-- Wrapper for carousel items -->
-			<div class="carousel-inner">
-				<div class="item carousel-item active">
-					<div class="row">
-						<div class="col-sm-3">
-							<div class="thumb-wrapper">
-								
-								<div class="img-box">
-									<img src="/assets/img/ipad.jpg" class="img-responsive img-fluid" alt="">									
-								</div>
-								<div class="thumb-content">
-									<h4>Apple iPad</h4>									
-									<div class="star-rating">
-										<ul class="list-inline">
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-										</ul>
-									</div>
-									<p class="item-price"><b>$369.00</b></p>
-									<h6>2 reviews</h6>
-								</div>						
-							</div>
-						</div>
-						<div class="col-sm-3">
-							<div class="thumb-wrapper">
-								
-								<div class="img-box">
-								<img src="/assets/img/headphone.jpg" class="img-responsive img-fluid" alt="">
-								</div>
-								<div class="thumb-content">
-									<h4>Sony Headphone</h4>									
-									<div class="star-rating">
-										<ul class="list-inline">
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-										</ul>
-									</div>
-									<p class="item-price"> <b>$23.99</b></p>
-                                    <h6>3 reviews</h6>
-								</div>						
-							</div>
-						</div>		
-						<div class="col-sm-3">
-							<div class="thumb-wrapper">
-								
-								<div class="img-box">
-									<img src="/assets/img/macbook-air.jpg" class="img-responsive img-fluid" alt="">
-								</div>
-								<div class="thumb-content">
-									<h4>Macbook Air</h4>									
-									<div class="star-rating">
-										<ul class="list-inline">
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
-										</ul>
-									</div>
-									<p class="item-price"> <b>$649.00</b></p>
-									<h6>3 reviews</h6>
-								</div>						
-							</div>
-						</div>								
-						<div class="col-sm-3">
-							<div class="thumb-wrapper">
-							
-								<div class="img-box">
-									<img src="/assets/img/nikon.jpg" class="img-responsive img-fluid" alt="">
-								</div>
-								<div class="thumb-content">
-									<h4>Nikon DSLR</h4>									
-									<div class="star-rating">
-										<ul class="list-inline">
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-										</ul>
-									</div>
-									<p class="item-price"> <b>$250.00</b></p>
-									<h6>5 reviews</h6>
-								</div>						
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="item carousel-item">
-					<div class="row">
-						<div class="col-sm-3">
-							<div class="thumb-wrapper">
-								
-								<div class="img-box">
-									<img src="/assets/img/play-station.jpg" class="img-responsive img-fluid" alt="">
-								</div>
-								<div class="thumb-content">
-									<h4>Sony Play Station</h4>
-									<p class="item-price"> <span>$269.00</span></p>
-									<div class="star-rating">
-										<ul class="list-inline">
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-										</ul>
-									</div>
-									<h6>3 reviews</h6>
-								</div>						
-							</div>
-						</div>
-						<div class="col-sm-3">
-							<div class="thumb-wrapper">
-								
-								<div class="img-box">
-									<img src="/assets/img/macbook-pro.jpg" class="img-responsive img-fluid" alt="">
-								</div>
-								<div class="thumb-content">
-									<h4>Macbook Pro</h4>
-									<p class="item-price"> <span>$869.00</span></p>
-									<div class="star-rating">
-										<ul class="list-inline">
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
-										</ul>
-									</div>
-									<h6>3 reviews</h6>
-								</div>						
-							</div>
-						</div>
-						<div class="col-sm-3">
-							<div class="thumb-wrapper">
-								
-								<div class="img-box">
-									<img src="/assets/img/speaker.jpg" class="img-responsive img-fluid" alt="">
-								</div>
-								<div class="thumb-content">
-									<h4>Bose Speaker</h4>
-									<p class="item-price"><span>$99.00</span></p>
-									<div class="star-rating">
-										<ul class="list-inline">
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-										</ul>
-									</div>
-									<h6>3 reviews</h6>
-								</div>						
-							</div>
-						</div>
-						<div class="col-sm-3">
-							<div class="thumb-wrapper">
-							
-								<div class="img-box">
-									<img src="/assets/img/galaxy.jpg" class="img-responsive img-fluid" alt="">
-								</div>
-								<div class="thumb-content">
-									<h4>Samsung Galaxy S8</h4>
-									<p class="item-price"> <span>$569.00</span></p>
-									<div class="star-rating">
-										<ul class="list-inline">
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-										</ul>
-									</div>
-									<h6>5 reviews</h6>
-								</div>						
-							</div>
-						</div>						
-					</div>
-				</div>
-				<div class="item carousel-item">
-					<div class="row">
-						<div class="col-sm-3">
-							<div class="thumb-wrapper">
-								
-								<div class="img-box">
-									<img src="/assets/img/iphone.jpg" class="img-responsive img-fluid" alt="">
-								</div>
-								<div class="thumb-content">
-									<h4>Apple iPhone</h4>
-									<p class="item-price"> <span>$349.00</span></p>
-									<div class="star-rating">
-										<ul class="list-inline">
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-										</ul>
-									</div>
-									<h6>2 reviews</h6>
-								</div>						
-							</div>
-						</div>
-						<div class="col-sm-3">
-							<div class="thumb-wrapper">
-							
-								<div class="img-box">
-									<img src="/assets/img/canon.jpg" class="img-responsive img-fluid" alt="">
-								</div>
-								<div class="thumb-content">
-									<h4>Canon DSLR</h4>
-									<p class="item-price">$315.00 <span>$250.00</span></p>
-									<div class="star-rating">
-										<ul class="list-inline">
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-										</ul>
-									</div>
-									<h6>5 reviews</h6>
-								</div>						
-							</div>
-						</div>
-						<div class="col-sm-3">
-							<div class="thumb-wrapper">
-								
-								<div class="img-box">
-									<img src="/assets/img/pixel.jpg" class="img-responsive img-fluid" alt="">
-								</div>
-								<div class="thumb-content">
-									<h4>Google Pixel</h4>
-									<p class="item-price"><span>$418.00</span></p>
-									<div class="star-rating">
-										<ul class="list-inline">
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
-										</ul>
-									</div>
-									<h6>7 reviews</h6>
-								</div>						
-							</div>
-						</div>	
-						<div class="col-sm-3">
-							<div class="thumb-wrapper">
-								
-								<div class="img-box">
-									<img src="/assets/img/watch.jpg" class="img-responsive img-fluid" alt="">
-								</div>
-								<div class="thumb-content">
-									<h4>Apple Watch</h4>
-									<p class="item-price"> <span>$330.00</span></p>
-									<div class="star-rating">
-										<ul class="list-inline">
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-										</ul>
-									</div>
-									<h6>8 reviews</h6>
-								</div>						
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- Carousel controls -->
-			<a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
-				<i class="fa fa-angle-left"></i>
-			</a>
-			<a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next">
-				<i class="fa fa-angle-right"></i>
-			</a>
-		</div>
-		</div>
-	</div>
+  <div class="container">
+    <h1 id="jumbotronheading">India's Largest Review Platform</h1>
+    <form>
+      <div class="form-group">
+        <input type="text" placeholder="search here to write a review" name="search" class="form-control"
+          id="jumbotroninput"><br>
+      </div>
+    </form>
+  </div>
 </div>
+<!-- end jumbotron -->
 
-        <footer>
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-2">
-              <ul class="list-unstyled lead">
-               <li>
-                  <a href="#"><strong> About Us</strong></a>
-                </li>
-              </ul>
-       
-              </div>
-              <div class="col-sm-2">
-                  <ul class="list-unstyled lead">
-                <li>
-                  <a href="#"><Strong>Contact Us</Strong></a>
-                </li>
-                  </ul>
-              </div>
-              <div class="col-sm-2">
-                  <ul class="list-unstyled lead">
-                <li>
-                  <a href="#"><Strong>Feedback <i class="fa fa-comments"></i></Strong></a>
-                </li>
-              </ul>
-              </div>
-              <div class="col-sm-3">
-                  <ul class="list-unstyled lead">
-                <li>
-                  <a href="#"><Strong>Terms & Condition</Strong></a>
-                </li>
-              </ul>
-              </div>
-            <div class="col-sm-3">
-              <ul class="list-unstyled lead">
-                <li>
-                  <h5><strong>Social Sites</strong></h5>
-                </li>
-                <li id="socialsite">
-                   <a href="#"><i class="fa fa-twitter-square"></i> </a>&nbsp;
-                <a href="#"><i class="fa fa-facebook-square"></i> </a>&nbsp;
-                <a href="#" id="envelope"><i class="fa fa-envelope"></i> </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+<!-- carousel for recommended products -->
+<div id="container">
+  <h2>Recommended Products</h2>
+  <div ng2-carouselamos class="slides-wrapper" [items]="products" [width]="900" [$prev]="prev" [$next]="next"
+    [$item]="product">
+  </div>
+
+  <ng-template #prev>
+    <img src="../../assets/img/iconfinder_icon-ios7-arrow-back_211686.png" class="arrow">
+  </ng-template>
+
+  <ng-template #next>
+    <img src="../../assets/img/iconfinder_icon-ios7-arrow-forward_211688.png" class="arrow">
+  </ng-template>
+
+  <ng-template #product let-product let-i="index">
+    <div class="products">
+      <div class="thumb-wrapper">
+        <div class="img-box">
+          <img src="{{product.image}}" class="img-responsive img-fluid" alt="Image not available">
         </div>
-       </footer>
-       <!-- end footer -->
+        <div class="thumb-content">
+          <h4>{{product.productName}}</h4>
+          <div class="star-rating">
+            <ul class="list-inline">
+              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+              <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+            </ul>
+          </div>
+          <p class="item-price"><b>{{product.price}}</b></p>
+          <h6>2 reviews</h6>
+        </div>
+      </div>
+    </div>&nbsp;
+  </ng-template>
+</div>
+<!-- end carousel for recommended products-->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2">
+        <ul class="list-unstyled lead">
+          <li>
+            <a href="#"><strong> About Us</strong></a>
+          </li>
+        </ul>
+
+      </div>
+      <div class="col-sm-2">
+        <ul class="list-unstyled lead">
+          <li>
+            <a href="#"><Strong>Contact Us</Strong></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-2">
+        <ul class="list-unstyled lead">
+          <li>
+            <a href="#"><Strong>Feedback <i class="fa fa-comments"></i></Strong></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-3">
+        <ul class="list-unstyled lead">
+          <li>
+            <a href="#"><Strong>Terms & Condition</Strong></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-3">
+        <ul class="list-unstyled lead">
+          <li>
+            <h5><strong>Social Sites</strong></h5>
+          </li>
+          <li id="socialsite">
+            <a href="#"><i class="fa fa-twitter-square"></i> </a>&nbsp;
+            <a href="#"><i class="fa fa-facebook-square"></i> </a>&nbsp;
+            <a href="#" id="envelope"><i class="fa fa-envelope"></i> </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- end footer -->

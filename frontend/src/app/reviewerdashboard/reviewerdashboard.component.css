@@ -34,8 +34,8 @@ body {
 }
 .jumbotron{
    height: 500px;
-   background: url('../../assets/img/Banner-principal-del-home.png') center center no-repeat;
-    background-size: 100%;
+   background: url('../../assets/img/Electronics-Supply-Chain-1024x375.jpg') center center no-repeat;
+   background-size: 100%;
 }
 #jumbotroninput{
    width: 600px;
@@ -130,4 +130,8 @@ h4 {
     /* margin: 30px; */
     height: 30px;
     width: 50px;
+  }
+  #writereview
+  {
+      margin: auto;
   }

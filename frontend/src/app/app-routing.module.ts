@@ -12,8 +12,8 @@ const routes: Routes = [
   { path: 'account', component: NewaccountComponent},
   {path:'rprofile',component:UpdateprofileComponent},
   {path:'reviwerdashboard',component:ReviwerdashComponent},
-  {path:'returnlanding',component:LandingPageComponent},
-  {path:'productownerdashboard',component:ProductownerdashboardComponent}
+  {path:'productownerdashboard',component:ProductownerdashboardComponent},
+  {path:'reviewerdash',component:ReviwerdashComponent}
   // { path: '**',component:LandingPageComponent}
   
 

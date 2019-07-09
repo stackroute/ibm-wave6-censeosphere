@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LandingpageService } from '../landingpage.service';
 @Component({
-  selector: 'app-reviwerdash',
-  templateUrl: './reviwerdash.component.html',
-  styleUrls: ['./reviwerdash.component.css']
+  selector: 'app-reviewerdashboard',
+  templateUrl: './reviewerdashboard.component.html',
+  styleUrls: ['./reviewerdashboard.component.css']
 })
-export class ReviwerdashComponent implements OnInit {
+export class ReviewerdashboardComponent implements OnInit {
   products = [];
   constructor(private router:Router,private landingpageservice:LandingpageService) { }
 
@@ -24,4 +24,5 @@ export class ReviwerdashComponent implements OnInit {
   {
    this.router.navigateByUrl("/"); 
   }
+
 }
