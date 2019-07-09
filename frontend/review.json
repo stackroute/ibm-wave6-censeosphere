@@ -1,0 +1,23 @@
+{
+  "reviews":
+  [
+      {
+          "reviewer":"priyankadarekar2@gmail.com",
+          "productName":"iphone 7",
+          "image":"https://ss7.vzw.com/is/image/VerizonWireless/iphone7-front-gld?$device-lg$",
+          "price":50000,
+          "reviewTitle":"Super",
+          "reviewDescription":"It is really trustworthy",
+          "reviewedOn":"2018-09-08 23:34:45.55"
+      },
+      {
+          "reviewer":"ganga.janvi03@gmail.com",
+          "productName":"Sony MDR-ZX110 Headphones",
+          "image":"https://www.incredible.co.za/media/catalog/product/cache/3/image/1400x/0dc2d03fe217f8c83829496872af24a0/s/o/sony1.jpg",
+          "price":1000,
+          "reviewTitle":"Super",
+          "reviewDescription":"It is really trustworthy",
+          "reviewedOn":"2019-09-08 02:43:54.55"
+      }
+  ]
+}
