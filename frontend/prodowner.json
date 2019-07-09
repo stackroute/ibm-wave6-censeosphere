@@ -5,28 +5,7 @@
         "name":"Sundar Sai",
         "role":"productOwner",
         "confirmPassword":"Abcde12345",
-        "productOwner_img":"http://www.insurancebenefits-inc.com/images/owners.jpg",
-        "products": [
-            {
-                "id":1,
-                "category": "Electronic Device",
-                "subCategory": "Mobile",
-                "productName": "iphone 7",
-                "image":"https://ss7.vzw.com/is/image/VerizonWireless/iphone7-front-gld?$device-lg$",
-                "productFamily": "iphone",
-                "price": 50000,
-                "rating": "5 star",
-                "specification": 
-                    {
-                        "pixels": "48 mega pixel",
-                        "display": "4.2 inch",
-                        "RAM": "4GB",
-                        "battery life": "3400 mAh"
-                    },
-                "description": "Battery life is good.Camera quality is awesome",
-                "uploaded_on": "July 5 2019"
-            }
-         ]
+        "productOwner_img":"http://www.insurancebenefits-inc.com/images/owners.jpg"
        }, 
 
        {
@@ -34,27 +13,7 @@
         "name":"Thomas Xery",
         "role":"productOwner",
         "confirmPassword":"Abcd1234",
-        "productOwner_img":"http://www.profitpath.com/wp-content/uploads/2013/07/Business-Owner.jpg",
-        "products":[
-            {
-            "id":2,
-            "category": "Electronic Device",
-            "subCategory": "Mobile",
-            "productName": "ipad",
-            "image":"https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/image/AppleInc/aos/published/images/i/pa/ipad/wifi/ipad-wifi-select-silver-201803_GEO_US?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1538433934562",
-            "productFamily": "Apple",
-            "price": 70000,
-            "rating": "5 star",
-            "specification": {
-                "pixels": "48 mega pixel",
-                "display": "5 inch",
-                "RAM": "8GB",
-                "battery life": "4400 mAh"
-            },
-            "description": "Battery life is good.Camera quality is awesome",
-            "uploaded_on": "July 4 2019"
-          }
-        ]
+        "productOwner_img":"http://www.profitpath.com/wp-content/uploads/2013/07/Business-Owner.jpg"
        },
 
        {
@@ -62,55 +21,15 @@
         "name":"Sanjiv Mehta",
         "role":"productOwner",
         "confirmPassword":"Bcde2345",
-        "productOwner_img":"https://img.etimg.com/thumb/msid-54535646,width-300,imgsize-61790,resizemode-4/the-indian-owners-of-the-east-india-company-are-betting-on-its-future-by-leaning-on-its-past.jpg",
-        "products":[
-            {
-                "id":3,
-                "category": "Electronic Device",
-                "subCategory": "Camera",
-                "productName": "Canon EOS",
-                "image":"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5792/5792700_sd.jpg",
-                "productFamily": "Canon",
-                "price": 45000,
-                "rating": "5 star",
-                "specification": {
-                    "pixels": "90 mega pixel",
-                    "display": "5 inch",
-                    "RAM": "3GB",
-                    "battery life": "4400 mAh"
-                },
-                "description": "Battery life is good.Camera quality is awesome",
-                "uploaded_on": "July 2 2019"
-            }
-        ]
+        "productOwner_img":"https://img.etimg.com/thumb/msid-54535646,width-300,imgsize-61790,resizemode-4/the-indian-owners-of-the-east-india-company-are-betting-on-its-future-by-leaning-on-its-past.jpg"
        },
 
        {
         "emailId":"sanjiv@gmail.com",
         "name":"Sanjiv Mehta",
         "role":"productOwner",
-        "confirmPassword":"Bcd23456",
-        "productOwner_img":"https://becomingselfmade.com/wp-content/uploads/2016/06/21911139353_893cfc00aa_b-400x300.jpg",
-        "products":[
-            {
-                "id":4,
-                "category": "Electronic Device",
-                "subCategory": "Camera",
-                "productName": "nikon D3200",
-                "image":"https://rukminim1.flixcart.com/image/704/704/camera/s/4/g/nikon-d3200-dslr-original-imaeyxfayjnxjvg9.jpeg?q=70",
-                "productFamily": "nikon",
-                "price": 41000,
-                "rating": "4.6 star",
-                "specification": {
-                    "pixels": "60 mega pixel",
-                    "display": "4.5 inch",
-                    "RAM": "2GB",
-                    "battery life": "4000 mAh"
-                },
-                "description": "Battery life is good.Camera quality is awesome",
-                "uploaded_on": "July 1 2019"
-            }
-        ]
+        "confirmPassword":"Bcd2345",
+        "productOwner_img":"https://becomingselfmade.com/wp-content/uploads/2016/06/21911139353_893cfc00aa_b-400x300.jpg"
        }
    ]
 }
