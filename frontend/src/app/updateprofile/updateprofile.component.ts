@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LandingpageService } from '../landingpage.service';
+
 @Component({
   selector: 'app-updateprofile',
   templateUrl: './updateprofile.component.html',
@@ -7,9 +9,14 @@ import { Router } from '@angular/router';
 })
 export class UpdateprofileComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  products=[];
+  constructor(private router:Router,private landingpageservice:LandingpageService) { }
 
   ngOnInit() {
+    this.landingpageservice.getAllProducts().subscribe((data:any) => {
+      console.log(data);
+      this.products=data;
+    })
   }
 
   update()
