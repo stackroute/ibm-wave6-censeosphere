@@ -1,4 +1,6 @@
-
+ *{
+  font-family: 'Work Sans', sans-serif;
+}
 .navbar{
     background-color:aliceblue;
     position: relative;
