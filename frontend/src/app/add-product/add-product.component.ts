@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
+
+
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
@@ -11,7 +14,23 @@ export class AddProductComponent implements OnInit {
 
   ngOnInit() {
   }
-  lpage(){
-    this.router.navigateByUrl("/");
-  }
+
+
+lpage()
+ {
+   this.router.navigateByUrl("/");
+ }
+update()
+ {
+   this.router.navigateByUrl("/prodownerupdateprofile");
+ }
+ account()
+ {
+   this.router.navigateByUrl("/productownerdashboard")
+ }
+add()
+{
+ 
+}
+ 
 }
