@@ -33,7 +33,6 @@ export class ProductownerdashboardComponent implements OnInit {
   {
     this.router.navigateByUrl("/add-product");
   }
-
   update()
   {
     this.router.navigateByUrl("/prodownerupdateprofile");

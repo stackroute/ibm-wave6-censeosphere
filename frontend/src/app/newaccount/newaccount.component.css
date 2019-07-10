@@ -52,6 +52,9 @@ footer a:hover{
     color:rgb(88, 75, 75);
     font-size: 25px;
 }
+#newheading{
+    margin: auto;
+}
 /* .bodyy{
     background: url('../../assets/img/newaccountback.jpg') center center no-repeat;
 } */

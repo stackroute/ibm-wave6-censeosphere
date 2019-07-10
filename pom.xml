@@ -30,8 +30,9 @@
 		<module>eureka-server</module>
 		<module>zuul-api</module>
 		<module>user-login-service</module>
-		<module>write-a-review-service</module>
+		<module>review-service</module>
 		<module>reviewer-profile-service</module>
+		<module>productOwner-service</module>
 	</modules>
 
 	<dependencies>
