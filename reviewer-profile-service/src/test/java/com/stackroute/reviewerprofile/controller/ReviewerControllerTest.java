@@ -140,15 +140,15 @@ public class ReviewerControllerTest
                 .andDo(MockMvcResultHandlers.print());
     }
 
-    @Test
-    public void testUpdateReviewerFailure() throws Exception{
-        Reviewer reviewer1=new Reviewer("gango@gmail.com","januka","Abcd12345","reviewer");
-        when(reviewerService.updateReviewer(reviewer1)).thenThrow(ReviewerNotFoundException.class);
-        mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/reviewer/gango@gmail.com")
-                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(reviewer1)))
-                .andExpect(MockMvcResultMatchers.status().isNotFound())
-                .andDo(MockMvcResultHandlers.print());
-    }
+//    @Test
+//    public void testUpdateReviewerFailure() throws Exception{
+//        Reviewer reviewer1=new Reviewer("gango@gmail.com","januka","Abcd12345","reviewer");
+//        when(reviewerService.updateReviewer(reviewer1)).thenThrow(ReviewerNotFoundException.class);
+//        mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/reviewer/gango@gmail.com")
+//                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(reviewer1)))
+//                .andExpect(MockMvcResultMatchers.status().isNotFound())
+//                .andDo(MockMvcResultHandlers.print());
+//    }
 
     private static String asJsonString(final Object obj)
     {

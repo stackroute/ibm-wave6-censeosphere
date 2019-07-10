@@ -15,7 +15,7 @@ export class SearchForReviewService {
 
 
   getAllReviews(){
-    return this.http.get('http://localhost:7080/reviews', this.httpOptions);
+    return this.http.get('http://localhost:7070/reviews', this.httpOptions);
   }
 
 }

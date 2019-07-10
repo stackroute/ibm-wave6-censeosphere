@@ -23,8 +23,6 @@ export class UpdateprofileComponent implements OnInit {
       this.products=data;
     })
   }
-
-
   update()
   {
    this.router.navigateByUrl("/rprofile"); 
@@ -33,4 +31,5 @@ export class UpdateprofileComponent implements OnInit {
   {
    this.router.navigateByUrl("/returnlanding"); 
   }
+  
 }

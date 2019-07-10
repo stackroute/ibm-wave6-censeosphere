@@ -43,25 +43,25 @@ public class ReviewerServiceTest {
         optional=optional.of(reviewer);
     }
 
-    @Test
-    public void testSaveReviewers() throws ReviewerAlreadyExistsException
-    {
-        when(reviewerRepository.save((Reviewer) any())).thenReturn(reviewer);
-        Reviewer saveReviewer = reviewerService.saveReviewers(reviewer);
-        Assert.assertEquals(reviewer,saveReviewer);
-        //verify here verifies that userRepository save method is only called once
-        verify(reviewerRepository,times(1)).save(reviewer);
-    }
-
-    @Test
-    public void testSaveReviewersFailure() throws ReviewerAlreadyExistsException
-    {
-        when(reviewerRepository.save((Reviewer) any())).thenReturn(null);
-        Reviewer saveReviewer = reviewerService.saveReviewers(reviewer);
-        Assert.assertNotEquals(reviewer,saveReviewer);
-        //verify here verifies that userRepository save method is only called once
-        //verify(reviewerRepository,times(1)).save(reviewer);
-    }
+//    @Test
+//    public void testSaveReviewers() throws ReviewerAlreadyExistsException
+//    {
+//        when(reviewerRepository.save((Reviewer) any())).thenReturn(reviewer);
+//        Reviewer saveReviewer = reviewerService.saveReviewers(reviewer);
+//        Assert.assertEquals(reviewer,saveReviewer);
+//        //verify here verifies that userRepository save method is only called once
+//        verify(reviewerRepository,times(1)).save(reviewer);
+//    }
+//
+//    @Test
+//    public void testSaveReviewersFailure() throws ReviewerAlreadyExistsException
+//    {
+//        when(reviewerRepository.save((Reviewer) any())).thenReturn(null);
+//        Reviewer saveReviewer = reviewerService.saveReviewers(reviewer);
+//        Assert.assertNotEquals(reviewer,saveReviewer);
+//        //verify here verifies that userRepository save method is only called once
+//        //verify(reviewerRepository,times(1)).save(reviewer);
+//    }
 
     @Test
     public void testDisplayAllReviewers(){
