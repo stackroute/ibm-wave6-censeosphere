@@ -74,9 +74,10 @@
                   <hr>
                   <br>
                   <div *ngFor="let product of products">
+                    <div *ngFor="let review of reviews">
                 <div class="row">
                   
-                  <div class="col-sm-4">
+                 <div class="col-sm-4">
                     
                       <div class="thumb-wrapper">
 								
@@ -98,15 +99,17 @@
                             <h6>{{product.rating}}</h6>
                           </div>						
                         </div>
-                    
-                  </div>
+                        <br>
+                     </div>
                   <div class="col-sm-8">
-                    
-                    <!-- <h5>{{product.specification}}</h5> -->
-                    <!-- <p>{{product.description}}</p> -->
+                  <div >
+                   <h5>{{review.reviewTitle}}</h5> 
+                    <p>{{review.reviewDescription}}</p> 
                     <br>
                  </div>
                 </div>
+              </div>
+              </div>
               </div>
               </div>
 <hr>
