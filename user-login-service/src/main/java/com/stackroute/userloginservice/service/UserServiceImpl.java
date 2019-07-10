@@ -10,10 +10,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
     UserRepository userRepository;
+
+
+    private User user;
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository) {
@@ -21,8 +25,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findByEmailIdAndPassword(String emailId, String password) {
-        return userRepository.findByEmailIdAndPassword(emailId, password);
+    public User findByEmailId(String emailId) {
+
+        Optional optional=null;
+        optional=userRepository.findById(emailId);
+        if(optional.isPresent())
+        {
+            user=userRepository.findById(emailId).get();
+
+        }
+        return  user;
+
     }
 
     @Override

@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface UserService {
 
-    User findByEmailIdAndPassword(String emailId,String password);
+    User findByEmailId(String emailId);
     public User saveUser(User user) throws UserAlreadyExistsException;
     public List<User> getAllUsers();
 //    public void recievereviewer(ReviewerDTO reviewerdto)throws UserAlreadyExistsException;

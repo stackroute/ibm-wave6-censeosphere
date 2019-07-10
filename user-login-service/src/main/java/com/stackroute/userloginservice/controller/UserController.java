@@ -18,6 +18,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+@CrossOrigin(origins="*")
 @RestController
 @RequestMapping(value="api/user")
 public class UserController {
@@ -38,7 +40,7 @@ public class UserController {
                 throw new UserNameOrPasswordEmptyException();
             }
 
-            User user = userService.findByEmailIdAndPassword(userName,password);
+            User user = userService.findByEmailId(userName);
 
             if (user == null) {
                 throw new UserNotFoundException();
@@ -53,11 +55,15 @@ public class UserController {
             TokenGenerator tokenGenrator = (User userDetails) -> {
                 String jwtToken = "";
 
-                jwtToken = Jwts.builder().setId(""+user.getEmailId()).setIssuedAt(new Date())
+
+
+                Map<String, String> map1 = new HashMap<>();
+                jwtToken = Jwts.builder().setId(""+user.getEmailId()).setIssuedAt(new Date()).setSubject(user.getRole())
 
                         .signWith(SignatureAlgorithm.HS256, "secretkey").compact();
 
-                Map<String, String> map1 = new HashMap<>();
+
+
 
                 map1.put("token", jwtToken);
 
