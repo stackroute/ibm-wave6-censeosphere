@@ -83,8 +83,9 @@ form button{
    margin-right:0px;
    margin-left: 800px;
 }
-.row{
+#prod{
    margin-top: 120px;
+   text-align: center;
 }
 .col-sm-3{
    align-content: center;
@@ -93,4 +94,15 @@ form button{
    padding-top:20px;
    text-align: left;
    font-size: 18px; 
+}
+.star-rating .checked {
+   color: orange;
+ }
+ 
+  .star-rating .fa-star-half-o{color: orange;}
+ .mat-tab-group {
+     margin-bottom: 48px;
+   }
+#reason{
+   text-align: center;
 }
