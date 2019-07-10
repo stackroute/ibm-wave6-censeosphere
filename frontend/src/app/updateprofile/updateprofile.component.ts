@@ -18,8 +18,6 @@ export class UpdateprofileComponent implements OnInit {
 
   ngOnInit() {
 
-}
-
     this.landingpageservice.getAllProducts().subscribe((data:any) => {
       console.log(data);
       this.products=data;
