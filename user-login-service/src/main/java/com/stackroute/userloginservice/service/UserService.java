@@ -12,6 +12,6 @@ public interface UserService {
     User findByEmailIdAndPassword(String emailId,String password);
     public User saveUser(User user) throws UserAlreadyExistsException;
     public List<User> getAllUsers();
-    public void recievereviewer(ReviewerDTO reviewerdto)throws UserAlreadyExistsException;
-    public void  recieveproductowner(ProductOwnerDTO productOwnerDTO)throws  UserAlreadyExistsException;
+//    public void recievereviewer(ReviewerDTO reviewerdto)throws UserAlreadyExistsException;
+//    public void  recieveproductowner(ProductOwnerDTO productOwnerDTO)throws  UserAlreadyExistsException;
 }

@@ -1,22 +1,24 @@
+<nav class="navbar navbar-expand-lg fixed-top">
+    <img src="assets/img/CenseoSphere_logo.png">
+     <div class="dropdown">
+       <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
+       </a>
+       <ul id="drop" class="dropdown-menu">
+        <li><button class="dropdown-item" (click)="update()" ><span><i class="fa fa-refresh"></i></span>  Update profile</button></li>
+        <li><button class="dropdown-item" (click)="lpage()" ><span><i class="fa fa-power-off"></i></span> Log out</button></li>
+       </ul>
+     </div>
+</nav>
 
-    <nav class="navbar navbar-expand-lg fixed-top">
-     <img src="assets/img/CenseoSphere_logo.png">
-      <div class="dropdown">
-        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         <span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
-        </a>
-        <ul id="drop" class="dropdown-menu">
-         <li><button class="dropdown-item" (click)="update()" ><span><i class="fa fa-refresh"></i></span>  Update profile</button></li>
-         <li><button class="dropdown-item" (click)="lpage()" ><span><i class="fa fa-power-off"></i></span> Log out</button></li>
-        </ul>
-      </div>
- </nav>
+
+
 <div>
-    <h3 id="searchheading">Product Details</h3>
-    <hr>
+   <h3 id="searchheading">Product Details</h3>
+   <hr>
 <div class="row">
-    <div class="col-sm-6">
-        <div class="prod">
+   <div class="col-sm-6">
+       <div class="prod">
 
         <img src="../assets/img/nikon.jpeg" alt="product">
         <h3>NIKON D5600</h3>
@@ -44,152 +46,158 @@
 <!-- tabbed panel -->
 
 <mat-tab-group mat-align-tabs="start">
-  <mat-tab label="Reviews">
-      <div class="tab-content responsive">
-          <div class="tab-pane active" id="home" role="tabpanel">
-              <div class="container-fluid">
-              <div class="row mt-3">
-                <div class="col-3">
-                  <img alt="nikon" src="../assets/img/marlin.jpeg" class="w-100"><br><h4>reviewed by: Marlin</h4></div>
-                <div class="col-9">
-                            <p class="h4">Worth the money</p>
-                            <div class="star-rating">
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                                </div>
-                  <p>I am a beginner in terms of photography. The telephoto lens are really good and pictures taken with then are truly awesome. They give the photos kind of a depth field perception in auto mode. The camera itself has heck lot of options and having a touchscreen really helps.</p>
-                            <div>
-                                    <button class="btn-primary" type="button" name="useful">Most helpful!</button>
-                          </div>
-                        </div>
-              </div>
-            </div>
-            </div>
-      </div>
-            
-            <div class="tab-pane active" id="home" role="tabpanel">
-                    <div class="container-fluid">
-                        <div class="row mt-3">
-                            <div class="col-3" id="oval"><img alt="nikon" src="../assets/img/jack.jpeg" class="w-100"><br><h4>reviewd by: Jack Dawson</h4></div>
-                            <div class="col-9">
-                                <p class="h4">Excellent product for beginners</p>
-                              <div class="star-rating">
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                    </div>
-                                <p>For a beginner, this is more than you can bargain for. It has a fairly decent f stop range for you to play around and control exposure.The best part is, it has all the requirements of a DSLR, as in i was surprised to see it has exposure metering modes as well. So when i was learning from a tutorial, whatever photography jargon they threw around i could try it on the camera.The camera itself is very light. The lens make it a little bit heavy. I found the bag to be a bit small. It doesn't fit well with the lens on.</p>
-                                <div>
-                                        <button class="btn-primary" type="button" name="useful">Most helpful!</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-        
-  </mat-tab>
-  <mat-tab label="Specification">
-    	<div class="tab-pane" id="profile" role="tabpanel">
-          <div class="container-fluid">
-            <div class="row mt-3">
-              <div class="col-9">
-                <p class="h3">Specification</p>
-                                <ul>
-                                          <li> Brand:	Nikon</li>
-                                          <li> Model:	D5600</li>
-                                          <li>Model Name:	D5600</li>
-                                          <li>  Item Weight:	467 g</li>
-                                          <li> Product Dimensions	7 x 12.4 x 9.7 cm</li>
-                                          <li>  Batteries:	1 Lithium ion batteries required. (included)</li>
-                                          <li>  Item model number:	D5600</li>
-                                          <li>   Resolution:	1920 x 1080</li>
-                                          <li>  Included Components:	Digital Camera D5600 BK In 18-55 VR and 70-300 VR Kit,DK-25 rubber eyecup, BF-1B body cap.</li>
-                                          <li>  Number Of Items:	1</li>
-                                           <li>   Screen Size	:3.2 Inches</li>
-                                           <li>  Optical Zoom	:16.67 X</li>
-                                           <li> Optical Sensor Resolution:	8 Megapixels</li>
-                                           <li>  Video Capture Resolution:	full hd (1920x1080)</li>
-                                           <li>  Batteries Included:	Yes</li>
-                                           <li>  Batteries Required:	Yes</li>
-                                           <li> Battery Cell Composition:	Lithium Ion</li>
-                                           <li> Viewfinder Type:	Optical</li>
-                                           <li>Has Auto Focus:	Yes</li>
-                                           <li>Has Self Timer	:   Yes</li>
-                                </ul>
-              </div>
-            </div>
+ <mat-tab label="Reviews">
+
+    <div *ngFor="let review of reviews">
+
+     <div class="tab-content responsive">
+         <div class="tab-pane active" id="home" role="tabpanel">
+             <div class="container-fluid">
+             <div class="row mt-3">
+               <div class="col-3">
+                 <img alt="nikon" src="{{review.image}}" class="w-100"><br><h4>{{review.reviewer}}</h4><br>
+               </div>
+               <div class="col-9">
+                           <p class="h4">{{review.reviewTitle}}</p>
+                           <div class="star-rating">
+                               <span class="fa fa-star checked"></span>
+                               <span class="fa fa-star checked"></span>
+                               <span class="fa fa-star checked"></span>
+                               <span class="fa fa-star"></span>
+                               <span class="fa fa-star"></span>
+                               </div>
+                 <!-- <p>I am a beginner in terms of photography. The telephoto lens are really good and pictures taken with then are truly awesome. They give the photos kind of a depth field perception in auto mode. The camera itself has heck lot of options and having a touchscreen really helps.</p> -->
+                 <p>{{review.reviewDescription}}</p>      
+                 <div>
+                                   <button class="btn-primary" type="button" name="useful">Most helpful??</button>
+                         </div>
+               </div>
+             </div>
+           </div>
           </div>
-          </div>
-  </mat-tab>
-  <mat-tab label="Description">
-      <div class="tab-pane" id="messages" role="tabpanel">
-          <div class="container-fluid">
-            <div class="row mt-3">
-              <div class="col">
-                <p class="h3">Description</p>
-                <p>The new D5600 features 24.2 effective megapixels, an EXPEED 4 image-processing engine, and an ISO range of 100-25600 that captures beautiful and vibrant imagery, full HD videos and time-lapse movies even in low light situations. Inspiration also comes easy when you discover new perspectives with the vari-angle LCD monitor and intuitive touch interface with Bluetooth and the Nikon SnapBridge app for automatic transfer of images to your compatible smart devices, the D5600 is perfect for the connected world. </p>
-              </div>
-            </div>
-          </div>
-        </div>
-  </mat-tab>
+     </div>
+           
+           <!-- <div class="tab-pane active" id="home" role="tabpanel">
+                   <div class="container-fluid">
+                       <div class="row mt-3">
+                           <div class="col-3" id="oval"><img alt="nikon" src="../assets/img/jack.jpeg" class="w-100"><br><h4>reviewd by: Jack Dawson</h4></div>
+                           <div class="col-9">
+                               <p class="h4">Excellent product for beginners</p>
+                             <div class="star-rating">
+                               <span class="fa fa-star checked"></span>
+                               <span class="fa fa-star checked"></span>
+                               <span class="fa fa-star checked"></span>
+                               <span class="fa fa-star checked"></span>
+                               <span class="fa fa-star"></span>
+                                   </div>
+                               <p>For a beginner, this is more than you can bargain for. It has a fairly decent f stop range for you to play around and control exposure.The best part is, it has all the requirements of a DSLR, as in i was surprised to see it has exposure metering modes as well. So when i was learning from a tutorial, whatever photography jargon they threw around i could try it on the camera.The camera itself is very light. The lens make it a little bit heavy. I found the bag to be a bit small. It doesn't fit well with the lens on.</p>
+                               <div>
+                                       <button class="btn-primary" type="button" name="useful">Most helpful!</button>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                   </div> -->
+       </div>
+ </mat-tab>
+ 
+ <mat-tab label="Specification">
+     <div class="tab-pane" id="profile" role="tabpanel">
+         <div class="container-fluid">
+           <div class="row mt-3">
+             <div class="col-9">
+               <p class="h3">Specification</p>
+                               <ul>
+                                         <li> Brand:	Nikon</li>
+                                         <li> Model:	D5600</li>
+                                         <li>Model Name:	D5600</li>
+                                         <li>  Item Weight:	467 g</li>
+                                         <li> Product Dimensions	7 x 12.4 x 9.7 cm</li>
+                                         <li>  Batteries:	1 Lithium ion batteries required. (included)</li>
+                                         <li>  Item model number:	D5600</li>
+                                         <li>   Resolution:	1920 x 1080</li>
+                                         <li>  Included Components:	Digital Camera D5600 BK In 18-55 VR and 70-300 VR Kit,DK-25 rubber eyecup, BF-1B body cap.</li>
+                                         <li>  Number Of Items:	1</li>
+                                          <li>   Screen Size	:3.2 Inches</li>
+                                          <li>  Optical Zoom	:16.67 X</li>
+                                          <li> Optical Sensor Resolution:	8 Megapixels</li>
+                                          <li>  Video Capture Resolution:	full hd (1920x1080)</li>
+                                          <li>  Batteries Included:	Yes</li>
+                                          <li>  Batteries Required:	Yes</li>
+                                          <li> Battery Cell Composition:	Lithium Ion</li>
+                                          <li> Viewfinder Type:	Optical</li>
+                                          <li>Has Auto Focus:	Yes</li>
+                                          <li>Has Self Timer	:   Yes</li>
+                               </ul>
+             </div>
+           </div>
+         </div>
+         </div>
+ </mat-tab>
+ <mat-tab label="Description">
+     <div class="tab-pane" id="messages" role="tabpanel">
+         <div class="container-fluid">
+           <div class="row mt-3">
+             <div class="col">
+               <p class="h3">Description</p>
+               <p>The new D5600 features 24.2 effective megapixels, an EXPEED 4 image-processing engine, and an ISO range of 100-25600 that captures beautiful and vibrant imagery, full HD videos and time-lapse movies even in low light situations. Inspiration also comes easy when you discover new perspectives with the vari-angle LCD monitor and intuitive touch interface with Bluetooth and the Nikon SnapBridge app for automatic transfer of images to your compatible smart devices, the D5600 is perfect for the connected world. </p>
+             </div>
+           </div>
+         </div>
+       </div>
+ </mat-tab>
 </mat-tab-group>
 
-	
+ 
 
 <!-- tabbed panel end -->
 
-  <!-- footer -->
+ <!-- footer -->
 <footer class="page-footer font-small blue pt-4">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-2">
-          <ul class="list-unstyled lead">
-            <li>
-              <a href="#"><strong> About Us</strong></a>
-            </li>
-          </ul>
-  
-        </div>
-        <div class="col-sm-2">
-          <ul class="list-unstyled lead">
-            <li>
-              <a href="#"><Strong>Contact Us</Strong></a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-sm-2">
-          <ul class="list-unstyled lead">
-            <li>
-              <a href="#"><Strong>Feedback <i class="fa fa-comments"></i></Strong></a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-sm-3">
-          <ul class="list-unstyled lead">
-            <li>
-              <a href="#"><Strong>Terms & Condition</Strong></a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-sm-3">
-          <ul class="list-unstyled lead">
-            <li>
-              <h5><strong>Social Sites</strong></h5>
-            </li>
-            <li id="socialsite">
-              <a href="#"><i class="fa fa-twitter-square"></i> </a>&nbsp;
-              <a href="#"><i class="fa fa-facebook-square"></i> </a>&nbsp;
-              <a href="#" id="envelope"><i class="fa fa-envelope"></i> </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!-- end footer -->
+   <div class="container">
+     <div class="row">
+       <div class="col-sm-2">
+         <ul class="list-unstyled lead">
+           <li>
+             <a href="#"><strong> About Us</strong></a>
+           </li>
+         </ul>
+ 
+       </div>
+       <div class="col-sm-2">
+         <ul class="list-unstyled lead">
+           <li>
+             <a href="#"><Strong>Contact Us</Strong></a>
+           </li>
+         </ul>
+       </div>
+       <div class="col-sm-2">
+         <ul class="list-unstyled lead">
+           <li>
+             <a href="#"><Strong>Feedback <i class="fa fa-comments"></i></Strong></a>
+           </li>
+         </ul>
+       </div>
+       <div class="col-sm-3">
+         <ul class="list-unstyled lead">
+           <li>
+             <a href="#"><Strong>Terms & Condition</Strong></a>
+           </li>
+         </ul>
+       </div>
+       <div class="col-sm-3">
+         <ul class="list-unstyled lead">
+           <li>
+             <h5><strong>Social Sites</strong></h5>
+           </li>
+           <li id="socialsite">
+             <a href="#"><i class="fa fa-twitter-square"></i> </a>&nbsp;
+             <a href="#"><i class="fa fa-facebook-square"></i> </a>&nbsp;
+             <a href="#" id="envelope"><i class="fa fa-envelope"></i> </a>
+           </li>
+         </ul>
+       </div>
+     </div>
+   </div>
+ </footer>
+ <!-- end footer -->

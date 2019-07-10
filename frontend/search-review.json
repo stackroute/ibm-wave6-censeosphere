@@ -1,0 +1,30 @@
+
+{
+  "reviews":
+  [
+      {
+          "reviewer":"marlin101@gmail.com",
+          "reviewTitle":"Worth the money",
+          "image":"https://www.crazyask.com/wp-content/uploads/2017/09/Tom-Cruise.jpg",
+          "reviewDescription":"I am a beginner in terms of photography. The telephoto lens are really good and pictures taken with then are truly awesome. They give the photos kind of a depth field perception in auto mode. The camera itself has heck lot of options and having a touchscreen really helps"
+      },
+      {
+          "reviewer":"jackdawson1@gmail.com",
+          "reviewTitle":"Excellent product for beginners",
+          "image":"https://www.crazyask.com/wp-content/uploads/2017/09/Tom-Cruise.jpg",
+          "reviewDescription":"For a beginner, this is more than you can bargain for. It has a fairly decent f stop range for you to play around and control exposure.The best part is, it has all the requirements of a DSLR, as in i was surprised to see it has exposure metering modes as well. So when i was learning from a tutorial, whatever photography jargon they threw around i could try it on the camera.The camera itself is very light. The lens make it a little bit heavy. I found the bag to be a bit small. It doesn't fit well with the lens on."
+      },
+      {
+        "reviewer":"brads202@gmail.com",
+        "reviewTitle":"Worth the money",
+        "image":"https://inspiredot.net/wp-content/uploads/2018/10/Top-30-Most-Beautiful-Women-in-the-World-19-800x593.jpg",
+        "reviewDescription":"For a beginner, this is more than you can bargain for. It has a fairly decent f stop range for you to play around and control exposure.The best part is, it has all the requirements of a DSLR, as in i was surprised to see it has exposure metering modes as well. So when i was learning from a tutorial, whatever photography jargon they threw around i could try it on the camera.The camera itself is very light. The lens make it a little bit heavy. I found the bag to be a bit small. It doesn't fit well with the lens on."
+      },
+      {
+        "reviewer":"rose308@gmail.com",
+        "reviewTitle":"Excellent product for beginners",
+        "image":"https://i0.wp.com/upoutfit.com/wp-content/uploads/2018/10/Handsome-Men-With-Hipster-Hairstyle-To-Make-Your-Style-More-Amazing-01.jpg?w=684&h=913",
+        "reviewDescription":"For a beginner, this is more than you can bargain for. It has a fairly decent f stop range for you to play around and control exposure.The best part is, it has all the requirements of a DSLR, as in i was surprised to see it has exposure metering modes as well. So when i was learning from a tutorial, whatever photography jargon they threw around i could try it on the camera.The camera itself is very light. The lens make it a little bit heavy. I found the bag to be a bit small. It doesn't fit well with the lens on."
+    }
+  ]
+}
