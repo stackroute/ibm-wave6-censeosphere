@@ -25,7 +25,7 @@
 
   <!-- jumbotron start -->
   <div class="jumbotron jumbotron-fluid text-center">
-      <div class="container">
+      <div class="container" >
         <h1 id="jumbotronheading">India's Largest Review Platform</h1>
         <form>
           <div class="form-group">
@@ -42,7 +42,7 @@
   <h3>My Products</h3>
   <hr>
   <div *ngFor="let product of products">
-  <div class="row d-outline-block bg-light">
+  <div class="row d-outline-block">
     <div class="col-sm-4">
         <div class="thumb-wrapper">
             <div class="img-box">
@@ -61,14 +61,16 @@
               </div>
             </div>						
           </div>
+          <br>
     </div>
     <div class="col-sm-8"> 
-      <h5>{{product.productName}}</h5>
-      <h6>{{product.rating}}</h6>
+      <h5><b>{{product.productName}}</b></h5>
+      <!-- <h6>{{product.rating}}</h6> -->
       <p class="item-price"><b>{{product.price}}</b></p>
       <p class="specification">{{product.specification}}</p>
       <p>{{product.description}}</p>
       <p class="timestamp">{{product.uploaded_on}}</p>
+      <br>
       <button type="submit" class="btn btn-info" id="editproduct" data-target="#edit">Edit</button>
       <button type="submit" class="btn btn-info" id="deleteproduct" data-target="#delete">Delete</button>
    </div>

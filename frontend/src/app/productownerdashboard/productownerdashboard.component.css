@@ -26,6 +26,12 @@ nav img{
    margin-right:100px;
    
  }
+ /* @media only screen and (min-width : 150px) and (max-width : 780px)
+  {
+  .form-group{
+    margin: 0 auto;
+  }
+} */
 
 /* #addproduct{
     margin-right: 35px;
@@ -41,6 +47,10 @@ nav img{
 #jumbotroninput{
     width: 600px;
     margin-left: 250px;
+    /* margin: auto; */
+}
+.jumbotron .container{
+    padding-top: 50px;
 }
 #jumbotronheading{
     background: rgba(0,0,0,0.4);
