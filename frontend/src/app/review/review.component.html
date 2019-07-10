@@ -15,7 +15,7 @@
   </div>
   <!-- end header -->
   
-  
+<!--   
   <div class="thumb-wrapper">
         <div class="img-box">
       <img src="{{products.image}}" class="img-responsive img-fluid" alt="">                  
@@ -33,9 +33,41 @@
       <p class="item-price"><b>{{products.price}}</b></p>
       <a (click)="onSubmit()" class="reviewnumber">2 reviews</a>
     </div>  
-  </div>
+  </div> -->
   <!--product card end-->
+
+  <div class="row" id="prod">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-3">
+        <div class="prod">
+         <img src="../assets/img/nikon.jpeg" alt="product">
+         <h4>NIKON D5600</h4>
+         <h5>Price:49,000</h5>
+        </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="props">
+        <div class="star-rating">
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star-half-o"></span>
+        </div>  
+        <a (click)="onSubmit()" class="reviewnumber">2 reviews</a>
+        <p>Specifications like</p>
+          <ul>
+              <li> Resolution:	1920 x 1080</li>
+              <li>  Optical Zoom	:16.67 X</li>
+          </ul>
+      </div>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
   
+  <hr>
+  <h4 id="reason">Write a review for NIKON D5600</h4>
+
   <form name="reviewForm" class="reviewForm">
     <div class="form-group">
       <label for="title">Title</label>
