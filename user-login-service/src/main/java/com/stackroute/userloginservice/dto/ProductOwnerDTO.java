@@ -18,7 +18,7 @@ public class ProductOwnerDTO {
 
     @Id
     private String emailId;
-    private String confirmPassword;
+    private String reconfirmPassword;
     private String role;
 
 }

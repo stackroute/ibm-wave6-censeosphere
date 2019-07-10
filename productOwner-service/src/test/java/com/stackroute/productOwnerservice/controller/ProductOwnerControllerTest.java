@@ -51,7 +51,7 @@ public class ProductOwnerControllerTest {
         productOwner.setName("venky");
         productOwner.setRole("productowner");
         productOwner.setEmailId("rainarohith@gmail.com");
-        productOwner.setConfirmPassword("abcdef1234");
+        productOwner.setReconfirmPassword("abcdef1234");
         list = new ArrayList<>();
         list.add(productOwner);
     }

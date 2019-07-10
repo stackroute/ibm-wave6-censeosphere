@@ -30,8 +30,9 @@
 		<module>eureka-server</module>
 		<module>zuul-api</module>
 		<module>user-login-service</module>
-		<module>write-a-review-service</module>
+		<module>review-service</module>
 		<module>reviewer-profile-service</module>
+		<module>productOwner-service</module>
 	</modules>
 
 	<dependencies>
@@ -74,6 +75,19 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-autoconfigure</artifactId>
+		</dependency>
+        <dependency>
+            <groupId>org.springframework.amqp</groupId>
+            <artifactId>spring-amqp</artifactId>
+        </dependency>
+		<dependency>
+			<groupId>org.springframework.amqp</groupId>
+			<artifactId>spring-rabbit</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.rabbitmq</groupId>
+			<artifactId>amqp-client</artifactId>
+			<version>5.4.3</version>
 		</dependency>
 	</dependencies>
 

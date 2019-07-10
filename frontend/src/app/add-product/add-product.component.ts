@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+
+
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
@@ -12,6 +14,7 @@ export class AddProductComponent implements OnInit {
 
   ngOnInit() {
   }
+
 
 lpage()
  {
