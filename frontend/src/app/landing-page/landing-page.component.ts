@@ -37,8 +37,13 @@ export class LandingPageComponent implements OnInit {
     })
   }
 
-  onClick(){
-    this.router.navigateByUrl("/account");
+  onClick(role){
+    console.log(role);
+    this.router.navigateByUrl("/account/"+role);
+  }
+  onClickPO(role1){
+    console.log(role1);
+    this.router.navigateByUrl("/account/"+role1);
   }
   reviewer(){
     this.router.navigateByUrl("/reviwerdashboard");

@@ -2,41 +2,42 @@
 <div class="containerbody">
   <nav class="navbar navbar-expand-lg fixed-top">
     <img src="assets/img/CenseoSphere_logo.png">
-    <h2>Create New Account</h2>
   </nav>
 </div>
 <div class="container">
-<form class="form-horizontal">
-    <div class="form-group">
+  
+<form class="form-horizontal" #myForm="ngForm" (ngSubmit)="onClickS(name.value,emailId.value,rpassword.value)">
+ 
+  <h2 id="newheading">Create New Account</h2>  
+  <div class="form-group">
 
       <label for="Name" class="col-md-3">Name</label>
 
       <div class="col-md-9">
-        <input type="text" id="Name" class="form-control">
+        <input type="text" id="Name" class="form-control" #name>
       </div>
 
     </div>
     <div class="form-group">
       <label for="newemailId" class="col-md-3">Email-Id</label>
       <div class="col-md-9">
-        <input type="text" id="newemailId" class="form-control">
+        <input type="text" id="newemailId" class="form-control" #emailId>
       </div>
     </div>
     <div class="form-group">
       <label for="newaccountpassword" class="col-md-3">Password</label>
       <div class="col-md-9">
-        <input type="password" name="newaccountpassword" id="newaccountpassword" class="form-control">
+        <input type="password" name="newaccountpassword" id="newaccountpassword" class="form-control" >
       </div>
     </div>
     <div class="form-group">
       <label for="newaccountrpassword" class="col-md-3"> Reconfirm Password</label>
       <div class="col-md-9">
-        <input type="password" name="newaccountreconfirmpassword" id="newaccountrpassword"
-          class="form-control">
+        <input type="password" name="newaccountreconfirmpassword" id="newaccountrpassword" class="form-control" #rpassword>
       </div>
     </div>
   
-    <button class="btn btn-success" type="submit" id="submitbutton" (click)="onClickS()">Submit</button>&nbsp;
+    <button class="btn btn-success" type="submit" id="submitbutton" >Submit</button>&nbsp;
     <button class="btn btn-danger" type="submit" id="cancelbutton" (click)="onClickC()">cancel</button>
   
   </form>

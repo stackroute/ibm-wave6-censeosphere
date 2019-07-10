@@ -154,8 +154,8 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onClick()">Revierwer</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onClick()">Product
+          <button type="button" #role value="reviewer" class="btn btn-primary" data-dismiss="modal" (click)="onClick(role.value)">Revierwer</button>
+          <button type="button" #role1 value="product-owner" class="btn btn-primary" data-dismiss="modal" (click)="onClickPO(role1.value)">Product
             Owner</button>
         </div>
       </div>
@@ -190,7 +190,7 @@
         </div>
         <div class="modal-footer">
           <label for="rsubmitbutton" id="newaccountlabel">New Account </label>
-          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onClick()"
+          <button type="button" class="btn btn-primary" #role value="reviewer" data-dismiss="modal" (click)="onClick(role.value)"
             id="rsubmitbutton">Revierwer</button>
         </div>
       </div>
@@ -223,7 +223,7 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onClick()"
+          <button type="button" #role1 value="product-owner" class="btn btn-primary"  data-dismiss="modal" (click)="onClickPO(role1.value)"
             id="psubmitbutton">Product Owner</button>
         </div>
       </div>

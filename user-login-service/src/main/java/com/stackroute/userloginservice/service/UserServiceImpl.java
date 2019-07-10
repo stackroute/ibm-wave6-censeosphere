@@ -39,7 +39,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @RabbitListener(queues="${stackroute.rabbitmq.queueone}")
-    @Override
     public  void recievereviewer(ReviewerDTO reviewerdto)throws  UserAlreadyExistsException
     {
         System.out.println("recieved msg from reviewer = " + reviewerdto.toString());
@@ -47,12 +46,11 @@ public class UserServiceImpl implements UserService {
         saveUser(user);
     }
     @RabbitListener(queues="${stackroute.rabbitmq.queuetwo}")
-    @Override
     public void  recieveproductowner(ProductOwnerDTO productOwnerDTO)throws  UserAlreadyExistsException
     {
 
         System.out.println("recieved msg  from productowner= " + productOwnerDTO.toString());
-        User user=new User(productOwnerDTO.getEmailId(),productOwnerDTO.getConfirmPassword(),productOwnerDTO.getRole());
+        User user=new User(productOwnerDTO.getEmailId(),productOwnerDTO.getReconfirmPassword(),productOwnerDTO.getRole());
         saveUser(user);
     }
 

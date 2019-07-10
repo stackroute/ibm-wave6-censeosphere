@@ -18,5 +18,8 @@ export class ProductownerdashboardComponent implements OnInit {
   {
     this.router.navigateByUrl("/add-product");
   }
+  lpage(){
+    this.router.navigateByUrl("/");
+  }
 
 }

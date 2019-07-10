@@ -11,7 +11,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 const routes: Routes = [  
   { path: '',component:LandingPageComponent},
   { path: 'login', component:UserLoginComponent },
-  { path: 'account', component: NewaccountComponent},
+  { path: 'account/:role', component: NewaccountComponent},
   {path:'rprofile',component:UpdateprofileComponent},
   {path:'reviwerdashboard',component:ReviwerdashComponent},
   {path:'returnlanding',component:LandingPageComponent},

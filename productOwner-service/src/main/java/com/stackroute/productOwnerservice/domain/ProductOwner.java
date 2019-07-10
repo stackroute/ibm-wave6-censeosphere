@@ -21,7 +21,7 @@ public class ProductOwner {
     //private byte[] image;
     private String role;
  //   private String password;
-    private String confirmPassword;
+    private String reconfirmPassword;
   //private List<Productsuploaded> productsuploaded;
 
     @Override
@@ -32,7 +32,7 @@ public class ProductOwner {
                // ", image=" + Arrays.toString(image) +
                 ", role='" + role + '\'' +
               //  ", password='" + password + '\'' +
-                ", confirmPassword='" + confirmPassword + '\'' +
+                ", confirmPassword='" + reconfirmPassword + '\'' +
                 '}';
     }
 }

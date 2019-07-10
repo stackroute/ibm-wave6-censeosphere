@@ -42,7 +42,7 @@ public class ProductOwnerServiceImpl implements ProductOwnerService {
         }
         ProductOwner savedDetails=productownerRepository.save(productowner);
 
-        ProductOwnerDTO productOwnerDTO=new ProductOwnerDTO(productowner.getEmailId(),productowner.getConfirmPassword(),productowner.getRole());
+        ProductOwnerDTO productOwnerDTO=new ProductOwnerDTO(productowner.getEmailId(),productowner.getReconfirmPassword(),productowner.getRole());
         sendproductOwnner(productOwnerDTO);
 
         if(savedDetails==null)
