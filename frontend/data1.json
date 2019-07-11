@@ -1,0 +1,130 @@
+{
+    "products": [
+        {
+            "id":1,
+            "category": "Electronic Device",
+            "subCategory": "Mobile",
+            "productName": "iphone 7",
+            "image":"https://ss7.vzw.com/is/image/VerizonWireless/iphone7-front-gld?$device-lg$",
+            "productFamily": "iphone",
+            "price": 50000,
+            "rating": "5 star",
+            "specification": 
+                {
+                    "pixels": "48 mega pixel",
+                    "display": "4.2 inch",
+                    "RAM": "4GB",
+                    "battery life": "3400 mAh"
+                },
+            "description": "Battery life is good.Camera quality is awesome",
+            "uploaded_on": "July 5 2019"
+        },
+        {
+            "id":2,
+            "category": "Electronic Device",
+            "subCategory": "Mobile",
+            "productName": "ipad",
+            "image":"https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/image/AppleInc/aos/published/images/i/pa/ipad/wifi/ipad-wifi-select-silver-201803_GEO_US?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1538433934562",
+            "productFamily": "Apple",
+            "price": 70000,
+            "rating": "5 star",
+            "specification": {
+                "pixels": "48 mega pixel",
+                "display": "5 inch",
+                "RAM": "8GB",
+                "battery life": "4400 mAh"
+            },
+            "description": "Battery life is good.Camera quality is awesome",
+            "uploaded_on": "July 4 2019"
+        },
+        {
+            "id":3,
+            "category": "Electronic Device",
+            "subCategory": "Camera",
+            "productName": "Canon EOS",
+            "image":"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5792/5792700_sd.jpg",
+            "productFamily": "Canon",
+            "price": 45000,
+            "rating": "5 star",
+            "specification": {
+                "pixels": "90 mega pixel",
+                "display": "5 inch",
+                "RAM": "3GB",
+                "battery life": "4400 mAh"
+            },
+            "description": "Battery life is good.Camera quality is awesome",
+            "uploaded_on": "July 2 2019"
+        },
+        {
+            "id":4,
+            "category": "Electronic Device",
+            "subCategory": "Camera",
+            "productName": "nikon D3200",
+            "image":"https://rukminim1.flixcart.com/image/704/704/camera/s/4/g/nikon-d3200-dslr-original-imaeyxfayjnxjvg9.jpeg?q=70",
+            "productFamily": "nikon",
+            "price": 41000,
+            "rating": "4.6 star",
+            "specification": {
+                "pixels": "60 mega pixel",
+                "display": "4.5 inch",
+                "RAM": "2GB",
+                "battery life": "4000 mAh"
+            },
+            "description": "Battery life is good.Camera quality is awesome",
+            "uploaded_on": "July 1 2019"
+
+        },
+        {
+            "id":5,
+            "category": "Electronic Device",
+            "subCategory": "Mobile",
+            "productName": "Samsung Galaxy s10",
+            "image":"https://static.toiimg.com/photo/64171591/Samsung-Galaxy-S10.jpg",
+            "productFamily": "Samsung",
+            "price": 50900,
+            "rating": "4 star",
+            "specification": {
+                "storage": "128 GB",
+                "display": "infinity-o display",
+                "camera": "altra wide camera",
+                "processor": "2.7 GHz"
+            },
+            "description": "Helpful AI makes your daily life run smoother.Bixby Routines suggests frequently used apps and tasks based on time or location to develop a naturally smart experience — just for you.",
+            "uploaded_on": "July 7 2019"
+        },
+        {
+            "id":6,
+            "category": "Electronic Device",
+            "subCategory": "Headphone",
+            "productName": "Sony MDR-ZX110 Headphones",
+            "image":"https://www.incredible.co.za/media/catalog/product/cache/3/image/1400x/0dc2d03fe217f8c83829496872af24a0/s/o/sony1.jpg",
+            "productFamily": "Sony",
+            "price": 1000,
+            "rating": "4.5 star",
+            "specification": {
+                "Product Dimensions": "14.9 x 4.6 x 20 cm",
+                "Batteries": "1 Lithium ion batteries required",
+                "Compatible Devices": "Smartphone, tablets, laptops, desktops"
+            },
+            "description": "1 Year Manufacturer Warranty",
+            "uploaded_on": "June 7 2017"
+        },
+        {
+            "id":7,
+            "category": "Electronic Device",
+            "subCategory": "Laptop",
+            "productName": "Apple MacBook Air",
+            "image":"https://cnet2.cbsistatic.com/img/8iKssvuXt8ZgAc2orAZDUdz6SKY=/868x488/2017/08/14/ec0fa893-faf2-46c3-8933-6898773804ba/apple-macbook-air-2017-05.jpg",
+            "productFamily": "Apple",
+            "price": 71900,
+            "rating": "5 star",
+            "specification": {
+                "processor": "1.8GHz Intel Core i5",
+                "operating system": "MacOS Sierra ",
+                "RAM": "8GB LPDDR3"
+            },
+            "description": "No cost EMI available on Amazon Pay ICICI credit card on orders above Rs.3000.",
+            "uploaded_on": "December 5 2016"
+        }
+    ]
+}

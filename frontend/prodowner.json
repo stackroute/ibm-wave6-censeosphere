@@ -1,0 +1,35 @@
+{
+"productOwners": [
+	   {
+        "emailId":"sundar@gmail.com",
+        "name":"Sundar Sai",
+        "role":"productOwner",
+        "confirmPassword":"Abcde12345",
+        "productOwner_img":"http://www.insurancebenefits-inc.com/images/owners.jpg"
+       }, 
+
+       {
+        "emailId":"thomas@gmail.com",
+        "name":"Thomas Xery",
+        "role":"productOwner",
+        "confirmPassword":"Abcd1234",
+        "productOwner_img":"http://www.profitpath.com/wp-content/uploads/2013/07/Business-Owner.jpg"
+       },
+
+       {
+        "emailId":"sanjiv@gmail.com",
+        "name":"Sanjiv Mehta",
+        "role":"productOwner",
+        "confirmPassword":"Bcde2345",
+        "productOwner_img":"https://img.etimg.com/thumb/msid-54535646,width-300,imgsize-61790,resizemode-4/the-indian-owners-of-the-east-india-company-are-betting-on-its-future-by-leaning-on-its-past.jpg"
+       },
+
+       {
+        "emailId":"sanjiv@gmail.com",
+        "name":"Sanjiv Mehta",
+        "role":"productOwner",
+        "confirmPassword":"Bcd2345",
+        "productOwner_img":"https://becomingselfmade.com/wp-content/uploads/2016/06/21911139353_893cfc00aa_b-400x300.jpg"
+       }
+   ]
+}

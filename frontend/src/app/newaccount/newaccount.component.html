@@ -1,0 +1,95 @@
+<div class="bodyy">
+<div class="containerbody">
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <img src="assets/img/CenseoSphere_logo.png">
+  </nav>
+</div>
+<div class="container">
+  
+<form class="form-horizontal" #myForm="ngForm" (ngSubmit)="onClickS(name.value,emailId.value,rpassword.value)">
+ 
+  <h2 id="newheading">Create New Account</h2>  
+  <div class="form-group">
+
+      <label for="Name" class="col-md-3">Name</label>
+
+      <div class="col-md-9">
+        <input type="text" id="Name" class="form-control" #name>
+      </div>
+
+    </div>
+    <div class="form-group">
+      <label for="newemailId" class="col-md-3">Email-Id</label>
+      <div class="col-md-9">
+        <input type="text" id="newemailId" class="form-control" #emailId>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="newaccountpassword" class="col-md-3">Password</label>
+      <div class="col-md-9">
+        <input type="password" name="newaccountpassword" id="newaccountpassword" class="form-control" >
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="newaccountrpassword" class="col-md-3"> Reconfirm Password</label>
+      <div class="col-md-9">
+        <input type="password" name="newaccountreconfirmpassword" id="newaccountrpassword" class="form-control" #rpassword>
+      </div>
+    </div>
+  
+    <button class="btn btn-success" type="submit" id="submitbutton" >Submit</button>&nbsp;
+    <button class="btn btn-danger" type="submit" id="cancelbutton" (click)="onClickC()">cancel</button>
+  
+  </form>
+</div>
+<!-- footer -->
+<footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-2">
+          <ul class="list-unstyled lead">
+           <li>
+              <a href="#"><strong> About Us</strong></a>
+            </li>
+          </ul>
+         
+          </div>
+          <div class="col-sm-2">
+              <ul class="list-unstyled lead">
+            <li>
+              <a href="#"><Strong>Contact Us</Strong></a>
+            </li>
+              </ul>
+          </div>
+          <div class="col-sm-2">
+              <ul class="list-unstyled lead">
+            <li>
+              <a href="#"><Strong>Feedback <i class="fa fa-comments"></i></Strong></a>
+            </li>
+          </ul>
+          </div>
+          <div class="col-sm-3">
+              <ul class="list-unstyled lead">
+            <li>
+              <a href="#"><Strong>Terms & Condition</Strong></a>
+            </li>
+          </ul>
+          </div>
+        <div class="col-sm-3">
+          <ul class="list-unstyled lead">
+            <li>
+              <h5><strong>Social Sites</strong></h5>
+            <!-- Uses logo for icons -->
+            </li>
+            <li id="socialsite">
+               <a href="#"><i class="fa fa-twitter-square"></i> </a>&nbsp;
+            <a href="#"><i class="fa fa-facebook-square"></i> </a>&nbsp;
+            <a href="#" id="envelope"><i class="fa fa-envelope"></i> </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- end footer -->
+</div>

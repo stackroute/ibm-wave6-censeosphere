@@ -1,0 +1,93 @@
+ *{
+  font-family: 'Work Sans', sans-serif;
+}
+.navbar{
+    background-color:aliceblue;
+    position: relative;
+    height: 80px;
+    position: fixed;
+   
+ }
+ nav img{
+    height: 60px;
+    width: 200px;
+    /* margin-left: 26px;  */
+    position: fixed;
+    margin-left: 50px;
+ }
+ nav .dropdown{
+  
+   color: black;
+   font-size: 20px;
+   position: absolute;
+   right: 0;
+   top: 0;
+   margin-top:20px;
+   margin-right:100px;
+   
+ }
+ footer
+ {
+     margin-top: 250px;
+     padding-top: 40px;
+     background-color: grey;
+     font-size: 20px;
+     height: 150px;
+     position: relative;
+     display: block;
+ }
+ footer a{
+     color: black;
+ }
+ #socialsite{
+     padding-left: 30px;
+ }
+ footer a:hover{
+   color:rgb(88, 75, 75);
+   font-size: 25px;
+}
+.star-rating .checked {
+  color: orange;
+}
+
+ .star-rating .fa-star-half-o{color: orange;}
+.mat-tab-group {
+    margin-bottom: 48px;
+  }
+
+  .col-sm-4 img{
+    margin-left:200px;
+    width:300px;
+     height:200px;
+     margin-top: 20px;
+ }
+#searchheading{
+  text-align: center;
+  margin-top: 100px;
+}
+.row {
+  margin-top: 5%
+}
+.prod{
+  padding-bottom:130px;float: right;
+}
+.col-sm-6 .h3{
+  margin-top: 100px;
+}
+.col-3 h4{
+  text-align: center;
+}
+.btn-primary{
+  margin-left:8px;
+}
+.row mt-3 col-3 h5{
+  text-align: center;
+}
+.col-3 img{
+  border-radius: 50%;
+  height: 280px;
+  width: 0px;
+}
+.price{
+  margin-left: 100px;
+}

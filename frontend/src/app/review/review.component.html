@@ -1,0 +1,131 @@
+<!-- header -->
+<div class="containerbody">
+    <nav class="navbar navbar-expand-lg fixed-top">
+     <img src="assets/img/CenseoSphere_logo.png">
+      <div class="dropdown">
+        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
+        </a>
+        <ul id="drop" class="dropdown-menu">
+         <li><button class="dropdown-item" (click)="update()" ><span><i class="fa fa-refresh"></i></span>  Update profile</button></li>
+         <li><button class="dropdown-item" (click)="lpage()" ><span><i class="fa fa-power-off"></i></span> Log out</button></li>
+        </ul>
+      </div>
+  </nav>
+  </div>
+  <!-- end header -->
+  
+<!--   
+  <div class="thumb-wrapper">
+        <div class="img-box">
+      <img src="{{products.image}}" class="img-responsive img-fluid" alt="">                  
+    </div>
+    <div class="thumb-content">                 
+      <div class="star-rating">
+        <ul class="list-inline">
+          <li class="list-inline-item"><i class="fa fa-star"></i></li>
+          <li class="list-inline-item"><i class="fa fa-star"></i></li>
+          <li class="list-inline-item"><i class="fa fa-star"></i></li>
+          <li class="list-inline-item"><i class="fa fa-star"></i></li>
+          <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+        </ul>
+      </div>
+      <p class="item-price"><b>{{products.price}}</b></p>
+      <a (click)="onSubmit()" class="reviewnumber">2 reviews</a>
+    </div>  
+  </div> -->
+  <!--product card end-->
+
+  <div class="row" id="prod">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-3">
+        <div class="prod">
+         <img src="../assets/img/nikon.jpeg" alt="product">
+         <h4>NIKON D5600</h4>
+         <h5>Price:49,000</h5>
+        </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="props">
+        <div class="star-rating">
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star-half-o"></span>
+        </div>  
+        <a (click)="onSubmit()" class="reviewnumber">2 reviews</a>
+        <p>Specifications like</p>
+          <ul>
+              <li> Resolution:	1920 x 1080</li>
+              <li>  Optical Zoom	:16.67 X</li>
+          </ul>
+      </div>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+  
+  <hr>
+  <h4 id="reason">Write a review for NIKON D5600</h4>
+
+  <form name="reviewForm" class="reviewForm">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" required>
+    </div>
+    <div class="form-group">
+      <label for="review">Review</label>
+      <textarea type="text" class="form-control" id="review" required> </textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit Review</button>
+  </form>
+   
+  <!--form end here-->
+
+<footer class="page-footer font-small blue pt-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2">
+        <ul class="list-unstyled lead">
+          <li>
+            <a href="#"><strong> About Us</strong></a>
+          </li>
+        </ul>
+
+      </div>
+      <div class="col-sm-2">
+        <ul class="list-unstyled lead">
+          <li>
+            <a href="#"><Strong>Contact Us</Strong></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-2">
+        <ul class="list-unstyled lead">
+          <li>
+            <a href="#"><Strong>Feedback <i class="fa fa-comments"></i></Strong></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-3">
+        <ul class="list-unstyled lead">
+          <li>
+            <a href="#"><Strong>Terms & Condition</Strong></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-3">
+        <ul class="list-unstyled lead">
+          <li>
+            <h5><strong>Social Sites</strong></h5>
+          </li>
+          <li id="socialsite">
+            <a href="#"><i class="fa fa-twitter-square"></i> </a>&nbsp;
+            <a href="#"><i class="fa fa-facebook-square"></i> </a>&nbsp;
+            <a href="#" id="envelope"><i class="fa fa-envelope"></i> </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

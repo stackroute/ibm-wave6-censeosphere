@@ -1,0 +1,76 @@
+.containerbody{
+    margin: 0;
+    padding: 0;
+    
+  }
+
+.navbar{
+    background-color:aliceblue;
+    position: relative;
+    height: 80px;
+    position: fixed;
+   
+ }
+ nav img{
+    height: 60px;
+    width: 200px;
+    /* margin-left: 26px;  */
+    position: fixed;
+    margin-left: 50px;
+ }
+ nav .dropdown{
+  
+   color: black;
+   font-size: 20px;
+   position: absolute;
+   right: 0;
+   top: 0;
+   margin-top:20px;
+   margin-right:100px;
+   
+ }
+ /* #addproduct{
+  margin-right: 35px;
+} */
+
+/* .addclass{
+  margin-left: 1060px;} */
+  
+.mat-tab-group
+{
+
+  margin-top: 100px;
+}
+ .container
+{
+  margin-top: 25px;
+}
+.fakeimg {
+  height: 200px;
+  background: #aaa;
+}
+
+footer
+{
+    margin-top: 250px;
+    padding-top: 40px;
+    background-color: grey;
+    font-size: 20px;
+    height: 150px;
+    position: relative;
+    display: block;
+}
+footer a{
+    color: black;
+}
+#socialsite{
+    padding-left: 30px;
+}
+#envelope{
+    padding-right: 50px;
+    
+}
+footer a:hover{
+    color:rgb(88, 75, 75);
+    font-size: 25px;
+}

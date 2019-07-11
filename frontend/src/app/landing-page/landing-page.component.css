@@ -1,0 +1,156 @@
+a{
+    text-decoration: none;
+}
+.navbar{
+    background-color:aliceblue;
+    position: relative;
+    height: 80px;
+    position: fixed;
+}
+nav img{
+    height: 60px;
+    width: 200px;
+    position: fixed;
+    margin-left: 70px;
+}
+#login{
+   color: black;
+   font-size: 25px; 
+   position: absolute;
+   right: 0;
+   top: 0;
+   margin-top: 17px;
+   margin-right: 30px;
+}
+#login:hover{
+    color:rgb(4, 11, 119);
+    font-size: 30px;
+}
+.containerbody,.modal,.jumbotron, footer,li ,h3 ,h2, .thumb-wrapper  {
+    font-family: 'Work Sans', sans-serif;
+}
+.icon-bar{
+    size: 30px;
+}
+.modal-title
+{
+    padding-left: 80px;
+}
+.modal-header h3{
+    margin:0;
+}
+
+label{
+    text-align: left;
+}
+.jumbotron{
+    height: 500px;
+    background: url('../../assets/img/appliances-home.png') center center no-repeat;
+   
+}
+#jumbotroninput{
+    margin: auto;
+}
+#jumbotronheading{
+    background: rgba(0,0,0,0.4);
+    color:white;
+    margin-top: 80px;
+}
+footer
+{
+    margin-top: 80px;
+    padding-top: 40px;
+    background-color: grey;
+    font-size: 20px;
+    height: 150px;
+    position: relative;
+    display: block;
+}
+footer a{
+    color: black;
+}
+#socialsite{
+    padding-left: 30px;
+}
+#envelope{
+    padding-right: 50px;
+    
+}
+footer a:hover{
+    color:rgb(88, 75, 75);
+    font-size: 25px;
+}
+.example-sidenav-container{
+    top: 80px;
+    
+}
+.example-sidenav {
+    width: 260px; 
+}
+.thumb-wrapper {
+	padding: 25px 15px;
+	background: #fff;
+	border-radius: 6px;
+	text-align: center;
+	position: relative;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+    width: 300px;
+}
+.img-box {
+	height: 120px;
+	margin-bottom: 20px;
+	width: 100%;
+	position: relative;
+}
+ .img-box img {	
+	max-width: 100%;
+	max-height: 100%;
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+}
+h4 {
+	font-size: 18px;
+}
+ h4,   p,  ul {
+	margin-bottom: 5px;
+}
+
+.item-price {
+	font-size: 13px;
+	padding: 2px 0;
+}
+.star-rating li {
+	padding: 0;
+}
+.star-rating i {
+	font-size: 14px;
+	color: #ffc000;
+}
+.subcategory:hover{
+   color: grey;
+}
+#sidebarheading{
+    padding-top: 30px;
+}
+
+#container,#container1{
+    width:80%;
+    margin:2em auto;
+    padding:10;
+  }
+  #container h2,#container1 h2{
+     text-align: center;
+  }
+  #container1 h2{
+   margin-top: 30px;
+ }
+  .arrow{
+    /* margin: 30px; */
+    height: 30px;
+    width: 50px;
+  }
+

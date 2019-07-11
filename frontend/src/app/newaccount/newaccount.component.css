@@ -1,0 +1,60 @@
+
+.navbar{
+    background-color:aliceblue;
+    position: relative;
+    height: 80px;
+    position: fixed;
+}
+nav img{
+    height: 60px;
+    width: 200px;
+    
+    position: fixed;
+    margin-left: 70px;
+}
+h2{
+    margin-left: 580px;
+}
+
+.containerbody{
+    font-family: 'Work Sans', sans-serif;
+}
+
+#submitbutton{
+margin: auto;
+/* margin-left: 350px; */
+}
+form{
+    margin-left: 150px;
+    font-family: 'Work Sans', sans-serif;
+    margin-top:100px;
+    
+}
+footer
+{
+    margin-top: 167px;
+    padding-top: 40px;
+    background-color: grey;
+    font-size: 20px;
+    height: 150px;
+}
+footer a{
+    color: black;
+}
+#socialsite{
+    padding-left: 30px;
+}
+#envelope{
+    padding-right: 50px;
+    
+}
+footer a:hover{
+    color:rgb(88, 75, 75);
+    font-size: 25px;
+}
+#newheading{
+    margin: auto;
+}
+/* .bodyy{
+    background: url('../../assets/img/newaccountback.jpg') center center no-repeat;
+} */
