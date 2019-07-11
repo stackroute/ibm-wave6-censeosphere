@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http'
+
 
 
 
@@ -9,8 +11,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent implements OnInit {
+  selectFile: File=null;
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private http:HttpClient) { }
 
   ngOnInit() {
   }
@@ -28,9 +31,8 @@ update()
  {
    this.router.navigateByUrl("/productownerdashboard")
  }
-add()
-{
+
  
+
 }
- 
-}
+  

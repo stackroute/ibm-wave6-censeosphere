@@ -23,6 +23,8 @@
       <h2>Add a Product</h2>
      
     <hr>
+
+    <form class="form-horizontal" #myForm="ngForm">
     <div class="form-group">
         <label for="category" class="col-sm-3 control-label">Product Category</label>
         <div class="col-sm-3">
@@ -61,7 +63,7 @@
      <div class="form-group">
         <label for="qty" class="col-sm-4 control-label">Product Family</label>
         <div class="col-sm-4">
-       <input type="text" class="form-control" name="qty" id="qty" placeholder="Enter Product Family">
+       <input type="text" class="form-control" name="pfamily" id="pfamily" placeholder="Enter Product Family">
         </div>
     </div>
     
@@ -70,7 +72,7 @@
     <div class="form-group">
       <label for="qty" class="col-sm-4 control-label">Product Price</label>
       <div class="col-sm-4">         
-          <input type="text" class="form-control" id="pname" placeholder="Enter Product Price" name="pname">
+          <input type="text" class="form-control" id="pprice" placeholder="Enter Product Price" name="pprice">
         </div>
       </div>
   
@@ -102,7 +104,8 @@
       <div class="form-group">
         <label for="name" class="col-sm-3 control-label">Add a Image</label>
         <div class="col-sm-3">
-          <label class="control-label small" for="file_img">Product Image(jpg/png):</label> <input type="file" name="file_img">
+            <label class="control-label small" for="file_img">Product Image(jpg/png):</label> <input type="file" accept=".jpg,.jpeg,.gif,.png" name="file_img"> 
+            <button type="button">Upload</button>
         </div>
       </div> 
     
@@ -110,41 +113,33 @@
     
       <div class="form-group">
         <div class="col-sm-offset-3 col-sm-9">
-          <!-- <button type="submit" class="btn btn-primary" (click)="account()">Save Product</button> -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" >
+           <button type="submit" class="btn btn-primary" (click)="account()">Save Product</button>
+          <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" >
               Save Product
-            </button>
+            </button> -->
         </div>
       </div> 
 
-<!--demo-->
-
-
 
   <!-- The Modal -->
-  <div class="modal fade" id="myModal">
+  <!-- <div class="modal fade" id="myModal">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
       
-      
-        
-        <!-- Modal body -->
         <div class="modal-body">
           Product Saved Successfully..
         </div>
-        
-        <!-- Modal footer -->
+      
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="account()">Close</button>
         </div>
         
       </div>
     </div>
-  </div>
-
-
-    
-  </div>
+  </div> -->
+  
+</form>
+</div>
     
 
 
