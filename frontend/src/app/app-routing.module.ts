@@ -21,8 +21,8 @@ const routes: Routes = [
   {path:'productownerdashboard',component:ProductownerdashboardComponent},
   {path:'add-product',component:AddProductComponent},
   {path:'reviewerdash',component:ReviwerdashComponent},
-  {path:'writereview',component:ReviewComponent},
-  {path:'searchreview',component:SearchForReviewComponent},
+  {path:'writereview/:productName/:price/:subCategory/:ratings/:specification/:description/:uploadedOnew',component:ReviewComponent},
+  {path:'searchreview/:reviewTitle/:reviewDescription/:productName/:reviewerEmail/:reviewedOn',component:SearchForReviewComponent},
   { path:'prodownerupdateprofile',component:ProdownerupdateprofileComponent}
 
   // { path: '**',component:LandingPageComponent}
