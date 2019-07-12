@@ -1,20 +1,12 @@
-<!-- header -->
+<div class="bodyy">
 <div class="containerbody">
-    <nav class="navbar navbar-expand-lg fixed-top">
-      <div class="example-sidenav-content">
-        <button id="sidebar" class="hamburger mat-button" mat-button (click)="snav.toggle()">
-          <i class="fa fa-bars" aria-hidden="true"></i>
-        </button>
-      </div>
-      <img src="assets/img/CenseoSphere_logo.png">
-      <!-- <a data-toggle="modal" href="#signup" id="login">Login</a> -->
-    </nav>
-  </div>
-  <!-- end header -->
-
-
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <img src="assets/img/CenseoSphere_logo.png">
+  </nav>
+</div>
+<div class="container">
   
-<!-- <form class="form-horizontal" #myForm="ngForm" (ngSubmit)="onClickS(name.value,emailId.value,rpassword.value)">
+<form class="form-horizontal" #myForm="ngForm" (ngSubmit)="onClickS(name.value,emailId.value,rpassword.value)">
  
   <h2 id="newheading">Create New Account</h2>  
   <div class="form-group">
@@ -48,145 +40,56 @@
     <button class="btn btn-success" type="submit" id="submitbutton" >Submit</button>&nbsp;
     <button class="btn btn-danger" type="submit" id="cancelbutton" (click)="onClickC()">cancel</button>
   
-  </form> -->
-
-  <div class="container">
-
-  <h2 id="newheading">Create New Account</h2>
-  <br/>
-  <br/>
-
-  <mat-horizontal-stepper labelPosition="bottom" linear>
-      <mat-step [stepControl]="profileFormGroup" label="Fill your details">
-          <div class="thumb-wrapper">
-            <form [formGroup]="profileFormGroup" >
-                <mat-form-field class="full-width">
-                  <input matInput placeholder="Name:" formControlName="name" required>
-                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                    <mat-error *ngFor="let validation of validation_messages.name">
-                      <mat-error class="error-message" *ngIf="profileFormGroup.get('name').hasError(validation.type) && (profileFormGroup.get('name').dirty || profileFormGroup.get('name').touched)">{{validation.message}}
-                      </mat-error>
-                    </mat-error>
-                </mat-form-field> <br/>
-                <mat-form-field class="full-width">
-                  <input matInput placeholder="Email-Id:" formControlName="emailId" required>
-                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                  <mat-error *ngFor="let validation of validation_messages.emailId">
-                      <mat-error class="error-message" *ngIf="profileFormGroup.get('emailId').hasError(validation.type) && (profileFormGroup.get('emailId').dirty || profileFormGroup.get('emailId').touched)">{{validation.message}}
-                      </mat-error>
-                    </mat-error>
-                </mat-form-field>
-                <div>
-                  <button mat-button matStepperNext (ngSubmit)="onClickS(profileFormGroup.value)">Next</button>
-                </div>
-            </form>
-          </div>
-      </mat-step>
-      
-      <mat-step [stepControl]="verifyFormGroup" label="Give your password">
-          <div class="thumb-wrapper">
-            <form [formGroup]="verifyFormGroup">  
-                <mat-form-field class="full-width">
-                    <input matInput placeholder="Password:" formControlName="password" [type]="hide ? 'password' : 'text'" required>
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
-                    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-                    <mat-error *ngFor="let validation of validation_messages.password">
-                        <mat-error class="error-message" *ngIf="verifyFormGroup.get('password').hasError(validation.type) && (verifyFormGroup.get('password').dirty || verifyFormGroup.get('password').touched)">{{validation.message}}
-                        </mat-error>
-                    </mat-error>
-                  </mat-form-field>  <br/>
-                <mat-form-field class="full-width">
-                    <input matInput placeholder="Reconfirm Password:" formControlName="reconfirmPassword" [type]="hide ? 'password' : 'text'" required>
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
-                    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-                    <mat-error *ngFor="let validation of validation_messages.password">
-                        <mat-error class="error-message" *ngIf="verifyFormGroup.get('password').hasError(validation.type) && (verifyFormGroup.get('password').dirty || verifyFormGroup.get('password').touched)">{{validation.message}}
-                        </mat-error>
-                    </mat-error>
-                  </mat-form-field>
-                <div>
-                  <button mat-button matStepperPrevious (ngSubmit)="onClickS(profileFormGroup.value)">Previous</button>
-                  <button mat-button matStepperNext (ngSubmit)="onClickS(verifyFormGroup.value)">Next</button> 
-                </div>
-            </form>
-          </div>
-      </mat-step>
-
-      <!-- <mat-step label="Done">
-        <div class="thumb-wrapper">
-          <h3 style="text-align: center;margin-top:80px;">You are successfully Registered..!!</h3>
-          <div>
-              <button mat-button matStepperPrevious>Previous</button>
-          </div>
-        </div>
-      </mat-step> -->
-
-      <mat-step label="Done" >
-          <div class="thumb-wrapper">
-              <ng-template matStepLabel>
-                  <strong>Done!</strong>
-              </ng-template>
-              <img src="https://img.icons8.com/color/96/000000/ok.png" width=100 height=100>
-  
-              <h1>
-                  Thank you!!!
-              </h1>
-              <h3>You are successfully Registered!!!</h3>
-          </div>
-      </mat-step>
-  </mat-horizontal-stepper>
-
+  </form>
 </div>
-
-
 <!-- footer -->
 <footer>
+    <div class="container">
       <div class="row">
         <div class="col-sm-2">
           <ul class="list-unstyled lead">
-            <li>
+           <li>
               <a href="#"><strong> About Us</strong></a>
             </li>
           </ul>
-  
-        </div>
-        <div class="col-sm-2">
-          <ul class="list-unstyled lead">
+         
+          </div>
+          <div class="col-sm-2">
+              <ul class="list-unstyled lead">
             <li>
               <a href="#"><Strong>Contact Us</Strong></a>
             </li>
-          </ul>
-        </div>
-        <div class="col-sm-2">
-          <ul class="list-unstyled lead">
+              </ul>
+          </div>
+          <div class="col-sm-2">
+              <ul class="list-unstyled lead">
             <li>
               <a href="#"><Strong>Feedback <i class="fa fa-comments"></i></Strong></a>
             </li>
           </ul>
-        </div>
-        <div class="col-sm-3">
-          <ul class="list-unstyled lead">
+          </div>
+          <div class="col-sm-3">
+              <ul class="list-unstyled lead">
             <li>
               <a href="#"><Strong>Terms & Condition</Strong></a>
             </li>
           </ul>
-        </div>
+          </div>
         <div class="col-sm-3">
           <ul class="list-unstyled lead">
             <li>
               <h5><strong>Social Sites</strong></h5>
+            <!-- Uses logo for icons -->
             </li>
             <li id="socialsite">
-              <a href="#"><i class="fa fa-twitter-square"></i> </a>&nbsp;
-              <a href="#"><i class="fa fa-facebook-square"></i> </a>&nbsp;
-              <a href="#" id="envelope"><i class="fa fa-envelope"></i> </a>
+               <a href="#"><i class="fa fa-twitter-square"></i> </a>&nbsp;
+            <a href="#"><i class="fa fa-facebook-square"></i> </a>&nbsp;
+            <a href="#" id="envelope"><i class="fa fa-envelope"></i> </a>
             </li>
           </ul>
         </div>
       </div>
+    </div>
   </footer>
   <!-- end footer -->
+</div>

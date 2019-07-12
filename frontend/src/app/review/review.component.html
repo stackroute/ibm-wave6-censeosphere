@@ -68,16 +68,16 @@
   <hr>
   <h4 id="reason">Write a review for NIKON D5600</h4>
 
-  <form name="reviewForm" class="reviewForm" #myForm="ngForm" (ngSubmit)="onSubmit(title.value,review.value)">
+  <form name="reviewForm" class="reviewForm">
     <div class="form-group">
       <label for="title">Title</label>
-      <input type="text" class="form-control" id="title" #title required>
+      <input type="text" class="form-control" id="title" required>
     </div>
     <div class="form-group">
       <label for="review">Review</label>
-      <textarea type="text" class="form-control" id="review" #review required> </textarea>
+      <textarea type="text" class="form-control" id="review" required> </textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Submit Review</button>
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit Review</button>
   </form>
    
   <!--form end here-->

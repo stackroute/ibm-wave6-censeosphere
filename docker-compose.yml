@@ -81,6 +81,7 @@ services:
     restart: always
     network_mode: "host"
     depends_on:
+
       - mongodb
     ports:
       - 8087:8087
@@ -93,6 +94,16 @@ services:
       - mongodb
     ports:
       - 8060:8060
+
+  productsearchservice:
+      build: product-search-service
+      restart: always
+      network_mode: "host"
+      depends_on:
+        - mongodb
+      ports:
+        - 8081:8081
+
 
   rabbitmq:
     image: rabbitmq:3.7.5-management

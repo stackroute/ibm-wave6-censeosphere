@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http'
+import { FormGroup } from '@angular/forms';
+import {FormBuilder, Validators, FormControl, NgForm, AbstractControl} from '@angular/forms';
+import {Product} from '../product';
+import { ProductService } from '../product.service';
+
 
 
 
@@ -9,13 +15,49 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent implements OnInit {
+  
+firstFormGroup:FormGroup;
 
-  constructor(private router:Router) { }
+product=new Product();
+hide:true;
+
+
+
+
+  constructor(private router:Router,private http:HttpClient,private _formBuilder: FormBuilder,private products:ProductService) { }
 
   ngOnInit() {
+    this.firstFormGroup = this._formBuilder.group({
+      CategoryCtrl: ['', Validators.required],
+      SubCategoryCtrl: ['', Validators.required],
+      ProductNameCtrl: ['', Validators.required],
+      ProductFamilyCtrl: ['', Validators.required],
+      ProductPriceCtrl: ['', Validators.required],
+      ProductSpecificationsCtrl: ['', Validators.required],
+      ProductDescriptionCtrl: ['', Validators.required],
+      ProductImageCtrl: ['', Validators.required],
+   });
+
   }
 
+saveProduct()
+{
+  this.product.category=this.firstFormGroup.controls.CategoryCtrl.value;
+  this.product.subCategory=this.firstFormGroup.controls.SubCategoryCtrl.value;
+  this.product.productName=this.firstFormGroup.controls.ProductNameCtrl.value;
+  this.product.productFamily=this.firstFormGroup.controls.ProductFamilyCtrl.value;
+  this.product.price=this.firstFormGroup.controls.ProductPriceCtrl.value;
+  this.product.specifications=this.firstFormGroup.controls.ProductSpecificationsCtrl.value;
+  this.product.description=this.firstFormGroup.controls.ProductDescriptionCtrl.value;
+  this.product.image=this.firstFormGroup.controls.ProductImageCtrl.value;
+  console.log(this.product);    environment:
 
+  return this.products.saveProduct(this.product).subscribe(data =>
+    {
+      console.log(data);
+    });
+
+}
 lpage()
  {
    this.router.navigateByUrl("/");
@@ -24,13 +66,12 @@ update()
  {
    this.router.navigateByUrl("/prodownerupdateprofile");
  }
- account()
- {
-   this.router.navigateByUrl("/productownerdashboard")
- }
-add()
-{
+  account()
+  {
+    this.router.navigateByUrl("/productownerdashboard");
+  }
+
  
+
 }
- 
-}
+  
