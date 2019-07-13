@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Reviewer } from '../reviewer';
 import { ProfileService } from '../profile.service';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-
+import { FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-newaccount',
   templateUrl: './newaccount.component.html',
@@ -37,10 +36,8 @@ export class NewaccountComponent implements OnInit {
     ]
     }
 
-
-
-
   constructor(private router:Router,private activatedRoute:ActivatedRoute,private profileService:ProfileService,private fb:FormBuilder) { }
+
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params =>{
@@ -48,20 +45,7 @@ export class NewaccountComponent implements OnInit {
       this.role=params['role'];
       console.log(" from newaccount componenent "+this.role);
      
-    });
-
-    this.profileFormGroup=this.fb.group({
-      name:['',Validators.compose([Validators.required,Validators.maxLength(20)])],
-      emailId:['',Validators.compose([Validators.required,Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
-    ])]
-    });
-
-    this.verifyFormGroup=this.fb.group({
-      password:['',Validators.compose([
-        Validators.minLength(5),
-        Validators.required,Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')])],
-      reconfirmPassword:['',Validators.required]
-    });
+    })
   }
 
 //   onClickS(name,emailId,reconfirmPassword):any
