@@ -57,11 +57,12 @@
   <br/>
 
   <mat-horizontal-stepper labelPosition="bottom" linear>
+    <!-- 1st Form-->
       <mat-step [stepControl]="profileFormGroup" label="Fill your details">
           <div class="thumb-wrapper">
             <form [formGroup]="profileFormGroup" >
                 <mat-form-field class="full-width">
-                  <input matInput placeholder="Name:" formControlName="name" required>
+                  <input matInput placeholder="Name:" formControlName="name" [(ngModel)]="name" required>
                   <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                     <mat-error *ngFor="let validation of validation_messages.name">
                       <mat-error class="error-message" *ngIf="profileFormGroup.get('name').hasError(validation.type) && (profileFormGroup.get('name').dirty || profileFormGroup.get('name').touched)">{{validation.message}}
@@ -69,7 +70,7 @@
                     </mat-error>
                 </mat-form-field> <br/>
                 <mat-form-field class="full-width">
-                  <input matInput placeholder="Email-Id:" formControlName="emailId" required>
+                  <input matInput placeholder="Email-Id:" formControlName="emailId" [(ngModel)]="emailId" required>
                   <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                   <mat-error *ngFor="let validation of validation_messages.emailId">
                       <mat-error class="error-message" *ngIf="profileFormGroup.get('emailId').hasError(validation.type) && (profileFormGroup.get('emailId').dirty || profileFormGroup.get('emailId').touched)">{{validation.message}}
@@ -77,17 +78,20 @@
                     </mat-error>
                 </mat-form-field>
                 <div>
-                  <button mat-button matStepperNext (ngSubmit)="onClickS(profileFormGroup.value)">Next</button>
+                  <!-- <button mat-button matStepperNext (ngSubmit)="onClickS(profileFormGroup.value)">Next</button> -->
+                  <button mat-button matStepperNext (click)="saveReviewer()">Next</button>
                 </div>
             </form>
           </div>
       </mat-step>
+      <!--1st Form ends-->
       
+      <!--2nd form -->
       <mat-step [stepControl]="verifyFormGroup" label="Give your password">
           <div class="thumb-wrapper">
             <form [formGroup]="verifyFormGroup">  
                 <mat-form-field class="full-width">
-                    <input matInput placeholder="Password:" formControlName="password" [type]="hide ? 'password' : 'text'" required>
+                    <input matInput placeholder="Password:" formControlName="password" [type]="hide ? 'password' : 'text'" [(ngModel)]="password" required>
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
@@ -98,7 +102,7 @@
                     </mat-error>
                   </mat-form-field>  <br/>
                 <mat-form-field class="full-width">
-                    <input matInput placeholder="Reconfirm Password:" formControlName="reconfirmPassword" [type]="hide ? 'password' : 'text'" required>
+                    <input matInput placeholder="Reconfirm Password:" formControlName="reconfirmPassword" [type]="hide ? 'password' : 'text'" [(ngModel)]="reconfirmPassword" required>
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
@@ -109,12 +113,14 @@
                     </mat-error>
                   </mat-form-field>
                 <div>
-                  <button mat-button matStepperPrevious (ngSubmit)="onClickS(profileFormGroup.value)">Previous</button>
-                  <button mat-button matStepperNext (ngSubmit)="onClickS(verifyFormGroup.value)">Next</button> 
+                  <!-- <button mat-button matStepperPrevious (ngSubmit)="onClickS(profileFormGroup.value)">Previous</button> -->
+                  <button mat-button matStepperPrevious>Previous</button>
+                  <button mat-button matStepperNext (click)="saveReviewer1()">Submit</button> 
                 </div>
             </form>
           </div>
       </mat-step>
+      <!-- 2nd form ends-->
 
       <!-- <mat-step label="Done">
         <div class="thumb-wrapper">

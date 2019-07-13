@@ -17,10 +17,10 @@ export class NewaccountComponent implements OnInit {
   hide=true;
   validation_messages = {
     'name': [
-      { type: 'required', message: 'Username is required' },
-      { type: 'maxlength', message: 'Username cannot be more than 25 characters long' },
-      { type: 'pattern', message: 'Your username must contain only numbers and letters' },
-      { type: 'validUsername', message: 'Your username has already been taken' }
+      { type: 'required', message: 'name is required' },
+      { type: 'maxlength', message: 'name cannot be more than 20 characters long' },
+      { type: 'pattern', message: 'name must contain only numbers and letters' },
+      { type: 'validUsername', message: 'name has already been taken' }
     ],
     'emailId': [
       { type: 'required', message: 'Email is required' },
@@ -64,42 +64,73 @@ export class NewaccountComponent implements OnInit {
     });
   }
 
-  onClickS(name,emailId,reconfirmPassword):any
-  {
-    this.reviewer.emailId=emailId;
-    this.reviewer.name=name;
-    this.reviewer.reconfirmPassword=reconfirmPassword;
-    this.reviewer.role=this.role;
-    if(this.role == 'reviewer'){
-    this.profileService.saveReviewer(this.reviewer).
-    subscribe(
-      data => {
-        console.log("POST Request is successful ", data);},
-        error => {
-        alert("Invalid")
-        console.log("Error", error);} 
+//   onClickS(name,emailId,reconfirmPassword):any
+//   {
+//     this.reviewer.emailId=emailId;
+//     this.reviewer.name=name;
+//     this.reviewer.reconfirmPassword=reconfirmPassword;
+//     this.reviewer.role=this.role;
+//     if(this.role == 'reviewer'){
+//     this.profileService.saveReviewer(this.reviewer).
+//     subscribe(
+//       data => {
+//         console.log("POST Request is successful ", data);},
+//         error => {
+//         alert("Invalid")
+//         console.log("Error", error);} 
 
-);
-        }
-        else if(this.role == 'product-owner'){
-          this.profileService.saveProductowner(this.reviewer).
-    subscribe(
-      data => {
-        console.log("POST Request is successful ", data);},
-        error => {
-        alert("Invalid")
-        console.log("Error", error);} 
+// );
+//         }
+//         else if(this.role == 'product-owner'){
+//           this.profileService.saveProductowner(this.reviewer).
+//     subscribe(
+//       data => {
+//         console.log("POST Request is successful ", data);},
+//         error => {
+//         alert("Invalid")
+//         console.log("Error", error);} 
 
-);
+// );
 
-    console.log("Reviewer "+this.reviewer);
-    this.router.navigateByUrl("/");
-        }
+//     console.log("Reviewer "+this.reviewer);
+//     this.router.navigateByUrl("/");
+//         }
 
-    console.log("Reviewer "+this.reviewer);
-    this.router.navigateByUrl("/");
+//     console.log("Reviewer "+this.reviewer);
+//     this.router.navigateByUrl("/");
     
+//   }
+
+name="";
+emailId="";
+
+  saveReviewer()
+  {
+    // this.reviewer.name=this.profileFormGroup.controls.name.value;
+    // this.reviewer.emailId=this.profileFormGroup.controls.emailId.value;
+    // this.reviewer.role=this.role;
+    this.name=this.profileFormGroup.controls.name.value;
+    this.emailId=this.profileFormGroup.controls.emailId.value;
+    console.log("from saveReviewer : "+this.reviewer);
   }
+  
+  saveReviewer1()
+  {
+    this.reviewer.name=this.name;
+    this.reviewer.emailId=this.emailId;
+    this.reviewer.role=this.role;
+    this.reviewer.reconfirmPassword=this.verifyFormGroup.controls.reconfirmPassword.value;
+    this.profileService.saveReviewer(this.reviewer).
+     subscribe(data =>{
+      console.log("POST Request is successful ", data);
+     },
+     error => {
+            // alert("Invalid")
+            console.log("Error", error);}
+      );
+    console.log("fron saveReviewer1"+this.reviewer);
+  }
+
   onClickC()
   {
     this.router.navigateByUrl("/");
