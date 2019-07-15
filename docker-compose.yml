@@ -45,10 +45,10 @@ services:
     restart: always
     network_mode: "host"
     depends_on:
-      - eureka-server
-      - zuul-api
-      - config-service
-      - mysqldb
+#      - eureka-server
+#      - zuul-api
+#      - config-service
+      - mongodb
     ports:
       - 8089:8089
 
@@ -81,6 +81,7 @@ services:
     restart: always
     network_mode: "host"
     depends_on:
+
       - mongodb
     ports:
       - 8087:8087
@@ -94,6 +95,7 @@ services:
     ports:
       - 8060:8060
 
+<<<<<<< HEAD
   nlpservice:
     build: NLP-service
     restart: always
@@ -102,6 +104,17 @@ services:
       - mongodb
     ports:
       - 8877:8877
+=======
+  productsearchservice:
+      build: product-search-service
+      restart: always
+      network_mode: "host"
+      depends_on:
+        - mongodb
+      ports:
+        - 8081:8081
+
+>>>>>>> 35c3f9a30a4df7a6e4f259c6fff8bbd2cb1b0853
 
   rabbitmq:
     image: rabbitmq:3.7.5-management

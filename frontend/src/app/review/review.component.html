@@ -68,64 +68,97 @@
   <hr>
   <h4 id="reason">Write a review for NIKON D5600</h4>
 
-  <form name="reviewForm" class="reviewForm" #myForm="ngForm" (ngSubmit)="onSubmit(title.value,review.value)">
+  <form name="reviewForm" class="reviewForm">
     <div class="form-group">
       <label for="title">Title</label>
-      <input type="text" class="form-control" id="title" #title required>
+      <input type="text" class="form-control" id="title" required>
     </div>
     <div class="form-group">
       <label for="review">Review</label>
-      <textarea type="text" class="form-control" id="review" #review required> </textarea>
+      <textarea type="text" class="form-control" id="review" required> </textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Submit Review</button>
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit Review</button>
   </form>
    
   <!--form end here-->
 
+<!-- footer -->
 <footer class="page-footer font-small blue pt-4">
   <div class="container">
     <div class="row">
-      <div class="col-sm-2">
+      <div class="col-sm-3">
         <ul class="list-unstyled lead">
-          <li>
-            <a href="#"><strong> About Us</strong></a>
-          </li>
+            <li>
+                <h5><strong>About us</strong></h5>
+            </li>
+            <li>
+                <a href="#"><strong> Vision & Goals </strong></a>
+              </li>
+              <li>
+                <a href="#"><strong> Company </strong></a>
+              </li>
+              <li>
+                <a href="#"><strong> Blog </strong></a>
+              </li>
+              <li>
+                <a href="#"><strong> Careers </strong></a>
+              </li>
         </ul>
 
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-3">
         <ul class="list-unstyled lead">
-          <li>
-            <a href="#"><Strong>Contact Us</Strong></a>
-          </li>
+            <li>
+                <h5><strong>Contact us</strong></h5>
+            </li>
+              <li>
+                <a href="#"><i class="fa fa-map-marker"></i>&nbsp;<Strong>Location</Strong></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-phone"></i>&nbsp;<Strong>9874563129</Strong></a>
+              </li>
+              <li> 
+                <a href="#"> <i class="fa fa-envelope"></i>&nbsp;<Strong>niitstkrt@gmail.com</Strong></a>
+              </li> 
         </ul>
       </div>
-      <div class="col-sm-2">
+      
+      <div class="col-sm-3">
         <ul class="list-unstyled lead">
-          <li>
-            <a href="#"><Strong>Feedback <i class="fa fa-comments"></i></Strong></a>
-          </li>
+            <li>
+                <h5><strong>Insights</strong></h5>
+            </li>
+            <li>
+                <a href="#"><Strong>Privacy policy</Strong></a>
+              </li>
+              <li>
+                <a href="#"><Strong>Terms & Conditions </Strong></a>
+              </li>
+              <li>
+                <a href="#"><Strong>FAQs</Strong></a>
+              </li>
+              <li>
+                <a href="#"><Strong>Support</Strong></a>
+              </li>
         </ul>
       </div>
       <div class="col-sm-3">
         <ul class="list-unstyled lead">
           <li>
-            <a href="#"><Strong>Terms & Condition</Strong></a>
+            <h5><strong>Keep connected with</strong></h5>
           </li>
-        </ul>
-      </div>
-      <div class="col-sm-3">
-        <ul class="list-unstyled lead">
           <li>
-            <h5><strong>Social Sites</strong></h5>
-          </li>
-          <li id="socialsite">
-            <a href="#"><i class="fa fa-twitter-square"></i> </a>&nbsp;
-            <a href="#"><i class="fa fa-facebook-square"></i> </a>&nbsp;
-            <a href="#" id="envelope"><i class="fa fa-envelope"></i> </a>
-          </li>
+              <a href="#"><i class="fa fa-twitter-square"></i>&nbsp;<Strong>twitter</Strong></a>
+            </li>
+              <li>
+                <a href="#"><i class="fa fa-facebook-square"></i>&nbsp;<Strong>facebook</Strong></a>
+              </li>
+              <li> 
+              <a href="#"><i class="fa fa-linkedin"></i>&nbsp;<Strong>linkedin</Strong></a>
+            </li>
         </ul>
       </div>
     </div>
   </div>
 </footer>
+<!-- end footer -->
