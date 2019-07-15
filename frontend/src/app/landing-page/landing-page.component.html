@@ -35,19 +35,12 @@
         <div class="form-group">
           <input type="text" placeholder="search here to write a review" name="search" class="form-control col-md-3"
             id="jumbotroninput"><br>
-<<<<<<< HEAD
-          <button type="submit" class="btn btn-outline-light" id="reviewbutton" data-toggle="modal"
+          <button type="submit" class="btn btn-outline-info" id="reviewbutton" data-toggle="modal" #rrole value="reviewer" (click)="onclick(rrole.value)"
             data-target="#signup1">Write
             a Review</button>&nbsp;
-          <button type="submit" class="btn btn-outline-light" id="productbutton" data-toggle="modal"
-=======
-          <button type="submit" class="btn btn-success" id="reviewbutton" data-toggle="modal" #rrole value="reviewer" (click)="onclick(rrole.value)"
-            data-target="#signup1">Write
-            a Review</button>&nbsp;
-          <button type="submit" class="btn btn-success" id="productbutton" data-toggle="modal" #prole value="product-owner" (click)="onclick1(prole.value)"
->>>>>>> 168c41d0bbcd9b77e529534fad7588988bb95e2f
-            data-target="#signup2">Post
-            a Product</button>
+          <button type="submit" class="btn btn-outline-info" id="productbutton" data-toggle="modal" #prole value="product-owner" (click)="onclick1(prole.value)" 
+          data-target="#signup2">
+            Post a Product</button>
         </div>
       </form>
     </div>
@@ -200,9 +193,6 @@
 
           <button type="button" class="btn btn-primary" #role value="reviewer" data-dismiss="modal" (click)="onClick(role.value)"
             id="rsubmitbutton">Revierwer</button>
-
-          <!-- <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onClick()"
-            id="rsubmitbutton">Reviewer</button> -->
 
         </div>
       </div>
