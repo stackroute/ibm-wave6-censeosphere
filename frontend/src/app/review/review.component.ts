@@ -9,15 +9,16 @@ import{ LandingpageService }from '../landingpage.service';
 })
 export class ReviewComponent implements OnInit {
   reviews: any;
+  products: [];
 
   constructor(private reviewService:ReviewService,private router:Router,private landingservice:LandingpageService) { 
     this.reviews=[];
   }
 
   ngOnInit() {
-    this.reviewService.addReview().subscribe((data:any)=>{
+    this.landingservice.getAllProducts().subscribe((data:any)=>{
       console.log(data);
-      this.reviews=data;
+      this.products=data;
     })
 
     this.reviewService.getAllReviews().subscribe((data:any) => {
@@ -27,9 +28,8 @@ export class ReviewComponent implements OnInit {
 
   }
   
-  onSubmit(reviewTitle,reviewDescription,productName,reviewerEmail,reviewedOn){
-    
-    this.router.navigateByUrl("/searchreview/"+reviewTitle+reviewDescription+productName+reviewerEmail+reviewedOn);
+  onSubmit(){
+    this.router.navigateByUrl("/searchreview");
   }
 
 }

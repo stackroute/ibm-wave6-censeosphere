@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Reviewer } from '../reviewer';
 import { ProfileService } from '../profile.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-newaccount',
   templateUrl: './newaccount.component.html',
@@ -10,7 +11,33 @@ import { ProfileService } from '../profile.service';
 export class NewaccountComponent implements OnInit {
   public role= "";
   reviewer:Reviewer=new Reviewer();
-  constructor(private router:Router,private activatedRoute:ActivatedRoute,private profileService:ProfileService) { }
+  profileFormGroup:FormGroup;
+  verifyFormGroup:FormGroup;
+  hide=true;
+  validation_messages = {
+    'name': [
+      { type: 'required', message: 'name is required' },
+      { type: 'maxlength', message: 'name cannot be more than 20 characters long' },
+      { type: 'pattern', message: 'name must contain only numbers and letters' },
+      { type: 'validUsername', message: 'name has already been taken' }
+    ],
+    'emailId': [
+      { type: 'required', message: 'Email is required' },
+      { type: 'pattern', message: 'Enter a valid email' }
+    ],
+    'reconfirmPassword': [
+      { type: 'required', message: 'Confirm password is required' },
+      { type: 'areEqual', message: 'Password mismatch' }
+    ],
+    'password': [
+      { type: 'required', message: 'Password is required' },
+      { type: 'minlength', message: 'Password must be at least 5 characters long' },
+      { type: 'pattern', message: 'Your password must contain at least one uppercase, one lowercase, and one number' }
+    ]
+    }
+
+  constructor(private router:Router,private activatedRoute:ActivatedRoute,private profileService:ProfileService,private fb:FormBuilder) { }
+
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params =>{
@@ -21,42 +48,73 @@ export class NewaccountComponent implements OnInit {
     })
   }
 
-  onClickS(name,emailId,rpassword):any
-  {
-    this.reviewer.emailId=emailId;
-    this.reviewer.name=name;
-    this.reviewer.reconfirmPassword=rpassword;
-    this.reviewer.role=this.role;
-    if(this.role == 'reviewer'){
-    this.profileService.saveReviewer(this.reviewer).
-    subscribe(
-      data => {
-        console.log("POST Request is successful ", data);},
-        error => {
-        alert("Invalid")
-        console.log("Error", error);} 
+//   onClickS(name,emailId,reconfirmPassword):any
+//   {
+//     this.reviewer.emailId=emailId;
+//     this.reviewer.name=name;
+//     this.reviewer.reconfirmPassword=reconfirmPassword;
+//     this.reviewer.role=this.role;
+//     if(this.role == 'reviewer'){
+//     this.profileService.saveReviewer(this.reviewer).
+//     subscribe(
+//       data => {
+//         console.log("POST Request is successful ", data);},
+//         error => {
+//         alert("Invalid")
+//         console.log("Error", error);} 
 
-);
-        }
-        else if(this.role == 'product-owner'){
-          this.profileService.saveProductowner(this.reviewer).
-    subscribe(
-      data => {
-        console.log("POST Request is successful ", data);},
-        error => {
-        alert("Invalid")
-        console.log("Error", error);} 
+// );
+//         }
+//         else if(this.role == 'product-owner'){
+//           this.profileService.saveProductowner(this.reviewer).
+//     subscribe(
+//       data => {
+//         console.log("POST Request is successful ", data);},
+//         error => {
+//         alert("Invalid")
+//         console.log("Error", error);} 
 
-);
+// );
 
-    console.log("Reviewer "+this.reviewer);
-    this.router.navigateByUrl("/");
-        }
+//     console.log("Reviewer "+this.reviewer);
+//     this.router.navigateByUrl("/");
+//         }
 
-    console.log("Reviewer "+this.reviewer);
-    this.router.navigateByUrl("/");
+//     console.log("Reviewer "+this.reviewer);
+//     this.router.navigateByUrl("/");
     
+//   }
+
+name="";
+emailId="";
+
+  saveReviewer()
+  {
+    // this.reviewer.name=this.profileFormGroup.controls.name.value;
+    // this.reviewer.emailId=this.profileFormGroup.controls.emailId.value;
+    // this.reviewer.role=this.role;
+    this.name=this.profileFormGroup.controls.name.value;
+    this.emailId=this.profileFormGroup.controls.emailId.value;
+    console.log("from saveReviewer : "+this.reviewer);
   }
+  
+  saveReviewer1()
+  {
+    this.reviewer.name=this.name;
+    this.reviewer.emailId=this.emailId;
+    this.reviewer.role=this.role;
+    this.reviewer.reconfirmPassword=this.verifyFormGroup.controls.reconfirmPassword.value;
+    this.profileService.saveReviewer(this.reviewer).
+     subscribe(data =>{
+      console.log("POST Request is successful ", data);
+     },
+     error => {
+            // alert("Invalid")
+            console.log("Error", error);}
+      );
+    console.log("fron saveReviewer1"+this.reviewer);
+  }
+
   onClickC()
   {
     this.router.navigateByUrl("/");

@@ -6,12 +6,16 @@
     <img src="../../assets/img/logo6.png">
   </nav>
 </div>
+<<<<<<< HEAD
 <!-- end header -->
 
 
 <div class="container">
+=======
+<!-- <div class="container"> -->
+>>>>>>> 168c41d0bbcd9b77e529534fad7588988bb95e2f
   
-<form class="form-horizontal" #myForm="ngForm" (ngSubmit)="onClickS(name.value,emailId.value,rpassword.value)">
+<!-- <form class="form-horizontal" #myForm="ngForm" (ngSubmit)="onClickS(name.value,emailId.value,rpassword.value)">
  
   <h2 id="newheading">Create New Account</h2>  
   <div class="form-group">
@@ -44,8 +48,105 @@
   
     <button class="btn btn-success" type="submit" id="submitbutton" >Submit</button>&nbsp;
     <button class="btn btn-danger" type="submit" id="cancelbutton" (click)="onClickC()">cancel</button>
+
+  </form>  -->
+
+  <div class="container">
+
+  <h2 id="newheading">Create New Account</h2>
+  <br/>
+  <br/>
+
+  <mat-horizontal-stepper labelPosition="bottom" linear>
+    <!-- 1st Form-->
+      <mat-step [stepControl]="profileFormGroup" label="Fill your details">
+          <div class="thumb-wrapper">
+            <form [formGroup]="profileFormGroup" >
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="Name:" formControlName="name" [(ngModel)]="name" required>
+                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-error *ngFor="let validation of validation_messages.name">
+                      <mat-error class="error-message" *ngIf="profileFormGroup.get('name').hasError(validation.type) && (profileFormGroup.get('name').dirty || profileFormGroup.get('name').touched)">{{validation.message}}
+                      </mat-error>
+                    </mat-error>
+                </mat-form-field> <br/>
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="Email-Id:" formControlName="emailId" [(ngModel)]="emailId" required>
+                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                  <mat-error *ngFor="let validation of validation_messages.emailId">
+                      <mat-error class="error-message" *ngIf="profileFormGroup.get('emailId').hasError(validation.type) && (profileFormGroup.get('emailId').dirty || profileFormGroup.get('emailId').touched)">{{validation.message}}
+                      </mat-error>
+                    </mat-error>
+                </mat-form-field>
+                <div>
+                  <!-- <button mat-button matStepperNext (ngSubmit)="onClickS(profileFormGroup.value)">Next</button> -->
+                  <button mat-button matStepperNext (click)="saveReviewer()">Next</button>
+                </div>
+            </form>
+          </div>
+      </mat-step>
+      <!--1st Form ends-->
+      
+      <!--2nd form -->
+      <mat-step [stepControl]="verifyFormGroup" label="Give your password">
+          <div class="thumb-wrapper">
+            <form [formGroup]="verifyFormGroup">  
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Password:" formControlName="password" [type]="hide ? 'password' : 'text'" [(ngModel)]="password" required>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                    <mat-error *ngFor="let validation of validation_messages.password">
+                        <mat-error class="error-message" *ngIf="verifyFormGroup.get('password').hasError(validation.type) && (verifyFormGroup.get('password').dirty || verifyFormGroup.get('password').touched)">{{validation.message}}
+                        </mat-error>
+                    </mat-error>
+                  </mat-form-field>  <br/>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Reconfirm Password:" formControlName="reconfirmPassword" [type]="hide ? 'password' : 'text'" [(ngModel)]="reconfirmPassword" required>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                    <mat-error *ngFor="let validation of validation_messages.password">
+                        <mat-error class="error-message" *ngIf="verifyFormGroup.get('password').hasError(validation.type) && (verifyFormGroup.get('password').dirty || verifyFormGroup.get('password').touched)">{{validation.message}}
+                        </mat-error>
+                    </mat-error>
+                  </mat-form-field>
+                <div>
+                  <!-- <button mat-button matStepperPrevious (ngSubmit)="onClickS(profileFormGroup.value)">Previous</button> -->
+                  <button mat-button matStepperPrevious>Previous</button>
+                  <button mat-button matStepperNext (click)="saveReviewer1()">Submit</button> 
+                </div>
+            </form>
+          </div>
+      </mat-step>
+      <!-- 2nd form ends-->
+
+      <!-- <mat-step label="Done">
+        <div class="thumb-wrapper">
+          <h3 style="text-align: center;margin-top:80px;">You are successfully Registered..!!</h3>
+          <div>
+              <button mat-button matStepperPrevious>Previous</button>
+          </div>
+        </div>
+      </mat-step> -->
+
+      <mat-step label="Done" >
+          <div class="thumb-wrapper">
+              <ng-template matStepLabel>
+                  <strong>Done!</strong>
+              </ng-template>
+              <img src="https://img.icons8.com/color/96/000000/ok.png" width=100 height=100>
   
-  </form>
+              <h1>
+                  Thank you!!!
+              </h1>
+              <h3>You are successfully Registered!!!</h3>
+          </div>
+      </mat-step>
+  </mat-horizontal-stepper>
+
 </div>
 <!-- footer -->
 <footer class="page-footer font-small blue pt-4">
@@ -124,7 +225,13 @@
         </ul>
       </div>
     </div>
+<<<<<<< HEAD
   </div>
 </footer>
 <!-- end footer -->
 </div>
+=======
+  </footer>
+  <!-- end footer -->
+<!-- </div> -->
+>>>>>>> 168c41d0bbcd9b77e529534fad7588988bb95e2f

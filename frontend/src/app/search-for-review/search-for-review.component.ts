@@ -19,9 +19,12 @@ export class SearchForReviewComponent implements OnInit {
     this.reviews=data;
   })
 }
-     wreview(productName,price,subCategory,ratings,specification,description,uploadedOn)
+     wreview()
   {
 
-    this.router.navigateByUrl("/writereview/"+productName+price+subCategory+ratings+specification+description+uploadedOn);
+    this.router.navigateByUrl("/writereview");
   }
 }
+
+  
+

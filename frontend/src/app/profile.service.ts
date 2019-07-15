@@ -7,12 +7,13 @@ import { Reviewer } from './reviewer';
 export class ProfileService {
   profileService: any;
   route: any;
-  headers = new HttpHeaders({'Access-Control-Allow-Origin' : '*'})
+  httpOptions={
+  headers : new HttpHeaders({'Access-Control-Allow-Origin' : '*'})}
   
   constructor(private http:HttpClient) { }
 
   saveReviewer(reviewer:Reviewer){
-    console.log("hiiiiiiiiiiiiiii "+reviewer);
+    console.log("hello there ", reviewer);
    return this.http.post<Reviewer>("http://localhost:8087/api/v1/reviewer",reviewer);
   }
   saveProductowner(reviewer:Reviewer)
