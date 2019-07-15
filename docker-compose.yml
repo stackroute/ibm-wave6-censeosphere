@@ -94,6 +94,15 @@ services:
     ports:
       - 8060:8060
 
+  nlpservice:
+    build: NLP-service
+    restart: always
+    network_mode: "host"
+    depends_on:
+      - mongodb
+    ports:
+      - 8877:8877
+
   rabbitmq:
     image: rabbitmq:3.7.5-management
     hostname: localhost
