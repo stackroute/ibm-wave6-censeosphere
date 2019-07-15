@@ -1,4 +1,4 @@
-<<<<<<< HEAD:NLP-service/src/main/java/com/stackroute/NLPservice/config/Configconsumedetail.java
+
 package com.stackroute.NLPservice.config;
 
 
@@ -66,40 +66,3 @@ public class Configconsumedetail {
 
 
 }
-=======
-//package com.stackroute.review.config;
-//
-//import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
-//import org.springframework.amqp.rabbit.connection.ConnectionFactory;
-//import org.springframework.amqp.rabbit.core.RabbitTemplate;
-//import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
-//import org.springframework.amqp.support.converter.MessageConverter;
-//import org.springframework.context.annotation.Bean;
-//import org.springframework.context.annotation.Configuration;
-//
-//@Configuration
-//public class ReviewConfig {
-//
-//    @Bean
-//    public MessageConverter jsonMessageConverter() {
-//        return new Jackson2JsonMessageConverter();
-//    }
-//    @Bean
-//    ConnectionFactory connectionFactory(){
-//        //we want connection to be stable,so that we needn't close or open connection
-//        CachingConnectionFactory cachingConnectionFactory =new CachingConnectionFactory("localhost");
-//        cachingConnectionFactory.setUsername("guest");
-//        cachingConnectionFactory.setPassword("guest");
-//        return cachingConnectionFactory;
-//    }
-//
-//
-//    @Bean
-//    public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
-//        final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
-//        rabbitTemplate.setMessageConverter(jsonMessageConverter());
-//        return rabbitTemplate;
-//    }
-//
-//}
->>>>>>> 35c3f9a30a4df7a6e4f259c6fff8bbd2cb1b0853:review-service/src/main/java/com/stackroute/review/config/ReviewConfig.java

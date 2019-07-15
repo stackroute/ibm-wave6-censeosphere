@@ -33,11 +33,9 @@
 		<module>review-service</module>
 		<module>reviewer-profile-service</module>
 		<module>productOwner-service</module>
-<<<<<<< HEAD
+
 		<module>NLP-service</module>
-=======
 		<module>product-search-service</module>
->>>>>>> 35c3f9a30a4df7a6e4f259c6fff8bbd2cb1b0853
 	</modules>
 
 	<dependencies>
@@ -131,6 +129,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.22.0</version>
 				<configuration>
+					<!--suppress UnresolvedMavenProperty -->
 					<argLine>${surefireArgLine}</argLine>
 				</configuration>
 			</plugin>
@@ -146,6 +145,7 @@
 				<artifactId>maven-failsafe-plugin</artifactId>
 				<version>3.0.0-M2</version>
 				<configuration>
+					<!--suppress UnresolvedMavenProperty -->
 					<argLine>${failsafeArgLine}</argLine>
 				</configuration>
 				<executions>

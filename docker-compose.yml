@@ -90,7 +90,6 @@ services:
     ports:
       - 8060:8060
 
-<<<<<<< HEAD
   nlpservice:
     build: NLP-service
     restart: always
@@ -99,7 +98,7 @@ services:
       - mongodb
     ports:
       - 8877:8877
-=======
+
   productsearchservice:
       build: product-search-service
       restart: always
@@ -109,7 +108,6 @@ services:
       ports:
         - 8081:8081
 
->>>>>>> 35c3f9a30a4df7a6e4f259c6fff8bbd2cb1b0853
 
   rabbitmq:
     image: rabbitmq:3.7.5-management

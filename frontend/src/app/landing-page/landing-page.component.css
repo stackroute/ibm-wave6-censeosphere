@@ -2,7 +2,7 @@ a{
     text-decoration: none;
 }
 .navbar{
-    background-color:#fdffff;
+    background-color:lightblue;
     position: relative;
     height: 80px;
     position: fixed;
@@ -21,6 +21,9 @@ nav img{
    top: 0;
    margin-top: 17px;
    margin-right: 30px;
+}
+#login :hover{
+    background-color: midnightblue;
 }
 .containerbody,.modal,.jumbotron, footer,li ,h3 ,h2, .thumb-wrapper  {
     font-family: 'Work Sans', sans-serif;
