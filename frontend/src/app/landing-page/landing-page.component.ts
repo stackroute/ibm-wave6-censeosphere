@@ -19,7 +19,7 @@ export class LandingPageComponent implements OnInit {
   products = [];
   categories = [];
   subCategories = [];
-   job="";
+  job="";
    
    helper = new JwtHelperService();
    auth:Authentication=new Authentication();

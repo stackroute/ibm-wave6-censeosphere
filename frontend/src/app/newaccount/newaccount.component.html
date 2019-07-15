@@ -61,6 +61,7 @@
                       </mat-error>
                     </mat-error>
                 </mat-form-field> <br/>
+                <br>
                 <mat-form-field class="full-width">
                   <input matInput placeholder="Email-Id:" formControlName="emailId" [(ngModel)]="emailId" required>
                   <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
@@ -93,6 +94,7 @@
                         </mat-error>
                     </mat-error>
                   </mat-form-field>  <br/>
+                  <br>
                 <mat-form-field class="full-width">
                     <input matInput placeholder="Reconfirm Password:" formControlName="reconfirmPassword" [type]="hide ? 'password' : 'text'" [(ngModel)]="reconfirmPassword" required>
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
@@ -134,6 +136,7 @@
                   Thank you!!!
               </h1>
               <h3>You are successfully Registered!!!</h3>
+              <button mat-button class="btn btn-info" type="submit" (click)="follow()"><b>Follow Me</b></button>
           </div>
       </mat-step>
   </mat-horizontal-stepper>

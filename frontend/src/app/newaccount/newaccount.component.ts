@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Reviewer } from '../reviewer';
 import { ProfileService } from '../profile.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-newaccount',
   templateUrl: './newaccount.component.html',
@@ -45,8 +45,29 @@ export class NewaccountComponent implements OnInit {
       this.role=params['role'];
       console.log(" from newaccount componenent "+this.role);
      
-    })
+    });
+    this.profileFormGroup=this.fb.group({
+      name:['',Validators.compose([Validators.required,Validators.maxLength(20)])],
+      emailId:['',Validators.compose([Validators.required,Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+    ])]
+    });
+
+    this.verifyFormGroup=this.fb.group({
+      password:['',Validators.compose([
+        Validators.minLength(5),
+        Validators.required,Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')])],
+      reconfirmPassword:['',Validators.required]
+    },
+    {Validators:passwordMatchValidator});
+
+    function passwordMatchValidator(group:FormGroup)
+    {
+      let pass = group.controls.password.value;
+      let confirmPass = group.controls.passwordConfirm.value;
+      return pass === confirmPass ? null : { mismatch: true }
+    }
   }
+  
 
 //   onClickS(name,emailId,reconfirmPassword):any
 //   {
@@ -104,6 +125,8 @@ emailId="";
     this.reviewer.emailId=this.emailId;
     this.reviewer.role=this.role;
     this.reviewer.reconfirmPassword=this.verifyFormGroup.controls.reconfirmPassword.value;
+
+    if(this.role == 'reviewer'){
     this.profileService.saveReviewer(this.reviewer).
      subscribe(data =>{
       console.log("POST Request is successful ", data);
@@ -113,9 +136,20 @@ emailId="";
             console.log("Error", error);}
       );
     console.log("fron saveReviewer1"+this.reviewer);
-  }
+     }
 
-  onClickC()
+     else if(this.role == 'product-owner'){
+      this.profileService.saveProductowner(this.reviewer).
+     subscribe(data => {
+      console.log("POST Request is successful ", data);},
+      error => {
+      // alert("Invalid")
+      console.log("Error", error);} 
+
+);
+  }
+}
+follow()
   {
     this.router.navigateByUrl("/");
   }
