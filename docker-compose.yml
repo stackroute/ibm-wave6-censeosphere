@@ -45,10 +45,10 @@ services:
     restart: always
     network_mode: "host"
     depends_on:
-      - eureka-server
-      - zuul-api
-      - config-service
-      - mysqldb
+#      - eureka-server
+#      - zuul-api
+#      - config-service
+      - mongodb
     ports:
       - 8089:8089
 
