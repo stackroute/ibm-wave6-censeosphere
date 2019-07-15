@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 760a3b6e8bea919bd7bedc384052effdd6d8cc9e
 package com.stackroute.NLPservice.config;
 
 
@@ -65,4 +68,8 @@ public class Configconsumedetail {
 
 
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 760a3b6e8bea919bd7bedc384052effdd6d8cc9e

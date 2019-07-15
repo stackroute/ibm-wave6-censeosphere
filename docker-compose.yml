@@ -108,7 +108,6 @@ services:
       ports:
         - 8081:8081
 
-
   rabbitmq:
     image: rabbitmq:3.7.5-management
     hostname: localhost

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LandingpageService } from '../landingpage.service';
-// import productList from 'src/assets/jsonfiles/product.json';
 import {Authentication }  from '../authentication';
 import {LoginvalidationService}   from '../loginvalidation.service';
 import  { JwtHelperService } from '@auth0/angular-jwt';
@@ -26,8 +25,7 @@ export class LandingPageComponent implements OnInit {
   constructor(private router:Router,private landingpageservice:LandingpageService,private  loginvalidation:LoginvalidationService) { }
 
     ngOnInit() {
-    // console.log(productList);
-    // (productss:any) => productList;
+   
 
     this.landingpageservice.getAllProducts().subscribe((data:any) => {
       console.log(data);
@@ -73,7 +71,7 @@ export class LandingPageComponent implements OnInit {
            console.log(role);
           console.log("in if1");
           this.router.navigateByUrl("/reviwerdashboard");
-          
+         
          }
         else{
           alert("provide valid credentailds");
@@ -150,7 +148,9 @@ export class LandingPageComponent implements OnInit {
            console.log(role);
           console.log("in if1");
          
-          this.router.navigateByUrl("/reviwerdashboard");
+          // this.router.navigateByUrl("/reviwerdashboard");
+
+          this.router.navigateByUrl("/rdashboard");
          }
         else if(role == 'product-owner'){
           this.router.navigateByUrl("/productownerdashboard");
