@@ -33,7 +33,11 @@
 		<module>review-service</module>
 		<module>reviewer-profile-service</module>
 		<module>productOwner-service</module>
+<<<<<<< HEAD
+		<module>NLP-service</module>
+=======
 		<module>product-search-service</module>
+>>>>>>> 35c3f9a30a4df7a6e4f259c6fff8bbd2cb1b0853
 	</modules>
 
 	<dependencies>

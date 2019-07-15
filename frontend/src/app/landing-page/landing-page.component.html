@@ -142,13 +142,13 @@
         </div>
         <div class="modal-body">
           <form  #myForm="ngForm"  (ngSubmit)="newlogin(lemailId.value,lpassword.value)">
-                       <div class="form-group">
+            <div class="form-group">
               <label for="emailId">Email-Id</label>
-              <input type="text" #lemailId id="emailId" class="form-control">
+              <input type="text" #lemailId id="emailId" class="form-control" required>
             </div>
             <div class="form-group">
               <label for="password">Password</label>
-              <input type="password" #lpassword name="password" id="password" class="form-control">
+              <input type="password" #lpassword name="password" id="password" class="form-control" required>
             </div>
             <button type="submit" class="btn btn-success" id="signinbutton">Sign In</button>
           </form>

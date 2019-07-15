@@ -58,3 +58,11 @@ footer a:hover{
 /* .bodyy{
     background: url('../../assets/img/newaccountback.jpg') center center no-repeat;
 } */
+.thumb-wrapper {
+	padding: 25px 15px;
+	background: #fff;
+	border-radius: 6px;
+	text-align: center;
+	position: relative;
+	box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+}
