@@ -13,7 +13,7 @@ export class ProfileService {
   constructor(private http:HttpClient) { }
 
   saveReviewer(reviewer:Reviewer){
-    console.log("hiiiiiiiiiiiiiii ", reviewer);
+    console.log("hello there ", reviewer);
    return this.http.post<Reviewer>("http://localhost:8087/api/v1/reviewer",reviewer);
   }
   saveProductowner(reviewer:Reviewer)

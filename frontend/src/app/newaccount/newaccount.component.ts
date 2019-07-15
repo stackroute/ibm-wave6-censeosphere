@@ -32,7 +32,7 @@ export class NewaccountComponent implements OnInit {
     'password': [
       { type: 'required', message: 'Password is required' },
       { type: 'minlength', message: 'Password must be at least 5 characters long' },
-      { type: 'pattern', message: 'Your password must contain at least one uppercase, one lowercase, and one number' }
+      { type: 'pattern', message: 'Password must contain atleast 1 uppercase,1 lowercase,and 1 number' }
     ]
     }
 
