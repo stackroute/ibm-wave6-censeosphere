@@ -16,6 +16,6 @@ public interface ProductOwnerService {
 
     public ProductOwner deleteDetails(String emailId) throws ProductOwnerDetailsNotFoundException;
 
-    public ProductOwner updateDetails(ProductOwner productowner) throws ProductOwnerDetailsNotFoundException;
+    public ProductOwner updateDetails(ProductOwner productowner,String emailId) throws ProductOwnerDetailsNotFoundException;
     public void sendproductOwnner(ProductOwnerDTO productOwnerDTO);
 }

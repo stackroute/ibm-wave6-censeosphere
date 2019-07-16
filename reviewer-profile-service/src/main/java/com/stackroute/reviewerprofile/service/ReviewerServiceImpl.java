@@ -89,23 +89,28 @@ public class ReviewerServiceImpl implements ReviewerService {
     }
 
     @Override
-    public Reviewer updateReviewer(Reviewer reviewer){
+    public Reviewer updateReviewer(Reviewer reviewer,String emailId) throws ReviewerNotFoundException{
         Reviewer reviewer1=null;
-        if(reviewerRepository.existsById(reviewer.getEmailId())) {
-            Optional optional = reviewerRepository.findById(reviewer.getEmailId());
-            if (optional.isPresent()) {
-                reviewer1 = (Reviewer) optional.get();
-                reviewer1.setName(reviewer.getName());
-                reviewer1 = reviewerRepository.save(reviewer1);
-            }
+        Optional optional;
+        optional=reviewerRepository.findById(emailId);
+        if(optional != null)
+        {
+            // productowner.setName(productowner.getName());
+//            productowner1=productownerRepository.save(productowner);
+           reviewer1=reviewerRepository.findById(emailId).get();
+
+            System.out.println("from update method "+reviewer1);
+            reviewer1.setName(reviewer.getName());
+            reviewer1.setImage(reviewer.getImage());
+            reviewer1.setReconfirmPassword(reviewer.getReconfirmPassword());
+
+            System.out.println("After updating "+reviewer1);
+            reviewerRepository.save(reviewer1);
+
         }
         else
         {
-            try {
-                throw new ReviewerNotFoundException("Details not found");
-            } catch (ReviewerNotFoundException e) {
-                e.printStackTrace();
-            }
+            throw new ReviewerNotFoundException("Details not found");
         }
 
         return reviewer1;

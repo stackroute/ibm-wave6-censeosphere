@@ -19,10 +19,8 @@ export class AddProductComponent implements OnInit {
 firstFormGroup:FormGroup;
 
 product=new Product();
+
 hide:true;
-
-
-
 
   constructor(private router:Router,private http:HttpClient,private _formBuilder: FormBuilder,private products:ProductService) { }
 

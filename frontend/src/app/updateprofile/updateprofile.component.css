@@ -89,6 +89,23 @@ h4 {
 	font-size: 14px;
 	color: #ffc000;
 }
+#heading
+{
+  /* margin-top: 120px; */
+  text-align: center;
+
+}
+.center_div
+{
+  margin: 0 auto;
+  position: relative;
+}
+#editform{
+  
+  margin: 0 auto;
+  
+}
+
 footer
 {
     margin-top: 80px;

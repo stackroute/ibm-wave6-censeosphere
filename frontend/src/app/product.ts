@@ -3,10 +3,10 @@ export class Product {
     subCategory:String;
     productName:String;
     productFamily:String;
-    price:BigInteger;
+    price:Float32Array;
     specifications:String;
     description:String;
     image:String;
     uploadedOn:Date;
-    rating:Float32Array;
+    rating:Int16Array;
 }
