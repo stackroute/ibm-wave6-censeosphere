@@ -27,6 +27,21 @@ nav img{
    margin-right:100px;
    
  }
+
+ .thumb-wrapper {
+  margin-left: 200px;
+  margin-top: 30px;
+ padding: 25px 15px;
+ background: #def2f1;
+ border-radius: 6px;
+ text-align: center;
+ position: relative;
+   box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+   width: 700px;
+} 
+.thumb-wrapper a:hover{
+  color:rgb(38, 4, 161);
+}
  footer
 {
     margin-top: 80px;
