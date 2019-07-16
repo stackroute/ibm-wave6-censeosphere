@@ -3,21 +3,21 @@
     padding: 0;
     
   }
-
-.navbar{
-    background-color:aliceblue;
+  a{
+    text-decoration: none;
+}
+  .navbar{
+    background-color:lightblue;
     position: relative;
     height: 80px;
     position: fixed;
-   
- }
- nav img{
-    height: 60px;
-    width: 200px;
-    /* margin-left: 26px;  */
+}
+nav img{
+    height: 55px;
+    width: 280px;
     position: fixed;
-    margin-left: 50px;
- }
+    margin-left: 70px;
+}
  nav .dropdown{
   
    color: black;

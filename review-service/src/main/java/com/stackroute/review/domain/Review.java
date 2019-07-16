@@ -23,7 +23,7 @@ public class Review {
     private String reviewerEmail;
     private String reviewTitle;
     private String reviewDescription;
-    private byte[] image;
+//    private byte[] image;
     private String productName;
     private Float price;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")

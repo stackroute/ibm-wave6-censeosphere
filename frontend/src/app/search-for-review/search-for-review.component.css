@@ -1,20 +1,21 @@
  *{
   font-family: 'Work Sans', sans-serif;
 }
+a{
+  text-decoration: none;
+}
 .navbar{
-    background-color:aliceblue;
-    position: relative;
-    height: 80px;
-    position: fixed;
-   
- }
- nav img{
-    height: 60px;
-    width: 200px;
-    /* margin-left: 26px;  */
-    position: fixed;
-    margin-left: 50px;
- }
+  background-color:lightblue;
+  position: relative;
+  height: 80px;
+  position: fixed;
+}
+nav img{
+  height: 55px;
+  width: 280px;
+  position: fixed;
+  margin-left: 70px;
+}
  nav .dropdown{
   
    color: black;

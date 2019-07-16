@@ -3,14 +3,14 @@ h2{
 }
 
 .navbar{
-    background-color:aliceblue;
+    background-color:#fdffff;
     position: relative;
     height: 80px;
     position: fixed;
 }
 nav img{
-    height: 60px;
-    width: 200px;
+    height: 55px;
+    width: 280px;
     position: fixed;
     margin-left: 70px;
 }

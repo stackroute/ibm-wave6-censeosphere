@@ -6,7 +6,7 @@
     text-decoration: none;
 }
 .navbar{
-    background-color:#fdffff;
+    background-color:lightblue;
     position: relative;
     height: 80px;
     position: fixed;
@@ -79,7 +79,7 @@ footer a:hover{
   }
   .thumb-wrapper {
 	padding: 25px 15px;
-	background: #fff;
+	background: #def2f1;
 	border-radius: 6px;
 	text-align: center;
 	position: relative;

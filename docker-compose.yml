@@ -45,9 +45,6 @@ services:
     restart: always
     network_mode: "host"
     depends_on:
-#      - eureka-server
-#      - zuul-api
-#      - config-service
       - mongodb
     ports:
       - 8089:8089
@@ -62,7 +59,6 @@ services:
       MYSQL_DATABASE: logindb
       MYSQL_PASSWORD: root
       MYSQL_USER: root
-#      MYSQL_ALLOW_EMPTY_PASSWORD: "YES"
     volumes:
       - $HOME/data/datasql:/var/lib/mysql
     network_mode: "host"
@@ -74,14 +70,13 @@ services:
     restart: always
     network_mode: host
     volumes:
-      - ./registration:/data/db
+      - $HOME/data:/data/db
 
   reviewerprofileservice:
     build: reviewer-profile-service
     restart: always
     network_mode: "host"
     depends_on:
-
       - mongodb
     ports:
       - 8087:8087
@@ -95,6 +90,15 @@ services:
     ports:
       - 8060:8060
 
+  nlpservice:
+    build: NLP-service
+    restart: always
+    network_mode: "host"
+    depends_on:
+      - mongodb
+    ports:
+      - 8877:8877
+
   productsearchservice:
       build: product-search-service
       restart: always
@@ -104,7 +108,6 @@ services:
       ports:
         - 8081:8081
 
-
   rabbitmq:
     image: rabbitmq:3.7.5-management
     hostname: localhost
@@ -112,7 +115,7 @@ services:
       - 5672:5672
       - 15672:15672
     volumes:
-      - ./data/rabbitmq:/var/lib/rabbitmq/mnesia/rabbit@app-rabbitmq:cached
+      - $HOME/data/rabbitmq:/var/lib/rabbitmq/mnesia/rabbit@app-rabbitmq:cached
     environment:
       RABBITMQ_ERLANG_COOKIE: 6085e2412b6fa88647466c6a81c0cea0
       RABBITMQ_DEFAULT_USER: guest
