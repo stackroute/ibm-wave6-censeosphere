@@ -1,3 +1,4 @@
+
 package com.stackroute.NLPservice.config;
 
 
@@ -64,4 +65,7 @@ public class Configconsumedetail {
 
 
 
+
 }
+
+

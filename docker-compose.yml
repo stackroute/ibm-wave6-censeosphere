@@ -70,7 +70,7 @@ services:
     restart: always
     network_mode: host
     volumes:
-      - ./registration:/data/db
+      - $HOME/data:/data/db
 
   reviewerprofileservice:
     build: reviewer-profile-service
@@ -89,7 +89,6 @@ services:
       - mongodb
     ports:
       - 8060:8060
-
 
   nlpservice:
     build: NLP-service
@@ -116,7 +115,7 @@ services:
       - 5672:5672
       - 15672:15672
     volumes:
-      - ./data/rabbitmq:/var/lib/rabbitmq/mnesia/rabbit@app-rabbitmq:cached
+      - $HOME/data/rabbitmq:/var/lib/rabbitmq/mnesia/rabbit@app-rabbitmq:cached
     environment:
       RABBITMQ_ERLANG_COOKIE: 6085e2412b6fa88647466c6a81c0cea0
       RABBITMQ_DEFAULT_USER: guest

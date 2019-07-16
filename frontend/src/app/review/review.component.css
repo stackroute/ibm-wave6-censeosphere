@@ -3,19 +3,18 @@
     padding: 0;
   }
 
-.navbar{
-    background-color:aliceblue;
-    position: relative;
-    height: 80px;
-    position: fixed;
-   
- }
- nav img{
-    height: 60px;
-    width: 200px;
-    position: fixed;
-    margin-left: 50px;
- }
+  .navbar{
+   background-color:lightblue;
+   position: relative;
+   height: 80px;
+   position: fixed;
+}
+nav img{
+   height: 55px;
+   width: 280px;
+   position: fixed;
+   margin-left: 70px;
+}
  nav .dropdown{
   
    color: black;
@@ -48,7 +47,7 @@ footer a:hover{
     font-size: 18px;
 }
 
-.thumb-wrapper {
+/* .thumb-wrapper {
    margin-left: 250px;
    margin-top: 160px;
 	padding: 25px 15px;
@@ -58,14 +57,14 @@ footer a:hover{
 	position: relative;
     box-shadow: 0 2px 3px rgba(0,0,0,0.2);
     width: 300px;
-}
+} */
 .thumb-wrapper a:hover{
    color:rgb(38, 4, 161);
 }
 .reviewForm {
    margin-top: 50px;
    margin-left: 250px;
-   border-block: 2px;
+   
 }
 .form-control{
    padding: 15px;
