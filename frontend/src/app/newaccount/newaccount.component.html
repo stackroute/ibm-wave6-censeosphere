@@ -6,15 +6,9 @@
     <img src="../../assets/img/logo6.png">
   </nav>
 </div>
-<<<<<<< HEAD
+
 <!-- end header -->
 
-
-<div class="container">
-=======
-<!-- <div class="container"> -->
->>>>>>> 168c41d0bbcd9b77e529534fad7588988bb95e2f
-  
 <!-- <form class="form-horizontal" #myForm="ngForm" (ngSubmit)="onClickS(name.value,emailId.value,rpassword.value)">
  
   <h2 id="newheading">Create New Account</h2>  
@@ -57,10 +51,14 @@
   <br/>
   <br/>
 
-  <mat-horizontal-stepper labelPosition="bottom" linear>
+  <mat-horizontal-stepper linear >
     <!-- 1st Form-->
-      <mat-step [stepControl]="profileFormGroup" label="Fill your details">
-          <div class="thumb-wrapper">
+      <mat-step [stepControl]="profileFormGroup">
+        <ng-template matStepLabel>
+          <mat-icon aria-hidden="false" aria-label="Example account_box icon">person_pin</mat-icon>
+          <b>Fill your details </b>
+        </ng-template>
+          <div class="thumb-wrapper" style="background-color:rgba(135, 206,250,0.4);">
             <form [formGroup]="profileFormGroup" >
                 <mat-form-field class="full-width">
                   <input matInput placeholder="Name:" formControlName="name" [(ngModel)]="name" required>
@@ -89,7 +87,11 @@
       <!--1st Form ends-->
       
       <!--2nd form -->
-      <mat-step [stepControl]="verifyFormGroup" label="Give your password">
+      <mat-step [stepControl]="verifyFormGroup">
+          <ng-template matStepLabel>
+              <mat-icon aria-hidden="false" aria-label="Example lock icon">lock</mat-icon>
+              <b>Give your password</b>
+            </ng-template>
           <div class="thumb-wrapper">
             <form [formGroup]="verifyFormGroup">  
                 <mat-form-field class="full-width">
@@ -137,7 +139,8 @@
       <mat-step label="Done" >
           <div class="thumb-wrapper">
               <ng-template matStepLabel>
-                  <strong>Done!</strong>
+                <mat-icon aria-hidden="false" aria-label="Example sentiment_very_satisfied icon">sentiment_very_satisfied</mat-icon>
+                  <b>Done!</b>
               </ng-template>
               <img src="https://img.icons8.com/color/96/000000/ok.png" width=100 height=100>
   
@@ -228,13 +231,8 @@
         </ul>
       </div>
     </div>
-<<<<<<< HEAD
   </div>
 </footer>
 <!-- end footer -->
 </div>
-=======
-  </footer>
-  <!-- end footer -->
-<!-- </div> -->
->>>>>>> 168c41d0bbcd9b77e529534fad7588988bb95e2f
+
