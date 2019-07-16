@@ -1,19 +1,25 @@
+<!-- header -->
 <div class="containerbody">
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <img src="assets/img/CenseoSphere_logo.png">
-        <div class="dropdown">
-            <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
-            </a>
-            <ul id="drop" class="dropdown-menu">
-                <li><button class="dropdown-item" (click)="update()"><span><i class="fa fa-refresh"></i></span> Update
-                        profile</button></li>
-                <li><button class="dropdown-item" (click)="lpage()"><span><i class="fa fa-power-off"></i></span> Log
-                        out</button></li>
-            </ul>
-        </div>
-    </nav>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="example-sidenav-content">
+      <button id="sidebar" class="hamburger mat-button" mat-button (click)="snav.toggle()">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </button>
+    </div>
+    <img src="../../assets/img/logo6.png">
+    <div class="dropdown">
+      <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
+      </a>
+      <ul id="drop" class="dropdown-menu">
+          <li><button class="dropdown-item" (click)="update()"><span><i class="fa fa-refresh"></i></span> Update
+                  profile</button></li>
+          <li><button class="dropdown-item" (click)="lpage()"><span><i class="fa fa-power-off"></i></span> Log
+                  out</button></li>
+      </ul>
+  </div> </nav>
 </div>
+<!-- end header -->
 <!-- jumbotron start -->
 <div class="jumbotron jumbotron-fluid text-center">
     <div class="container">
@@ -31,7 +37,7 @@
 
 <!-- carousel for recommended products -->
 <div id="container">
-    <h2>Recommended Products</h2>
+    <h2>Trending Products</h2>
     <div ng2-carouselamos class="slides-wrapper" [items]="products" [width]="900" [$prev]="prev" [$next]="next"
         [$item]="product">
     </div>
@@ -69,52 +75,84 @@
     </ng-template>
 </div>
 <!-- end carousel for recommended products-->
-<!-- footer start -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-2">
-                <ul class="list-unstyled lead">
-                    <li>
-                        <a href="#"><strong> About Us</strong></a>
-                    </li>
-                </ul>
 
-            </div>
-            <div class="col-sm-2">
-                <ul class="list-unstyled lead">
-                    <li>
-                        <a href="#"><Strong>Contact Us</Strong></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-sm-2">
-                <ul class="list-unstyled lead">
-                    <li>
-                        <a href="#"><Strong>Feedback <i class="fa fa-comments"></i></Strong></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-sm-3">
-                <ul class="list-unstyled lead">
-                    <li>
-                        <a href="#"><Strong>Terms & Condition</Strong></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-sm-3">
-                <ul class="list-unstyled lead">
-                    <li>
-                        <h5><strong>Social Sites</strong></h5>
-                    </li>
-                    <li id="socialsite">
-                        <a href="#"><i class="fa fa-twitter-square"></i> </a>&nbsp;
-                        <a href="#"><i class="fa fa-facebook-square"></i> </a>&nbsp;
-                        <a href="#" id="envelope"><i class="fa fa-envelope"></i> </a>
-                    </li>
-                </ul>
-            </div>
+<!-- footer -->
+<footer class="page-footer font-small blue pt-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <ul class="list-unstyled lead">
+              <li>
+                  <h5><strong>About us</strong></h5>
+              </li>
+              <li>
+                  <a href="#"><strong> Vision & Goals </strong></a>
+                </li>
+                <li>
+                  <a href="#"><strong> Company </strong></a>
+                </li>
+                <li>
+                  <a href="#"><strong> Blog </strong></a>
+                </li>
+                <li>
+                  <a href="#"><strong> Careers </strong></a>
+                </li>
+          </ul>
+  
         </div>
+        <div class="col-sm-3">
+          <ul class="list-unstyled lead">
+              <li>
+                  <h5><strong>Contact us</strong></h5>
+              </li>
+                <li>
+                  <a href="#"><i class="fa fa-map-marker"></i>&nbsp;<Strong>Location</Strong></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-phone"></i>&nbsp;<Strong>9874563129</Strong></a>
+                </li>
+                <li> 
+                  <a href="#"> <i class="fa fa-envelope"></i>&nbsp;<Strong>niitstkrt@gmail.com</Strong></a>
+                </li> 
+          </ul>
+        </div>
+        
+        <div class="col-sm-3">
+          <ul class="list-unstyled lead">
+              <li>
+                  <h5><strong>Insights</strong></h5>
+              </li>
+              <li>
+                  <a href="#"><Strong>Privacy policy</Strong></a>
+                </li>
+                <li>
+                  <a href="#"><Strong>Terms & Conditions </Strong></a>
+                </li>
+                <li>
+                  <a href="#"><Strong>FAQs</Strong></a>
+                </li>
+                <li>
+                  <a href="#"><Strong>Support</Strong></a>
+                </li>
+          </ul>
+        </div>
+        <div class="col-sm-3">
+          <ul class="list-unstyled lead">
+            <li>
+              <h5><strong>Keep connected with</strong></h5>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-twitter-square"></i>&nbsp;<Strong>twitter</Strong></a>
+              </li>
+                <li>
+                  <a href="#"><i class="fa fa-facebook-square"></i>&nbsp;<Strong>facebook</Strong></a>
+                </li>
+                <li> 
+                <a href="#"><i class="fa fa-linkedin"></i>&nbsp;<Strong>linkedin</Strong></a>
+              </li>
+          </ul>
+        </div>
+      </div>
     </div>
-</footer>
-<!-- end footer -->
+  </footer>
+  <!-- end footer -->

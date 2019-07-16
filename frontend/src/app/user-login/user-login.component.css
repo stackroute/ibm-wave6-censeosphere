@@ -1,7 +1,7 @@
  .fixed-header
 {
   color: white;
-  background-color: brown;
+  background-color: lightblue;
 } 
 
 
@@ -12,6 +12,6 @@
   margin-top: 150px;
 }
 .loginbutton{
-  background-color: green;
+  background-color: #17a2b8;
   color: white;
 }

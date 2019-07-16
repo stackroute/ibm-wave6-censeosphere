@@ -24,5 +24,8 @@ export class ReviewerdashboardComponent implements OnInit {
   {
    this.router.navigateByUrl("/"); 
   }
+  onClick(){
+    this.router.navigateByUrl("/reviwerdashboard"); 
+  }
 
 }

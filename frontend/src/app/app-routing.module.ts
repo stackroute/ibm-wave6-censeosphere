@@ -10,6 +10,7 @@ import { ProductownerdashboardComponent } from './productownerdashboard/producto
 import { ProdownerupdateprofileComponent } from './prodownerupdateprofile/prodownerupdateprofile.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { ReviewComponent } from './review/review.component';
+import { ReviewerdashboardComponent } from './reviewerdashboard/reviewerdashboard.component';
 const routes: Routes = [  
   { path: '',component:LandingPageComponent},
   { path: 'login', component:UserLoginComponent },
@@ -23,8 +24,8 @@ const routes: Routes = [
   {path:'reviewerdash',component:ReviwerdashComponent},
   {path:'writereview',component:ReviewComponent},
   {path:'searchreview',component:SearchForReviewComponent},
-  { path:'prodownerupdateprofile',component:ProdownerupdateprofileComponent}
-
+  { path:'prodownerupdateprofile',component:ProdownerupdateprofileComponent},
+  {path:'rdashboard',component:ReviewerdashboardComponent}
   // { path: '**',component:LandingPageComponent}
   
 

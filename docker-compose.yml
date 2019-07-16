@@ -45,10 +45,7 @@ services:
     restart: always
     network_mode: "host"
     depends_on:
-      - eureka-server
-      - zuul-api
-      - config-service
-      - mysqldb
+      - mongodb
     ports:
       - 8089:8089
 
@@ -62,7 +59,6 @@ services:
       MYSQL_DATABASE: logindb
       MYSQL_PASSWORD: root
       MYSQL_USER: root
-#      MYSQL_ALLOW_EMPTY_PASSWORD: "YES"
     volumes:
       - $HOME/data/datasql:/var/lib/mysql
     network_mode: "host"
@@ -74,14 +70,13 @@ services:
     restart: always
     network_mode: host
     volumes:
-      - $HOME/data/mongo:/data/db
+      - $HOME/data:/data/db
 
   reviewerprofileservice:
     build: reviewer-profile-service
     restart: always
     network_mode: "host"
     depends_on:
-
       - mongodb
     ports:
       - 8087:8087
@@ -95,6 +90,15 @@ services:
     ports:
       - 8060:8060
 
+  nlpservice:
+    build: NLP-service
+    restart: always
+    network_mode: "host"
+    depends_on:
+      - mongodb
+    ports:
+      - 8877:8877
+
   productsearchservice:
       build: product-search-service
       restart: always
@@ -103,7 +107,6 @@ services:
         - mongodb
       ports:
         - 8081:8081
-
 
   rabbitmq:
     image: rabbitmq:3.7.5-management
