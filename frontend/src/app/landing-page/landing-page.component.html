@@ -36,9 +36,9 @@
           <input type="text" placeholder="search here to write a review" name="search" class="form-control col-md-3"
             id="jumbotroninput"><br>
 
-          <button type="submit" class="btn btn-success" id="reviewbutton" data-toggle="modal" #rrole value="reviewer" (click)="onclick(rrole.value)"
+          <button type="submit" class="btn btn-outline-light" id="reviewbutton" data-toggle="modal" #rrole value="reviewer" (click)="onclick(rrole.value)"
             data-target="#signup1">Write a Review</button>&nbsp;
-          <button type="submit" class="btn btn-success" id="productbutton" data-toggle="modal" #prole value="product-owner" (click)="onclick1(prole.value)"
+          <button type="submit" class="btn btn-outline-light" id="productbutton" data-toggle="modal" #prole value="product-owner" (click)="onclick1(prole.value)"
             data-target="#signup2">Post a Product</button>
 
           <!-- <button type="submit" class="btn btn-outline-info" id="reviewbutton" data-toggle="modal" #rrole value="reviewer" (click)="onclick(rrole.value)"
@@ -141,7 +141,7 @@
   <div class="modal fade" data-backdrop="" id="signup" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
     tabindex="-1">
     <div class="modal-dialog modal-sm modal-dialog-centered">
-      <div class="modal-content">
+      <div class="modal-content" >
         <div class="modal-header">
           <h2 class="modal-title" id="Title">Sign In</h2>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -158,12 +158,12 @@
               <label for="password">Password</label>
               <input type="password" #lpassword name="password" id="password" class="form-control" required>
             </div>
-            <button type="submit" class="btn btn-success" id="signinbutton">Sign In</button>
+            <button type="submit" class="btn btn-info" id="signinbutton">Sign In</button>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" #role value="reviewer" class="btn btn-primary" data-dismiss="modal" (click)="onClick(role.value)">Revierwer</button>
-          <button type="button" #role1 value="product-owner" class="btn btn-primary" data-dismiss="modal" (click)="onClickPO(role1.value)">Product
+          <button type="button" #role value="reviewer" class="btn btn-info" data-dismiss="modal" (click)="onClick(role.value)">Revierwer</button>
+          <button type="button" #role1 value="product-owner" class="btn btn-info" data-dismiss="modal" (click)="onClickPO(role1.value)">Product
             Owner</button>
         </div>
       </div>
@@ -192,14 +192,14 @@
               <label for="reviewerpassword">Password</label>
               <input   #password type="password" name="password" id="reviewerpassword" class="form-control">
             </div>
-            <button type="submit" class="btn btn-success" id="reviewersigninbutton" >Sign
+            <button type="submit" class="btn btn-info" id="reviewersigninbutton" >Sign
               In</button>
           </form>
         </div>
         <div class="modal-footer">
           <label for="rsubmitbutton" id="newaccountlabel">New Account </label>
 
-          <button type="button" class="btn btn-primary" #role value="reviewer" data-dismiss="modal" (click)="onClick(role.value)"
+          <button type="button" class="btn btn-info" #role value="reviewer" data-dismiss="modal" (click)="onClick(role.value)"
             id="rsubmitbutton">Revierwer</button>
 
         </div>
@@ -229,11 +229,11 @@
               <label for="productownerpassword">Password</label>
               <input type="password" #ppassword name="password" id="productownerpassword" class="form-control">
             </div>
-            <button type="submit" class="btn btn-success" id="productownersigninbutton">Sign In</button>
+            <button type="submit" class="btn btn-info" id="productownersigninbutton">Sign In</button>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" #role1 value="product-owner" class="btn btn-primary"  data-dismiss="modal" (click)="onClickPO(role1.value)"
+          <button type="button" #role1 value="product-owner" class="btn btn-info"  data-dismiss="modal" (click)="onClickPO(role1.value)"
             id="psubmitbutton">Product Owner</button>
         </div>
       </div>
