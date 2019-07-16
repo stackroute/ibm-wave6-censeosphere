@@ -62,7 +62,7 @@
         </ng-template>
           <div class="thumb-wrapper" style="background-color:rgba(135, 206,250,0.4);">
             <form [formGroup]="profileFormGroup" >
-                <mat-form-field class="full-width">
+                <mat-form-field cl`ass="full-width">
                   <input matInput placeholder="Name:" formControlName="name" [(ngModel)]="name" required>
                   <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                     <mat-error *ngFor="let validation of validation_messages.name">
