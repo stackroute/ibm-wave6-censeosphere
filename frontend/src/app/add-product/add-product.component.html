@@ -109,8 +109,9 @@
       <div class="form-group">
         <label for="name" class="col-sm-3 control-label">Add a Image</label>
         <div class="col-sm-3">
-            <label class="control-label small" for="file_img">Product Image(jpg/png/jpeg/gif):</label> <input type="file" accept=".jpg,.jpeg,.gif,.png" [(ngModel)]="productImage" formControlName="ProductImageCtrl"> 
-            <button type="button">Upload</button>
+            <label class="control-label small" for="file_img">Product Image(jpg/png/jpeg/gif):</label> 
+            <input type="file" accept=".jpg,.jpeg,.gif,.png" [(ngModel)]="productImage" formControlName="ProductImageCtrl"> 
+           
         </div>
       </div> 
     
@@ -119,7 +120,7 @@
       <div class="form-group">
         <div class="col-sm-offset-3 col-sm-9">
            <!-- <button type="submit" class="btn btn-primary" (click)="saveProduct()">Save Product</button> -->
-           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)="saveProduct()">
+           <button type="button" class="btn btn-info  " data-toggle="modal" data-target="#myModal" (click)="saveProduct()">
               Save Product
             </button> 
         </div>

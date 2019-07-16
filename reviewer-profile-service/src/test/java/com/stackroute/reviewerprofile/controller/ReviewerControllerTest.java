@@ -92,6 +92,18 @@
 //                .andExpect(MockMvcResultMatchers.status().isNotFound())
 //                .andDo(MockMvcResultHandlers.print());
 //    }
+<<<<<<< HEAD
+/*
+    @Test
+    public void testUpdateReviewer() throws Exception{
+        when(reviewerService.updateReviewer(reviewer)).thenReturn(reviewer);
+        mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/reviewer/ganga@gmail.com")
+                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(reviewer)))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andDo(MockMvcResultHandlers.print());
+    }*/
+
+=======
 //
 ////    @Test
 ////    public void testGetReviewerByEmailId() throws Exception{
@@ -103,6 +115,7 @@
 ////
 ////    }
 //
+>>>>>>> bd046cd6418471a8741f0fba24fe39ec63e60038
 //    @Test
 //    public void testGetReviewerByEmailIdFailure() throws Exception{
 //        when(reviewerService.getReviewerByEmailId("januka@gmail.com")).thenThrow(ReviewerNotFoundException.class);

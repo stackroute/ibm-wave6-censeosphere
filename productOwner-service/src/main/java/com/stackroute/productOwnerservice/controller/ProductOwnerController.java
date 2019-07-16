@@ -51,9 +51,9 @@ public class ProductOwnerController {
     }
 
     @PutMapping("product/{emailId}")
-    public ResponseEntity<?> updateComments(@RequestBody ProductOwner productowner) throws ProductOwnerDetailsNotFoundException {
+    public ResponseEntity<?> updateComments(@RequestBody ProductOwner productowner,@PathVariable("emailId") String emailId) throws ProductOwnerDetailsNotFoundException {
 
-        ProductOwner productowner1 = productownerService.updateDetails(productowner);
+        ProductOwner productowner1 = productownerService.updateDetails(productowner, emailId);
         return new ResponseEntity<String>("Details updated", HttpStatus.OK);
 
     }

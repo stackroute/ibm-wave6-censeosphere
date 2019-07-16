@@ -60,15 +60,10 @@ public class ReviewerController {
     }
 
     @PutMapping("reviewer/{emailId}")
-    public ResponseEntity<?> updateReviewer(@RequestBody Reviewer reviewer){
-        ResponseEntity responseEntity;
-        try {
-            reviewerService.updateReviewer(reviewer);
-            responseEntity=new ResponseEntity<String>("Details updated",HttpStatus.OK);
-        } catch (ReviewerNotFoundException e) {
-            responseEntity= new ResponseEntity<String>("Details Not Found", HttpStatus.CONFLICT);
-            e.printStackTrace();
-        }
-        return responseEntity;
+    public ResponseEntity<?> updateReviewer(@RequestBody Reviewer reviewer,@PathVariable("emailId") String emailId) throws ReviewerNotFoundException {
+
+
+       Reviewer reviewer1 = reviewerService.updateReviewer(reviewer,emailId);
+        return new ResponseEntity<String>("Details updated", HttpStatus.OK);
     }
 }

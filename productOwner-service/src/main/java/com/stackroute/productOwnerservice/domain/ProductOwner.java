@@ -16,9 +16,10 @@ import java.util.List;
 public class ProductOwner {
 
     private String name;
+
     @Id
     private String emailId;
-    //private byte[] image;
+    private String image;
     private String role;
  //   private String password;
     private String reconfirmPassword;
@@ -26,13 +27,14 @@ public class ProductOwner {
 
     @Override
     public String toString() {
-        return "Productowner{" +
+        return "ProductOwner{" +
                 "name='" + name + '\'' +
                 ", emailId='" + emailId + '\'' +
-               // ", image=" + Arrays.toString(image) +
+                ", image='" + image + '\'' +
                 ", role='" + role + '\'' +
-              //  ", password='" + password + '\'' +
-                ", confirmPassword='" + reconfirmPassword + '\'' +
+                ", reconfirmPassword='" + reconfirmPassword + '\'' +
                 '}';
     }
+
+
 }
