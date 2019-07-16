@@ -130,7 +130,7 @@ public class ReviewerControllerTest
 //                .andExpect(MockMvcResultMatchers.status().isNotFound())
 //                .andDo(MockMvcResultHandlers.print());
 //    }
-
+/*
     @Test
     public void testUpdateReviewer() throws Exception{
         when(reviewerService.updateReviewer(reviewer)).thenReturn(reviewer);
@@ -138,7 +138,7 @@ public class ReviewerControllerTest
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(reviewer)))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print());
-    }
+    }*/
 
 //    @Test
 //    public void testUpdateReviewerFailure() throws Exception{

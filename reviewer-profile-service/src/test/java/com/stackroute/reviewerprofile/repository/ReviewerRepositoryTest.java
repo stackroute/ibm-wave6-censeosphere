@@ -46,7 +46,7 @@ public class ReviewerRepositoryTest {
 
     @Test
     public void testSaveReviewersFailure() {
-        Reviewer testReviewer = new Reviewer("agnag@gmail.com", "agnag", "abcd1234", "reviewer");
+        Reviewer testReviewer = new Reviewer("agnag@gmail.com", "agnag", "abcd1234", "reviewer","");
         reviewerRepository.save(reviewer);
         Reviewer fetchReviewer = reviewerRepository.findById(reviewer.getEmailId()).get();
         Assert.assertNotSame(testReviewer, reviewer);
@@ -54,8 +54,8 @@ public class ReviewerRepositoryTest {
 
     @Test
     public void testDisplayAllReviewers(){
-        Reviewer reviewer1= new Reviewer("gayatri@gmail.com","gayatri","gaya303","reviewer");
-        Reviewer reviewer2 = new Reviewer("januka@gmail.com","januka","akunaj03","reviewer");
+        Reviewer reviewer1= new Reviewer("gayatri@gmail.com","gayatri","gaya303","reviewer","");
+        Reviewer reviewer2 = new Reviewer("januka@gmail.com","januka","akunaj03","reviewer","");
         reviewerRepository.save(reviewer1);
         reviewerRepository.save(reviewer2);
         List<Reviewer> list = reviewerRepository.findAll();
@@ -64,8 +64,8 @@ public class ReviewerRepositoryTest {
 
     @Test
     public void testDisplayAllReviewersFailure(){
-        Reviewer reviewer1= new Reviewer("gayatri@gmail.com","gayatri","gaya303","reviewer");
-        Reviewer reviewer2 = new Reviewer("januka@gmail.com","januka","akunaj03","reviewer");
+        Reviewer reviewer1= new Reviewer("gayatri@gmail.com","gayatri","gaya303","reviewer","");
+        Reviewer reviewer2 = new Reviewer("januka@gmail.com","januka","akunaj03","reviewer","");
         reviewerRepository.save(reviewer1);
         reviewerRepository.save(reviewer2);
         List<Reviewer> list = reviewerRepository.findAll();

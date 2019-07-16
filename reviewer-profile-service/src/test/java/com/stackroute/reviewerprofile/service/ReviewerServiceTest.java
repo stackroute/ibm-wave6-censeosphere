@@ -95,7 +95,7 @@ public class ReviewerServiceTest {
         Assert.assertNotEquals(true,actualList.contains(reviewer));
     }
 
-    @Test
+/*    @Test
     public void testUpdateReviewer() throws ReviewerNotFoundException {
             Reviewer updateReviewers=new Reviewer("ganga@gmail.com","gangak","Abcd12345","reviewer");
             when(reviewerRepository.existsById("ganga@gmail.com")).thenReturn(true);
@@ -114,6 +114,6 @@ public class ReviewerServiceTest {
         reviewer.setName(updateReviewers.getName());
         Reviewer actualReviewer=reviewerService.updateReviewer(updateReviewers);
         Assert.assertNotEquals(updateReviewers,actualReviewer);
-    }
+    }*/
 
 }

@@ -77,12 +77,23 @@ public class ProductOwnerServiceImpl implements ProductOwnerService {
     }
 
     @Override
-    public ProductOwner updateDetails(ProductOwner productowner) throws ProductOwnerDetailsNotFoundException {
+    public ProductOwner updateDetails(ProductOwner productowner,String emailId) throws ProductOwnerDetailsNotFoundException {
         ProductOwner productowner1=null;
-        if(productownerRepository.existsById(productowner.getEmailId()))
+        Optional optional;
+        optional=productownerRepository.findById(emailId);
+        if(optional != null)
         {
-            productowner.setName(productowner.getName());
-            productowner1=productownerRepository.save(productowner);
+           // productowner.setName(productowner.getName());
+//            productowner1=productownerRepository.save(productowner);
+            productowner1=productownerRepository.findById(emailId).get();
+
+            System.out.println("from update method "+productowner1);
+            productowner1.setName(productowner.getName());
+            productowner1.setImage(productowner.getImage());
+            productowner1.setReconfirmPassword(productowner.getReconfirmPassword());
+
+            System.out.println("After updating "+productowner1);
+            productownerRepository.save(productowner1);
 
         }
         else

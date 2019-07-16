@@ -19,5 +19,7 @@ public class Reviewer
     private String name;
     private String reconfirmPassword;
     private String role;
+//    private String password;
+   private String image;
 //    private byte[] image;
 }

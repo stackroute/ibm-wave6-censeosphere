@@ -20,9 +20,9 @@ public class ProductDetails {
     @Id
     private String productName;
     private String productFamily;
-  private String image;
-    private BigDecimal price;
-   // private float rating;
+    private String image;
+    private Float price;
+    private int rating;
     private String specifications;
     private String description;
     //@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
