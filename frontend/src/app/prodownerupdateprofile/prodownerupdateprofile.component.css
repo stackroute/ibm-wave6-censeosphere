@@ -35,7 +35,14 @@ nav img{
 
 /* .addclass{
   margin-left: 1060px;} */
-  
+  #btn1{
+    background-color: #17a2b8;
+    color: white;
+  }
+  #btn2{
+    background-color: #17a2b8;
+    color: white;
+  }
 .mat-tab-group
 {
 

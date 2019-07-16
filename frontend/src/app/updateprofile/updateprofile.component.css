@@ -34,19 +34,27 @@ nav img{
 
   margin-top: 100px;
 }
+.mat-tab label{
+  font-size:18px ;
+
+}
  .container
 {
   margin-top: 25px;
 }
-
-
+#btn1{
+  background-color: #17a2b8;
+  color: white;
+}
+#btn2{
+  background-color: #17a2b8;
+  color: white;
+}
 
 .fakeimg {
   height: 200px;
   background: #aaa;
 }
-
-
  .thumb-wrapper {
 	padding: 25px 15px;
 	background: #fff;
