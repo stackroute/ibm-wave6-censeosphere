@@ -67,7 +67,7 @@ footer
 {
     margin-top: 80px;
     padding-top: 25px;
-    background-color: #f2f2f2;
+    background-color: rgba(173, 216, 230, 0.5);
     font-size: 14px;
     height: 180px;
     position: relative;
@@ -166,4 +166,8 @@ color: navy
   }
   .modal-header,.modal-footer{
     background:lightgrey;
+  }
+  .fa .fa-search
+  {
+    content:"\f002";
   }
