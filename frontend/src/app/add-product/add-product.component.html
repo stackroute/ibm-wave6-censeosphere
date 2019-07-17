@@ -102,9 +102,14 @@
       <div class="form-group">
         <label for="name" class="col-sm-3 control-label">Add a Image</label>
         <div class="col-sm-3">
+            <!-- <label class="control-label small" for="file_img">Product Image(jpg/png/jpeg/gif):</label> 
+            <input type="file" accept=".jpg,.jpeg,.gif,.png" [(ngModel)]="productImage" formControlName="ProductImageCtrl">  -->
+            <!-- <button type="button">Upload</button> -->
+
             <label class="control-label small" for="file_img">Product Image(jpg/png/jpeg/gif):</label> 
             <input type="file" accept=".jpg,.jpeg,.gif,.png" [(ngModel)]="productImage" formControlName="ProductImageCtrl"> 
            
+
         </div>
       </div> 
     
@@ -139,7 +144,10 @@
   
 </form>
 </div>
-  
+
+    
+
+
 <!-- footer -->
 <footer class="page-footer font-small blue pt-4">
   <div class="container">
@@ -219,5 +227,7 @@
     </div>
   </div>
 </footer>
+
 <!-- end footer -->
+
 

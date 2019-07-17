@@ -30,6 +30,31 @@ nav img{
  }
 
 
+.jumbotron{
+    height: 400px;
+    background: url('../../assets/img/appliances-home.png') center center no-repeat;
+}
+#jumbotroninput{
+    width: 600px;
+    margin-left: 250px;
+    
+}
+#jumbotronheading{
+    background: rgba(0,0,0,0.4);
+    color:white;
+    margin-top: 80px;
+} */
+
+#main{
+    margin-top:90px;
+}
+
+
+/* .container{
+    margin-top: 90px;
+} */
+
+
 footer
 {
     margin-top: 80px;
@@ -48,7 +73,11 @@ footer a{
 footer a:hover{
     color: midnightblue;
     font-size: 18px;
+
 }
+
+
 /* .container{
     margin-top: 90px;
 } */
+
