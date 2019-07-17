@@ -42,7 +42,7 @@ nav img{
 .thumb-wrapper a:hover{
   color:rgb(38, 4, 161);
 }
- footer
+footer
 {
     margin-top: 80px;
     padding-top: 25px;
@@ -60,7 +60,7 @@ footer a{
 footer a:hover{
     color: midnightblue;
     font-size: 18px;
-} 
+}
 .star-rating .checked {
   color: orange;
 }
@@ -80,29 +80,9 @@ footer a:hover{
   text-align: center;
   margin-top: 100px;
 }
-.row {
-  margin-top: 5%
-}
-.prod{
-  padding-bottom:130px;float: right;
-}
-.col-sm-6 .h3{
-  margin-top: 100px;
-}
-.col-3 h4{
-  text-align: center;
-}
-.btn-primary{
-  margin-left:8px;
-}
-.row mt-3 col-3 h5{
-  text-align: center;
-}
-.col-3 img{
-  border-radius: 50%;
-  height: 280px;
-  width: 0px;
-}
-.price{
-  margin-left: 100px;
+
+
+#mainbtn{
+  margin-left:680px;
+
 }

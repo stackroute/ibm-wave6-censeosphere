@@ -25,60 +25,29 @@ nav img{
    margin-right:100px;
    
  }
-/* #addproduct{
-    margin-right: 35px;
-}
+ #main{
+     margin-top: 80px;
+ }
 
-.jumbotron{
-    height: 400px;
-    background: url('../../assets/img/appliances-home.png') center center no-repeat;
-}
-#jumbotroninput{
-    width: 600px;
-    margin-left: 250px;
-    
-}
-#jumbotronheading{
-    background: rgba(0,0,0,0.4);
-    color:white;
-    margin-top: 80px;
-} */
-.row-footer{
-    float: right;
-}
 
 footer
 {
-    margin-top: 50px;
-    padding-top: 40px;
-    background-color: grey;
-    font-size: 20px;
-    height: 75px;
+    margin-top: 80px;
+    padding-top: 25px;
+    background-color: #f2f2f2;
+    font-size: 14px;
+    height: 180px;
     position: relative;
     display: block;
+    line-height: 28px;
 }
 footer a{
-    color: black;
+    color: #17a2b8;
+    position: relative;
 }
-#socialsite{
-    padding-left: 30px;
-}
-#envelope{
-    padding-right: 50px;
-    
-}
-
-#main{
-    margin-top:90px;
-}
-
 footer a:hover{
-    color:rgb(88, 75, 75);
-    font-size: 15px;
-}
-
-.row-footer{
-    margin-bottom: 0px;
+    color: midnightblue;
+    font-size: 18px;
 }
 /* .container{
     margin-top: 90px;

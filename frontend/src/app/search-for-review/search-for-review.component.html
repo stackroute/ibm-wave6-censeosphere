@@ -26,7 +26,7 @@
         <img src="../assets/img/nikon.jpeg" class="img-responsive img-fluid" alt="">
       </div>
       <div class="thumb-content">
-        <h4>{{product.productName}}</h4>
+        <h4>Nikon camera</h4>
         <div class="star-rating">
           <ul class="list-inline">
             <li class="list-inline-item"><i class="fa fa-star"></i></li>
@@ -37,19 +37,20 @@
           </ul>
 
         </div>
-        <p class="item-price"><b>{{product.price}}</b></p>
+        <p class="item-price"><b>49,999</b></p>
         <h6>2 reviews</h6>
       </div>
   </div>
 </div>
 <!--product card end-->
+<br>
 <div>
-  <button class="btn btn-info" type="button" (click)="wreview()" name="write a review">Write A Review</button>
+  <button class="btn btn-info" id="mainbtn" type="button" (click)="wreview()" name="write a review">Write A Review</button>
 </div>
 
 
 <!-- tabbed panel -->
-<div class="container">
+
 <mat-tab-group mat-align-tabs="start">
  <mat-tab label="Reviews">
 
@@ -131,9 +132,9 @@
  </mat-tab>
 </mat-tab-group>
 <!-- tabbed panel end -->
-</div>
+
  
-<!-- footer -->
+ <!-- footer -->
 <footer class="page-footer font-small blue pt-4">
   <div class="container">
     <div class="row">
@@ -155,8 +156,8 @@
                 <a href="#"><strong> Careers </strong></a>
               </li>
         </ul>
-      </div>
 
+      </div>
       <div class="col-sm-3">
         <ul class="list-unstyled lead">
             <li>
@@ -191,9 +192,9 @@
               <li>
                 <a href="#"><Strong>Support</Strong></a>
               </li>
+
         </ul>
       </div>
-
       <div class="col-sm-3">
         <ul class="list-unstyled lead">
           <li>
@@ -208,9 +209,11 @@
               <li> 
               <a href="#"><i class="fa fa-linkedin"></i>&nbsp;<Strong>linkedin</Strong></a>
             </li>
+
         </ul>
       </div>
     </div>
   </div>
 </footer>
+
 <!-- end footer -->
