@@ -164,4 +164,6 @@ color: navy
     height: 30px;
     width: 50px;
   }
-  
+  .modal-header,.modal-footer{
+    background:lightgrey;
+  }
