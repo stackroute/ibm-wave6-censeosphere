@@ -25,9 +25,10 @@ nav img{
    margin-right:100px;
    
  }
-/* #addproduct{
-    margin-right: 35px;
-}
+ #main{
+     margin-top: 80px;
+ }
+
 
 .jumbotron{
     height: 400px;
@@ -47,6 +48,7 @@ nav img{
 #main{
     margin-top:90px;
 }
+
 
 /* .container{
     margin-top: 90px;
@@ -71,4 +73,11 @@ footer a{
 footer a:hover{
     color: midnightblue;
     font-size: 18px;
+
 }
+
+
+/* .container{
+    margin-top: 90px;
+} */
+

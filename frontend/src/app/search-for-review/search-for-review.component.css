@@ -27,7 +27,22 @@ nav img{
    margin-right:100px;
    
  }
- footer
+
+ .thumb-wrapper {
+  margin-left: 200px;
+  margin-top: 30px;
+ padding: 25px 15px;
+ background: #def2f1;
+ border-radius: 6px;
+ text-align: center;
+ position: relative;
+   box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+   width: 700px;
+} 
+.thumb-wrapper a:hover{
+  color:rgb(38, 4, 161);
+}
+footer
 {
     margin-top: 80px;
     padding-top: 25px;
@@ -45,7 +60,7 @@ footer a{
 footer a:hover{
     color: midnightblue;
     font-size: 18px;
-} 
+}
 .star-rating .checked {
   color: orange;
 }
@@ -65,29 +80,9 @@ footer a:hover{
   text-align: center;
   margin-top: 100px;
 }
-.row {
-  margin-top: 5%
-}
-.prod{
-  padding-bottom:130px;float: right;
-}
-.col-sm-6 .h3{
-  margin-top: 100px;
-}
-.col-3 h4{
-  text-align: center;
-}
-.btn-primary{
-  margin-left:8px;
-}
-.row mt-3 col-3 h5{
-  text-align: center;
-}
-.col-3 img{
-  border-radius: 50%;
-  height: 280px;
-  width: 0px;
-}
-.price{
-  margin-left: 100px;
+
+
+#mainbtn{
+  margin-left:680px;
+
 }

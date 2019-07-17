@@ -31,8 +31,8 @@ footer
 {
     margin-top: 80px;
     padding-top: 25px;
-    background-color: #f2f2f2;
-    font-size: 14px;
+    background-color: lightgrey;
+    font-size: 18px;
     height: 180px;
     position: relative;
     display: block;
@@ -45,53 +45,49 @@ footer a{
 footer a:hover{
     color: midnightblue;
     font-size: 18px;
+    text-decoration: none;
 }
-
-/* .thumb-wrapper {
-   margin-left: 250px;
-   margin-top: 160px;
+#reason{
+   margin-top: 100px;
+   text-align: center;
+}
+ .thumb-wrapper {
+   margin-left: 200px;
+   margin-top: 30px;
 	padding: 25px 15px;
-	background: #fff;
+	background: #def2f1;
 	border-radius: 6px;
 	text-align: center;
 	position: relative;
     box-shadow: 0 2px 3px rgba(0,0,0,0.2);
-    width: 300px;
-} */
+    width: 700px;
+} 
 .thumb-wrapper a:hover{
    color:rgb(38, 4, 161);
 }
 .reviewForm {
-   margin-top: 50px;
-   margin-left: 250px;
-   
+   margin-top: 25px;
+   margin-left: 200px;
+   margin-right: 200px;
+   font-size: 22px;
 }
 .form-control{
    padding: 15px;
 }
-#title{
-   width: 1000px;
+#submitit{
+   background-color: #17a2b8;
+   color: white;
 }
-#review{
-   width: 1000px;
-   height: 150px;
-}
-form button{
-   margin-right:0px;
-   margin-left: 800px;
-}
-#prod{
+/* #prod{
    margin-top: 120px;
    text-align: center;
 }
-.col-sm-3{
-   align-content: center;
-}
+
 .props{
    padding-top:20px;
    text-align: left;
    font-size: 18px; 
-}
+} */
 .star-rating .checked {
    color: orange;
  }
@@ -100,6 +96,3 @@ form button{
  .mat-tab-group {
      margin-bottom: 48px;
    }
-#reason{
-   text-align: center;
-}
