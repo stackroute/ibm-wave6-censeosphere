@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package com.stackroute.reviewerprofile.repository;
 
 import com.stackroute.reviewerprofile.domain.Reviewer;
@@ -103,7 +103,7 @@ public class ReviewerRepositoryTest {
     }
 
 }
-=======
+
 //package com.stackroute.reviewerprofile.repository;
 //
 //import com.stackroute.reviewerprofile.domain.Reviewer;
@@ -208,4 +208,3 @@ public class ReviewerRepositoryTest {
 //    }
 //
 //}
->>>>>>> bd046cd6418471a8741f0fba24fe39ec63e60038

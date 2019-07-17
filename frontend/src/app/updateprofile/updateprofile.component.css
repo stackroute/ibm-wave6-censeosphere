@@ -57,11 +57,15 @@ nav img{
 }
  .thumb-wrapper {
 	padding: 25px 15px;
-	background: #fff;
+  /* background: #fff; */
+  background: #def2f1;
 	border-radius: 6px;
 	text-align: center;
 	position: relative;
-	box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+  /* box-shadow: 0 2px 3px rgba(0,0,0,0.2); */
+  box-shadow: 1.5px 1.5px 3px rgba(0,0,0,2.5);
+  width: 300px;
+  color: midnightblue;
 }
 .img-box {
 	height: 120px;

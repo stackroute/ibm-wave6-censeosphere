@@ -56,10 +56,12 @@ label{
     margin-top: 80px;
 }
 #reviewbutton{
+    margin-top: 10px;
     background-color: #17a2b8;
     color: white;
 }
 #productbutton{
+    margin-top: 10px;
     background-color: #17a2b8;
     color: white;
 }

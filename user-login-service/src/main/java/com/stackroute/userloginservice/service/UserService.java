@@ -12,6 +12,7 @@ public interface UserService {
     User findByEmailId(String emailId);
     public User saveUser(User user) throws UserAlreadyExistsException;
     public List<User> getAllUsers();
+    public void updateUser(User user);
 //    public void recievereviewer(ReviewerDTO reviewerdto)throws UserAlreadyExistsException;
 //    public void  recieveproductowner(ProductOwnerDTO productOwnerDTO)throws  UserAlreadyExistsException;
 }

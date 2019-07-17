@@ -95,6 +95,9 @@ public class ProductOwnerServiceImpl implements ProductOwnerService {
             System.out.println("After updating "+productowner1);
             productownerRepository.save(productowner1);
 
+            ProductOwnerDTO productOwnerDTO1=new ProductOwnerDTO(productowner1.getEmailId(),productowner1.getReconfirmPassword(),productowner1.getRole());
+            sendproductOwnner(productOwnerDTO1);
+
         }
         else
         {

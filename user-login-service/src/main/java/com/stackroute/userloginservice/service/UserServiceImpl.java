@@ -51,12 +51,35 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll();
     }
 
+    @Override
+    public void updateUser(User user) {
+      Optional optional;
+      User user1=null;
+      optional=userRepository.findById(user.getEmailId());
+      if(optional.isPresent())
+      {
+          user1=userRepository.findById(user.getEmailId()).get();
+          user1.setPassword(user.getPassword());
+          userRepository.save(user1);
+      }
+
+    }
+
+
+
+
     @RabbitListener(queues="${stackroute.rabbitmq.queueone}")
     public  void recievereviewer(ReviewerDTO reviewerdto)throws  UserAlreadyExistsException
     {
         System.out.println("recieved msg from reviewer = " + reviewerdto.toString());
         User user=new User(reviewerdto.getEmailId(),reviewerdto.getReconfirmPassword(),reviewerdto.getRole());
-        saveUser(user);
+        if(userRepository.existsByEmailId(user.getEmailId())){
+            updateUser(user);
+        }
+        else{
+            saveUser(user);
+        }
+
     }
     @RabbitListener(queues="${stackroute.rabbitmq.queuetwo}")
     public void  recieveproductowner(ProductOwnerDTO productOwnerDTO)throws  UserAlreadyExistsException
@@ -64,7 +87,12 @@ public class UserServiceImpl implements UserService {
 
         System.out.println("recieved msg  from productowner= " + productOwnerDTO.toString());
         User user=new User(productOwnerDTO.getEmailId(),productOwnerDTO.getReconfirmPassword(),productOwnerDTO.getRole());
-        saveUser(user);
+        if(userRepository.existsByEmailId(user.getEmailId())){
+            updateUser(user);
+        }
+        else{
+            saveUser(user);
+        }
     }
 
 }
