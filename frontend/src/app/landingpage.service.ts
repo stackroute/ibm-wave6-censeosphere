@@ -15,7 +15,7 @@ export class LandingpageService {
   };
 
   getAllProducts(){
-    return this.http.get('http://localhost:3000/products', this.httpOptions);
+    return this.http.get('http://localhost:3000/productDetails', this.httpOptions);
   }
   getAllCategory(){
     return this.http.get('http://localhost:3001/category', this.httpOptions);

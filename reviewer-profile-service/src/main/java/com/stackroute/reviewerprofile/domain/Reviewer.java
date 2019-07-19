@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Builder
 @Document(collection = "reviewer")
 @Data
@@ -22,4 +24,5 @@ public class Reviewer
 //    private String password;
    private String image;
 //    private byte[] image;
+    private List<Review> revieweswritten;
 }

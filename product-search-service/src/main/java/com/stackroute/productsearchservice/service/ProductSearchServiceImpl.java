@@ -4,7 +4,9 @@ import com.stackroute.productsearchservice.exception.ProductAlreadyExistsExcepti
 import com.stackroute.productsearchservice.exception.ProductNotFoundException;
 import com.stackroute.productsearchservice.domain.ProductDetails;
 import com.stackroute.productsearchservice.repository.ProductSearchRepository;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +18,15 @@ public class ProductSearchServiceImpl implements ProductSearchService {
 
     @Autowired
     private ProductSearchRepository productSearchRepository;
+
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
+
+    @Value("${stackroute.rabbitmq.exchange}")
+    private String exchange;
+
+    @Value("${stackroute.rabbitmq.routingkeyfour}")
+    private String routingkeyfour;
 
     ProductDetails productDetails1;
 
@@ -34,7 +45,12 @@ public class ProductSearchServiceImpl implements ProductSearchService {
          throw new ProductAlreadyExistsException("Product already exists");
         }
         else{
+
+            System.out.println("inside");
             ProductDetails savedProducts=productSearchRepository.save(productDetails);
+            System.out.println(savedProducts.toString());
+            sendProduct(savedProducts);
+            System.out.println("after send");
             return savedProducts;
         }
 
@@ -93,6 +109,18 @@ public class ProductSearchServiceImpl implements ProductSearchService {
 
         return productDetails1;
     }
+
+
+    @Override
+    public void sendProduct(ProductDetails productDetails)
+    {
+
+        System.out.println("inside send");
+        rabbitTemplate.convertAndSend(exchange, routingkeyfour, productDetails);
+        System.out.println("Send msg = " + productDetails.toString());
+
+    }
+
 
 
 

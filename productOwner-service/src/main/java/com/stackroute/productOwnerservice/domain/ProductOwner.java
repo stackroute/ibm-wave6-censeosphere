@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Document
@@ -21,20 +20,9 @@ public class ProductOwner {
     private String emailId;
     private String image;
     private String role;
- //   private String password;
     private String reconfirmPassword;
-  //private List<Productsuploaded> productsuploaded;
+    private List<ProductDetails> productsadded;
 
-    @Override
-    public String toString() {
-        return "ProductOwner{" +
-                "name='" + name + '\'' +
-                ", emailId='" + emailId + '\'' +
-                ", image='" + image + '\'' +
-                ", role='" + role + '\'' +
-                ", reconfirmPassword='" + reconfirmPassword + '\'' +
-                '}';
-    }
 
 
 }

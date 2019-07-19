@@ -9,7 +9,7 @@ import{ LandingpageService }from '../landingpage.service';
 })
 export class ReviewComponent implements OnInit {
   reviews: any;
-  products: [];
+  productDetails: [];
 
   constructor(private reviewService:ReviewService,private router:Router,private landingservice:LandingpageService) { 
     this.reviews=[];
@@ -18,7 +18,7 @@ export class ReviewComponent implements OnInit {
   ngOnInit() {
     this.landingservice.getAllProducts().subscribe((data:any)=>{
       console.log(data);
-      this.products=data;
+      this.productDetails=data;
     })
 
     this.reviewService.getAllReviews().subscribe((data:any) => {
