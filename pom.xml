@@ -35,7 +35,7 @@
 		<module>productOwner-service</module>
 		<module>NLP-service</module>
 		<module>product-search-service</module>
-
+		<module>recommendation</module>
 	</modules>
 
 	<dependencies>

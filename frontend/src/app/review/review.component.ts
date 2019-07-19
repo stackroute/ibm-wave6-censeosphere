@@ -19,11 +19,6 @@ export class ReviewComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.activatedRoute.params.subscribe(params =>{
-    //   // console.log(params);
-    //   this.review=params['review'];
-    //   console.log(" product info in search for review component : ",this.review);
-    // });
     console.log(" Data on review page :",JSON.parse(sessionStorage.getItem('data')))
    
     this.landingservice.getAllProducts().subscribe((data:any)=>{
