@@ -16,7 +16,7 @@ const helper = new JwtHelperService();
 
 export class LandingPageComponent implements OnInit {
   showFiller = false;
-  products = [];
+  productDetails = [];
   categories = [];
   subCategories = [];
   job = "";
@@ -30,7 +30,7 @@ export class LandingPageComponent implements OnInit {
 
     this.landingpageservice.getAllProducts().subscribe((data: any) => {
       console.log(data);
-      this.products = data;
+      this.productDetails = data;
     })
 
     this.landingpageservice.getAllCategory().subscribe((data: any) => {

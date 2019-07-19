@@ -31,10 +31,10 @@
 <!-- end jumbotron -->
 
 
-<!-- carousel for recommended products -->
+<!-- carousel for recommended productDetails -->
 <div id="container">
 	<h2>Recommended Products</h2>
-	<div ng2-carouselamos class="slides-wrapper" [items]="products" [width]="900" [$prev]="prev" [$next]="next"
+	<div ng2-carouselamos class="slides-wrapper" [items]="productDetails" [width]="900" [$prev]="prev" [$next]="next"
 		[$item]="product">
 	</div>
 
@@ -47,7 +47,7 @@
 	</ng-template>
 
 	<ng-template #product let-product let-i="index">
-		<div class="products">
+		<div class="productDetails">
 			<div class="thumb-wrapper">
 				<div class="img-box">
 					<img src="{{product.image}}" class="img-responsive img-fluid" alt="Image not available">
@@ -70,7 +70,7 @@
 		</div>&nbsp;
 	</ng-template>
 </div>
-<!-- end carousel for recommended products-->
+<!-- end carousel for recommended productDetails-->
 
 
 <!-- footer -->

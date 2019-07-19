@@ -8,13 +8,18 @@ import { ProductService } from '../product.service';
   styleUrls: ['./reviwerdash.component.css']
 })
 export class ReviwerdashComponent implements OnInit {
+
+  productDetails = [];
+  // constructor(private router:Router,private landingpageservice:LandingpageService) { }
+
   products = [];
   constructor(private router:Router,private landingpageservice:LandingpageService,private productService:ProductService) { }
+
 
   ngOnInit() {
     this.landingpageservice.getAllProducts().subscribe((data:any) => {
       console.log(data);
-      this.products=data;
+      this.productDetails=data;
     })
   }
   update()

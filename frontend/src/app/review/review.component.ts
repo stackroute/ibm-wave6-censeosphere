@@ -16,14 +16,19 @@ export class ReviewComponent implements OnInit {
   review:any;
   constructor(private reviewService:ReviewService,private router:Router,private landingservice:LandingpageService,private activatedRoute:ActivatedRoute) { 
     // this.reviews=[];
-  }
+   }
+   productDetails: [];
+  // constructor(private reviewService:ReviewService,private router:Router,private landingservice:LandingpageService) { 
+  //   this.reviews=[];
+  
+ 
 
   ngOnInit() {
     console.log(" Data on review page :",JSON.parse(sessionStorage.getItem('data')))
    
     this.landingservice.getAllProducts().subscribe((data:any)=>{
       console.log(data);
-      this.products=data;
+      this.productDetails=data;
     })
 
     this.reviewService.getAllReviews().subscribe((data:any) => {

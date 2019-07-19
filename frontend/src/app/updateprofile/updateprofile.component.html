@@ -150,7 +150,56 @@
                     </div>
                   </div> -->
 
-  </mat-tab>
+  
+            <!-- </div>
+  
+          </form>
+          </div>
+          </div>
+          
+       </div>
+             </mat-tab>
+            <mat-tab label="My reviews">
+              <div class="container">
+                  <h3>Your reviews</h3>
+                  <hr>
+                  <br>
+                  <div *ngFor="let product of productDetails">
+                    <div *ngFor="let review of reviews">
+                <div class="row">
+                  
+                 <div class="col-sm-4">
+                    
+                      <div class="thumb-wrapper">
+								
+                          <div class="img-box">
+                            <img src="{{product.image}}" class="img-responsive img-fluid" alt="">									
+                          </div>
+                          <div class="thumb-content">
+                            <h4>{{product.productName}}</h4>									
+                            <div class="star-rating">
+                              <ul class="list-inline">
+                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                              </ul>
+                            </div>
+                            <p class="item-price"><b>{{product.price}}</b></p>
+                            <h6>{{product.rating}}</h6>
+                          </div>						
+                        </div>
+                        <br>
+                     </div>
+                  <div class="col-sm-8">
+                  <div >
+                   <h5>{{review.reviewTitle}}</h5> 
+                    <p>{{review.reviewDescription}}</p> 
+                    <br>
+                 </div>
+
+  </mat-tab> -->
   <mat-tab label="My reviews">
     <div class="container">
       <h3>Your reviews</h3>
@@ -180,6 +229,7 @@
                   </div>
                   <p class="item-price"><b>{{product.price}}</b></p>
                   <h6>{{product.rating}}</h6>
+>>>>>>> b90f33a73f75c49132ae57360dae4ac1aa756554
                 </div>
               </div>
               <br>
