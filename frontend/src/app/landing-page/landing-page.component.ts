@@ -5,6 +5,8 @@ import { Authentication } from '../authentication';
 import { LoginvalidationService } from '../loginvalidation.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Reviewer } from '../reviewer';
+import { ProductService } from '../product.service';
+import { error } from 'util';
 const helper = new JwtHelperService();
 @Component({
   selector: 'app-landing-page',
@@ -21,7 +23,7 @@ export class LandingPageComponent implements OnInit {
 
   helper = new JwtHelperService();
   auth: Authentication = new Authentication();
-  constructor(private router: Router, private landingpageservice: LandingpageService, private loginvalidation: LoginvalidationService) { }
+  constructor(private router: Router, private landingpageservice: LandingpageService, private loginvalidation: LoginvalidationService,private productService:ProductService) { }
 
   ngOnInit() {
 
@@ -66,6 +68,8 @@ export class LandingPageComponent implements OnInit {
           console.log("in if print password   " + password);
           console.log("in if print role   ", role);
 
+          sessionStorage.setItem('reviewerEmail',emailId);
+          
           if (role == this.job) {
             console.log(role);
             console.log("in if1");
@@ -152,6 +156,17 @@ export class LandingPageComponent implements OnInit {
           alert("Invalid credential");
         });
 
+  }
+
+  searchproduct(product){
+     console.log(product);
+      this.productService.getProduct(product).
+      subscribe(data=>{
+          console.log("product info : ",data);
+          // this.router.navigateByUrl("/searchreview/"+data);
+      });
+     
+     
   }
 }
 

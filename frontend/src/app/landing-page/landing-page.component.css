@@ -49,6 +49,7 @@ label{
 }
 #jumbotroninput{
     margin: auto;
+    display: inline;
 }
 #jumbotronheading{
     background: rgba(0,0,0,0.4);
@@ -172,4 +173,9 @@ color: navy
   .fa .fa-search
   {
     content:"\f002";
+  }
+  #searchbutton{
+      /* margin-top: 0.01px; */
+      background-color: white;
+      
   }

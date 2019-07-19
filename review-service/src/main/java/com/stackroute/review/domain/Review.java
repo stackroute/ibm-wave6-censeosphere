@@ -19,7 +19,7 @@ import java.util.Date;
 @Document
 public class Review {
     //primary key declaration
-    @Id
+
     private String reviewerEmail;
     private String reviewTitle;
     private String reviewDescription;
