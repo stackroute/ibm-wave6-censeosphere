@@ -1,0 +1,26 @@
+version: "2"
+services:
+
+
+  recommendation:
+    build: ./
+    restart: always
+    network_mode: host
+    ports:
+      - 8080:8080
+    expose:
+      - 8080
+
+  neo4j:
+    image: neo4j:latest
+    restart: always
+    network_mode: host
+    ports:
+      - 7474:7474
+    expose:
+      - 7474
+    volumes:
+      - $HOME/neo4j-data:/data
+      - $HOME/neo4j-plugins:/plugins
+      - $HOME/neo4j-ext:/var/lib/neo4j/extension
+
