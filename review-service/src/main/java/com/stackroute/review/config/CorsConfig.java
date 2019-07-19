@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class ConnectionConfig implements Filter{
+public class CorsConfig implements Filter {
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
         System.out.println("Filtering on...........................................................");
         HttpServletResponse response = (HttpServletResponse) res;
@@ -20,4 +20,5 @@ public class ConnectionConfig implements Filter{
     public void init(FilterConfig filterConfig) {}
 
     public void destroy() {}
+
 }

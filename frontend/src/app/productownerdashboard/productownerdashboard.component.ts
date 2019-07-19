@@ -12,7 +12,7 @@ import { LandingpageService } from '../landingpage.service';
 export class ProductownerdashboardComponent implements OnInit {
   // productOwners: any;
   productOwners=[];
-  products=[];
+  productDetails=[];
 
   constructor(private router:Router,private prodownerservice:ProdownerserviceService,private landingpageservice:LandingpageService) { }
  
@@ -25,7 +25,7 @@ export class ProductownerdashboardComponent implements OnInit {
     })
     this.landingpageservice.getAllProducts().subscribe((data:any) => {
       console.log(data);
-      this.products=data;
+      this.productDetails=data;
     })
   }
   

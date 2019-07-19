@@ -6,6 +6,9 @@ import { LoginvalidationService } from '../loginvalidation.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Reviewer } from '../reviewer';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ProductService } from '../product.service';
+import { error } from 'util';
+
 const helper = new JwtHelperService();
 @Component({
   selector: 'app-landing-page',
@@ -15,7 +18,7 @@ const helper = new JwtHelperService();
 
 export class LandingPageComponent implements OnInit {
   showFiller = false;
-  products = [];
+  productDetails = [];
   categories = [];
   subCategories = [];
   job = "";
@@ -26,14 +29,14 @@ export class LandingPageComponent implements OnInit {
   })
   helper = new JwtHelperService();
   auth: Authentication = new Authentication();
-  constructor(private router: Router, private landingpageservice: LandingpageService, private loginvalidation: LoginvalidationService) { }
+  constructor(private router: Router, private landingpageservice: LandingpageService, private loginvalidation: LoginvalidationService,private productService:ProductService) { }
 
   ngOnInit() {
 
 
     this.landingpageservice.getAllProducts().subscribe((data: any) => {
       console.log(data);
-      this.products = data;
+      this.productDetails = data;
     })
 
     this.landingpageservice.getAllCategory().subscribe((data: any) => {
@@ -71,6 +74,8 @@ export class LandingPageComponent implements OnInit {
           console.log("in if print password   " + password);
           console.log("in if print role   ", role);
 
+          sessionStorage.setItem('reviewerEmail',emailId);
+          
           if (role == this.job) {
             console.log(role);
             console.log("in if1");
@@ -100,6 +105,7 @@ export class LandingPageComponent implements OnInit {
           console.log("in if print password   " + password);
           console.log("in if print role   ", role);
 
+          sessionStorage.setItem('productOwnerEmail',emailId);
           if (role == this.job) {
             console.log(role);
             console.log("in if1");
@@ -157,6 +163,17 @@ export class LandingPageComponent implements OnInit {
           alert("Invalid credential");
         });
 
+  }
+
+  searchproduct(product){
+     console.log(product);
+      this.productService.getProduct(product).
+      subscribe(data=>{
+          console.log("product info : ",data);
+          // this.router.navigateByUrl("/searchreview/"+data);
+      });
+     
+     
   }
 }
 

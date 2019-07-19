@@ -77,17 +77,17 @@
 
   <hr> -->
  <div class="container">
-  <form name="reviewForm" class="reviewForm">
+  <form name="reviewForm" class="reviewForm" #myForm="ngForm" (ngSubmit)="onSubmit(reviewtitle.value,reviewdesc.value)">
     <div class="form-group">
       <label for="title"><strong>Title</strong></label>
-      <input type="text" class="form-control" id="title" required>
+      <input type="text" #reviewtitle class="form-control" id="title" required>
     </div>
     <div class="form-group">
       <label for="review"><strong>Review</strong></label>
-      <textarea type="text" class="form-control" id="review" required> </textarea>
+      <textarea type="text" class="form-control" #reviewdesc id="review" required> </textarea>
     </div>
 
-    <button type="submit" id="submitit" class="btn btn-primary" (click)="onSubmit()">Submit Review</button>
+    <button type="submit" id="submitit" class="btn btn-primary">Submit Review</button>
 
   </form>
  </div>

@@ -49,6 +49,7 @@ label{
 }
 #jumbotroninput{
     margin: auto;
+    display: inline;
 }
 #jumbotronheading{
     background: rgba(170, 167, 167, 0.3);
@@ -266,3 +267,9 @@ ul.social-network li {
     padding-top: 66px;
     font-size:15px;
 }
+
+  #searchbutton{
+      margin-top: 0px;
+      background-color: white; 
+  }
+
