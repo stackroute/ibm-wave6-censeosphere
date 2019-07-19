@@ -5,6 +5,7 @@ import { Authentication } from '../authentication';
 import { LoginvalidationService } from '../loginvalidation.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Reviewer } from '../reviewer';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 const helper = new JwtHelperService();
 @Component({
   selector: 'app-landing-page',
@@ -19,6 +20,10 @@ export class LandingPageComponent implements OnInit {
   subCategories = [];
   job = "";
 
+  form=new FormGroup({
+    emailId: new FormControl('',[Validators.required,Validators.email]),
+    password:new FormControl('',Validators.required)
+  })
   helper = new JwtHelperService();
   auth: Authentication = new Authentication();
   constructor(private router: Router, private landingpageservice: LandingpageService, private loginvalidation: LoginvalidationService) { }
