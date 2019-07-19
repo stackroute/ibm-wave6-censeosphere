@@ -48,6 +48,7 @@ saveProduct()
   this.product.specifications=this.firstFormGroup.controls.ProductSpecificationsCtrl.value;
   this.product.description=this.firstFormGroup.controls.ProductDescriptionCtrl.value;
   this.product.image=this.firstFormGroup.controls.ProductImageCtrl.value;
+  this.product.addedby=sessionStorage.getItem('productOwnerEmail');
   console.log(this.product);    environment:
 
   return this.productDetails.saveProduct(this.product).subscribe(data =>

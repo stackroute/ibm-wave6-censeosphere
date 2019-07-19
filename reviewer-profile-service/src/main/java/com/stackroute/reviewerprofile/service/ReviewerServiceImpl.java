@@ -141,6 +141,7 @@ public class ReviewerServiceImpl implements ReviewerService {
         Optional optional;
         Reviewer reviewer1;
         optional=reviewerRepository.findById(review.getReviewerEmail());
+        System.out.println("optional info :"+optional);
         List<Review> myreviewes;
 
 
@@ -150,9 +151,9 @@ public class ReviewerServiceImpl implements ReviewerService {
               reviewer1=reviewerRepository.findById(review.getReviewerEmail()).get();
               System.out.println("Reviewer 1:"+reviewer1);
 
+//              myreviewes=new ArrayList<>();
               myreviewes =reviewer1.getRevieweswritten();
               System.out.println("list "+myreviewes);
-              myreviewes=new ArrayList<>();
               myreviewes.add(review);
               for (int i = 0; i < myreviewes.size(); i++) {
                System.out.println("inside list"+myreviewes.get(i));

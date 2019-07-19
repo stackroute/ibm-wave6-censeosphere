@@ -139,7 +139,7 @@ public class ProductOwnerServiceImpl implements ProductOwnerService {
 
             myproducts =productOwner1.getProductsadded();
             System.out.println("list "+myproducts);
-            myproducts=new ArrayList<>();
+//            myproducts=new ArrayList<>();
             myproducts.add(productDetails);
             for (int i = 0; i < myproducts.size(); i++) {
                 System.out.println("inside list"+myproducts.get(i));

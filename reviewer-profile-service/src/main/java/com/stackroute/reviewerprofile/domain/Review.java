@@ -18,7 +18,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class Review {
 
-    @Id
+
     private String reviewerEmail;
     private String reviewTitle;
     private String reviewDescription;

@@ -1,4 +1,5 @@
 export class Product {
+    addedby:string;
     category:String;
     subCategory:String;
     productName:String;
@@ -9,4 +10,5 @@ export class Product {
     image:String;
     uploadedOn:Date;
     rating:Int16Array;
+    
 }

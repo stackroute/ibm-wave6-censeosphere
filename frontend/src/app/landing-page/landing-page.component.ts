@@ -99,6 +99,7 @@ export class LandingPageComponent implements OnInit {
           console.log("in if print password   " + password);
           console.log("in if print role   ", role);
 
+          sessionStorage.setItem('productOwnerEmail',emailId);
           if (role == this.job) {
             console.log(role);
             console.log("in if1");
