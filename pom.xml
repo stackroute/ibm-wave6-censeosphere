@@ -33,6 +33,9 @@
 		<module>review-service</module>
 		<module>reviewer-profile-service</module>
 		<module>productOwner-service</module>
+		<module>NLP-service</module>
+		<module>product-search-service</module>
+
 	</modules>
 
 	<dependencies>

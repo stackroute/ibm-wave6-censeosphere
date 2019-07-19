@@ -1,4 +1,6 @@
-<nav class="navbar navbar-expand-lg fixed-top">
+
+
+  <nav class="navbar navbar-expand-lg fixed-top">
     <img src="../../assets/img/logo6.png">
      <div class="dropdown">
        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -9,40 +11,44 @@
         <li><button class="dropdown-item" (click)="lpage()" ><span><i class="fa fa-power-off"></i></span> Log out</button></li>
        </ul>
      </div>
-</nav>
+  </nav>
 
 
 
-<div>
+
    <h3 id="searchheading">Product Details</h3>
    <hr>
-<div class="row">
-   <div class="col-sm-6">
-       <div class="prod">
 
-        <img src="../assets/img/nikon.jpeg" alt="product">
-        <h3>NIKON D5600</h3>
-        <div>
-            <button class="btn-primary" type="button" (click)="wreview()" name="write a review">Write A Review</button>
+<!-- card start  -->
+<div class="container">
+    <div class="thumb-wrapper">
+      <div class="img-box">
+        <img src="../assets/img/nikon.jpeg" class="img-responsive img-fluid" alt="">
+      </div>
+      <div class="thumb-content">
+        <h4>Nikon camera</h4>
+        <div class="star-rating">
+          <ul class="list-inline">
+            <li class="list-inline-item"><i class="fa fa-star"></i></li>
+            <li class="list-inline-item"><i class="fa fa-star"></i></li>
+            <li class="list-inline-item"><i class="fa fa-star"></i></li>
+            <li class="list-inline-item"><i class="fa fa-star"></i></li>
+            <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+          </ul>
+
         </div>
-    </div>
-    </div>
-    <div class="col-sm-6">
-        <div class="price">
-            <h3>Price:49,000</h3>
-            <div class="star-rating">
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star-half-o"></span>
-            </div>
-            <h3> 5 Reviews</h3>
-        </div>
-    </div>
-    
+        <p class="item-price"><b>49,999</b></p>
+        <h6>2 reviews</h6>
+      </div>
   </div>
 </div>
+<!--product card end-->
+<br>
+<div>
+  <button class="btn btn-info" id="mainbtn" type="button" (click)="wreview()" name="write a review">Write A Review</button>
+</div>
+
+
 <!-- tabbed panel -->
 
 <mat-tab-group mat-align-tabs="start">
@@ -52,7 +58,7 @@
 
      <div class="tab-content responsive">
          <div class="tab-pane active" id="home" role="tabpanel">
-             <div class="container-fluid">
+            <div class="container-fluid">
              <div class="row mt-3">
                <div class="col-3">
                  <img alt="nikon" src="{{review.image}}" class="w-100"><br><h4>{{review.reviewer}}</h4><br>
@@ -69,36 +75,14 @@
                  <!-- <p>I am a beginner in terms of photography. The telephoto lens are really good and pictures taken with then are truly awesome. They give the photos kind of a depth field perception in auto mode. The camera itself has heck lot of options and having a touchscreen really helps.</p> -->
                  <p>{{review.reviewDescription}}</p>      
                  <div>
-                                   <button class="btn-primary" type="button" name="useful">Most helpful??</button>
-                         </div>
+                      <button class="btn-primary" type="button" name="useful">Most helpful??</button>
+                </div>
                </div>
              </div>
            </div>
           </div>
-     </div>
-           
-           <!-- <div class="tab-pane active" id="home" role="tabpanel">
-                   <div class="container-fluid">
-                       <div class="row mt-3">
-                           <div class="col-3" id="oval"><img alt="nikon" src="../assets/img/jack.jpeg" class="w-100"><br><h4>reviewd by: Jack Dawson</h4></div>
-                           <div class="col-9">
-                               <p class="h4">Excellent product for beginners</p>
-                             <div class="star-rating">
-                               <span class="fa fa-star checked"></span>
-                               <span class="fa fa-star checked"></span>
-                               <span class="fa fa-star checked"></span>
-                               <span class="fa fa-star checked"></span>
-                               <span class="fa fa-star"></span>
-                                   </div>
-                               <p>For a beginner, this is more than you can bargain for. It has a fairly decent f stop range for you to play around and control exposure.The best part is, it has all the requirements of a DSLR, as in i was surprised to see it has exposure metering modes as well. So when i was learning from a tutorial, whatever photography jargon they threw around i could try it on the camera.The camera itself is very light. The lens make it a little bit heavy. I found the bag to be a bit small. It doesn't fit well with the lens on.</p>
-                               <div>
-                                       <button class="btn-primary" type="button" name="useful">Most helpful!</button>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-                   </div> -->
-       </div>
+     </div>           
+   </div>
  </mat-tab>
  
  <mat-tab label="Specification">
@@ -147,13 +131,10 @@
        </div>
  </mat-tab>
 </mat-tab-group>
-
- 
-
 <!-- tabbed panel end -->
 
  
-<!-- footer -->
+ <!-- footer -->
 <footer class="page-footer font-small blue pt-4">
   <div class="container">
     <div class="row">
@@ -211,6 +192,7 @@
               <li>
                 <a href="#"><Strong>Support</Strong></a>
               </li>
+
         </ul>
       </div>
       <div class="col-sm-3">
@@ -227,9 +209,11 @@
               <li> 
               <a href="#"><i class="fa fa-linkedin"></i>&nbsp;<Strong>linkedin</Strong></a>
             </li>
+
         </ul>
       </div>
     </div>
   </div>
 </footer>
+
 <!-- end footer -->

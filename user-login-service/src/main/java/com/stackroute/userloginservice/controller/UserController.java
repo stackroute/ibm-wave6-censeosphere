@@ -100,4 +100,6 @@ public class UserController {
     public ResponseEntity<?> getAllUsers() {
            return new ResponseEntity<List<User>> (userService.getAllUsers(),HttpStatus.OK);
         }
+
+
 }

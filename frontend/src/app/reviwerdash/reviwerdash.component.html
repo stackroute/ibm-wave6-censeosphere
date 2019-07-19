@@ -20,9 +20,9 @@
 		<h1 id="jumbotronheading">India's Largest Review Platform</h1>
 		<form>
 			<div class="form-group">
-				<input type="text" placeholder="search here to write a review" name="search" class="form-control"
-					id="jumbotroninput"><br>
-				<button (click)="search()">search</button>
+				<input type="text" #searchproduct placeholder="search here to write a review" name="search" class="form-control col-md-3"
+					id="jumbotroninput"> <br>
+				<button class="btn btn-info" (click)="search(searchproduct.value)">search</button>
 			</div>
 		</form>
 	</div>

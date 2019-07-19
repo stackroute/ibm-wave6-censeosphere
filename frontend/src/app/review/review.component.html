@@ -20,29 +20,33 @@
 </div>
 <!-- end header -->
 
-
-<!--   
-  <div class="thumb-wrapper">
+<h4 id="reason">Write a review</h4>
+<hr>
+<!-- card start  -->
+<div class="container">
+      <div class="thumb-wrapper">
         <div class="img-box">
-      <img src="{{products.image}}" class="img-responsive img-fluid" alt="">                  
+          <img src="../assets/img/nikon.jpeg" class="img-responsive img-fluid" alt="">
+        </div>
+        <div class="thumb-content">
+          <h4>{{product.productName}}</h4>
+          <div class="star-rating">
+            <ul class="list-inline">
+              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+              <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+            </ul>
+          </div>
+          <p class="item-price"><b>{{product.price}}</b></p>
+          <h6>2 reviews</h6>
+        </div>
     </div>
-    <div class="thumb-content">                 
-      <div class="star-rating">
-        <ul class="list-inline">
-          <li class="list-inline-item"><i class="fa fa-star"></i></li>
-          <li class="list-inline-item"><i class="fa fa-star"></i></li>
-          <li class="list-inline-item"><i class="fa fa-star"></i></li>
-          <li class="list-inline-item"><i class="fa fa-star"></i></li>
-          <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-        </ul>
-      </div>
-      <p class="item-price"><b>{{products.price}}</b></p>
-      <a (click)="onSubmit()" class="reviewnumber">2 reviews</a>
-    </div>  
-  </div> -->
-  <!--product card end-->
+</div>
+<!--product card end-->
 
-  <div class="row" id="prod">
+  <!-- <div class="row" id="prod">
     <div class="col-sm-3"></div>
     <div class="col-sm-3">
         <div class="prod">
@@ -70,22 +74,23 @@
     </div>
     <div class="col-sm-3"></div>
   </div>
-  
-  <hr>
-  <h4 id="reason">Write a review for NIKON D5600</h4>
 
-  <form name="reviewForm" class="reviewForm">
+  <hr> -->
+ <div class="container">
+  <form name="reviewForm" class="reviewForm" #myForm="ngForm" (ngSubmit)="onSubmit(reviewtitle.value,reviewdesc.value)">
     <div class="form-group">
-      <label for="title">Title</label>
-      <input type="text" class="form-control" id="title" required>
+      <label for="title"><strong>Title</strong></label>
+      <input type="text" #reviewtitle class="form-control" id="title" required>
     </div>
     <div class="form-group">
-      <label for="review">Review</label>
-      <textarea type="text" class="form-control" id="review" required> </textarea>
+      <label for="review"><strong>Review</strong></label>
+      <textarea type="text" class="form-control" #reviewdesc id="review" required> </textarea>
     </div>
-    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit Review</button>
+
+    <button type="submit" id="submitit" class="btn btn-primary">Submit Review</button>
+
   </form>
-   
+ </div>
   <!--form end here-->
 
 <!-- footer -->
@@ -95,7 +100,7 @@
       <div class="col-sm-3">
         <ul class="list-unstyled lead">
             <li>
-                <h5><strong>About us</strong></h5>
+                <h5>About us</h5>
             </li>
             <li>
                 <a href="#"><strong> Vision & Goals </strong></a>
@@ -115,7 +120,7 @@
       <div class="col-sm-3">
         <ul class="list-unstyled lead">
             <li>
-                <h5><strong>Contact us</strong></h5>
+                <h5>Contact us</h5>
             </li>
               <li>
                 <a href="#"><i class="fa fa-map-marker"></i>&nbsp;<Strong>Location</Strong></a>
@@ -132,7 +137,7 @@
       <div class="col-sm-3">
         <ul class="list-unstyled lead">
             <li>
-                <h5><strong>Insights</strong></h5>
+                <h5>Insights</h5>
             </li>
             <li>
                 <a href="#"><Strong>Privacy policy</Strong></a>
@@ -151,7 +156,7 @@
       <div class="col-sm-3">
         <ul class="list-unstyled lead">
           <li>
-            <h5><strong>Keep connected with</strong></h5>
+            <h5>Keep connected with</h5>
           </li>
           <li>
               <a href="#"><i class="fa fa-twitter-square"></i>&nbsp;<Strong>twitter</Strong></a>

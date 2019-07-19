@@ -23,7 +23,7 @@ import java.util.Date;
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@id", scope = Review.class)
 public class Review {
     //primary key declaration
-    @Id
+
     private String reviewerEmail;
     private String reviewTitle;
     private String reviewDescription;

@@ -101,8 +101,6 @@ public class ReviewerServiceImpl implements ReviewerService {
         optional=reviewerRepository.findById(emailId);
         if(optional != null)
         {
-            // productowner.setName(productowner.getName());
-//            productowner1=productownerRepository.save(productowner);
            reviewer1=reviewerRepository.findById(emailId).get();
 
             System.out.println("from update method "+reviewer1);
@@ -113,6 +111,9 @@ public class ReviewerServiceImpl implements ReviewerService {
             System.out.println("After updating "+reviewer1);
             reviewerRepository.save(reviewer1);
 
+            ReviewerDTO reviewerDTO1=new ReviewerDTO(reviewer1.getEmailId(),reviewer1.getReconfirmPassword(),reviewer1.getRole());
+            sendreviewer(reviewerDTO1);
+
         }
         else
         {
@@ -121,11 +122,7 @@ public class ReviewerServiceImpl implements ReviewerService {
 
         return reviewer1;
     }
-//    @Override
-//    public List<Reviewer> getAllReviews()
-//    {
-//        return reviewerRepository.findAll();
-//    }
+
     @Override
     public void sendreviewer(ReviewerDTO reviewerDTO)
     {

@@ -34,26 +34,38 @@ nav img{
 
   margin-top: 100px;
 }
+.mat-tab label{
+  font-size:18px ;
+
+}
  .container
 {
   margin-top: 25px;
 }
-
-
+#btn1{
+  background-color: #17a2b8;
+  color: white;
+}
+#btn2{
+  background-color: #17a2b8;
+  color: white;
+}
 
 .fakeimg {
   height: 200px;
   background: #aaa;
 }
-
-
  .thumb-wrapper {
 	padding: 25px 15px;
-	background: #fff;
+  /* background: #fff; */
+  background: #def2f1;
 	border-radius: 6px;
 	text-align: center;
 	position: relative;
-	box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+  /* box-shadow: 0 2px 3px rgba(0,0,0,0.2); */
+  box-shadow: 1.5px 1.5px 3px rgba(0,0,0,2.5);
+  width: 300px;
+  color: midnightblue;
 }
 .img-box {
 	height: 120px;

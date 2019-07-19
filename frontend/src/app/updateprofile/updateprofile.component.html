@@ -1,80 +1,140 @@
 <div class="containerbody">
-        <nav class="navbar navbar-expand-lg fixed-top">
-         <img src="../../assets/img/logo6.png">
-          <div class="dropdown">
-            <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             <span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
-            </a>
-            <ul id="drop" class="dropdown-menu">
-             <li><button class="dropdown-item" (click)="update()" ><span><i class="fa fa-refresh"></i></span>  Update profile</button></li>
-             <li><button class="dropdown-item"  (click)="lpage()"><span><i class="fa fa-power-off"></i></span> Log out</button></li>
-            </ul>
-          </div>
-     </nav>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <img src="../../assets/img/logo6.png">
+    <div class="dropdown">
+      <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
+      </a>
+      <ul id="drop" class="dropdown-menu">
+        <li><button class="dropdown-item" (click)="update()"><span><i class="fa fa-refresh"></i></span> Update
+            profile</button></li>
+        <li><button class="dropdown-item" (click)="lpage()"><span><i class="fa fa-power-off"></i></span> Log
+            out</button></li>
+      </ul>
     </div>
+  </nav>
+</div>
 
-     <mat-tab-group animationDuration="0ms">
-            <mat-tab label="Edit Profile">
-               
-    <div  class="container ">
-        <h3 id="heading">Edit Profile</h3>
-        <hr>
-      
-          <div  id="rowcontainer" class="row">
-            
-            <div class="col-md-12">
-            <form [formGroup]="firstFormGroup" id="editform">
+<mat-tab-group animationDuration="0ms">
+
+  <!-- <mat-tab label="Edit Profile">
+                <div class="container">
+                    <div class="row">
+                     
+                      <div class="col-md-3">
+                        <div class="text-center">
+                          <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+                          <h6>Upload a different photo...</h6>
+                          <input type="file" class="form-control">
+                        </div>
+                      </div>
+                    
+                      <div class="col-md-9 personal-info">
+                        <h3>Personal info</h3>
+                        <form class="form-horizontal" role="form">
+                          <div class="form-group">
+                            <label class="col-lg-3 control-label">Name:</label>
+                            <div class="col-lg-8">
+                              <input class="form-control" type="text" placeholder="enter your name">
+                            </div>
+                          </div>
+                         <div class="form-group">
+                            <label class="col-lg-3 control-label">Email:</label>
+                            <div class="col-lg-8">
+                              <input class="form-control" type="text" placeholder="enter your mailId">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-3 control-label">Password:</label>
+                            <div class="col-md-8">
+                              <input class="form-control" type="password" placeholder="enter your password">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-3 control-label">Confirm password:</label>
+                            <div class="col-md-8">
+                              <input class="form-control" type="password" placeholder="confirm your password">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-3 control-label"></label>
+                            <div class="col-md-8">
+                              <input type="button" id="btn1" class="btn btn-outline-light" (click)="updateDetails()" value="Save Changes">&nbsp;
+                              <span></span>
+                              <input type="reset" id="btn2" class="btn btn-outline-light" value="Cancel">
+                            </div>
+                          </div>
+                        </form>
+                      </div> -->
+  <mat-tab label="Edit Profile">
+    <div class="container ">
+      <h3 id="heading">Edit Profile</h3>
+      <hr>
+
+      <div id="rowcontainer" class="row">
+
+        <div class="col-md-12">
+          <form [formGroup]="firstFormGroup" id="editform">
             <!-- left column -->
-           <div class="col-md-3"> 
-                <div class="form-group">
-              <div class="text-center">
-                <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
-                <h6>Upload a different photo...</h6>
-                <input type="file"   formControlName="fileName" class="form-control">
+            <div class="col-md-3">
+              <div class="form-group">
+                <div class="text-center">
+                  <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+                  <h6>Upload a different photo...</h6>
+                  <input type="file" formControlName="fileName" class="form-control">
+                </div>
               </div>
-              </div>
-          </div>
-          
+            </div>
+
             <!-- edit form column -->
             <div class="col-md-9 personal-info">
-             
-               
-                <div class="form-group">
-                  <label class="col-lg-3 control-label">Name:</label>
-                  <div class="col-lg-8">
-                    <input class="form-control" formControlName="NameCtrl" type="text" value="Jane">
-                  </div>
+
+
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Name:</label>
+                <div class="col-lg-8">
+                  <input class="form-control" formControlName="NameCtrl" type="text" value="Jane">
                 </div>
-                <div class="form-group">
-                  <label class="col-lg-3 control-label">Email:</label>
-                  <div class="col-lg-8">
-                    <input class="form-control"  formControlName="emailCtrl" type="text">
-                  </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Email:</label>
+                <div class="col-lg-8">
+                  <input class="form-control" formControlName="emailCtrl" type="text">
                 </div>
-                <div class="form-group">
-                  <label class="col-md-3 control-label">Password:</label>
-                  <div class="col-md-8">
-                    <input class="form-control" type="password">
-                  </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-3 control-label">Password:</label>
+                <div class="col-md-8">
+                  <input class="form-control" type="password">
                 </div>
-                <div class="form-group">
-                  <label class="col-md-3 control-label">Confirm password:</label>
-                  <div class="col-md-8">
-                    <input class="form-control" formControlName="ReConfirmPasswordCtrl" type="password" >
-                  </div>
+              </div>
+            
+              <div class="form-group">
+                <label class="col-md-3 control-label">Confirm password:</label>
+                <div class="col-md-8">
+                  <input class="form-control" formControlName="ReConfirmPasswordCtrl" type="password">
+
                 </div>
-                <div class="form-group">
-                    <label class="col-md-3 control-label"></label>
-                    <div class="col-md-8">
-                        <button type="button" class="btn btn-primary" (click)="updateDetails()">
-                            Save Profile
-                          </button> 
-                          &nbsp; 
-                      <button type="button" class="btn btn-primary" (click)="account()">Cancel</button>
-                    </div>
-                  </div>
-           
-                <!-- <div class="modal fade" id="myModal">
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-3 control-label"></label>
+                <div class="col-md-8">
+                  <button type="button" class="btn btn-primary" (click)="updateDetails()">
+                    Save Profile
+                  </button>
+                  &nbsp;
+                  <button type="button" class="btn btn-primary" (click)="account()">Cancel</button>
+                </div>
+              </div>
+            </div>
+
+            </form>
+            </div>
+            </div>
+    </div>
+              <!-- <div class="modal fade" id="myModal">
                     <div class="modal-dialog modal-sm">
                       <div class="modal-content">
                       
@@ -89,8 +149,9 @@
                       </div>
                     </div>
                   </div> -->
+
   
-            </div>
+            <!-- </div>
   
           </form>
           </div>
@@ -137,14 +198,56 @@
                     <p>{{review.reviewDescription}}</p> 
                     <br>
                  </div>
+
+  </mat-tab> -->
+  <mat-tab label="My reviews">
+    <div class="container">
+      <h3>Your reviews</h3>
+      <hr>
+      <br>
+      <div *ngFor="let product of products">
+        <div *ngFor="let review of reviews">
+          <div class="row">
+
+            <div class="col-sm-4">
+
+              <div class="thumb-wrapper">
+
+                <div class="img-box">
+                  <img src="{{product.image}}" class="img-responsive img-fluid" alt="">
+                </div>
+                <div class="thumb-content">
+                  <h4>{{product.productName}}</h4>
+                  <div class="star-rating">
+                    <ul class="list-inline">
+                      <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                      <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                      <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                      <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                      <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                    </ul>
+                  </div>
+                  <p class="item-price"><b>{{product.price}}</b></p>
+                  <h6>{{product.rating}}</h6>
+>>>>>>> b90f33a73f75c49132ae57360dae4ac1aa756554
                 </div>
               </div>
+              <br>
+            </div>
+            <div class="col-sm-8">
+              <div>
+                <h5>{{review.reviewTitle}}</h5>
+                <p>{{review.reviewDescription}}</p>
+                <br>
               </div>
-              </div>
-              </div>
-<hr>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
 
-<!-- <div class="container">
+    <!-- <div class="container">
     <div class="row">
       <div class="col-sm-4">
         
@@ -178,8 +281,8 @@
      </div>
     </div>
   </div> -->
-            </mat-tab>
-           </mat-tab-group>
+  </mat-tab>
+</mat-tab-group>
 
 <!-- footer -->
 <footer class="page-footer font-small blue pt-4">
@@ -187,58 +290,58 @@
     <div class="row">
       <div class="col-sm-3">
         <ul class="list-unstyled lead">
-            <li>
-                <h5><strong>About us</strong></h5>
-            </li>
-            <li>
-                <a href="#"><strong> Vision & Goals </strong></a>
-              </li>
-              <li>
-                <a href="#"><strong> Company </strong></a>
-              </li>
-              <li>
-                <a href="#"><strong> Blog </strong></a>
-              </li>
-              <li>
-                <a href="#"><strong> Careers </strong></a>
-              </li>
+          <li>
+            <h5><strong>About us</strong></h5>
+          </li>
+          <li>
+            <a href="#"><strong> Vision & Goals </strong></a>
+          </li>
+          <li>
+            <a href="#"><strong> Company </strong></a>
+          </li>
+          <li>
+            <a href="#"><strong> Blog </strong></a>
+          </li>
+          <li>
+            <a href="#"><strong> Careers </strong></a>
+          </li>
         </ul>
 
       </div>
       <div class="col-sm-3">
         <ul class="list-unstyled lead">
-            <li>
-                <h5><strong>Contact us</strong></h5>
-            </li>
-              <li>
-                <a href="#"><i class="fa fa-map-marker"></i>&nbsp;<Strong>Location</Strong></a>
-              </li>
-              <li>
-                <a href="#"><i class="fa fa-phone"></i>&nbsp;<Strong>9874563129</Strong></a>
-              </li>
-              <li> 
-                <a href="#"> <i class="fa fa-envelope"></i>&nbsp;<Strong>niitstkrt@gmail.com</Strong></a>
-              </li> 
+          <li>
+            <h5><strong>Contact us</strong></h5>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-map-marker"></i>&nbsp;<Strong>Location</Strong></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-phone"></i>&nbsp;<Strong>9874563129</Strong></a>
+          </li>
+          <li>
+            <a href="#"> <i class="fa fa-envelope"></i>&nbsp;<Strong>niitstkrt@gmail.com</Strong></a>
+          </li>
         </ul>
       </div>
-      
+
       <div class="col-sm-3">
         <ul class="list-unstyled lead">
-            <li>
-                <h5><strong>Insights</strong></h5>
-            </li>
-            <li>
-                <a href="#"><Strong>Privacy policy</Strong></a>
-              </li>
-              <li>
-                <a href="#"><Strong>Terms & Conditions </Strong></a>
-              </li>
-              <li>
-                <a href="#"><Strong>FAQs</Strong></a>
-              </li>
-              <li>
-                <a href="#"><Strong>Support</Strong></a>
-              </li>
+          <li>
+            <h5><strong>Insights</strong></h5>
+          </li>
+          <li>
+            <a href="#"><Strong>Privacy policy</Strong></a>
+          </li>
+          <li>
+            <a href="#"><Strong>Terms & Conditions </Strong></a>
+          </li>
+          <li>
+            <a href="#"><Strong>FAQs</Strong></a>
+          </li>
+          <li>
+            <a href="#"><Strong>Support</Strong></a>
+          </li>
         </ul>
       </div>
       <div class="col-sm-3">
@@ -247,14 +350,14 @@
             <h5><strong>Keep connected with</strong></h5>
           </li>
           <li>
-              <a href="#"><i class="fa fa-twitter-square"></i>&nbsp;<Strong>twitter</Strong></a>
-            </li>
-              <li>
-                <a href="#"><i class="fa fa-facebook-square"></i>&nbsp;<Strong>facebook</Strong></a>
-              </li>
-              <li> 
-              <a href="#"><i class="fa fa-linkedin"></i>&nbsp;<Strong>linkedin</Strong></a>
-            </li>
+            <a href="#"><i class="fa fa-twitter-square"></i>&nbsp;<Strong>twitter</Strong></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-facebook-square"></i>&nbsp;<Strong>facebook</Strong></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-linkedin"></i>&nbsp;<Strong>linkedin</Strong></a>
+          </li>
         </ul>
       </div>
     </div>

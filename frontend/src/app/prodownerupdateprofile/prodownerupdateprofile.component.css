@@ -29,13 +29,15 @@ nav img{
    margin-right:100px;
    
  }
- /* #addproduct{
-  margin-right: 35px;
-} */
-
-/* .addclass{
-  margin-left: 1060px;} */
-  
+ 
+  #btn1{
+    background-color: #17a2b8;
+    color: white;
+  }
+  #btn2{
+    background-color: #17a2b8;
+    color: white;
+  }
 .mat-tab-group
 {
 
@@ -50,7 +52,6 @@ nav img{
   background: #aaa;
 }
 
- 
 footer
 {
     margin-top: 80px;
@@ -67,8 +68,8 @@ footer a{
     position: relative;
 }
 footer a:hover{
-    color:rgb(88, 75, 75);
-    font-size: 25px;
+    color: midnightblue;
+    font-size: 18px;
 }
 #heading
 {

@@ -3,7 +3,7 @@ h2{
 }
 
 .navbar{
-    background-color:#fdffff;
+    background-color:lightblue;
     position: relative;
     height: 80px;
     position: fixed;
@@ -25,9 +25,10 @@ nav img{
    margin-right:100px;
    
  }
-/* #addproduct{
-    margin-right: 35px;
-}
+ #main{
+     margin-top: 80px;
+ }
+
 
 .jumbotron{
     height: 400px;
@@ -43,43 +44,40 @@ nav img{
     color:white;
     margin-top: 80px;
 } */
-.row-footer{
-    float: right;
-}
-
-footer
-{
-    margin-top: 50px;
-    padding-top: 40px;
-    background-color: grey;
-    font-size: 20px;
-    height: 75px;
-    position: relative;
-    display: block;
-}
-footer a{
-    color: black;
-}
-#socialsite{
-    padding-left: 30px;
-}
-#envelope{
-    padding-right: 50px;
-    
-}
 
 #main{
     margin-top:90px;
 }
 
-footer a:hover{
-    color:rgb(88, 75, 75);
-    font-size: 15px;
-}
 
-.row-footer{
-    margin-bottom: 0px;
-}
 /* .container{
     margin-top: 90px;
 } */
+
+
+footer
+{
+    margin-top: 80px;
+    padding-top: 25px;
+    background-color: #f2f2f2;
+    font-size: 14px;
+    height: 180px;
+    position: relative;
+    display: block;
+    line-height: 28px;
+}
+footer a{
+    color: #17a2b8;
+    position: relative;
+}
+footer a:hover{
+    color: midnightblue;
+    font-size: 18px;
+
+}
+
+
+/* .container{
+    margin-top: 90px;
+} */
+
