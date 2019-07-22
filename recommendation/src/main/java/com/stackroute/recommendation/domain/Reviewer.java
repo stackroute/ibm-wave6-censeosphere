@@ -16,5 +16,7 @@ import java.util.List;
 public class Reviewer {
     @Id
     private String emailId;
+    private String productName;
+
 
 }

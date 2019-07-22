@@ -45,6 +45,8 @@ public class ReviewerServiceImpl implements ReviewerService {
         {
             throw new ReviewerAlreadyExistsException("Reviewer already exists");
         }
+        List<Review> myreviews=new ArrayList<Review>();
+        reviewer.setRevieweswritten(myreviews);
         Reviewer savedReviewer=reviewerRepository.save(reviewer);
         ReviewerDTO reviewerDTO=new ReviewerDTO(reviewer.getEmailId(),reviewer.getReconfirmPassword(),reviewer.getRole());
          sendreviewer(reviewerDTO);
