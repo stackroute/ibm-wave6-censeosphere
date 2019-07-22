@@ -15,16 +15,19 @@ const routes: Routes = [
   { path: '',component:LandingPageComponent},
   { path: 'login', component:UserLoginComponent },
   { path: 'account/:role', component: NewaccountComponent},
+  {path:'rprofile/:name/:emailId/:reconfirmPassword',component:UpdateprofileComponent},
   {path:'rprofile',component:UpdateprofileComponent},
   {path:'reviwerdashboard',component:ReviwerdashComponent},
   {path:'returnlanding',component:LandingPageComponent},
   {path: 'rsearch',component:SearchForReviewComponent},
+  {path:'productownerdashboard/:emailId',component:ProductownerdashboardComponent},
   {path:'productownerdashboard',component:ProductownerdashboardComponent},
   {path:'add-product',component:AddProductComponent},
+  {path:'reviewerdash/:emailId',component:ReviwerdashComponent},
   {path:'reviewerdash',component:ReviwerdashComponent},
   {path:'writereview',component:ReviewComponent},
   {path:'searchreview',component:SearchForReviewComponent},
-  { path:'prodownerupdateprofile',component:ProdownerupdateprofileComponent},
+  { path:'prodownerupdateprofile/:name/:emailId/:reconfirmPassword',component:ProdownerupdateprofileComponent},
   {path:'rdashboard',component:ReviewerdashboardComponent}
   // { path: '**',component:LandingPageComponent}
   

@@ -17,7 +17,7 @@ import { UpdateProfileService } from '../update-profile.service';
 export class UpdateprofileComponent implements OnInit {
 
   firstFormGroup:FormGroup;
-
+  reviewer:any;
 
   email="";
   update1=new UpdateProfile();
@@ -25,7 +25,8 @@ export class UpdateprofileComponent implements OnInit {
 
   productDetails=[];
   reviews=[];
-  constructor(private router:Router,private landingpageservice:LandingpageService,private searchforreview:SearchForReviewService,private http:HttpClient,
+  constructor(private router:Router,private landingpageservice:LandingpageService,
+    private searchforreview:SearchForReviewService,private http:HttpClient,
     private _formBuilder: FormBuilder,private updates:UpdateProfileService) { }
 
   ngOnInit() {
@@ -41,22 +42,31 @@ export class UpdateprofileComponent implements OnInit {
     })
 
     this.firstFormGroup = this._formBuilder.group({
-      fileName: ['', Validators.required],
+      imageCtrl: ['', Validators.required],
       NameCtrl: ['', Validators.required],
       ReConfirmPasswordCtrl: ['', Validators.required],
       emailCtrl: ['', Validators.required],
    });
 
+   this.reviewer=JSON.parse(sessionStorage.getItem("data"));
+   console.log(this.reviewer);
+   
   }
 
   updateDetails()
   {
-    this.email=this.firstFormGroup.controls.emailCtrl.value;
+    this.email=sessionStorage.getItem("pemailId");
+    console.log("from session"+this.email);
+    this.update1.emailId=this.firstFormGroup.controls.emailCtrl.value;
     this.update1.name=this.firstFormGroup.controls.NameCtrl.value;
-    this.update1.image=this.firstFormGroup.controls.fileName.value;
+    this.update1.image=this.firstFormGroup.controls.imageCtrl.value;
     this.update1.reconfirmPassword=this.firstFormGroup.controls.ReConfirmPasswordCtrl.value;
-    console.log(this.update1);
-    this.updates.updateDetails(this.update1,this.email).
+    console.log(this.update1.emailId);
+    console.log(this.update1.name);
+    console.log(this.update1.image);
+    console.log(this.update1.reconfirmPassword);
+
+    this.updates.updateReviewerDetails(this.update1,this.email).
       subscribe(data =>{
         console.log("successfully updated");
       });
@@ -71,6 +81,10 @@ export class UpdateprofileComponent implements OnInit {
   lpage()
   {
    this.router.navigateByUrl("/returnlanding"); 
+  }
+  close()
+  {
+    this.router.navigateByUrl("/reviewerdash"); 
   }
   
   // account()
