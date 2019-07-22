@@ -49,6 +49,15 @@ services:
     ports:
       - 8089:8089
 
+  searchservice:
+    build: review-service
+    restart: always
+    network_mode: "host"
+    depends_on:
+      - mongodb
+    ports:
+      - 8090:8090
+
   mysqldb:
     image: mysql:5.7
     ports:
