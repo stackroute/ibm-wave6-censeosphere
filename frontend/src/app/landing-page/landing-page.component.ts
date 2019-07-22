@@ -69,7 +69,7 @@ export class LandingPageComponent implements OnInit {
           if (role == this.job) {
             console.log(role);
             console.log("in if1");
-            this.router.navigateByUrl("/reviwerdashboard");
+            this.router.navigateByUrl("/reviewerdash/"+ emailId);
 
           }
           else {
@@ -98,7 +98,8 @@ export class LandingPageComponent implements OnInit {
           if (role == this.job) {
             console.log(role);
             console.log("in if1");
-            this.router.navigateByUrl("/productownerdashboard");
+            console.log(emailId);
+            this.router.navigateByUrl("/productownerdashboard/"+ emailId);
 
           }
           else {

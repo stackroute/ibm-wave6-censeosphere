@@ -17,55 +17,6 @@
 
 <mat-tab-group animationDuration="0ms">
 
-  <!-- <mat-tab label="Edit Profile">
-                <div class="container">
-                    <div class="row">
-                     
-                      <div class="col-md-3">
-                        <div class="text-center">
-                          <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
-                          <h6>Upload a different photo...</h6>
-                          <input type="file" class="form-control">
-                        </div>
-                      </div>
-                    
-                      <div class="col-md-9 personal-info">
-                        <h3>Personal info</h3>
-                        <form class="form-horizontal" role="form">
-                          <div class="form-group">
-                            <label class="col-lg-3 control-label">Name:</label>
-                            <div class="col-lg-8">
-                              <input class="form-control" type="text" placeholder="enter your name">
-                            </div>
-                          </div>
-                         <div class="form-group">
-                            <label class="col-lg-3 control-label">Email:</label>
-                            <div class="col-lg-8">
-                              <input class="form-control" type="text" placeholder="enter your mailId">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-md-3 control-label">Password:</label>
-                            <div class="col-md-8">
-                              <input class="form-control" type="password" placeholder="enter your password">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-md-3 control-label">Confirm password:</label>
-                            <div class="col-md-8">
-                              <input class="form-control" type="password" placeholder="confirm your password">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-md-3 control-label"></label>
-                            <div class="col-md-8">
-                              <input type="button" id="btn1" class="btn btn-outline-light" (click)="updateDetails()" value="Save Changes">&nbsp;
-                              <span></span>
-                              <input type="reset" id="btn2" class="btn btn-outline-light" value="Cancel">
-                            </div>
-                          </div>
-                        </form>
-                      </div> -->
   <mat-tab label="Edit Profile">
     <div class="container ">
       <h3 id="heading">Edit Profile</h3>
@@ -81,7 +32,7 @@
                 <div class="text-center">
                   <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
                   <h6>Upload a different photo...</h6>
-                  <input type="file" formControlName="fileName" class="form-control">
+                  <input type="file" formControlName="imageCtrl" class="form-control">
                 </div>
               </div>
             </div>
@@ -93,27 +44,28 @@
               <div class="form-group">
                 <label class="col-lg-3 control-label">Name:</label>
                 <div class="col-lg-8">
-                  <input class="form-control" formControlName="NameCtrl" type="text" value="Jane">
+                  <input class="form-control" formControlName="NameCtrl" type="text" value="{{reviewer.name}}">
                 </div>
               </div>
 
               <div class="form-group">
                 <label class="col-lg-3 control-label">Email:</label>
                 <div class="col-lg-8">
-                  <input class="form-control" formControlName="emailCtrl" type="text">
+                  <input class="form-control" formControlName="emailCtrl" type="text" value="{{reviewer.emailId}}">
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-md-3 control-label">Password:</label>
                 <div class="col-md-8">
-                  <input class="form-control" type="password">
+                  <input class="form-control" type="password" value="{{reviewer.reconfirmPassword}}">
                 </div>
               </div>
             
               <div class="form-group">
                 <label class="col-md-3 control-label">Confirm password:</label>
                 <div class="col-md-8">
-                  <input class="form-control" formControlName="ReConfirmPasswordCtrl" type="password">
+                  <input class="form-control" formControlName="ReConfirmPasswordCtrl" 
+                  type="password" value="{{reviewer.reconfirmPassword}}">
 
                 </div>
               </div>
@@ -121,15 +73,18 @@
               <div class="form-group">
                 <label class="col-md-3 control-label"></label>
                 <div class="col-md-8">
-                  <button type="button" class="btn btn-primary" (click)="updateDetails()">
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"
+                   (click)="updateDetails()">
                     Save Profile
                   </button>
                   &nbsp;
-                  <button type="button" class="btn btn-primary" (click)="account()">Cancel</button>
+                  <button type="button" class="btn btn-primary" (click)="close()">Cancel</button>
                 </div>
               </div>
-            </div>
 
+
+
+            </div>
             </form>
             </div>
             </div>

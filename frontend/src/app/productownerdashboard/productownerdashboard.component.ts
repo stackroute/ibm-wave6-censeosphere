@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ProdownerserviceService } from '../prodownerservice.service';
 import { LandingpageService } from '../landingpage.service';
+import {Reviewer} from '../reviewer'
+import { UpdateProfileService } from '../update-profile.service';
+//import { getMaxListeners } from 'cluster';
 
 
 @Component({
@@ -13,8 +16,11 @@ export class ProductownerdashboardComponent implements OnInit {
   // productOwners: any;
   productOwners=[];
   products=[];
+  products1=[];
 
-  constructor(private router:Router,private prodownerservice:ProdownerserviceService,private landingpageservice:LandingpageService) { }
+  reviewer;
+  constructor(private updates:UpdateProfileService,private route1:ActivatedRoute,
+    private router:Router,private prodownerservice:ProdownerserviceService,private landingpageservice:LandingpageService) { }
  
 
 
@@ -27,6 +33,7 @@ export class ProductownerdashboardComponent implements OnInit {
       console.log(data);
       this.products=data;
     })
+   this.productOwnerDetails();
   }
   
   add()
@@ -35,11 +42,35 @@ export class ProductownerdashboardComponent implements OnInit {
   }
   update()
   {
-    this.router.navigateByUrl("/prodownerupdateprofile");
+    // const name=this.reviewer.name;
+    //const emailId=this.reviewer.emailId;
+    // const reconfirmPassword=this.reviewer.reconfirmPassword;
+// console.log("emailId" +emailId);
+   this.router.navigateByUrl('/prodownerupdateprofile/name/gmail/reconfirmpassword');
+    // this.router.navigateByUrl("/prodownerupdateprofile");
   }
 
   lpage()
   {
     this.router.navigateByUrl("/");
   }
+
+  productOwnerDetails(){
+    const emailId=this.route1.snapshot.paramMap.get('emailId');
+    console.log("product Owner profile " +emailId);
+    sessionStorage.setItem("pemailId",emailId);
+  
+    this.updates.getProductOwnerDetails(emailId).subscribe((data: any) => {
+      console.log(data);
+      sessionStorage.setItem("data", JSON.stringify(data));
+      //  this.products1=data;
+      //  console.log("from productowner"+this.products1);
+      // this.reviewer.name = data.name;
+      // this.reviewer.emailId=data.emailId;
+      // this.reviewer.reconfirmPassword=data.reconfirmPassword;
+   
+    });
+   }
+
+
 }
