@@ -1,15 +1,18 @@
 package com.stackroute.productOwnerservice.service;
 
 import com.stackroute.productOwnerservice.domain.ProductOwner;
+import com.stackroute.productOwnerservice.domain.ProductDetails;
 import com.stackroute.productOwnerservice.dto.ProductOwnerDTO;
 import com.stackroute.productOwnerservice.exception.ProductOwnerDetailsAlreadyExistsException;
 import com.stackroute.productOwnerservice.exception.ProductOwnerDetailsNotFoundException;
 import com.stackroute.productOwnerservice.repository.ProductOwnerRepository;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,6 +36,8 @@ public class ProductOwnerServiceImpl implements ProductOwnerService {
 
     @Value("${stackroute.rabbitmq.routingkeytwo}")
     private String routingkeytwo;
+
+
 
     @Override
     public ProductOwner saveDetails(ProductOwner productowner) throws ProductOwnerDetailsAlreadyExistsException {
@@ -124,4 +129,36 @@ public class ProductOwnerServiceImpl implements ProductOwnerService {
         rabbitTemplate.convertAndSend(exchange, routingkeytwo, productOwnerDTO);
         System.out.println("Send msg = " + productOwnerDTO.toString());
     }
+
+
+    @RabbitListener(queues="${stackroute.rabbitmq.queuefour}")
+    public  void recievproduct(ProductDetails productDetails)
+    {
+        System.out.println("recieved msg from reviewer = " + productDetails.toString());
+        System.out.println(productDetails);
+        Optional optional;
+        ProductOwner productOwner1;
+        optional=productownerRepository.findById(productDetails.getAddedby());
+        List<ProductDetails> myproducts;
+
+
+        if(optional.isPresent())
+        {
+            System.out.println("hai");
+            productOwner1=productownerRepository.findById(productDetails.getAddedby()).get();
+            System.out.println("Reviewer 1:"+productOwner1);
+
+            myproducts =productOwner1.getProductsadded();
+            System.out.println("list "+myproducts);
+//            myproducts=new ArrayList<>();
+            myproducts.add(productDetails);
+            for (int i = 0; i < myproducts.size(); i++) {
+                System.out.println("inside list"+myproducts.get(i));
+            }
+            productOwner1.setProductsadded(myproducts);
+            System.out.println(productOwner1);
+            productownerRepository.save(productOwner1);
+        }
+    }
+
 }

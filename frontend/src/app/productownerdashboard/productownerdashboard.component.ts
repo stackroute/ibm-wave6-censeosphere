@@ -15,8 +15,11 @@ import { UpdateProfileService } from '../update-profile.service';
 export class ProductownerdashboardComponent implements OnInit {
   // productOwners: any;
   productOwners=[];
+
   products=[];
   products1=[];
+  productDetails=[];
+
 
   reviewer;
   constructor(private updates:UpdateProfileService,private route1:ActivatedRoute,
@@ -31,7 +34,7 @@ export class ProductownerdashboardComponent implements OnInit {
     })
     this.landingpageservice.getAllProducts().subscribe((data:any) => {
       console.log(data);
-      this.products=data;
+      this.productDetails=data;
     })
    this.productOwnerDetails();
   }

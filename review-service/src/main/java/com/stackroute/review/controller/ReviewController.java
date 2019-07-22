@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
-
+@CrossOrigin(origins="*")
 @RestController
 @RequestMapping(value="api/v1")
 public class ReviewController {
@@ -24,7 +24,6 @@ public class ReviewController {
     }
 
     @PostMapping(value = "/review")     //,produces = {MimeTypeUtils.APPLICATION_JSON_VALUE}
-
     public ResponseEntity<?> addReview(@RequestBody Review review)
     {
         ResponseEntity responseEntity;
@@ -36,7 +35,7 @@ public class ReviewController {
         review.setReviewedOn(timestamp);
 
         reviewService.addReview(review);
-        responseEntity=new ResponseEntity<String>("Successfully created", HttpStatus.CREATED);
+        responseEntity=new ResponseEntity<Review>(review, HttpStatus.OK);
 
         return responseEntity;
     }

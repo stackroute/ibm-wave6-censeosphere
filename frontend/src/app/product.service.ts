@@ -21,4 +21,9 @@ export class ProductService {
   saveProduct(product:Product) {
     return this._http.post<Product>(this._url, product, this.httpOptions);
   }
+
+  getProduct(productName:Product){
+    console.log("from service : "+productName);
+    return this._http.get<Product>("http://localhost:8081/api/v1/product/"+productName, this.httpOptions);
+  }
 }

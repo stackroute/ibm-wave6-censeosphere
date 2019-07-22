@@ -23,7 +23,7 @@ export class UpdateprofileComponent implements OnInit {
   update1=new UpdateProfile();
   hide:true;
 
-  products=[];
+  productDetails=[];
   reviews=[];
   constructor(private router:Router,private landingpageservice:LandingpageService,
     private searchforreview:SearchForReviewService,private http:HttpClient,
@@ -33,7 +33,7 @@ export class UpdateprofileComponent implements OnInit {
 
     this.landingpageservice.getAllProducts().subscribe((data:any) => {
       console.log(data);
-      this.products=data;
+      this.productDetails=data;
     })
 
     this.searchforreview.getAllReviews().subscribe((data:any) =>{

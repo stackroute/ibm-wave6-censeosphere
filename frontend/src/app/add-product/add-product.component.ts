@@ -22,7 +22,7 @@ product=new Product();
 
 hide:true;
 
-  constructor(private router:Router,private http:HttpClient,private _formBuilder: FormBuilder,private products:ProductService) { }
+  constructor(private router:Router,private http:HttpClient,private _formBuilder: FormBuilder,private productDetails:ProductService) { }
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
@@ -48,9 +48,10 @@ saveProduct()
   this.product.specifications=this.firstFormGroup.controls.ProductSpecificationsCtrl.value;
   this.product.description=this.firstFormGroup.controls.ProductDescriptionCtrl.value;
   this.product.image=this.firstFormGroup.controls.ProductImageCtrl.value;
+  this.product.addedby=sessionStorage.getItem('productOwnerEmail');
   console.log(this.product);    environment:
 
-  return this.products.saveProduct(this.product).subscribe(data =>
+  return this.productDetails.saveProduct(this.product).subscribe(data =>
     {
       console.log(data);
     });
@@ -72,4 +73,3 @@ update()
  
 
 }
-  

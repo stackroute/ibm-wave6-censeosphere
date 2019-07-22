@@ -2,7 +2,7 @@ a{
     text-decoration: none;
 }
 .navbar{
-    background-color:lightblue;
+    background-color:#222930;
     position: relative;
     height: 80px;
     position: fixed;
@@ -11,10 +11,10 @@ nav img{
     height: 55px;
     width: 280px;
     position: fixed;
-    margin-left: 70px;
+    margin-left: 60px;
 }
 #login{
-    background-color: #17a2b8;
+    /* background-color: #17a2b8; */
    font-size: 18px; 
    position: absolute;
    right: 0;
@@ -44,53 +44,62 @@ label{
 }
 .jumbotron{
     height: 500px;
-    background: url('../../assets/img/appliances-home.png') center center no-repeat;
-   
+    background: url('../../assets/img/Banner.png');
+    /* width: 100%; */
 }
 #jumbotroninput{
     margin: auto;
+    display: inline;
 }
 #jumbotronheading{
-    background: rgba(0,0,0,0.4);
+    background: rgba(170, 167, 167, 0.3);
     color:white;
     margin-top: 80px;
 }
 #reviewbutton{
     margin-top: 10px;
-    background-color: #17a2b8;
+    /* background-color: #17a2b8; */
     color: white;
+}
+#reviewbutton:hover{
+    color: midnightblue;
 }
 #productbutton{
     margin-top: 10px;
-    background-color: #17a2b8;
+    /* background-color: #17a2b8; */
     color: white;
+}
+#productbutton:hover{
+    color: midnightblue;
 }
 footer
 {
     margin-top: 80px;
     padding-top: 25px;
-    background-color: rgba(173, 216, 230, 0.5);
+    background-color:#222930;
     font-size: 14px;
-    height: 180px;
+    height: 100%;
     position: relative;
     display: block;
     line-height: 28px;
 }
 footer a{
-    color: #17a2b8;
+    color: white;
     position: relative;
 }
 footer a:hover{
-    color: midnightblue;
+    color:darkgoldenrod;
     font-size: 18px;
 }
+h5{
+    color:white;
+}
 .example-sidenav-container{
-    
     top: 80px;   
 }
 .example-sidenav {
-    background-color: #b4dfef;
-    width: 260px; 
+    background: rgba(170, 167, 167, 0.3);;
+    width: 300px; 
 }
 
 .thumb-wrapper {
@@ -141,7 +150,7 @@ h4 {
 	color: #ffc000;
 }
 .subcategory{
-color: navy
+   color: navy
 }
 .subcategory:hover{
    color: #557a95;
@@ -169,7 +178,98 @@ color: navy
   .modal-header,.modal-footer{
     background:lightgrey;
   }
-  .fa .fa-search
+  /* .fa .fa-search
   {
     content:"\f002";
+  } */
+  
+  .card-img-top{
+    padding-right: 40px;
+    padding-left: 23px;
+}
+ ul.social-network {
+	list-style: none;
+	display: inline;
+	margin-left:0 !important;
+	padding: 0;
+}
+
+ul.social-network li {
+	display: inline;
+	margin: 0 5px;
+} 
+#facebook:hover{
+  color: #3b5998;
+}
+#twitter:hover{
+    color:#33b5e5;
+}
+#instagram:hover{
+    color:palevioletred;
+}
+#linkedin:hover{
+    color:#0077B5;
+}
+.social-circle li a {
+	display:inline-block;
+	position:relative;
+	margin:0 auto 0 auto;
+	-moz-border-radius:50%;
+	-webkit-border-radius:50%;
+	border-radius:50%;
+	text-align:center;
+	width: 50px;
+	height: 50px;
+    font-size:20px;
+    margin-right: 30px;
+    /* background-color: #D3D3D3; */
+}
+.social-circle li i {
+	margin:0;
+	line-height:50px;
+    text-align: center;
+    
+}
+
+.social-circle li a:hover i, .triggeredHover {
+	-moz-transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	-ms--transform: rotate(360deg);
+	transform: rotate(360deg);
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	-ms-transition: all 0.2s;
+	transition: all 0.2s;
+}
+.social-circle i {
+	color: #fff;
+	-webkit-transition: all 0.8s;
+	-moz-transition: all 0.8s;
+	-o-transition: all 0.8s;
+	-ms-transition: all 0.8s;
+    transition: all 0.8s;
+    font-size: 30px;
+}
+
+.col-md-12 ul{
+   float: right;
+} 
+
+.col-md-3 h2{
+    padding-top: 40px;
+}
+.col-md-3 .fas{
+    margin-left: 90px;
+}
+.text-md-right{
+    color: white;
+    padding-top: 66px;
+    font-size:15px;
+}
+
+  #searchbutton{
+      margin-top: 0px;
+      background-color: white; 
   }
+

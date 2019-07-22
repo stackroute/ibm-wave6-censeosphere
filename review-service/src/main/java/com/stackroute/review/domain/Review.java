@@ -1,6 +1,9 @@
 package com.stackroute.review.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.stackroute.review.dto.ReviewDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,9 +20,10 @@ import java.util.Date;
 @AllArgsConstructor
 @Builder
 @Document
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@id", scope = Review.class)
 public class Review {
     //primary key declaration
-    @Id
+
     private String reviewerEmail;
     private String reviewTitle;
     private String reviewDescription;

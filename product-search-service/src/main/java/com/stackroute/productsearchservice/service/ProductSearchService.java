@@ -18,4 +18,7 @@ public interface ProductSearchService {
     public ProductDetails updateProduct(ProductDetails productDetails,String productName) throws ProductNotFoundException;
 
     public ProductDetails getProductByName(String productName) throws ProductNotFoundException;
+
+
+    public void sendProduct(ProductDetails productDetails);
 }

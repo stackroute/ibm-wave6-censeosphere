@@ -48,7 +48,7 @@ export class NewaccountComponent implements OnInit {
     });
     this.profileFormGroup=this.fb.group({
       name:['',Validators.compose([Validators.required,Validators.maxLength(20)])],
-      emailId:['',Validators.compose([Validators.required,Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+      emailId:['',Validators.compose([Validators.required,Validators.pattern('[a-z0-9._%+-]{1,40}[@]{1}[a-z]{1,10}[.]{1}[a-z]{3}')
     ])]
     });
 

@@ -3,20 +3,29 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { LandingpageService } from '../landingpage.service';
 import { UpdateProfileService } from '../update-profile.service';
 import { ProdownerserviceService } from '../prodownerservice.service';
+import { ProductService } from '../product.service';
+
 @Component({
   selector: 'app-reviwerdash',
   templateUrl: './reviwerdash.component.html',
   styleUrls: ['./reviwerdash.component.css']
 })
 export class ReviwerdashComponent implements OnInit {
+
+  productDetails = [];
+  // constructor(private router:Router,private landingpageservice:LandingpageService) { }
+
   products = [];
+  productService: any;
+
   constructor(private router:Router,private landingpageservice:LandingpageService,private updates:UpdateProfileService,
     private route1:ActivatedRoute,private prodownerservice:ProdownerserviceService) { }
+
 
   ngOnInit() {
     this.landingpageservice.getAllProducts().subscribe((data:any) => {
       console.log(data);
-      this.products=data;
+      this.productDetails=data;
     })
     this.reviewerDetails();
   }
@@ -28,9 +37,17 @@ export class ReviwerdashComponent implements OnInit {
   {
    this.router.navigateByUrl("/"); 
   }
-  search()
+  
+  search(product)
   {
-    this.router.navigateByUrl("/rsearch"); 
+    console.log(product);
+      this.productService.getProduct(product).
+      subscribe(data=>{
+        let a = JSON.stringify(data)
+          console.log("product info in rdashboard : ",JSON.stringify(data));
+          sessionStorage.setItem('data', a);
+          this.router.navigateByUrl("/rsearch"); 
+      });
   } 
 
   reviewerDetails(){

@@ -1,5 +1,6 @@
 package com.stackroute.productOwnerservice.service;
 
+import com.stackroute.productOwnerservice.domain.ProductDetails;
 import com.stackroute.productOwnerservice.domain.ProductOwner;
 import com.stackroute.productOwnerservice.dto.ProductOwnerDTO;
 import com.stackroute.productOwnerservice.exception.ProductOwnerDetailsAlreadyExistsException;
@@ -20,4 +21,6 @@ public interface ProductOwnerService {
 
     public ProductOwner updateDetails(ProductOwner productowner,String emailId) throws ProductOwnerDetailsNotFoundException;
     public void sendproductOwnner(ProductOwnerDTO productOwnerDTO);
+
+    public  void recievproduct(ProductDetails productDetails);
 }
