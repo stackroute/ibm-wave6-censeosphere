@@ -62,18 +62,18 @@ public class ReviewerServiceImpl implements ReviewerService {
     }
 
     @Override
-    public Reviewer getReviewerByEmailId(String emailId){
+    public Reviewer getReviewerByEmailId(String emailId) throws ReviewerNotFoundException{
         Reviewer foundReviewer=null;
         if(reviewerRepository.existsById(emailId)){
             Optional optional=reviewerRepository.findById(emailId);
             foundReviewer=(Reviewer) optional.get();
         }
         else {
-            try {
+//            try {
                 throw new ReviewerNotFoundException("Reviewer Not Found");
-            } catch (ReviewerNotFoundException e) {
-                e.printStackTrace();
-            }
+//            } catch (ReviewerNotFoundException e) {
+//                e.printStackTrace();
+//            }
         }
         return foundReviewer;
     }

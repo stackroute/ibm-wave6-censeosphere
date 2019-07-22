@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http'
 import { FormGroup } from '@angular/forms';
 import {FormBuilder, Validators, FormControl, NgForm, AbstractControl} from '@angular/forms';
@@ -15,37 +15,56 @@ import { error } from 'util';
 export class ProdownerupdateprofileComponent implements OnInit {
 
   firstFormGroup:FormGroup;
-
-
-
+  productOwner:any;
 
   email="";
   update=new UpdateProfile();
   hide:true;
 
   constructor(private router:Router,private http:HttpClient,
-    private _formBuilder: FormBuilder,private updates:UpdateProfileService) { }
+    private _formBuilder: FormBuilder,private updates:UpdateProfileService,private route1:ActivatedRoute) { }
 
   ngOnInit() {
+
+    // const name=this.route1.snapshot.paramMap.get('name');
+   // const emailId=this.route1.snapshot.paramMap.get('emailId');
+    // const reconfirmPassword=this.route1.snapshot.paramMap.get('reconfirmPassword');
+
+
     this.firstFormGroup = this._formBuilder.group({
-      fileName: ['', Validators.required],
+      imageName: ['', Validators.required],
       NameCtrl: ['', Validators.required],
       ReConfirmPasswordCtrl: ['', Validators.required],
       emailCtrl: ['', Validators.required],
    });
-  }
 
+  //  console.log(JSON.parse(sessionStorage.getItem("data")))
+  this.productOwner=JSON.parse(sessionStorage.getItem("data"));
+  console.log(this.productOwner);
+  }
+   
   updateDetails()
   {
-    this.email=this.firstFormGroup.controls.emailCtrl.value;
+    this.email=sessionStorage.getItem("pemailId");
+    console.log("from session"+this.email);
+    this.update.emailId=this.firstFormGroup.controls.emailCtrl.value;
     this.update.name=this.firstFormGroup.controls.NameCtrl.value;
-    this.update.image=this.firstFormGroup.controls.fileName.value;
+    this.update.image=this.firstFormGroup.controls.imageName.value;
     this.update.reconfirmPassword=this.firstFormGroup.controls.ReConfirmPasswordCtrl.value;
+    console.log(this.update.emailId);
+    console.log(this.update.name);
+    console.log(this.update.image);
+    console.log(this.update.reconfirmPassword);
+
+
     console.log(this.update);
-    this.updates.saveProduct(this.update,this.email).
-      subscribe(data =>{
-        console.log("successfully updated");
-      });
+    console.log(this.email);
+    
+   
+    this.updates.updateProductOwnerDetails(this.update,this.email).subscribe(data=>{
+      console.log("successfully updated");
+    });
+   
   }
 
   lpage()
