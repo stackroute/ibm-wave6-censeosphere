@@ -16,10 +16,10 @@ export class ReviwerdashComponent implements OnInit {
   // constructor(private router:Router,private landingpageservice:LandingpageService) { }
 
   products = [];
-  productService: any;
+  // productService: any;
 
   constructor(private router:Router,private landingpageservice:LandingpageService,private updates:UpdateProfileService,
-    private route1:ActivatedRoute,private prodownerservice:ProdownerserviceService) { }
+    private route1:ActivatedRoute,private prodownerservice:ProdownerserviceService,private productService:ProductService) { }
 
 
   ngOnInit() {
