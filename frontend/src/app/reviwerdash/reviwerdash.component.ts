@@ -4,6 +4,8 @@ import { LandingpageService } from '../landingpage.service';
 import { UpdateProfileService } from '../update-profile.service';
 import { ProdownerserviceService } from '../prodownerservice.service';
 import { ProductService } from '../product.service';
+import { RecommendationService } from '../recommendation.service';
+
 
 @Component({
   selector: 'app-reviwerdash',
@@ -13,14 +15,20 @@ import { ProductService } from '../product.service';
 export class ReviwerdashComponent implements OnInit {
 
   productDetails = [];
-  // constructor(private router:Router,private landingpageservice:LandingpageService) { }
-
+  productByFamily = [];
   products = [];
+
  
   route: ActivatedRoute;
 
+  // constructor(private router:Router,private landingpageservice:LandingpageService,private updates:UpdateProfileService,
+  //   private route1:ActivatedRoute,private prodownerservice:ProdownerserviceService,private productService:ProductService) { }
+
+  
   constructor(private router:Router,private landingpageservice:LandingpageService,private updates:UpdateProfileService,
-    private route1:ActivatedRoute,private prodownerservice:ProdownerserviceService,private productService:ProductService) { }
+    private route1:ActivatedRoute,private prodownerservice:ProdownerserviceService,private productService:ProductService,
+    private recommendationService:RecommendationService) { }
+
 
 
   ngOnInit() {
@@ -29,7 +37,28 @@ export class ReviwerdashComponent implements OnInit {
       this.productDetails=data;
     })
     this.reviewerDetails();
+
+    this.route1.params.subscribe(params =>{
+      console.log("data fron recommendation by productFamily : ",params);
+      this.recommendationService.getProductByFamily(JSON.parse(sessionStorage.getItem('data')).productFamily).
+      subscribe((data:any)=>{
+        console.log(data);
+        // this.productDetails=data;
+
+        for (let i = 0; i < data.length; i ++) {
+        this.productService.getProduct(data[i].productName).
+          subscribe((data:any)=>{
+            console.log("aaaaaaaaaaaaaaaaa",data);
+            // this.productDetails=data;
+            this.productDetails.push(data);
+          });
+        }
+
+        console.log("in product by family  : ",this.productDetails);
+      });
+    });
   }
+
   update()
   {
    this.router.navigateByUrl("/rprofile/name/gmail/reconfirmpassword"); 

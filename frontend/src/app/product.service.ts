@@ -24,6 +24,7 @@ export class ProductService {
 
   getProduct(productName:Product){
     console.log("from service : "+productName);
-    return this._http.get<Product>("http://localhost:8081/api/v1/product/"+productName, this.httpOptions);
+    return this._http.get("http://localhost:8081/api/v1/product/"+productName, this.httpOptions);
   }
+
 }

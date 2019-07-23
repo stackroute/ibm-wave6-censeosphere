@@ -44,7 +44,7 @@ export class LandingPageComponent implements OnInit {
     // }
 
 
-    this.landingpageservice.getAllProducts().subscribe((data: any) => {
+    this.landingpageservice.getRecentProducts().subscribe((data: any) => {
       console.log(data);
       this.productDetails = data;
     })

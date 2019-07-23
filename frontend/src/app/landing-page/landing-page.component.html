@@ -30,13 +30,12 @@
   <!-- jumbotron start -->
   <div class="jumbotron jumbotron-fluid text-center">
     <div class="container">
-      <h1 id="jumbotronheading">India's Largest Review Platform</h1>
+      <h1 id="jumbotronheading"><b>India's Largest Review Platform</b></h1>
       <form >
         <div class="form-group">
           <input type="search" #inputsearch placeholder="search here to write a review" name="search" class="form-control col-md-3" id="jumbotroninput" >
             <button type="submit" class="btn btn-outline-light" id="searchbutton" (click)="searchproduct(inputsearch.value)"><a href="#"><i class="fa fa-search"></i></a></button> <br>
           <button type="submit" class="btn btn-outline-light" id="reviewbutton" data-toggle="modal" #rrole value="reviewer" (click)="onclick(rrole.value)"
-
             data-target="#signup1">Write a Review</button>&nbsp;
           <button type="submit" class="btn btn-outline-light" id="productbutton" data-toggle="modal" #prole value="product-owner" (click)="onclick1(prole.value)"
             data-target="#signup2">Post a Product</button>
@@ -78,7 +77,7 @@
                 <li class="list-inline-item"><i class="fa fa-star"></i></li>
                 <li class="list-inline-item"><i class="fa fa-star"></i></li>
                 <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                <li class="list-inline-item"><i class="fa fa-star"></i></li>
               </ul>
             </div>
             <p class="item-price"><b>{{product.price}}</b></p>
@@ -194,11 +193,11 @@
           <form #myForm="ngForm"  (ngSubmit)="reviewer(emailId.value,password.value)">
             <div class="form-group">
               <label for="revieweremailId">Email-Id</label>
-              <input   #emailId type="text" id="revieweremailId" class="form-control">
+              <input   #emailId type="text" id="revieweremailId" class="form-control" placeholder="enter your mailId">
             </div>
             <div class="form-group">
               <label for="reviewerpassword">Password</label>
-              <input   #password type="password" name="password" id="reviewerpassword" class="form-control">
+              <input   #password type="password" name="password" id="reviewerpassword" class="form-control" placeholder="enter your password">
             </div>
             <button type="submit"  class="btn btn-outline-light" id="reviewersigninbutton" >Sign
               In</button>
@@ -231,11 +230,11 @@
           <form #myForm="ngForm"  (ngSubmit)="productOwner(pemailId.value,ppassword.value)">
             <div class="form-group">
               <label for="productowneremailId">Email-Id</label>
-              <input type="text" #pemailId id="productowneremailId" class="form-control">
+              <input type="text" #pemailId id="productowneremailId" class="form-control" placeholder="enter your mailId">
             </div>
             <div class="form-group">
               <label for="productownerpassword">Password</label>
-              <input type="password" #ppassword name="password" id="productownerpassword" class="form-control">
+              <input type="password" #ppassword name="password" id="productownerpassword" class="form-control" placeholder="enter your password">
             </div>
             <button type="submit" class="btn btn-info" id="productownersigninbutton">Sign In</button>
           </form>

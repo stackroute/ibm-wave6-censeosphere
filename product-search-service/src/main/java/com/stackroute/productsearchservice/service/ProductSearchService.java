@@ -1,5 +1,6 @@
 package com.stackroute.productsearchservice.service;
 
+import com.stackroute.productsearchservice.dto.ProductDTO;
 import com.stackroute.productsearchservice.exception.ProductAlreadyExistsException;
 import com.stackroute.productsearchservice.exception.ProductNotFoundException;
 import com.stackroute.productsearchservice.domain.ProductDetails;
@@ -20,5 +21,9 @@ public interface ProductSearchService {
     public ProductDetails getProductByName(String productName) throws ProductNotFoundException;
 
 
+    public List<ProductDetails> getRecentProducts() throws Exception;
+    public List<ProductDetails> getTrendingProducts() throws Exception;
+
     public void sendProduct(ProductDetails productDetails);
+    public void sendToRecommendation(ProductDTO productDTO);
 }

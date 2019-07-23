@@ -1,7 +1,10 @@
 package com.stackroute.recommendation.service;
 
 import com.stackroute.recommendation.domain.Product;
+import com.stackroute.recommendation.dto.ProductDTO;
+import com.stackroute.recommendation.dto.ReviewDTO;
 import com.stackroute.recommendation.repository.ProductRepository;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -50,8 +53,30 @@ public class ProductServiceImpl implements ProductService {
         productRepository.deleteNode(productName);
     }
 
+
     @Override
     public Product saveRelation(String productName, String subCategory) {
         return productRepository.createRelation(productName,subCategory);
     }
+
+
+
+    @RabbitListener(queues="${stackroute.rabbitmq.queuesix}")
+    public void  recieveproductowner(ProductDTO productDTO) {
+
+        System.out.println("recieved msg  from productowner= " + productDTO.toString());
+        Product product=new Product(productDTO.getProductName(),productDTO.getRating(),productDTO.getPrice(),productDTO.getProductFamily(),productDTO.getSubCategory());
+        if(productRepository.existsById(product.getProductName())){
+            System.out.println("Already exist");
+        }
+        else {
+            saveProduct(product.getProductName(), product.getRating(), product.getPrice(), product.getProductFamily(), product.getSubCategory());
+            System.out.println("Product node creadted");
+            saveRelation(product.getProductName(),product.getSubCategory());
+            System.out.println("Product to subcategory relation created");
+        }
+    }
+
+
+
 }

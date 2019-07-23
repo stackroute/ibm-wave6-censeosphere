@@ -5,7 +5,7 @@ a{
   text-decoration: none;
 }
 .navbar{
-  background-color:lightblue;
+  background-color:#222930;
   position: relative;
   height: 80px;
   position: fixed;
@@ -18,7 +18,7 @@ nav img{
 }
  nav .dropdown{
   
-   color: black;
+   color: white;
    font-size: 20px;
    position: absolute;
    right: 0;

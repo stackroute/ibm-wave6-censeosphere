@@ -1,5 +1,6 @@
 package com.stackroute.productsearchservice.service;
 
+import com.stackroute.productsearchservice.dto.ProductDTO;
 import com.stackroute.productsearchservice.exception.ProductAlreadyExistsException;
 import com.stackroute.productsearchservice.exception.ProductNotFoundException;
 import com.stackroute.productsearchservice.domain.ProductDetails;
@@ -7,6 +8,7 @@ import com.stackroute.productsearchservice.repository.ProductSearchRepository;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,6 +29,11 @@ public class ProductSearchServiceImpl implements ProductSearchService {
 
     @Value("${stackroute.rabbitmq.routingkeyfour}")
     private String routingkeyfour;
+
+
+    @Value("${stackroute.rabbitmq.routingkeysix}")
+    private String routingkeysix;
+
 
     ProductDetails productDetails1;
 
@@ -50,6 +57,8 @@ public class ProductSearchServiceImpl implements ProductSearchService {
             ProductDetails savedProducts=productSearchRepository.save(productDetails);
             System.out.println(savedProducts.toString());
             sendProduct(savedProducts);
+            ProductDTO productDTO=new ProductDTO(savedProducts.getProductName(),savedProducts.getRating(),savedProducts.getPrice(),savedProducts.getProductFamily(),savedProducts.getSubCategory());
+            sendToRecommendation(productDTO);
             System.out.println("after send");
             return savedProducts;
         }
@@ -110,6 +119,16 @@ public class ProductSearchServiceImpl implements ProductSearchService {
         return productDetails1;
     }
 
+    @Override
+    public List<ProductDetails> getRecentProducts() throws Exception {
+        return productSearchRepository.findAll(Sort.by(Sort.Direction.DESC, "uploadedOn"));
+    }
+
+    @Override
+    public List<ProductDetails> getTrendingProducts() throws Exception {
+        return productSearchRepository.findAll(Sort.by(Sort.Direction.DESC, "rating"));
+    }
+
 
     @Override
     public void sendProduct(ProductDetails productDetails)
@@ -121,7 +140,16 @@ public class ProductSearchServiceImpl implements ProductSearchService {
 
     }
 
+    @Override
+    public void sendToRecommendation(ProductDTO productDTO) {
 
+        System.out.println("inside send");
+        rabbitTemplate.convertAndSend(exchange, routingkeysix,productDTO);
+        System.out.println("Send msg = " + productDTO.toString());
+
+
+
+    }
 
 
 }
