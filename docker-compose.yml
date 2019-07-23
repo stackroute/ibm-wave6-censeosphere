@@ -68,7 +68,7 @@ services:
   mongodb:
     image: mongo:3.4-xenial
     restart: always
-    network_mode: host
+    network_mode: "host"
     volumes:
       - $HOME/data:/data/db
 
@@ -125,9 +125,9 @@ services:
 
 
   recommendation:
-    build: ./
+    build: recommendation
     restart: always
-    network_mode: host
+    network_mode: "host"
     ports:
       - 8085:8085
     expose:
@@ -136,7 +136,7 @@ services:
   neo4j:
     image: neo4j:latest
     restart: always
-    network_mode: host
+    network_mode: "host"
     ports:
       - 7474:7474
     expose:
