@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router , ActivatedRoute} from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { SearchForReviewService } from '../search-for-review.service';
-
 
 @Component({
   selector: 'app-search-for-review',
@@ -14,19 +13,19 @@ export class SearchForReviewComponent implements OnInit {
   productName="";
   price="";
   reviewedOn="";
-  ngOnInit() {
-
-  this.searchforreview.getAllReviews().subscribe((data:any) =>{
-    console.log(data);
-    this.reviews=data;
-  })
-}
-     wreview()
-  {
-
-    this.router.navigateByUrl("/writereview");
-  }
-}
 
   
+  ngOnInit() {
+    this.searchforreview.getAllReviews().subscribe((data:any) =>{
+      console.log(data);
+      this.reviews=data;
+    })
+  }
+       wreview()
+    {
+  
+      this.router.navigateByUrl("/writereview");
 
+  }
+
+}
