@@ -24,7 +24,8 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { ReviewComponent } from './review/review.component';
 import { ReviewerdashboardComponent } from './reviewerdashboard/reviewerdashboard.component';
 import { CardComponent } from './card/card.component';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+// import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     ReviewerdashboardComponent,
     CardComponent
 
+
   ],
   imports: [
     BrowserModule,
@@ -59,8 +61,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     MatSidenavModule,
     ReactiveFormsModule,
     MatTabsModule,
-    Ng2CarouselamosModule,
-    MDBBootstrapModule.forRoot(),
+    Ng2CarouselamosModule
+   
   ],
   providers: [LoginService],
   bootstrap: [AppComponent],

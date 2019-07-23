@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SearchForReviewService } from '../search-for-review.service';
+import { SearchForReviewService } from './search-for-review.service';
 
 describe('SearchForReviewService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

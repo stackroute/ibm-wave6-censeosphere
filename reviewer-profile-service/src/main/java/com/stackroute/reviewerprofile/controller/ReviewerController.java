@@ -72,6 +72,6 @@ public class ReviewerController {
 
 
        Reviewer reviewer1 = reviewerService.updateReviewer(reviewer,emailId);
-        return new ResponseEntity<String>("Details updated", HttpStatus.OK);
+        return new ResponseEntity<Reviewer>(reviewer, HttpStatus.OK);
     }
 }

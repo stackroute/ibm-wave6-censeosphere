@@ -16,4 +16,7 @@ public class ReviewDTO {
     @Id
     private String productName;
     private String reviewDescription;
+    private  int creditpoints;
+
+
 }

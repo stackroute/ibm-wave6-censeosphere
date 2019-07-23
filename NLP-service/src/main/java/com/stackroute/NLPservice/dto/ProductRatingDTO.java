@@ -15,6 +15,7 @@ public class ProductRatingDTO {
 
     String productName;
     String reviewDescription;
+    int creditpoints;
 }
 
 

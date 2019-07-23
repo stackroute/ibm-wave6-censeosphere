@@ -45,6 +45,12 @@ public class ReviewController {
         return new ResponseEntity<List<Review>> (reviewService.getAllReviews(),HttpStatus.OK);
     }
 
+    @GetMapping("/byname/{productname}")
+    public ResponseEntity<?> getAllReviewsbyProduct(@PathVariable String productname) {
+        return new ResponseEntity<List<Review>> (reviewService.getAllReviewsbyProduct(productname),HttpStatus.OK);
+    }
+
+
 }
 
 

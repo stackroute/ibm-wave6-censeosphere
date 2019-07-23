@@ -32,6 +32,7 @@ public class ReviewerServiceImpl implements ReviewerService {
     @Value("${stackroute.rabbitmq.routingkeyone}")
     private String routingkeyone;
 
+     int point;
     @Autowired
     public ReviewerServiceImpl(ReviewerRepository reviewerRepository)
     {
@@ -80,6 +81,8 @@ public class ReviewerServiceImpl implements ReviewerService {
         return foundReviewer;
     }
 
+
+
     @Override
     public List<Reviewer> deleteReviewer(String emailId){
         Optional optional=reviewerRepository.findById(emailId);
@@ -103,15 +106,18 @@ public class ReviewerServiceImpl implements ReviewerService {
         optional=reviewerRepository.findById(emailId);
         if(optional != null)
         {
-           reviewer1=reviewerRepository.findById(emailId).get();
 
-            System.out.println("from update method "+reviewer1);
-            reviewer1.setName(reviewer.getName());
-            reviewer1.setImage(reviewer.getImage());
-            reviewer1.setReconfirmPassword(reviewer.getReconfirmPassword());
 
-            System.out.println("After updating "+reviewer1);
-            reviewerRepository.save(reviewer1);
+           reviewer1=reviewerRepository.save(reviewer);
+//           reviewer1=reviewerRepository.findById(emailId).get();
+//
+//            System.out.println("from update method "+reviewer1);
+//            reviewer1.setName(reviewer.getName());
+//            reviewer1.setImage(reviewer.getImage());
+//            reviewer1.setReconfirmPassword(reviewer.getReconfirmPassword());
+//
+//            System.out.println("After updating "+reviewer1);
+//            reviewerRepository.save(reviewer1);
 
             ReviewerDTO reviewerDTO1=new ReviewerDTO(reviewer1.getEmailId(),reviewer1.getReconfirmPassword(),reviewer1.getRole());
             sendreviewer(reviewerDTO1);
@@ -157,6 +163,9 @@ public class ReviewerServiceImpl implements ReviewerService {
               myreviewes =reviewer1.getRevieweswritten();
               System.out.println("list "+myreviewes);
               myreviewes.add(review);
+               point=reviewer.getCreditpoints();
+               point=point+5;
+               reviewer.setCreditpoints(point);
               for (int i = 0; i < myreviewes.size(); i++) {
                System.out.println("inside list"+myreviewes.get(i));
               }
