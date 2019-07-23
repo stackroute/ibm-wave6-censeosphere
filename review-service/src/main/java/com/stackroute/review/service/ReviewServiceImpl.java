@@ -1,6 +1,7 @@
 package com.stackroute.review.service;
 
 import com.stackroute.review.domain.Review;
+import com.stackroute.review.dto.RecommendationDTO;
 import com.stackroute.review.dto.ReviewDTO;
 //import com.stackroute.review.dto.ReviewDetailDTO;
 import com.stackroute.review.repository.ReviewRepository;
@@ -30,6 +31,9 @@ public class ReviewServiceImpl implements ReviewService {
     @Value("${stackroute.rabbitmq.routingkeyfive}")
     private String routingkeyfive;
 
+    @Value("${stackroute.rabbitmq.routingkeyseven}")
+    private String routingkeyseven;
+
     @Autowired
     public ReviewServiceImpl(ReviewRepository reviewRepository)
     {
@@ -45,6 +49,8 @@ public class ReviewServiceImpl implements ReviewService {
         sendRating(reviewDTO);
 //        ReviewDetailDTO reviewDetailDTO=new ReviewDetailDTO(review.getReviewerEmail(),review.getReviewTitle(),review.getReviewDescription(),review.getProductName(),review.getPrice(),review.getReviewedOn());
         sendReviewer(savedReview);
+        RecommendationDTO recommendationDTO=new RecommendationDTO(review.getReviewerEmail(),review.getProductName(),review.getSubCategory());
+        sendRecommendation(recommendationDTO);
         return savedReview;
 
     }
@@ -70,5 +76,11 @@ public class ReviewServiceImpl implements ReviewService {
         rabbitTemplate.convertAndSend(exchange, routingkeyfive, review);
         System.out.println("Send msg = " + review.toString());
 
+    }
+
+    @Override
+    public void sendRecommendation(RecommendationDTO recommendationDTO) {
+        rabbitTemplate.convertAndSend(exchange, routingkeyseven, recommendationDTO);
+        System.out.println("Send msg = " + recommendationDTO.toString());
     }
 }

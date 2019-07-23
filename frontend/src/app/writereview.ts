@@ -4,5 +4,6 @@ export class Writereview {
      reviewDescription:string;
      productName:string;
      price:Number;
+     subCategory:string;
      // reviewedOn:Date;
 }

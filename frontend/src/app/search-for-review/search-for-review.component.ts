@@ -16,16 +16,6 @@ export class SearchForReviewComponent implements OnInit {
   reviewedOn="";
   ngOnInit() {
 
-    
-    // this.activatedRoute.paramMap.subscribe(params =>{
-    //   // console.log(params);
-    //   // this.router.navigateByUrl("/writereview/"+params);
-    //   console.log(" product info in search for review component : ", params);
-    //   this.productName = params.get('productName');
-    //   console.log("this is my product :"+ this.productName);
-      
-    // });
-
   this.searchforreview.getAllReviews().subscribe((data:any) =>{
     console.log(data);
     this.reviews=data;

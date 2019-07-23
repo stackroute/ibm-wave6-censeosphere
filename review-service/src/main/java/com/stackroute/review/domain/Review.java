@@ -32,5 +32,6 @@ public class Review {
     private Float price;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date reviewedOn;
+    private String subCategory;
 
 }

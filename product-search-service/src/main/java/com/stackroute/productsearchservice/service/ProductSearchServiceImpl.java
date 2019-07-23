@@ -1,5 +1,6 @@
 package com.stackroute.productsearchservice.service;
 
+import com.stackroute.productsearchservice.dto.ProductDTO;
 import com.stackroute.productsearchservice.exception.ProductAlreadyExistsException;
 import com.stackroute.productsearchservice.exception.ProductNotFoundException;
 import com.stackroute.productsearchservice.domain.ProductDetails;
@@ -29,6 +30,11 @@ public class ProductSearchServiceImpl implements ProductSearchService {
     @Value("${stackroute.rabbitmq.routingkeyfour}")
     private String routingkeyfour;
 
+
+    @Value("${stackroute.rabbitmq.routingkeysix}")
+    private String routingkeysix;
+
+
     ProductDetails productDetails1;
 
     @Autowired
@@ -51,6 +57,8 @@ public class ProductSearchServiceImpl implements ProductSearchService {
             ProductDetails savedProducts=productSearchRepository.save(productDetails);
             System.out.println(savedProducts.toString());
             sendProduct(savedProducts);
+            ProductDTO productDTO=new ProductDTO(savedProducts.getProductName(),savedProducts.getRating(),savedProducts.getPrice(),savedProducts.getProductFamily(),savedProducts.getSubCategory());
+            sendToRecommendation(productDTO);
             System.out.println("after send");
             return savedProducts;
         }
@@ -132,7 +140,16 @@ public class ProductSearchServiceImpl implements ProductSearchService {
 
     }
 
+    @Override
+    public void sendToRecommendation(ProductDTO productDTO) {
 
+        System.out.println("inside send");
+        rabbitTemplate.convertAndSend(exchange, routingkeysix,productDTO);
+        System.out.println("Send msg = " + productDTO.toString());
+
+
+
+    }
 
 
 }

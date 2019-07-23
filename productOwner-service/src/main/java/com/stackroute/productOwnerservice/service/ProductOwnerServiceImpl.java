@@ -45,6 +45,8 @@ public class ProductOwnerServiceImpl implements ProductOwnerService {
         {
             throw new ProductOwnerDetailsAlreadyExistsException("Details already exists");
         }
+        List<ProductDetails> myproducts=new ArrayList<ProductDetails>();
+        productowner.setProductsadded(myproducts);
         ProductOwner savedDetails=productownerRepository.save(productowner);
 
         ProductOwnerDTO productOwnerDTO=new ProductOwnerDTO(productowner.getEmailId(),productowner.getReconfirmPassword(),productowner.getRole());
