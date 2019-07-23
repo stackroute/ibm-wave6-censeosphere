@@ -14,13 +14,18 @@ export class LandingpageService {
     })
   };
 
-  getAllProducts(){
-    return this.http.get('http://localhost:3000/productDetails', this.httpOptions);
+  getRecentProducts(){
+    return this.http.get('http://localhost:8081/api/v1/recentproducts', this.httpOptions);
   }
   getAllCategory(){
     return this.http.get('http://localhost:3001/category', this.httpOptions);
   }
   getAllSubCategories(){
     return this.http.get('http://localhost:3001/subCategories', this.httpOptions);
+  }
+
+  getAllProducts()
+  {
+    return this.http.get('http://localhost:3000/data1', this.httpOptions); 
   }
 }

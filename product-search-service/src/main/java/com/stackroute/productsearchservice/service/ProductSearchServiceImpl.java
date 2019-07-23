@@ -7,6 +7,7 @@ import com.stackroute.productsearchservice.repository.ProductSearchRepository;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -108,6 +109,16 @@ public class ProductSearchServiceImpl implements ProductSearchService {
         }
 
         return productDetails1;
+    }
+
+    @Override
+    public List<ProductDetails> getRecentProducts() throws Exception {
+        return productSearchRepository.findAll(Sort.by(Sort.Direction.DESC, "uploadedOn"));
+    }
+
+    @Override
+    public List<ProductDetails> getTrendingProducts() throws Exception {
+        return productSearchRepository.findAll(Sort.by(Sort.Direction.DESC, "rating"));
     }
 
 
