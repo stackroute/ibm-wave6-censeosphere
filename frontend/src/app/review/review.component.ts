@@ -14,10 +14,13 @@ export class ReviewComponent implements OnInit {
   products: [];
   writereview:Writereview=new Writereview();
   review:any;
+ 
+  
+  productDetails: any;
   constructor(private reviewService:ReviewService,private router:Router,private landingservice:LandingpageService,private activatedRoute:ActivatedRoute) { 
     // this.reviews=[];
    }
-   productDetails: [];
+  
   // constructor(private reviewService:ReviewService,private router:Router,private landingservice:LandingpageService) { 
   //   this.reviews=[];
   
@@ -26,6 +29,7 @@ export class ReviewComponent implements OnInit {
   ngOnInit() {
     console.log(" Data on review page :",JSON.parse(sessionStorage.getItem('data')))
    
+    
     this.landingservice.getAllProducts().subscribe((data:any)=>{
       console.log(data);
       this.productDetails=data;
@@ -35,6 +39,10 @@ export class ReviewComponent implements OnInit {
       console.log(data);
       this.reviews=data;
     })
+
+   
+
+
 
   }
   
@@ -49,6 +57,7 @@ export class ReviewComponent implements OnInit {
     // this.writereview.reviewedOn=JSON.parse(sessionStorage.getItem('data')).uploadedOn;
     this.writereview.reviewerEmail=sessionStorage.getItem('reviewerEmail');
     this.writereview.subCategory=JSON.parse(sessionStorage.getItem('data')).subCategory;
+    this.writereview.creditpoints=JSON.parse(sessionStorage.getItem('rdata')).creditpoints;
     this.reviewService.addReview(this.writereview).
       subscribe(data=>{
         console.log("data stored successfully");

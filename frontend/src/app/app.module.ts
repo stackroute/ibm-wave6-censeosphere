@@ -26,6 +26,7 @@ import { ReviewerdashboardComponent } from './reviewerdashboard/reviewerdashboar
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { ReviewerdashboardComponent } from './reviewerdashboard/reviewerdashboar
     AddProductComponent,
     ReviewComponent,
     ReviewerdashboardComponent
+    
 
   ],
   imports: [

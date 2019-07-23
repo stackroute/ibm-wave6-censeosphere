@@ -54,14 +54,14 @@
 <mat-tab-group mat-align-tabs="start">
  <mat-tab label="Reviews">
 
-    <div *ngFor="let review of reviews">
+    <div *ngFor="let review of reviewdetails">
 
      <div class="tab-content responsive">
          <div class="tab-pane active" id="home" role="tabpanel">
             <div class="container-fluid">
              <div class="row mt-3">
                <div class="col-3">
-                 <img alt="nikon" src="{{review.image}}" class="w-100"><br><h4>{{review.reviewer}}</h4><br>
+                 <img alt="nikon" src="{{review.image}}" class="w-100"><br><h4>{{review.reviewerEmail}}</h4><br>
                </div>
                <div class="col-9">
                            <p class="h4">{{review.reviewTitle}}</p>
@@ -75,7 +75,8 @@
                  <!-- <p>I am a beginner in terms of photography. The telephoto lens are really good and pictures taken with then are truly awesome. They give the photos kind of a depth field perception in auto mode. The camera itself has heck lot of options and having a touchscreen really helps.</p> -->
                  <p>{{review.reviewDescription}}</p>      
                  <div>
-                      <button class="btn-primary" type="button" name="useful">Most helpful??</button>
+                      <button class="btn-primary" type="button" (click)="yes(review.reviewerEmail)" name="useful">yse??</button>
+                      <button class="btn-primary" type="button" (click)="no(review.reviewerEmail)" name="useful">no??</button>
                 </div>
                </div>
              </div>
