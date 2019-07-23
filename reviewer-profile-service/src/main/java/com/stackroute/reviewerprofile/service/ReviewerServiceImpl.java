@@ -45,6 +45,8 @@ public class ReviewerServiceImpl implements ReviewerService {
         {
             throw new ReviewerAlreadyExistsException("Reviewer already exists");
         }
+        List<Review> myreviews=new ArrayList<Review>();
+        reviewer.setRevieweswritten(myreviews);
         Reviewer savedReviewer=reviewerRepository.save(reviewer);
         ReviewerDTO reviewerDTO=new ReviewerDTO(reviewer.getEmailId(),reviewer.getReconfirmPassword(),reviewer.getRole());
          sendreviewer(reviewerDTO);
@@ -62,18 +64,18 @@ public class ReviewerServiceImpl implements ReviewerService {
     }
 
     @Override
-    public Reviewer getReviewerByEmailId(String emailId){
+    public Reviewer getReviewerByEmailId(String emailId) throws ReviewerNotFoundException{
         Reviewer foundReviewer=null;
         if(reviewerRepository.existsById(emailId)){
             Optional optional=reviewerRepository.findById(emailId);
             foundReviewer=(Reviewer) optional.get();
         }
         else {
-            try {
+//            try {
                 throw new ReviewerNotFoundException("Reviewer Not Found");
-            } catch (ReviewerNotFoundException e) {
-                e.printStackTrace();
-            }
+//            } catch (ReviewerNotFoundException e) {
+//                e.printStackTrace();
+//            }
         }
         return foundReviewer;
     }

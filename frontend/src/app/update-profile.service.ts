@@ -12,14 +12,24 @@ export class UpdateProfileService {
  
    constructor(private _http: HttpClient) { }
  
-   saveProduct(update:UpdateProfile,emailId) {
+   updateProductOwnerDetails(update:UpdateProfile,emailId) {
      console.log("from service : ",emailId);
-     return this._http.put<UpdateProfile>("http://localhost:8060/api/v1/product/"+emailId,update);
+     return this._http.put<UpdateProfile>("http://localhost:8060/api/v1/products/"+emailId,update);
    }
 
-   updateDetails(update1:UpdateProfile,emailId){
+   updateReviewerDetails(update1:UpdateProfile,emailId){
     console.log("from service : ",emailId);
      return this._http.put<UpdateProfile>("http://localhost:8087/api/v1/reviewer/"+emailId,update1);
+   }
+
+   getProductOwnerDetails(emailId:String){
+    console.log("from service : ",emailId);
+    return this._http.get("http://localhost:8060/api/v1/product/"+emailId);
+   }
+
+   getReviewerDetails(emailId:String){
+    console.log("from service : ",emailId);
+    return this._http.get("http://localhost:8087/api/v1/reviewer/"+emailId);
    }
 
 

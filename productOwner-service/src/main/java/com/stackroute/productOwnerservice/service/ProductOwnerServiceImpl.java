@@ -45,6 +45,8 @@ public class ProductOwnerServiceImpl implements ProductOwnerService {
         {
             throw new ProductOwnerDetailsAlreadyExistsException("Details already exists");
         }
+        List<ProductDetails> myproducts=new ArrayList<ProductDetails>();
+        productowner.setProductsadded(myproducts);
         ProductOwner savedDetails=productownerRepository.save(productowner);
 
         ProductOwnerDTO productOwnerDTO=new ProductOwnerDTO(productowner.getEmailId(),productowner.getReconfirmPassword(),productowner.getRole());
@@ -68,7 +70,7 @@ public class ProductOwnerServiceImpl implements ProductOwnerService {
 
         Optional optional=productownerRepository.findById(emailId);
         ProductOwner productOwner=productownerRepository.findById(emailId).get();
-       // System.out.println(productOwner+"\t"+optional.isPresent());
+       //System.out.println(productOwner+"\t"+optional.isPresent());
         if(optional.isPresent())
         {
             productownerRepository.deleteById(emailId);
@@ -82,14 +84,25 @@ public class ProductOwnerServiceImpl implements ProductOwnerService {
     }
 
     @Override
+    public ProductOwner getProductOwnerByEmailId(String emailId) throws ProductOwnerDetailsNotFoundException {
+        ProductOwner savedowner=null;
+        if(productownerRepository.existsById(emailId)){
+            Optional optional=productownerRepository.findById(emailId);
+            savedowner=(ProductOwner) optional.get();
+        }
+        else {
+            throw new ProductOwnerDetailsNotFoundException("productOwner Not found");
+        }
+        return savedowner;
+    }
+
+    @Override
     public ProductOwner updateDetails(ProductOwner productowner,String emailId) throws ProductOwnerDetailsNotFoundException {
         ProductOwner productowner1=null;
         Optional optional;
         optional=productownerRepository.findById(emailId);
         if(optional != null)
         {
-           // productowner.setName(productowner.getName());
-//            productowner1=productownerRepository.save(productowner);
             productowner1=productownerRepository.findById(emailId).get();
 
             System.out.println("from update method "+productowner1);

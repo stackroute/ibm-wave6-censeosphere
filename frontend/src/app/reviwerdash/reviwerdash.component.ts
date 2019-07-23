@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { LandingpageService } from '../landingpage.service';
+import { UpdateProfileService } from '../update-profile.service';
+import { ProdownerserviceService } from '../prodownerservice.service';
 import { ProductService } from '../product.service';
+
 @Component({
   selector: 'app-reviwerdash',
   templateUrl: './reviwerdash.component.html',
@@ -13,7 +16,10 @@ export class ReviwerdashComponent implements OnInit {
   // constructor(private router:Router,private landingpageservice:LandingpageService) { }
 
   products = [];
-  constructor(private router:Router,private landingpageservice:LandingpageService,private productService:ProductService) { }
+  // productService: any;
+
+  constructor(private router:Router,private landingpageservice:LandingpageService,private updates:UpdateProfileService,
+    private route1:ActivatedRoute,private prodownerservice:ProdownerserviceService,private productService:ProductService) { }
 
 
   ngOnInit() {
@@ -21,10 +27,11 @@ export class ReviwerdashComponent implements OnInit {
       console.log(data);
       this.productDetails=data;
     })
+    this.reviewerDetails();
   }
   update()
   {
-   this.router.navigateByUrl("/rprofile"); 
+   this.router.navigateByUrl("/rprofile/name/gmail/reconfirmpassword"); 
   }
   lpage()
   {
@@ -42,5 +49,17 @@ export class ReviwerdashComponent implements OnInit {
           this.router.navigateByUrl("/rsearch"); 
       });
   } 
+
+  reviewerDetails(){
+    const emailId=this.route1.snapshot.paramMap.get('emailId');
+    console.log("Reviewer profile " +emailId);
+    sessionStorage.setItem("pemailId",emailId);
+  
+    this.updates.getReviewerDetails(emailId).subscribe((data: any) => {
+      console.log(data);
+      sessionStorage.setItem("data", JSON.stringify(data));
+     
+    });
+   }
   
 }

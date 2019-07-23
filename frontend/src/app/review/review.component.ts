@@ -48,6 +48,7 @@ export class ReviewComponent implements OnInit {
     this.writereview.price=JSON.parse(sessionStorage.getItem('data')).price;
     // this.writereview.reviewedOn=JSON.parse(sessionStorage.getItem('data')).uploadedOn;
     this.writereview.reviewerEmail=sessionStorage.getItem('reviewerEmail');
+    this.writereview.subCategory=JSON.parse(sessionStorage.getItem('data')).subCategory;
     this.reviewService.addReview(this.writereview).
       subscribe(data=>{
         console.log("data stored successfully");

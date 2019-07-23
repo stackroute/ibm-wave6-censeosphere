@@ -21,82 +21,13 @@
 </div>
 <!-- end header -->
 
-<!-- <nav class="navbar navbar-expand-lg fixed-top">
-     
-      <img src="../../assets/img/logo6.png">
-      <div class="dropdown">
-        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         <span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
-        </a>
-        <ul id="drop" class="dropdown-menu">
-         <li><button class="dropdown-item" (click)="lpage()" ><span><i class="fa fa-power-off"></i></span> Log out</button></li>
-        </ul>
-      </div>
-    </nav>
-  </div> -->
-<!-- end header -->
 <div class="container-fluid">
-  <!-- <mat-tab-group animationDuration="0ms">
-    <mat-tab label="Edit Profile"> -->
-      <!-- <div class="container">
-            <div class="row">
-             
-              <div class="col-md-3">
-                <div class="text-center">
-                  <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
-                  <h6>Upload a different photo...</h6>
-                  <input type="file" class="form-control">
-                </div>
-              </div>
-          
-              <div class="col-md-9 personal-info">
-                <h3>Personal info</h3>
-                <form class="form-horizontal" role="form">
-                  <div class="form-group">
-                    <label class="col-lg-3 control-label">Name:</label>
-                    <div class="col-lg-8">
-                      <input class="form-control" type="text" placeholder="Jane">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-lg-3 control-label">Email:</label>
-                    <div class="col-lg-8">
-                      <input class="form-control" type="text" placeholder="janesemail@gmail.com" >
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-3 control-label">Password:</label>
-                    <div class="col-md-8">
-                      <input class="form-control" type="password" placeholder="11111122333">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-3 control-label">Confirm password:</label>
-                    <div class="col-md-8">
-                      <input class="form-control" type="password" placeholder="11111122333">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-3 control-label"></label>
-                    <div class="col-md-8">
-                      <input type="button" id="btn1" class="btn btn-outline-light" value="Save Changes">&nbsp;
-                      <span></span>
-                      <input type="reset" id="btn2" class="btn btn-outline-light" value="Cancel">
-                    </div>
-                   </div>
-         
-              <div class="modal fade" id="myModal">
-                  <div class="modal-dialog modal-sm">
-                    <div class="modal-content">
-                    
-                      <div class="modal-body">
-                        Details Updated Successfully..
-                      </div>
-                    
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="account()">Close</button> -->
-
+  
       <div class="container ">
+
+           <!-- <div *ngFor="let detail of products1">  -->
+
+            
         <h3 id="heading">Edit Profile</h3>
         <hr>
 
@@ -110,7 +41,7 @@
                   <div class="text-center">
                     <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
                     <h6>Upload a different photo...</h6>
-                    <input type="file" formControlName="fileName" class="form-control">
+                    <input type="file" formControlName="imageName" class="form-control">
                   </div>
                 </div>
               </div>
@@ -122,25 +53,25 @@
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Name:</label>
                   <div class="col-lg-8">
-                    <input class="form-control" formControlName="NameCtrl" type="text" value="Jane">
+                    <input class="form-control" formControlName="NameCtrl" type="text" value="{{productOwner.name}}">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Email:</label>
                   <div class="col-lg-8">
-                    <input class="form-control" formControlName="emailCtrl" type="text">
+                    <input class="form-control" formControlName="emailCtrl" type="text" value="{{productOwner.emailId}}">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-md-3 control-label">Password:</label>
                   <div class="col-md-8">
-                    <input class="form-control" type="password">
+                    <input class="form-control" type="password" value="{{productOwner.reconfirmPassword}}">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-md-3 control-label">Confirm password:</label>
                   <div class="col-md-8">
-                    <input class="form-control" formControlName="ReConfirmPasswordCtrl" type="password">
+                    <input class="form-control" formControlName="ReConfirmPasswordCtrl" type="password" value="{{productOwner.reconfirmPassword}}">
                   </div>
                 </div>
                 <div class="form-group">
@@ -157,6 +88,24 @@
                   </div>
 
                 </div>
+
+                <div class="modal fade" id="myModal">
+                  <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                    
+                      <div class="modal-body">
+                        Details updated Successfully..
+                      </div>
+                    
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="account()">Close</button>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+                
+
               </div>
             </form>
           </div>
