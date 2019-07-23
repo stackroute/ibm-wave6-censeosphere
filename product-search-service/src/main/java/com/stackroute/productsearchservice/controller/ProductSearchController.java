@@ -89,6 +89,28 @@ public class ProductSearchController {
         }
     }
 
+    @GetMapping("recentproducts")
+    public ResponseEntity<?> getRecentProducts() {
+        try {
+            return new ResponseEntity<List<ProductDetails>>
+                    (productSearchService.getRecentProducts(), HttpStatus.OK);
+
+        } catch (Exception e) {
+            return new ResponseEntity<String>("No products", HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("trendingproducts")
+    public ResponseEntity<?> getTrendingProducts() {
+        try {
+            return new ResponseEntity<List<ProductDetails>>
+                    (productSearchService.getTrendingProducts(), HttpStatus.OK);
+
+        } catch (Exception e) {
+            return new ResponseEntity<String>("No products", HttpStatus.NOT_FOUND);
+        }
+    }
+
 
 }
 

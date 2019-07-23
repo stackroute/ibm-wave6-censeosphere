@@ -68,8 +68,9 @@ h5{
     background: url('../../assets/img/newaccountback.jpg') center center no-repeat;
 } */
 .thumb-wrapper {
+    background: url('../../assets/img/header.png');
 	padding: 25px 15px;
-	background: #fff;
+	/* background: #fff; */
 	border-radius: 6px;
 	text-align: center;
 	position: relative;

@@ -25,6 +25,7 @@ export class SearchForReviewComponent implements OnInit {
   reviewdetails:any;
   ngOnInit() {
 
+
     this.revieweremail=sessionStorage.getItem('reviewerEmail');
     console.log("email in write a review"+this.revieweremail);
 
@@ -50,6 +51,10 @@ export class SearchForReviewComponent implements OnInit {
     this.reviewdetails=data;
     console.log(JSON.stringify(this.reviewdetails));
     
+  //  this.searchforreview.getAllReviews().subscribe((data:any) =>{
+  //   console.log(data);
+  //   this.reviews=data;
+
   })
 }
   wreview()

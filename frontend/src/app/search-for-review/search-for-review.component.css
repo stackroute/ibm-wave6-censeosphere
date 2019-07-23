@@ -5,7 +5,7 @@ a{
   text-decoration: none;
 }
 .navbar{
-  background-color:lightblue;
+  background-color:#222930;
   position: relative;
   height: 80px;
   position: fixed;
@@ -18,7 +18,7 @@ nav img{
 }
  nav .dropdown{
   
-   color: black;
+   color: white;
    font-size: 20px;
    position: absolute;
    right: 0;
@@ -28,7 +28,7 @@ nav img{
    
  }
 
- .thumb-wrapper {
+ /* .thumb-wrapper {
   margin-left: 200px;
   margin-top: 30px;
  padding: 25px 15px;
@@ -38,7 +38,7 @@ nav img{
  position: relative;
    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
    width: 700px;
-} 
+}  */
 .thumb-wrapper a:hover{
   color:rgb(38, 4, 161);
 }
@@ -64,23 +64,24 @@ footer a:hover{
 .star-rating .checked {
   color: orange;
 }
-
- .star-rating .fa-star-half-o{color: orange;}
 .mat-tab-group {
     margin-bottom: 48px;
   }
 
-  .col-sm-4 img{
+  /* .col-sm-4 img{
     margin-left:200px;
     width:300px;
      height:200px;
      margin-top: 20px;
+ } */
+ .col-sm-6 h3 .star-rating{
+text-align: right;
+padding-right: 500px;
  }
 #searchheading{
   text-align: center;
   margin-top: 100px;
 }
-
 
 #mainbtn{
   margin-left:680px;

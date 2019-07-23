@@ -3,6 +3,7 @@ import { ReviewService } from '../review.service';
 import { Router ,ActivatedRoute} from '@angular/router';
 import{ LandingpageService }from '../landingpage.service';
 import { Writereview } from '../writereview';
+import { RecommendationService } from '../recommendation.service';
 
 @Component({
   selector: 'app-review',
@@ -14,13 +15,22 @@ export class ReviewComponent implements OnInit {
   products: [];
   writereview:Writereview=new Writereview();
   review:any;
+
  
   
   productDetails: any;
-  constructor(private reviewService:ReviewService,private router:Router,private landingservice:LandingpageService,private activatedRoute:ActivatedRoute) { 
+  // constructor(private reviewService:ReviewService,private router:Router,private landingservice:LandingpageService,private activatedRoute:ActivatedRoute) { 
+    // this.reviews=[];
+   
+  
+
+  constructor(private reviewService:ReviewService,private router:Router,private landingservice:LandingpageService,private activatedRoute:ActivatedRoute,
+                 private recommendationService:RecommendationService) { 
     // this.reviews=[];
    }
-  
+  //  productDetails: [];
+   productByFamily:[];
+
   // constructor(private reviewService:ReviewService,private router:Router,private landingservice:LandingpageService) { 
   //   this.reviews=[];
   
@@ -57,13 +67,23 @@ export class ReviewComponent implements OnInit {
     // this.writereview.reviewedOn=JSON.parse(sessionStorage.getItem('data')).uploadedOn;
     this.writereview.reviewerEmail=sessionStorage.getItem('reviewerEmail');
     this.writereview.subCategory=JSON.parse(sessionStorage.getItem('data')).subCategory;
-    this.writereview.creditpoints=JSON.parse(sessionStorage.getItem('rdata')).creditpoints;
+
+    this.writereview.creditpoints=JSON.parse(sessionStorage.getItem('rdata')).creditpoints
+    let family=JSON.parse(sessionStorage.getItem('data')).productFamily;
+
     this.reviewService.addReview(this.writereview).
       subscribe(data=>{
         console.log("data stored successfully");
       });
+    // this.recommendationService.getProductByFamily(JSON.parse(sessionStorage.getItem('data')).productFamily).
+    //    subscribe((data:any)=>{
+    //      console.log(data);
+    //      this.productByFamily=data;
+    //      console.log("in product by family variable : ",this.productByFamily);
+    //    });
 
-    this.router.navigateByUrl("/reviewerdash");
+    // this.router.navigateByUrl("/reviewerdash/"+this.productByFamily);
+    this.router.navigateByUrl("/reviewerdash/"+family);
   } 
 
 }

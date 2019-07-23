@@ -21,6 +21,9 @@ public interface ProductSearchService {
     public ProductDetails getProductByName(String productName) throws ProductNotFoundException;
 
 
+    public List<ProductDetails> getRecentProducts() throws Exception;
+    public List<ProductDetails> getTrendingProducts() throws Exception;
+
     public void sendProduct(ProductDetails productDetails);
     public void sendToRecommendation(ProductDTO productDTO);
 }
