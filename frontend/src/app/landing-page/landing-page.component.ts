@@ -22,6 +22,8 @@ export class LandingPageComponent implements OnInit {
   categories = [];
   subCategories = [];
   job = "";
+  // validatingForm: FormGroup;
+
 
   form=new FormGroup({
     emailId: new FormControl('',[Validators.required,Validators.email]),
@@ -32,6 +34,14 @@ export class LandingPageComponent implements OnInit {
   constructor(private router: Router, private landingpageservice: LandingpageService, private loginvalidation: LoginvalidationService,private productService:ProductService) { }
 
   ngOnInit() {
+
+    // get modalFormDarkEmail() {
+    //   return this.validatingForm.get('modalFormDarkEmail');
+    // }
+  
+    // get modalFormDarkPassword() {
+    //   return this.validatingForm.get('modalFormDarkPassword');
+    // }
 
 
     this.landingpageservice.getAllProducts().subscribe((data: any) => {

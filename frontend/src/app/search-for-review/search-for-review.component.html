@@ -13,14 +13,8 @@
      </div>
   </nav>
 
-
-
-
-   <h3 id="searchheading">Product Details</h3>
-   <hr>
-
 <!-- card start  -->
-<div class="container">
+<!-- <div class="container">
     <div class="thumb-wrapper">
       <div class="img-box">
         <img src="../assets/img/nikon.jpeg" class="img-responsive img-fluid" alt="">
@@ -41,8 +35,33 @@
         <h6>2 reviews</h6>
       </div>
   </div>
-</div>
+</div> -->
 <!--product card end-->
+<div>
+  <h3 id="searchheading">Product Details</h3>
+  <hr>
+  <div class="row" style="margin-top: 5%">
+      <div class="col-sm-4">
+          <img src="../assets/img/nikon.jpeg" alt="product" width="300" height="200"  style="margin-left:200px">
+          <h3 style="margin-left: 200px">NIKON D5600</h3>
+         
+      </div>
+      <div class="col-sm-8">
+          <div style="margin-left: 100px">
+              <h3>Ratings</h3>
+              <div class="star-rating">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star-half-o"></span>
+            </div>
+              <h3>Price:49,000</h3>
+          </div>
+      </div>
+      
+    </div>
+</div>
 <br>
 <div>
   <button class="btn btn-info" id="mainbtn" type="button" (click)="wreview()" name="write a review">Write A Review</button>
@@ -72,7 +91,6 @@
                                <span class="fa fa-star"></span>
                                <span class="fa fa-star"></span>
                                </div>
-                 <!-- <p>I am a beginner in terms of photography. The telephoto lens are really good and pictures taken with then are truly awesome. They give the photos kind of a depth field perception in auto mode. The camera itself has heck lot of options and having a touchscreen really helps.</p> -->
                  <p>{{review.reviewDescription}}</p>      
                  <div>
                       <button class="btn-primary" type="button" name="useful">Most helpful??</button>

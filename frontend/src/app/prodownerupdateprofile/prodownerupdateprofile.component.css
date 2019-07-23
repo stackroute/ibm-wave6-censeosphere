@@ -47,6 +47,15 @@ nav img{
 {
   margin-top: 25px;
 }
+.container-fluid{
+  background-image:url(../../assets/img/ph.jpg);
+  border-style: 1px solid grey;
+  background-size:cover;
+  background-position:center;
+  padding-top:50px;
+  padding-bottom:300px;
+  
+}
 .fakeimg {
   height: 200px;
   background: #aaa;

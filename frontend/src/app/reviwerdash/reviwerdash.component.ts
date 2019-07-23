@@ -16,10 +16,11 @@ export class ReviwerdashComponent implements OnInit {
   // constructor(private router:Router,private landingpageservice:LandingpageService) { }
 
   products = [];
-  productService: any;
+ 
+  route: ActivatedRoute;
 
   constructor(private router:Router,private landingpageservice:LandingpageService,private updates:UpdateProfileService,
-    private route1:ActivatedRoute,private prodownerservice:ProdownerserviceService) { }
+    private route1:ActivatedRoute,private prodownerservice:ProdownerserviceService,private productService:ProductService) { }
 
 
   ngOnInit() {
@@ -38,11 +39,14 @@ export class ReviwerdashComponent implements OnInit {
    this.router.navigateByUrl("/"); 
   }
   
+  searches()
+  {
+    this.router.navigate(['card'],{relativeTo:this.route});
+  } 
   search(product)
   {
     console.log(product);
-      this.productService.getProduct(product).
-      subscribe(data=>{
+      this.productService.getProduct(product).subscribe(data=>{
         let a = JSON.stringify(data)
           console.log("product info in rdashboard : ",JSON.stringify(data));
           sessionStorage.setItem('data', a);
@@ -61,5 +65,7 @@ export class ReviwerdashComponent implements OnInit {
      
     });
    }
+  
+    
   
 }

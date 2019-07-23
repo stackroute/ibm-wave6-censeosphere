@@ -125,7 +125,7 @@ services:
 
 
   recommendation:
-    build: ./
+    build: recommendation
     restart: always
     network_mode: host
     ports:
