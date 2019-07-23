@@ -43,6 +43,7 @@ export class UpdateprofileComponent implements OnInit {
     this.firstFormGroup = this._formBuilder.group({
       fileName: ['', Validators.required],
       NameCtrl: ['', Validators.required],
+      passwordCtrl:['',[Validators.required,Validators.minLength(5)]],
       ReConfirmPasswordCtrl: ['', Validators.required],
       emailCtrl: ['', Validators.required],
    });

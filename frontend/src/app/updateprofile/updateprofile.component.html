@@ -74,6 +74,7 @@
       <div id="rowcontainer" class="row">
 
         <div class="col-md-12">
+        
           <form [formGroup]="firstFormGroup" id="editform">
             <!-- left column -->
             <div class="col-md-3">
@@ -93,20 +94,31 @@
               <div class="form-group">
                 <label class="col-lg-3 control-label">Name:</label>
                 <div class="col-lg-8">
-                  <input class="form-control" formControlName="NameCtrl" type="text" placeholder="enter your name" required>
+                  <input class="form-control" formControlName="NameCtrl" type="text" placeholder="enter your name" #name [ngClass]="{ 'is-invalid': submitted && f.NameCtrl.errors }">
+                  <div *ngIf="submitted && f.NameCtrl.errors" class="invalid-feedback">
+                      <div *ngIf="f.NameCtrl.errors.required"> Name is required</div>
+                  </div>               
                 </div>
               </div>
 
               <div class="form-group">
                 <label class="col-lg-3 control-label">Email:</label>
                 <div class="col-lg-8">
-                  <input class="form-control" formControlName="emailCtrl" type="text" placeholder="enter your mailId" required>
+                  <input class="form-control" formControlName="emailCtrl" type="text" placeholder="enter your mailId" #email [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                  <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                      <div *ngIf="f.email.errors.required">Email is required</div>
+                      <div *ngIf="f.email.errors.email">Enter a valid mailId</div>
+                  </div>
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-md-3 control-label">Password:</label>
                 <div class="col-md-8">
-                  <input class="form-control" type="password" placeholder="enter your password" required>
+                  <input class="form-control" type="password" formControlName="passwordCtrl" placeholder="enter your password" #password [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                      <div *ngIf="f.password.errors.required">Password is required</div>
+                      <div *ngIf="f.password.errors.minlength">Password must be at least 5 characters</div>
+                  </div>              
                 </div>
               </div>
             
@@ -114,18 +126,18 @@
                 <label class="col-md-3 control-label">Confirm password:</label>
                 <div class="col-md-8">
                   <input class="form-control" formControlName="ReConfirmPasswordCtrl" type="password" placeholder="reconfirm your password" required>
-
+                  
                 </div>
               </div>
 
               <div class="form-group">
                 <label class="col-md-3 control-label"></label>
                 <div class="col-md-8">
-                  <button type="button" class="btn btn-info" (click)="updateDetails()">
+                  <button type="button" class="btn btn-outline-dark" (click)="updateDetails()">
                     Save Profile
                   </button>
                   &nbsp;
-                  <button type="button" class="btn btn-info" (click)="account()">Cancel</button>
+                  <button type="button" class="btn btn-outline-dark" (click)="account()">Cancel</button>
                 </div>
               </div>
             </div>
@@ -286,82 +298,129 @@
 </mat-tab-group>
 
 <!-- footer -->
-<footer class="page-footer font-small blue pt-4">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-3">
+<footer class="page-footer font-small mdb-color pt-4 bg-dark footer-dark">
+
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
+
+    <!-- Footer links -->
+    <div class="row text-center text-md-left mt-3 pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+        <!-- <img style="margin-top: 20px; height:100px;width: 50px;" class="card-img-top" src="assets/img/logo5.png" alt="image"> -->
+      <h2 style="color: white"><strong>CenseoSphere</strong></h2>
+      <a href="#" style='font-size:24px'><i class='fas fa-home'></i></a>
+      </div>
+      <!-- Grid column -->
+
+      <hr class="w-100 clearfix d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-3 mx-auto mt-3">
         <ul class="list-unstyled lead">
           <li>
-            <h5><strong>About us</strong></h5>
+              <h5><strong>About us</strong></h5>
           </li>
           <li>
-            <a href="#"><strong> Vision & Goals </strong></a>
-          </li>
-          <li>
-            <a href="#"><strong> Company </strong></a>
-          </li>
-          <li>
-            <a href="#"><strong> Blog </strong></a>
-          </li>
-          <li>
-            <a href="#"><strong> Careers </strong></a>
-          </li>
-        </ul>
+              <a href="#"><strong> Vision & Goals </strong></a>
+            </li>
+            <li>
+              <a href="#"><strong> Company </strong></a>
+            </li>
+            <li>
+              <a href="#"><strong> Blog </strong></a>
+            </li>
+            <li>
+              <a href="#"><strong> Careers </strong></a>
+            </li>
+      </ul>
 
       </div>
-      <div class="col-sm-3">
+      <!-- Grid column -->
+
+      <hr class="w-100 clearfix d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-3  mx-auto mt-3">
         <ul class="list-unstyled lead">
           <li>
-            <h5><strong>Contact us</strong></h5>
+              <h5><strong>Contact us</strong></h5>
           </li>
-          <li>
-            <a href="#"><i class="fa fa-map-marker"></i>&nbsp;<Strong>Location</Strong></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-phone"></i>&nbsp;<Strong>9874563129</Strong></a>
-          </li>
-          <li>
-            <a href="#"> <i class="fa fa-envelope"></i>&nbsp;<Strong>niitstkrt@gmail.com</Strong></a>
-          </li>
-        </ul>
+            <li>
+              <a href="#"><i class="fa fa-map-marker"></i>&nbsp;<Strong>Location</Strong></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-phone"></i>&nbsp;<Strong>9874563129</Strong></a>
+            </li>
+            <li> 
+              <a href="#"> <i class="fa fa-envelope"></i>&nbsp;<Strong>niitstkrt@gmail.com</Strong></a>
+            </li> 
+      </ul>
+
       </div>
 
-      <div class="col-sm-3">
+      <!-- Grid column -->
+      <hr class="w-100 clearfix d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
         <ul class="list-unstyled lead">
           <li>
-            <h5><strong>Insights</strong></h5>
+              <h5><strong>Insights</strong></h5>
           </li>
           <li>
-            <a href="#"><Strong>Privacy policy</Strong></a>
-          </li>
-          <li>
-            <a href="#"><Strong>Terms & Conditions </Strong></a>
-          </li>
-          <li>
-            <a href="#"><Strong>FAQs</Strong></a>
-          </li>
-          <li>
-            <a href="#"><Strong>Support</Strong></a>
-          </li>
-        </ul>
+              <a href="#"><Strong>Privacy policy</Strong></a>
+            </li>
+            <li>
+              <a href="#"><Strong>Terms & Conditions </Strong></a>
+            </li>
+            <li>
+              <a href="#"><Strong>FAQs</Strong></a>
+            </li>
+            <li>
+              <a href="#"><Strong>Support</Strong></a>
+            </li>
+      </ul>
       </div>
-      <div class="col-sm-3">
-        <ul class="list-unstyled lead">
-          <li>
-            <h5><strong>Keep connected with</strong></h5>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-twitter-square"></i>&nbsp;<Strong>twitter</Strong></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-facebook-square"></i>&nbsp;<Strong>facebook</Strong></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-linkedin"></i>&nbsp;<Strong>linkedin</Strong></a>
-          </li>
-        </ul>
-      </div>
+      <!-- Grid column -->
+
     </div>
-  </div>
-</footer>
+    <!-- Footer links -->
+  
+    <hr>
+
+    <!-- Grid row -->
+    <div class="row d-flex align-items-center">
+
+
+      <!-- Grid column -->
+      <div class="col-md-7 col-lg-8">
+
+
+        <div class="col-md-12">
+          <ul class="social-network social-circle">
+            <li><a href="#"><i class="fab fa-facebook" id="facebook"></i></a></li>
+            <li></li>
+            <li><a href="#"><i class="fab fa-twitter" id="twitter"></i></a></li>
+            <li></li>
+            <li><a href="#"><i class="fab fa-instagram" id="instagram"></i></a></li>
+            <li></li>
+            <li><a href="#"><i class="fab fa-linkedin-in" id="linkedin"></i></a></li>
+
+          </ul>
+        </div>
+
+
+        <!--Copyright-->
+
+        <p class="text-center text-md-right">Copyright © All Rights Reserved by
+          <strong>CenseoSphere</strong>
+        </p>
+
+       </div>
+      </div>
+      <!-- Grid column -->
+    </div>
+  </footer>
 <!-- end footer -->
