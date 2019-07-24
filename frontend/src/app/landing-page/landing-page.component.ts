@@ -79,7 +79,7 @@ export class LandingPageComponent implements OnInit {
           if (role == this.job) {
             console.log(role);
             console.log("in if1");
-            this.router.navigateByUrl("/reviewerdash/"+ emailId);
+            this.router.navigateByUrl("/reviewerdash");
 
           }
           else {
