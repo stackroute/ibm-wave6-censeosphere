@@ -28,7 +28,8 @@ const routes: Routes = [
   {path:'add-product',component:AddProductComponent},
   // {path:'reviewerdash/:emailId',component:ReviwerdashComponent}
   // {path:'reviewerdash/:productByFamily',component:ReviwerdashComponent},
-  {path:'reviewerdash/:family',component:ReviwerdashComponent},
+  {path:'reviewerdash',component:ReviwerdashComponent},
+  {path:'reviewerdash',component:ReviwerdashComponent},
   {path:'writereview',component:ReviewComponent},
   {path:'writereview/:emailId',component:ReviewComponent},
   {path:'searchreview',component:SearchForReviewComponent},

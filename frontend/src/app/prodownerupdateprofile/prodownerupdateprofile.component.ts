@@ -49,7 +49,7 @@ export class ProdownerupdateprofileComponent implements OnInit {
     console.log("from session"+this.email);
     this.update.emailId=this.firstFormGroup.controls.emailCtrl.value;
     this.update.name=this.firstFormGroup.controls.NameCtrl.value;
-    this.update.image=this.firstFormGroup.controls.imageName.value;
+    this.update.image=this.mediaName;
     this.update.reconfirmPassword=this.firstFormGroup.controls.ReConfirmPasswordCtrl.value;
     console.log(this.update.emailId);
     console.log(this.update.name);
@@ -77,4 +77,20 @@ export class ProdownerupdateprofileComponent implements OnInit {
   {
     this.router.navigateByUrl("/productownerdashboard");
   }
+
+
+  currentFileUpload:File;
+  selectedVideo:FileList;
+  mediaName:any;
+
+  selectVideo(event){
+    this.selectedVideo=event.target.files;
+  }
+  uploadVideo(){
+    
+    this.currentFileUpload = this.selectedVideo.item(0)
+    this.mediaName=this.currentFileUpload.name;
+   }
+
+
 }

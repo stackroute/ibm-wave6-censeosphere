@@ -86,7 +86,7 @@ export class ReviewComponent implements OnInit {
     //    });
 
     // this.router.navigateByUrl("/reviewerdash/"+this.productByFamily);
-    this.router.navigateByUrl("/reviewerdash/"+family);
+    this.router.navigateByUrl("/reviewerdash");
   } 
 lpage()
 {

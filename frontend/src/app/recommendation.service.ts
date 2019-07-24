@@ -18,4 +18,10 @@ export class RecommendationService {
       
     }
 
+    getProductBySubCategory(subCategory:string){
+      console.log("data in recommendation service :",subCategory);
+        return this.http.get<Product>('http://localhost:8085/rest/neo4j/product/subcategory/'+subCategory);
+      
+    }
+
 }

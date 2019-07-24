@@ -74,7 +74,7 @@ export class SearchForReviewComponent implements OnInit {
   //   })
   // }
 
-   
+
 
 
   yes(email)
@@ -131,9 +131,13 @@ export class SearchForReviewComponent implements OnInit {
 
     })
 
+
 }
+
+
 wreview()
-{
+    {
+
       this.router.navigateByUrl("/writereview");
 
 }
