@@ -34,9 +34,10 @@ public class productdetailserviceimpl implements  Productdetailservice {
 
     String review="";
     String result="";
-    int rating;
+    float rating=0.0f;
     String sentiment="";
     int sentiments;
+    int creditpoints;
     @PostConstruct
     public void init(){
         properties.setProperty("annotators", "tokenize,ssplit,pos,lemma,depparse,parse,natlog,openie,sentiment");
@@ -52,7 +53,7 @@ public class productdetailserviceimpl implements  Productdetailservice {
              System.out.println(sentiments);
              sentiment=sentimentResult(sentiments);
              System.out.println(sentiment);
-             rating=generateRating(sentiment,productRating1.getRating());
+             rating=generateRating(sentiment,productRating1.getRating(),creditpoints);
              System.out.println("from saveRating "+rating);
              updaterating(productRating1.getProductName(),rating);
              return  productRating1;
@@ -117,26 +118,133 @@ public class productdetailserviceimpl implements  Productdetailservice {
     }
 
     @Override
-    public int generateRating(String sentiment,int value) {
-        if(sentiment == "Very negative")
+    public float generateRating(String sentiment,float value,int score) {
+        if(value <5)
         {
-            rating=value-5;
-        }
-        else if(sentiment == "Negative")
+            if( score>=100 &&  score<=400)
+            {
+                if(sentiment == "Very negative")
+                {
+                    rating=value-0.2f;
+                }
+               else if(sentiment == "Negative")
+               {
+                  rating=value-0.1f;
+               }
+              else if(sentiment == "Neutral")
+               {
+                  rating=value-0.05f;
+               }
+               else if(sentiment== "Positive")
+                {
+
+                   rating=value+0.1f;
+                }
+               else if(sentiment == "Very Positive")
+                {
+                   rating=value+0.2f;
+                }
+
+            }
+
+          else if(score>=400 &&  score<=700)
+          {
+
+
+                System.out.println("monisha");
+                if(sentiment == "Very negative")
+                {
+                    rating=value-0.4f;
+                }
+                else if(review == "Negative")
+                {
+                    rating=value-0.2f;
+                }
+                else if(sentiment == "Neutral")
+                {
+                    rating=value-0.05f;
+                }
+                else if(sentiment == "Positive")
+                {
+
+                    rating=value+0.2f;
+                }
+                else if(sentiment == "Very Positive")
+                {
+                    rating=value+0.4f;
+                }
+
+            }
+           else if( score>=700 &&  score<=1000 )
+           {
+                if(sentiment== "Very negative")
+                {
+                rating=value-0.6f;
+                }
+            else if(sentiment == "Negative")
+               {
+                rating=value-0.3f;
+               }
+            else if(sentiment == "Neutral")
+               {
+                rating=value-0.05f;
+               }
+            else if(sentiment == "Positive")
+               {
+
+                rating=value+0.3f;
+                }
+            else if(sentiment== "Very Positive")
+                {
+                rating=value+0.6f;
+                }
+
+           }
+
+
+        else if(  score>=1000 )
         {
-           rating=value-3;
+            if(sentiment == "Very negative")
+              {
+                rating=value-0.8f;
+              }
+            else if(sentiment == "Negative")
+              {
+                rating=value-0.4f;
+              }
+            else if(sentiment == "Neutral")
+              {
+                rating=value-0.05f;
+              }
+            else if(sentiment == "Positive")
+              {
+
+                rating=value+0.4f;
+              }
+            else if(sentiment == "Very Positive")
+              {
+                rating=value+0.8f;
+              }
         }
-        else  if(sentiment == "Neutral")
+
+        }
+
+        else if(rating == 5)
         {
-            rating=value+2;
+            if(   score>=100 )
+            {
+                if(sentiment == "very negative")
+                {
+                    rating=value-0.8f;
+                }
+               else if(sentiment == "Negative")
+                {
+                rating=value-0.4f;
+                }
+            }
         }
-        else if(sentiment == "Positive")
-        {
-            rating=value+3;
-        }
-        else {
-            rating=value+5;
-        }
+
+
         System.out.println("inside rating"+rating);
         return rating;
 
@@ -144,12 +252,9 @@ public class productdetailserviceimpl implements  Productdetailservice {
     }
 
     @Override
-    public void updaterating(String productname, int rating)
+    public void updaterating(String productname, float rating)
     {
-//        if(productdetailrepository.existsById(productname)) {
-//            productRating1.setRating(rating);
-//            productdetailrepository.save(productRating1);
-//        }
+
         System.out.println("product name : "+productname);
         System.out.println("updated rating : "+rating);
         Optional optional;
@@ -189,22 +294,26 @@ public class productdetailserviceimpl implements  Productdetailservice {
                 productRating2=productdetailrepository.findById(productRatingDTO.getProductName()).get();
 
             }
+
             review = productRatingDTO.getReviewDescription();
+            creditpoints=productRatingDTO.getCreditpoints();
+            System.out.println("credit points:"+creditpoints);
             sentiments =findSentiment(productRatingDTO.getProductName(),review);
             System.out.println(sentiments);
             sentiment=sentimentResult(sentiments);
             System.out.println(sentiment);
-            rating=generateRating(sentiment,productRating2.getRating());
+            rating=generateRating(sentiment,productRating2.getRating(),creditpoints);
             System.out.println("from rabbitmq"+rating);
             updaterating(productRatingDTO.getProductName(),rating);
-
-           }
-        else
-        {
+            }
+          else
+           {
             productRating.setProductName(productRatingDTO.getProductName());
             review = productRatingDTO.getReviewDescription();
+            creditpoints=productRatingDTO.getCreditpoints();
+            System.out.println("credit points:"+creditpoints);
             saveRating(productRating);
-        }
+           }
 
     }
 

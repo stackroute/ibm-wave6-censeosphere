@@ -11,6 +11,7 @@ import { ProdownerupdateprofileComponent } from './prodownerupdateprofile/prodow
 import { AddProductComponent } from './add-product/add-product.component';
 import { ReviewComponent } from './review/review.component';
 import { ReviewerdashboardComponent } from './reviewerdashboard/reviewerdashboard.component';
+import { CardComponent } from './card/card.component';
 const routes: Routes = [  
   { path: '',component:LandingPageComponent},
   { path: 'login', component:UserLoginComponent },
@@ -29,7 +30,10 @@ const routes: Routes = [
   {path:'writereview',component:ReviewComponent},
   {path:'searchreview',component:SearchForReviewComponent},
   { path:'prodownerupdateprofile/:name/:emailId/:reconfirmPassword',component:ProdownerupdateprofileComponent},
-  {path:'rdashboard',component:ReviewerdashboardComponent}
+  {path:'rdashboard',component:ReviewerdashboardComponent},
+  {path:'',component:ReviwerdashComponent,pathMatch:'prefix',children:[{
+    path:'card',component:CardComponent
+  }]},
   // { path: '**',component:LandingPageComponent}
   
 

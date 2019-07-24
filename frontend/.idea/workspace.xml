@@ -2,13 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e550382-b763-4af2-a629-d786415f77c5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NLP-service/src/main/java/com/stackroute/NLPservice/Domain/ProductRating.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NLP-service/src/main/java/com/stackroute/NLPservice/Domain/ProductRating.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NLP-service/src/main/java/com/stackroute/NLPservice/dto/ProductRatingDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NLP-service/src/main/java/com/stackroute/NLPservice/dto/ProductRatingDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NLP-service/src/main/java/com/stackroute/NLPservice/service/Productdetailservice.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NLP-service/src/main/java/com/stackroute/NLPservice/service/Productdetailservice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NLP-service/src/main/java/com/stackroute/NLPservice/service/productdetailserviceimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NLP-service/src/main/java/com/stackroute/NLPservice/service/productdetailserviceimpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/landing-page/landing-page.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/landing-page/landing-page.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/landing-page/landing-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/landing-page/landing-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/landing-page/landing-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/landing-page/landing-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/product.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/review.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/review.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/review/review.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/review/review.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/reviewer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/reviewer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/reviwerdash/reviwerdash.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/reviwerdash/reviwerdash.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/search-for-review.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/search-for-review.service.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/search-for-review.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/search-for-review.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/search-for-review/search-for-review.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/search-for-review/search-for-review.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/search-for-review/search-for-review.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/search-for-review/search-for-review.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/updateprofile/updateprofile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/updateprofile/updateprofile.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/writereview.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/writereview.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../review-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../review-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/controller/ReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/domain/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/domain/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/dto/ReviewDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/dto/ReviewDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/repository/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/repository/ReviewRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/service/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/service/ReviewService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/service/ReviewServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/service/ReviewServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../reviewer-profile-service/src/main/java/com/stackroute/reviewerprofile/controller/ReviewerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../reviewer-profile-service/src/main/java/com/stackroute/reviewerprofile/controller/ReviewerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../reviewer-profile-service/src/main/java/com/stackroute/reviewerprofile/domain/Reviewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../reviewer-profile-service/src/main/java/com/stackroute/reviewerprofile/domain/Reviewer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../reviewer-profile-service/src/main/java/com/stackroute/reviewerprofile/service/ReviewerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../reviewer-profile-service/src/main/java/com/stackroute/reviewerprofile/service/ReviewerServiceImpl.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

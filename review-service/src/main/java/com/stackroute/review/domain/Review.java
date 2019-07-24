@@ -33,5 +33,6 @@ public class Review {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date reviewedOn;
     private String subCategory;
+    private  int creditpoints;
 
 }

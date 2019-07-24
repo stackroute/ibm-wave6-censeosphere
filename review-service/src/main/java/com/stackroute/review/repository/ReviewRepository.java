@@ -8,4 +8,9 @@ import java.util.List;
 
 public interface ReviewRepository extends MongoRepository<Review,String> {
 
+
+    @Query("{ 'productName' : ?0 }")
+    List<Review> getAllReviewsbyProduct(String pname);
+
+
 }

@@ -62,11 +62,16 @@
 
     <ng-template #product let-product let-i="index">
       <div class="productDetails">
-        <div class="thumb-wrapper">
+        <!-- <div class="thumb-wrapper"> -->
+            <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                <div class="card">
           <div class="img-box">
-            <img src="./assets/img/{{product.image}}" class="img-responsive img-fluid" alt="">
+
+            <img src="./assets/img/{{product.image}}" class="img-responsive img-fluid" alt="Image not available" routerLink="/searchreview">
+            <!-- <img src="{{product.image}}" class="img-responsive img-fluid" alt="" routerLink="/searchreview"> -->
           </div>
-          <div class="thumb-content">
+          <!-- <div class="thumb-content"> -->
+              <div class="card-block">
             <h4>{{product.productName}}</h4>
             <div class="star-rating">
               <ul class="list-inline">
@@ -82,6 +87,7 @@
           </div>
         </div>
       </div>
+    </div>
     </ng-template>
   </div>
   <!-- end carousel for recent productDetails -->
@@ -103,11 +109,14 @@
 
     <ng-template #product let-product let-i="index">
       <div class="productDetails">
-        <div class="thumb-wrapper">
+        <!-- <div class="thumb-wrapper"> -->
+            <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                <div class="card">
           <div class="img-box">
-            <img src="./assets/img/{{product.image}}" class="img-responsive img-fluid" alt="Image not available">
+            <img src="./assets/img/{{product.image}}" class="img-responsive img-fluid" alt="Image not available" routerLink="/searchreview">
           </div>
-          <div class="thumb-content">
+          <!-- <div class="thumb-content"> -->
+              <div class="card-block">
             <h4>{{product.productName}}</h4>
             <div class="star-rating">
               <ul class="list-inline">
@@ -122,6 +131,7 @@
             <h6>2 reviews</h6>
           </div>
         </div>
+      </div>
       </div>
     </ng-template>
   </div>
@@ -161,8 +171,8 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" #role value="reviewer" class="btn btn-info" data-dismiss="modal" (click)="onClick(role.value)">Reviewer</button>
-          <button type="button" #role1 value="product-owner" class="btn btn-info" data-dismiss="modal" (click)="onClickPO(role1.value)">Product
+          <button type="button" #role value="reviewer"  class="btn btn-outline-light" data-dismiss="modal" (click)="onClick(role.value)">Reviewer</button>
+          <button type="button" #role1 value="product-owner"  class="btn btn-outline-light" data-dismiss="modal" (click)="onClickPO(role1.value)">Product
             Owner</button>
         </div>
       </div>
@@ -191,14 +201,14 @@
               <label for="reviewerpassword">Password</label>
               <input   #password type="password" name="password" id="reviewerpassword" class="form-control" placeholder="enter your password">
             </div>
-            <button type="submit" class="btn btn-info" id="reviewersigninbutton" >Sign
+            <button type="submit"  class="btn btn-outline-light" id="reviewersigninbutton" >Sign
               In</button>
           </form>
         </div>
         <div class="modal-footer">
           <label for="rsubmitbutton" id="newaccountlabel">New Account </label>
 
-          <button type="button" class="btn btn-info" #role value="reviewer" data-dismiss="modal" (click)="onClick(role.value)"
+          <button type="button"  class="btn btn-outline-light" #role value="reviewer" data-dismiss="modal" (click)="onClick(role.value)"
             id="rsubmitbutton">Reviewer</button>
 
         </div>
@@ -232,7 +242,7 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" #role1 value="product-owner" class="btn btn-info"  data-dismiss="modal" (click)="onClickPO(role1.value)"
+          <button type="button" #role1 value="product-owner"  class="btn btn-outline-light"  data-dismiss="modal" (click)="onClickPO(role1.value)"
             id="psubmitbutton">Product Owner</button>
         </div>
       </div>
