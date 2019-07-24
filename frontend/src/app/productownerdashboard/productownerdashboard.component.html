@@ -24,16 +24,28 @@
       <div class="container" >
         <h1 id="jumbotronheading">India's Largest Review Platform</h1>
         <form>
-          <div class="form-group">
+
+            <div class="input-group">
+
+                <input type="search" class="form-control col-md-6" placeholder="Search products" name="search" id="jumbotroninput">
+                <!-- <div class="input-group-append"> -->
+                   <button class="btn btn-outline-secondary" type="submit" id="searchbutton" (click)="searchproduct(inputsearch.value)">
+                      <a href="#"><i class="fa fa-search"></i></a>
+                  </button>
+                <!-- </div> -->
+              
+              </div>
+
+       <!-- <div class="form-group"> -->
 
             <!-- <input type="text" placeholder="search productDetails" name="search" class="form-control"
               id="jumbotroninput"><br> -->
 
-            <input type="text" placeholder="search products" name="search" class="form-control col-md-3"
-              id="jumbotroninput"> 
+          <!--  <input type="text" placeholder="search products" name="search" class="form-control col-md-3"
+              id="jumbotroninput"> -->
               <!-- <a href="#"><i class="fa fa-search"></i></a> <br> -->
 
-          </div>
+          <!--</div> -->
         </form>
       </div>
     </div>
