@@ -4,6 +4,7 @@ import { Router ,ActivatedRoute} from '@angular/router';
 import{ LandingpageService }from '../landingpage.service';
 import { Writereview } from '../writereview';
 import { RecommendationService } from '../recommendation.service';
+import { UpdateProfileService } from '../update-profile.service';
 
 @Component({
   selector: 'app-review',
@@ -24,7 +25,9 @@ export class ReviewComponent implements OnInit {
    
   
 
-  constructor(private reviewService:ReviewService,private router:Router,private landingservice:LandingpageService,private activatedRoute:ActivatedRoute,
+  constructor(private reviewService:ReviewService,private router:Router,private landingservice:LandingpageService,
+    private activatedRoute:ActivatedRoute,private updates:UpdateProfileService,
+    private route1:ActivatedRoute,
                  private recommendationService:RecommendationService) { 
     // this.reviews=[];
    }
@@ -52,7 +55,7 @@ export class ReviewComponent implements OnInit {
 
    
 
-
+    // this.reviewerDetails();
 
   }
   
@@ -85,5 +88,27 @@ export class ReviewComponent implements OnInit {
     // this.router.navigateByUrl("/reviewerdash/"+this.productByFamily);
     this.router.navigateByUrl("/reviewerdash/"+family);
   } 
+lpage()
+{
+  this.router.navigateByUrl("/")
+}
+update()
+{
+ this.router.navigateByUrl("/rprofile/name/gmail/reconfirmpassword"); 
+}
 
+
+
+
+// reviewerDetails(){
+//   const emailId=this.route1.snapshot.paramMap.get('emailId');
+//   console.log("Reviewer profile " +emailId);
+//   sessionStorage.setItem("pemailId",emailId);
+
+//   this.updates.getReviewerDetails(emailId).subscribe((data: any) => {
+//     console.log("inside reviewerdash"+data);
+//     sessionStorage.setItem("data", JSON.stringify(data));
+   
+//   });
+//  }
 }
