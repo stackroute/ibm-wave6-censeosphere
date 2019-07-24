@@ -18,12 +18,16 @@ export class ReviwerdashComponent implements OnInit {
   productByFamily = [];
   products = [];
   productDetails1 = [];
+ 
+  route: ActivatedRoute;
+
+  // constructor(private router:Router,private landingpageservice:LandingpageService,private updates:UpdateProfileService,
+  //   private route1:ActivatedRoute,private prodownerservice:ProdownerserviceService,private productService:ProductService) { }
   
   constructor(private router:Router,private landingpageservice:LandingpageService,private updates:UpdateProfileService,
     private route1:ActivatedRoute,private prodownerservice:ProdownerserviceService,private productService:ProductService,
     private recommendationService:RecommendationService) { }
 
-  
   ngOnInit() {
     this.landingpageservice.getAllProducts().subscribe((data:any) => {
       console.log(data);
@@ -75,11 +79,14 @@ export class ReviwerdashComponent implements OnInit {
    this.router.navigateByUrl("/"); 
   }
   
+  searches()
+  {
+    this.router.navigate(['card'],{relativeTo:this.route});
+  } 
   search(product)
   {
     console.log(product);
-      this.productService.getProduct(product).
-      subscribe(data=>{
+      this.productService.getProduct(product).subscribe(data=>{
         let a = JSON.stringify(data)
           console.log("product info in rdashboard : ",JSON.stringify(data));
           sessionStorage.setItem('data', a);
@@ -95,8 +102,12 @@ export class ReviwerdashComponent implements OnInit {
     this.updates.getReviewerDetails(emailId).subscribe((data: any) => {
       console.log(data);
       sessionStorage.setItem("data1", JSON.stringify(data));
+      console.log("inside reviewerdash"+data);
+      // sessionStorage.setItem("data", JSON.stringify(data));
      
     });
    }
+  
+    
   
 }

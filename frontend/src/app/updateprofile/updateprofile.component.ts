@@ -36,10 +36,10 @@ export class UpdateprofileComponent implements OnInit {
       this.productDetails=data;
     })
 
-    this.searchforreview.getAllReviews().subscribe((data:any) =>{
-      console.log(data);
-      this.reviews=data;
-    })
+    // this.searchforreview.getAllReviews().subscribe((data:any) =>{
+    //   console.log(data);
+    //   this.reviews=data;
+    // })
 
     this.firstFormGroup = this._formBuilder.group({
       imageCtrl: ['', Validators.required],

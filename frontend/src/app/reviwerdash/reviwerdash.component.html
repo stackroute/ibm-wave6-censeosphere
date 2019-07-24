@@ -20,13 +20,18 @@
 		<h1 id="jumbotronheading">India's Largest Review Platform</h1>
 		<form>
 			<div class="form-group">
+					<div class="active-cyan-3 active-cyan-4 mb-4">
 				<input type="text" #searchproduct placeholder="search here to write a review" name="search" class="form-control col-md-3"
 					id="jumbotroninput"> <br>
-				<button class="btn btn-outline-light" (click)="search(searchproduct.value)">search</button>
+
+				<button class="btn btn-outline-light" (click)="searches();search(searchproduct.value)" >search</button>
+				<!-- <button class="btn btn-info" (click)="search(searchproduct.value)" >search</button> -->
+			</div>
 			</div>
 		</form>
 	</div>
 </div>
+<router-outlet></router-outlet>
 
 <!-- end jumbotron -->
 
@@ -51,10 +56,12 @@
 			<!-- <div class="thumb-wrapper"> -->
 				<div class="col-sm-6 col-md-4 col-lg-3 mt-4">
 				<div class="card">
+
 				<div class="img-box">
 					<img src="./assets/img/{{product.image}}"  class="img-responsive img-fluid" alt="Image not available" routerLink="/rsearch">
 				</div>
 				<!-- <div class="thumb-content"> -->
+
 					<div class="card-block">
 					<h4>{{product.productName}}</h4>
 					<div class="star-rating">
@@ -73,6 +80,7 @@
 				</div>
 			<!-- </div> -->
 		</div>&nbsp;
+		<!-- </div> -->
 	</ng-template>
 </div>
 <!-- end carousel for recommended product by family-->

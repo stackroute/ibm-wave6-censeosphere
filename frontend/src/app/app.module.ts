@@ -23,6 +23,8 @@ import { ProdownerupdateprofileComponent } from './prodownerupdateprofile/prodow
 import { AddProductComponent } from './add-product/add-product.component';
 import { ReviewComponent } from './review/review.component';
 import { ReviewerdashboardComponent } from './reviewerdashboard/reviewerdashboard.component';
+import { CardComponent } from './card/card.component';
+// import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 
 
@@ -39,7 +41,9 @@ import { ReviewerdashboardComponent } from './reviewerdashboard/reviewerdashboar
     SearchForReviewComponent,
     AddProductComponent,
     ReviewComponent,
-    ReviewerdashboardComponent
+    ReviewerdashboardComponent,
+    CardComponent
+
 
   ],
   imports: [
@@ -58,6 +62,7 @@ import { ReviewerdashboardComponent } from './reviewerdashboard/reviewerdashboar
     ReactiveFormsModule,
     MatTabsModule,
     Ng2CarouselamosModule
+   
   ],
   providers: [LoginService],
   bootstrap: [AppComponent],

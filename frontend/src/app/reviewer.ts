@@ -4,4 +4,5 @@ export class Reviewer {
     reconfirmPassword:string;
     role:string;
     image:String;
+    
 }
