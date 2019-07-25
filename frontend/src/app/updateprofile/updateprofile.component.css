@@ -221,3 +221,13 @@ ul.social-network li {
     padding-top: 66px;
     font-size:15px;
 }
+.avatar{
+  height: 150px;
+  width: 150px;
+}
+.aligns{
+  display: inline;
+}
+#uploadbutton{
+  margin-top: 20px;
+}

@@ -30,10 +30,11 @@
             <div class="col-md-3">
               <div class="form-group">
                 <div class="text-center">
-                  <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+                  <img src="./assets/img/{{reviewer.image}}" class="avatar img-circle" alt="avatar">
                   <h6>Upload a different photo...</h6>
-                  <input type="file" formControlName="imageCtrl" class="form-control">
-                </div>
+                   <input class="aligns" type="file" (change)="selectVideo($event)" accept=".jpg,.jpeg,.gif,.png/*">
+                   <button id="uploadbutton" class="btn btn-outline-dark" (click)="uploadVideo()" >Upload Photo</button>
+                  </div>
               </div>
             </div>
 
@@ -121,7 +122,72 @@
             </div>
     </div>
     </mat-tab>
-             
+
+              <!-- <div class="modal fade" id="myModal">
+                    <div class="modal-dialog modal-sm">
+                      <div class="modal-content">
+                      
+                        <div class="modal-body">
+                          Details Updated Successfully..
+                        </div>
+                      
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="account()">Close</button>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div> -->
+            <!-- </div>
+  
+          </form>
+          </div>
+          </div>
+          
+       </div>
+             </mat-tab>
+            <mat-tab label="My reviews">
+              <div class="container">
+                  <h3>Your reviews</h3>
+                  <hr>
+                  <br>
+                  <div *ngFor="let product of productDetails">
+                    <div *ngFor="let review of reviews">
+                <div class="row">
+                  
+                 <div class="col-sm-4">
+                    
+                      <div class="thumb-wrapper">
+								
+                          <div class="img-box">
+                            <img src="{{product.image}}" class="img-responsive img-fluid" alt="">									
+                          </div>
+                          <div class="thumb-content">
+                            <h4>{{product.productName}}</h4>									
+                            <div class="star-rating">
+                              <ul class="list-inline">
+                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                              </ul>
+                            </div>
+                            <p class="item-price"><b>{{product.price}}</b></p>
+                            <h6>{{product.rating}}</h6>
+                          </div>						
+                        </div>
+                        <br>
+                     </div>
+                  <div class="col-sm-8">
+                  <div >
+                   <h5>{{review.reviewTitle}}</h5> 
+                    <p>{{review.reviewDescription}}</p> 
+                    <br>
+                 </div>
+
+  </mat-tab> -->
+
   <mat-tab label="My reviews">
     <div class="container">
       <h3>Your reviews</h3>

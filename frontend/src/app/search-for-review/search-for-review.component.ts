@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router , ActivatedRoute} from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { SearchForReviewService } from '../search-for-review.service';
 import { ReviewerdetailsService } from '../reviewerdetails.service';
 import { Reviewerone } from '../reviewerone';
 import { ReviewService } from '../review.service';
-
 
 @Component({
   selector: 'app-search-for-review',
@@ -13,6 +12,12 @@ import { ReviewService } from '../review.service';
 })
 export class SearchForReviewComponent implements OnInit {
   reviews = [];
+
+  // constructor(private router:Router, private searchforreview:SearchForReviewService,private activatedRoute:ActivatedRoute) { }
+  productName="";
+  price="";
+  reviewedOn="";
+
   constructor(private router:Router, private searchforreview:SearchForReviewService,private activatedRoute:ActivatedRoute,private reviewerdetail:ReviewerdetailsService,private  reviewService:ReviewService) { }
   // productName="";
   // price="";
@@ -57,11 +62,19 @@ export class SearchForReviewComponent implements OnInit {
 
   })
 }
-  wreview()
-  {
+  // wreview()
+  // {
+//   }
 
-    this.router.navigateByUrl("/writereview");
-  }
+  
+  // ngOnInit() {
+  //   this.searchforreview.getAllReviews().subscribe((data:any) =>{
+  //     console.log(data);
+  //     this.reviews=data;
+  //   })
+  // }
+
+
 
 
   yes(email)
@@ -118,9 +131,14 @@ export class SearchForReviewComponent implements OnInit {
 
     })
 
-    
-  }
+
 }
 
-  
 
+wreview()
+    {
+
+      this.router.navigateByUrl("/writereview");
+
+}
+}  

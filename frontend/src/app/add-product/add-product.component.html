@@ -40,7 +40,8 @@
        <select formControlName="SubCategoryCtrl" class="form-control">
       <option value="T.V">T.V</option>
       <option value="Mobile">Mobile</option>
-      <option value="AC">A.C</option>
+      <option value="AC">AC</option>
+      <option value="Laptop">Laptop</option>
        </select>
      </div>
     </div>
@@ -116,7 +117,7 @@
               <input class="aligns" type="file" (change)="selectVideo($event)" accept=".jpg,.jpeg,.gif,.png/*">
               <div id="upload">
             <!-- <input type="file" class="form-control" formControlName="video" (change)="selectVideo($event)"> -->
-            <button class="btn btn-primary" (click)="uploadVideo()" [disabled]="!selectedVideo">Upload</button>
+            <button class="btn btn-primary" (click)="uploadVideo()">Upload Photo</button>
           </div>
           
 

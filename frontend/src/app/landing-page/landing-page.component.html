@@ -35,7 +35,8 @@
         <div class="form-group">
           <input type="search" #inputsearch placeholder="search here to write a review" name="search" class="form-control col-md-3" id="jumbotroninput" >
             <button type="submit" class="btn btn-outline-light" id="searchbutton" (click)="searchproduct(inputsearch.value)"><a href="#"><i class="fa fa-search"></i></a></button> <br>
-          <button type="submit" class="btn btn-outline-light" id="reviewbutton" data-toggle="modal" #rrole value="reviewer" (click)="onclick(rrole.value)"
+          <button type="submit" class="btn btn-outline-light" id="reviewbutton"
+           data-toggle="modal" #rrole value="reviewer" (click)="onclick(rrole.value)"
             data-target="#signup1">Write a Review</button>&nbsp;
           <button type="submit" class="btn btn-outline-light" id="productbutton" data-toggle="modal" #prole value="product-owner" (click)="onclick1(prole.value)"
             data-target="#signup2">Post a Product</button>
@@ -66,11 +67,13 @@
             <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
                 <div class="card">
           <div class="img-box">
-            <img src="{{product.image}}" class="img-responsive img-fluid" alt="" routerLink="/searchreview">
+
+            <img src="./assets/img/{{product.image}}" class="img-responsive img-fluid" alt="Image not available" routerLink="/productreview">
+            <!-- <img src="{{product.image}}" class="img-responsive img-fluid" alt="" routerLink="/searchreview"> -->
           </div>
           <!-- <div class="thumb-content"> -->
               <div class="card-block">
-            <h4>{{product.productName}}</h4>
+            <h4 >{{product.productName}}</h4>
             <div class="star-rating">
               <ul class="list-inline">
                 <li class="list-inline-item"><i class="fa fa-star"></i></li>
@@ -111,7 +114,7 @@
             <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
                 <div class="card">
           <div class="img-box">
-            <img src="{{product.image}}" class="img-responsive img-fluid" alt="Image not available" routerLink="/searchreview">
+            <img src="./assets/img/{{product.image}}" class="img-responsive img-fluid" alt="Image not available" routerLink="/productreview">
           </div>
           <!-- <div class="thumb-content"> -->
               <div class="card-block">

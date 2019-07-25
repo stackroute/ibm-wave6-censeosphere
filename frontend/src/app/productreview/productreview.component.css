@@ -1,20 +1,49 @@
-.containerbody{
-    margin: 0;
-    padding: 0;
-  }
+a{
+    text-decoration: none;
+}
 .navbar{
     background-color:#222930;
     position: relative;
     height: 80px;
     position: fixed;
- }
- nav img{
+}
+nav img{
     height: 55px;
     width: 280px;
     position: fixed;
-    margin-left: 70px;
- }
-  nav .dropdown{
+    margin-left: 60px;
+}
+#login{
+    /* background-color: #17a2b8; */
+   font-size: 18px; 
+   position: absolute;
+   right: 0;
+   top: 0;
+   margin-top: 17px;
+   margin-right: 30px;
+}
+#login :hover{
+    background-color: midnightblue;
+}
+
+
+.modal-title
+{
+    padding-left: 80px;
+}
+.modal-header h3{
+    margin:0;
+}
+.modal-body {
+    background:url('../../assets/img/pink.jpeg');
+
+}
+.modal-header,.modal-footer{
+    background:lightgrey;
+  }
+
+
+nav .dropdown{
    
     color: white;
     font-size: 20px;
@@ -146,7 +175,7 @@ ul.social-network {
  } */
  
  .flex-container{
-    width: 950px;
+    width: 800px;
     border-radius: 8px;
     min-height: 300px;
     margin: 0 auto;
@@ -154,6 +183,10 @@ ul.social-network {
     display: -webkit-flex; /* Safari */     
     display: flex; /* Standard syntax */
     background:url(../../assets/img/header.png);
+   
+}
+.background{
+    background-color: antiquewhite;
 }
 
 .flex-container .left{
@@ -172,7 +205,7 @@ ul.social-network {
 }
 .thumb-wrapper .img-box img{
     padding-left: 120px;
-    padding-top: 20px;
+    padding-top: 25px;
 }
 .thumb-content{
     padding-top: 30px;
@@ -188,4 +221,15 @@ ul.social-network {
     margin-top: 100px;
   }
   
-  
+
+
+  .subcategory{
+    color: navy
+ }
+ .subcategory:hover{
+    color: #557a95;
+ }
+ #sidebarheading{
+     padding-top: 30px;
+     color:midnightblue ;
+ }

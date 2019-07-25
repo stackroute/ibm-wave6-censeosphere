@@ -39,9 +39,10 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <div class="text-center">
-                    <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+                    <img src="./assets/img/{{productOwner.image}}" class="avatar img-circle" alt="avatar">
                     <h6>Upload a different photo...</h6>
-                    <input type="file" formControlName="imageName" class="form-control">
+                    <input class="aligns" type="file" (change)="selectVideo($event)" accept=".jpg,.jpeg,.gif,.png/*">
+                    <button id="uploadbutton" class="btn btn-outline-dark" (click)="uploadVideo()" >Upload Photo</button>
                   </div>
                 </div>
               </div>

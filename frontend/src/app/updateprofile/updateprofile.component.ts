@@ -49,20 +49,25 @@ export class UpdateprofileComponent implements OnInit {
       emailCtrl: ['', Validators.required],
    });
 
-   this.reviewer=JSON.parse(sessionStorage.getItem("data"));
-   console.log("inside update profile page" +this.reviewer);
 
+  //  this.reviewer=JSON.parse(sessionStorage.getItem("data"));
+  //  console.log("inside update profile page" +this.reviewer);
+   this.reviewer=JSON.parse(sessionStorage.getItem("data1"));
+   console.log(this.reviewer);
 
    
   }
 
   updateDetails()
   {
-    this.email=sessionStorage.getItem("reviewerEmail");
+
+    
+
+    this.email=sessionStorage.getItem('reviewerEmail');
     console.log("from session"+this.email);
     this.update1.emailId=this.firstFormGroup.controls.emailCtrl.value;
     this.update1.name=this.firstFormGroup.controls.NameCtrl.value;
-    this.update1.image=this.firstFormGroup.controls.imageCtrl.value;
+    this.update1.image=this.mediaName;
     this.update1.reconfirmPassword=this.firstFormGroup.controls.ReConfirmPasswordCtrl.value;
     console.log(this.update1.emailId);
     console.log(this.update1.name);
@@ -89,7 +94,22 @@ export class UpdateprofileComponent implements OnInit {
   {
     this.router.navigateByUrl("/reviewerdash"); 
   }
-  
+
+  currentFileUpload:File;
+  selectedVideo:FileList;
+  mediaName:any;
+
+  selectVideo(event){
+    this.selectedVideo=event.target.files;
+  }
+  uploadVideo(){
+    
+    this.currentFileUpload = this.selectedVideo.item(0)
+    this.mediaName=this.currentFileUpload.name;
+   }
+
+
+
   // account()
   // {
   //   this.router.navigateByUrl("./reviewerdashboard");

@@ -153,4 +153,5 @@ follow()
   {
     this.router.navigateByUrl("/");
   }
+  
 }

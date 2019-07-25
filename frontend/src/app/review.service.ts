@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Writereview } from './writereview';
 import { Reviewerone } from './reviewerone';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -18,7 +17,7 @@ export class ReviewService {
     return this.http.post<Writereview>('http://localhost:8089/api/v1/review',writereview);
   }
   getAllReviews(){
-    return this.http.get('http://localhost:8089/reviews', this.httpOptions);
+    return this.http.get('http://localhost:8089/api/v1/reviews', this.httpOptions);
   }
 
   getAllReviewsbyName(productname)
@@ -26,7 +25,4 @@ export class ReviewService {
     console.log(productname);
     return this.http.get('http://localhost:8089/api/v1/byname/'+productname);
   }
-
-  
- 
 }

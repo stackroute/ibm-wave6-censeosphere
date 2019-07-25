@@ -17,19 +17,16 @@ export class ReviwerdashComponent implements OnInit {
   productDetails = [];
   productByFamily = [];
   products = [];
-
+  productDetails1 = [];
  
   route: ActivatedRoute;
 
   // constructor(private router:Router,private landingpageservice:LandingpageService,private updates:UpdateProfileService,
   //   private route1:ActivatedRoute,private prodownerservice:ProdownerserviceService,private productService:ProductService) { }
-
   
    constructor(private router:Router,private landingpageservice:LandingpageService,private updates:UpdateProfileService,
     private route1:ActivatedRoute,private prodownerservice:ProdownerserviceService,private productService:ProductService,
     private recommendationService:RecommendationService) { }
-
-
 
   ngOnInit() {
     this.landingpageservice.getAllProducts().subscribe((data:any) => {
@@ -37,9 +34,9 @@ export class ReviwerdashComponent implements OnInit {
       this.productDetails=data;
     })
     this.reviewerDetails();
-
-    this.route1.params.subscribe(params =>{
-      console.log("data fron recommendation by productFamily : ",params);
+     
+    // this.route1.params.subscribe(params =>{
+     // console.log("data from recommendation by productFamily : ",params);
       this.recommendationService.getProductByFamily(JSON.parse(sessionStorage.getItem('data')).productFamily).
       subscribe((data:any)=>{
         console.log(data);
@@ -48,7 +45,7 @@ export class ReviwerdashComponent implements OnInit {
         for (let i = 0; i < data.length; i ++) {
         this.productService.getProduct(data[i].productName).
           subscribe((data:any)=>{
-            console.log("aaaaaaaaaaaaaaaaa",data);
+            console.log("Products from recommendation by productFamily",data);
             // this.productDetails=data;
             this.productDetails.push(data);
           });
@@ -56,7 +53,21 @@ export class ReviwerdashComponent implements OnInit {
 
         console.log("in product by family  : ",this.productDetails);
       });
-    });
+
+      this.recommendationService.getProductBySubCategory(JSON.parse(sessionStorage.getItem('data')).subCategory).
+        subscribe((data2:any)=>{
+          console.log(data2);
+
+          for (let i = 0; i < data2.length; i ++) {
+            this.productService.getProduct(data2[i].productName).
+              subscribe((data2:any)=>{
+                console.log("Products from recommendation by product subCategory",data2);
+                // this.productDetails=data;
+                this.productDetails1.push(data2);
+              });
+            }
+        });      
+    // });
   }
 
   update()
@@ -84,13 +95,15 @@ export class ReviwerdashComponent implements OnInit {
   } 
 
   reviewerDetails(){
-    const emailId=this.route1.snapshot.paramMap.get('emailId');
+    const emailId=sessionStorage.getItem('reviewerEmail');
     console.log("Reviewer profile " +emailId);
-    sessionStorage.setItem("pemailId",emailId);
+    // sessionStorage.setItem("remailId",emailId);
   
     this.updates.getReviewerDetails(emailId).subscribe((data: any) => {
+      console.log(data);
+      sessionStorage.setItem("data1", JSON.stringify(data));
       console.log("inside reviewerdash"+data);
-      sessionStorage.setItem("data", JSON.stringify(data));
+      // sessionStorage.setItem("data", JSON.stringify(data));
      
     });
    }

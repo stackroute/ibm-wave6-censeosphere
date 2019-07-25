@@ -12,8 +12,10 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { ReviewComponent } from './review/review.component';
 import { ReviewerdashboardComponent } from './reviewerdashboard/reviewerdashboard.component';
 import { CardComponent } from './card/card.component';
+import { ProductreviewComponent } from './productreview/productreview.component';
 const routes: Routes = [  
   { path: '',component:LandingPageComponent},
+  {path:'productreview',component:ProductreviewComponent},
   { path: 'login', component:UserLoginComponent },
   { path: 'account/:role', component: NewaccountComponent},
   {path:'rprofile/:name/:emailId/:reconfirmPassword',component:UpdateprofileComponent},
@@ -26,8 +28,10 @@ const routes: Routes = [
   {path:'add-product',component:AddProductComponent},
   // {path:'reviewerdash/:emailId',component:ReviwerdashComponent}
   // {path:'reviewerdash/:productByFamily',component:ReviwerdashComponent},
-  {path:'reviewerdash/:family',component:ReviwerdashComponent},
+  {path:'reviewerdash',component:ReviwerdashComponent},
+  {path:'reviewerdash',component:ReviwerdashComponent},
   {path:'writereview',component:ReviewComponent},
+  {path:'writereview/:emailId',component:ReviewComponent},
   {path:'searchreview',component:SearchForReviewComponent},
   { path:'prodownerupdateprofile/:name/:emailId/:reconfirmPassword',component:ProdownerupdateprofileComponent},
   {path:'rdashboard',component:ReviewerdashboardComponent},
