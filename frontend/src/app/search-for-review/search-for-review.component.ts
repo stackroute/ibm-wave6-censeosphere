@@ -65,6 +65,7 @@ export class SearchForReviewComponent implements OnInit {
 }
   // wreview()
   // {
+//   }
 
   
   // ngOnInit() {
@@ -74,7 +75,7 @@ export class SearchForReviewComponent implements OnInit {
   //   })
   // }
 
-       
+ 
 
 
 
@@ -132,14 +133,22 @@ export class SearchForReviewComponent implements OnInit {
 
     })
 
+
     
   }
 
 wreview()
-    {
-  
+{
       this.router.navigateByUrl("/writereview");
 
-  }
 
 }
+
+
+// wreview()
+//     {
+
+//       this.router.navigateByUrl("/writereview");
+
+// }
+}  

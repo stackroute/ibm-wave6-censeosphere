@@ -171,7 +171,7 @@ public class ReviewerServiceImpl implements ReviewerService {
               for (int i = 0; i < myreviewes.size(); i++) {
                System.out.println("inside list"+myreviewes.get(i));
               }
-              reviewer1.setRevieweswritten(myreviewes);
+//              reviewer1.setRevieweswritten(myreviewes);
               System.out.println(reviewer1);
               reviewerRepository.save(reviewer1);
         }

@@ -35,13 +35,21 @@ nav img{
 {
     padding-left: 80px;
 }
+.modal-header{
+    background:url('../../assets/img/pink.jpeg');
+
+}
 .modal-header h3{
+
     margin:0;
 }
 .modal-body {
     background:url('../../assets/img/pink.jpeg');
 
 }
+.modal-footer{
+    background:url('../../assets/img/pink.jpeg');
+  }
 
 label{
     text-align: left;
@@ -119,6 +127,7 @@ h5{
     color: midnightblue;
     font-size: 12px;
 } */
+
 .card {
     margin-left: 4px;
     margin-right: 3px;
@@ -193,9 +202,7 @@ h4 {
     height: 30px;
     width: 50px;
   }
-  .modal-header,.modal-footer{
-    background:lightgrey;
-  }
+  
   /* .fa .fa-search
   {
     content:"\f002";
@@ -291,3 +298,4 @@ ul.social-network li {
       background-color: white; 
   }
 
+  

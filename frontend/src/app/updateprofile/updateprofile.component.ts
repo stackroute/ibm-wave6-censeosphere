@@ -49,13 +49,20 @@ export class UpdateprofileComponent implements OnInit {
       emailCtrl: ['', Validators.required],
    });
 
+
+  //  this.reviewer=JSON.parse(sessionStorage.getItem("data"));
+  //  console.log("inside update profile page" +this.reviewer);
    this.reviewer=JSON.parse(sessionStorage.getItem("data1"));
    console.log(this.reviewer);
+
    
   }
 
   updateDetails()
   {
+
+    
+
     this.email=sessionStorage.getItem('reviewerEmail');
     console.log("from session"+this.email);
     this.update1.emailId=this.firstFormGroup.controls.emailCtrl.value;

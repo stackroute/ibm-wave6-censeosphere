@@ -19,6 +19,8 @@ export class ProductownerdashboardComponent implements OnInit {
   products=[];
   products1=[];
   productDetails=[];
+  myproducts:any;
+  listofproducts=[];
 
 
   reviewer;
@@ -37,6 +39,15 @@ export class ProductownerdashboardComponent implements OnInit {
       this.productDetails=data;
     })
    this.productOwnerDetails();
+   
+  //  this.myproducts.productsadded.forEach((y:any) => { 
+  //   console.log(y);
+  //  })
+  //  console.log("new list"+this.myproducts.productsadded.size());
+  //  for(let i=0;i< this.myproducts.productsadded.length();i++)
+  //  {
+  //  this.listofproducts.push(this.myproducts.productsadded[i]);
+  //  }
   }
   
   add()
@@ -59,13 +70,19 @@ export class ProductownerdashboardComponent implements OnInit {
   }
 
   productOwnerDetails(){
-    const emailId=this.route1.snapshot.paramMap.get('emailId');
+    // const emailId=this.route1.snapshot.paramMap.get('emailId');
+    const emailId=sessionStorage.getItem("productOwnerEmail");
     console.log("product Owner profile " +emailId);
     sessionStorage.setItem("pemailId",emailId);
   
-    this.updates.getProductOwnerDetails(emailId).subscribe((data: any) => {
+      this.updates.getProductOwnerDetails(emailId).subscribe((data: any) => {
       console.log(data);
-      sessionStorage.setItem("data", JSON.stringify(data));
+      sessionStorage.setItem("pdata", JSON.stringify(data));
+      console.log("inside update" + JSON.stringify(data));
+           this.listofproducts= data.productsadded;   
+           this.listofproducts.forEach((y:any) => { 
+               console.log(y);
+              })                     
       //  this.products1=data;
       //  console.log("from productowner"+this.products1);
       // this.reviewer.name = data.name;
@@ -74,6 +91,9 @@ export class ProductownerdashboardComponent implements OnInit {
    
     });
    }
+   
+    
+    
 
 
 }
