@@ -153,21 +153,22 @@
           <form  #myForm="ngForm"  (ngSubmit)="newlogin(lemailId.value,lpassword.value)">
             <div class="form-group">
               <label for="emailId">Email-Id</label>
-              <input type="text" #lemailId id="emailId" class="form-control" placeholder="enter your mailId"
+              <input type="text" #lemailId id="emailId" class="form-control fas fa-user" placeholder="&#61447; enter your mailId"
               [ngClass]=" {'is-invalid':form.get('emailId').touched && form.get('emailId').invalid}" required>
               <div class="invalid-feedback">
                 <div *ngIf="form.get('emailId').errors">Enter a valid email </div>
               </div>
             </div>
+            
             <div class="form-group">
               <label for="password">Password</label>
-              <input type="password" #lpassword name="password" id="password" class="form-control" placeholder="enter your password" 
+              <input type="password" #lpassword name="password" id="password" class="form-control fas fa-key" placeholder="&#xf084;enter your password" 
               [ngClass]=" {'is-invalid':form.get('password').touched && form.get('password').invalid}" required>
               <div class="invalid-feedback">
                 <div *ngIf="form.get('password').errors">Password mismatch </div>
               </div>
             </div>
-            <button type="submit" class="btn btn-info" id="signinbutton">Sign In</button>
+            <button type="submit" class="btn btn-outline-light" id="signinbutton">Sign In</button>
           </form>
         </div>
         <div class="modal-footer">
@@ -195,11 +196,11 @@
           <form #myForm="ngForm"  (ngSubmit)="reviewer(emailId.value,password.value)">
             <div class="form-group">
               <label for="revieweremailId">Email-Id</label>
-              <input   #emailId type="text" id="revieweremailId" class="form-control" placeholder="enter your mailId">
+              <input   #emailId type="text" id="revieweremailId" class="form-control  fas fa-user" placeholder="&#61447;enter your mailId">
             </div>
             <div class="form-group">
               <label for="reviewerpassword">Password</label>
-              <input   #password type="password" name="password" id="reviewerpassword" class="form-control" placeholder="enter your password">
+              <input   #password type="password" name="password" id="reviewerpassword" class="form-control fas fa-key" placeholder="&#xf084;enter your password">
             </div>
             <button type="submit"  class="btn btn-outline-light" id="reviewersigninbutton" >Sign
               In</button>
@@ -232,13 +233,13 @@
           <form #myForm="ngForm"  (ngSubmit)="productOwner(pemailId.value,ppassword.value)">
             <div class="form-group">
               <label for="productowneremailId">Email-Id</label>
-              <input type="text" #pemailId id="productowneremailId" class="form-control" placeholder="enter your mailId">
+              <input type="text" #pemailId id="productowneremailId" class="form-control  fas fa-user" placeholder="&#61447;enter your mailId">
             </div>
             <div class="form-group">
               <label for="productownerpassword">Password</label>
-              <input type="password" #ppassword name="password" id="productownerpassword" class="form-control" placeholder="enter your password">
+              <input type="password" #ppassword name="password" id="productownerpassword" class="form-control fas fa-key" placeholder=" &#xf084;enter your password">
             </div>
-            <button type="submit" class="btn btn-info" id="productownersigninbutton">Sign In</button>
+            <button type="submit" class="btn btn-outline-light" id="productownersigninbutton">Sign In</button>
           </form>
         </div>
         <div class="modal-footer">

@@ -1,3 +1,5 @@
+
+
 .containerbody{
     margin: 0;
     padding: 0;
@@ -48,12 +50,18 @@ nav img{
   margin-top: 25px;
 }
 .container-fluid{
-  background-image:url(../../assets/img/ph.jpg);
+ 
   border-style: 1px solid grey;
-  background-size: cover;
   padding-top:20px;
-  /* padding-bottom:300px; */
   
+}
+
+.image
+{
+  background:url('../../assets/img/splash2.jpeg') center center no-repeat;
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
 }
 .fakeimg {
   height: 200px;
