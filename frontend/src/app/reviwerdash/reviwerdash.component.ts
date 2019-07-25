@@ -25,7 +25,7 @@ export class ReviwerdashComponent implements OnInit {
   //   private route1:ActivatedRoute,private prodownerservice:ProdownerserviceService,private productService:ProductService) { }
 
   
-  constructor(private router:Router,private landingpageservice:LandingpageService,private updates:UpdateProfileService,
+   constructor(private router:Router,private landingpageservice:LandingpageService,private updates:UpdateProfileService,
     private route1:ActivatedRoute,private prodownerservice:ProdownerserviceService,private productService:ProductService,
     private recommendationService:RecommendationService) { }
 

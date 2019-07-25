@@ -68,7 +68,7 @@ export class ReviewComponent implements OnInit {
     this.writereview.reviewerEmail=sessionStorage.getItem('reviewerEmail');
     this.writereview.subCategory=JSON.parse(sessionStorage.getItem('data')).subCategory;
 
-    this.writereview.creditpoints=JSON.parse(sessionStorage.getItem('rdata')).creditpoints
+    this.writereview.creditpoints=JSON.parse(sessionStorage.getItem('rdata')).creditpoints;
     let family=JSON.parse(sessionStorage.getItem('data')).productFamily;
 
     this.reviewService.addReview(this.writereview).

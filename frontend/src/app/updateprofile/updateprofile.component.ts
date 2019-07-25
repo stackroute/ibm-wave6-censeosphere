@@ -50,13 +50,15 @@ export class UpdateprofileComponent implements OnInit {
    });
 
    this.reviewer=JSON.parse(sessionStorage.getItem("data"));
-   console.log(this.reviewer);
+   console.log("inside update profile page" +this.reviewer);
+
+
    
   }
 
   updateDetails()
   {
-    this.email=sessionStorage.getItem("pemailId");
+    this.email=sessionStorage.getItem("reviewerEmail");
     console.log("from session"+this.email);
     this.update1.emailId=this.firstFormGroup.controls.emailCtrl.value;
     this.update1.name=this.firstFormGroup.controls.NameCtrl.value;

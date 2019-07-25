@@ -43,7 +43,7 @@
 <div class="container">
   <h3>My Products</h3>
   <hr>
-  <div *ngFor="let product of productDetails">
+  <div *ngFor="let product of listofproducts">
   <div class="row d-outline-block">
     <div class="col-sm-4">
         <div class="thumb-wrapper">
@@ -60,6 +60,7 @@
                   <li class="list-inline-item"><i class="fa fa-star"></i></li>
                   <li class="list-inline-item"><i class="fa fa-star"></i></li>
                 </ul>
+                <p class="item-price"><b>{{product.price}}</b></p>
               </div>
             </div>						
           </div>
@@ -68,10 +69,10 @@
     <div class="col-sm-8"> 
       <h5><b>{{product.productName}}</b></h5>
       <!-- <h6>{{product.rating}}</h6> -->
-      <p class="item-price"><b>{{product.price}}</b></p>
-      <p class="specification">{{product.specification}}</p>
+     
+      <p class="specification">{{product.specifications}}</p>
       <p>{{product.description}}</p>
-      <p class="timestamp">{{product.uploaded_on}}</p>
+      <p class="timestamp">{{product.uploadedOn}}</p>
       <br>
       <button type="submit" class="btn btn-info" id="editproduct" data-target="#edit">Edit</button>
       <button type="submit" class="btn btn-info" id="deleteproduct" data-target="#delete">Delete</button>
