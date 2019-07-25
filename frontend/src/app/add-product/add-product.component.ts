@@ -64,7 +64,7 @@ lpage()
  }
 update()
  {
-   this.router.navigateByUrl("/prodownerupdateprofile");
+  this.router.navigateByUrl('/prodownerupdateprofile/name/gmail/reconfirmpassword');
  }
   account()
   {

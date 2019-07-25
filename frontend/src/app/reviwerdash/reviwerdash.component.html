@@ -24,7 +24,11 @@
 				<input type="text" #searchproduct placeholder="search here to write a review" name="search" class="form-control col-md-3"
 					id="jumbotroninput"> <br>
 
+
+				<!-- <button class="btn btn-info" (click)="searches();search(searchproduct.value)" >search</button> -->
+
 				<button class="btn btn-outline-light" (click)="searches();search(searchproduct.value)" >search</button>
+
 				<!-- <button class="btn btn-info" (click)="search(searchproduct.value)" >search</button> -->
 			</div>
 			</div>
@@ -36,7 +40,7 @@
 <!-- end jumbotron -->
 
 
-<!-- carousel for recommended productDetails -->
+<!-- carousel for recommended product by family -->
 <div id="container">
 	<h2>Recommended Products</h2>
 	<div ng2-carouselamos class="slides-wrapper" [items]="productDetails" [width]="900" [$prev]="prev" [$next]="next"
@@ -54,10 +58,59 @@
 	<ng-template #product let-product let-i="index">
 		<div class="productDetails">
 			<!-- <div class="thumb-wrapper"> -->
+				<div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+				<div class="card">
+
+				<div class="img-box">
+					<img src="./assets/img/{{product.image}}"  class="img-responsive img-fluid" alt="Image not available" routerLink="/rsearch">
+				</div>
+				<!-- <div class="thumb-content"> -->
+
+					<div class="card-block">
+					<h4>{{product.productName}}</h4>
+					<div class="star-rating">
+						<ul class="list-inline">
+							<li class="list-inline-item"><i class="fa fa-star"></i></li>
+							<li class="list-inline-item"><i class="fa fa-star"></i></li>
+							<li class="list-inline-item"><i class="fa fa-star"></i></li>
+							<li class="list-inline-item"><i class="fa fa-star"></i></li>
+							<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+						</ul>
+					</div>
+					<p class="item-price"><b>{{product.price}}</b></p>
+				</div>
+				<!-- </div> -->
+				</div>
+				</div>
+			<!-- </div> -->
+		</div>&nbsp;
+		<!-- </div> -->
+	</ng-template>
+</div>
+<!-- end carousel for recommended product by family-->
+
+<!-- carousel for recommended product by subCategory -->
+<div id="container">
+	<h2>Recommended Products</h2>
+	<div ng2-carouselamos class="slides-wrapper" [items]="productDetails1" [width]="900" [$prev]="prev" [$next]="next"
+		[$item]="product">
+	</div>
+
+	<ng-template #prev>
+		<img src="../../assets/img/iconfinder_icon-ios7-arrow-back_211686.png" class="arrow">
+	</ng-template>
+
+	<ng-template #next>
+		<img src="../../assets/img/iconfinder_icon-ios7-arrow-forward_211688.png" class="arrow">
+	</ng-template>
+
+	<ng-template #product let-product let-i="index">
+		<div class="productDetails1">
+			<!-- <div class="thumb-wrapper"> -->
 					<div class="col-sm-6 col-md-4 col-lg-3 mt-4">
 							<div class="card">
 				<div class="img-box">
-					<img src="./assets/img/{{product.image}}" class="img-responsive img-fluid" alt="Image not available">
+					<img src="./assets/img/{{product.image}}" class="img-responsive img-fluid" alt="Image not available" routerLink="/rsearch">
 				</div>
 				<!-- <div class="thumb-content"> -->
 						<div class="card-block">
@@ -74,13 +127,13 @@
 					<p class="item-price"><b>{{product.price}}</b></p>
 					
 				</div>
-			</div>
+				</div>
+				</div>
+			<!-- </div> -->
 		</div>&nbsp;
-		</div>
 	</ng-template>
 </div>
-<!-- end carousel for recommended productDetails-->
-
+<!-- end carousel for recommended product by subCategory-->
 
 <!-- footer -->
 <!-- <footer class="page-footer font-small blue pt-4">

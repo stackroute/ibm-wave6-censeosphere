@@ -162,14 +162,15 @@ public class ReviewerServiceImpl implements ReviewerService {
 //              myreviewes=new ArrayList<>();
               myreviewes =reviewer1.getRevieweswritten();
               System.out.println("list "+myreviewes);
-              myreviewes.add(review);
-               point=reviewer.getCreditpoints();
+//              myreviewes.add(review);
+                reviewer1.getRevieweswritten().add(review);
+               point=reviewer1.getCreditpoints();
                point=point+5;
-               reviewer.setCreditpoints(point);
+               reviewer1.setCreditpoints(point);
               for (int i = 0; i < myreviewes.size(); i++) {
                System.out.println("inside list"+myreviewes.get(i));
               }
-              reviewer1.setRevieweswritten(myreviewes);
+//              reviewer1.setRevieweswritten(myreviewes);
               System.out.println(reviewer1);
               reviewerRepository.save(reviewer1);
         }

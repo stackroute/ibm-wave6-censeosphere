@@ -13,6 +13,7 @@ import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.util.CoreMap;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -26,11 +27,27 @@ public class productdetailserviceimpl implements  Productdetailservice {
     @Autowired
     private Productdetailrepository productdetailrepository;
 
-
     private StanfordCoreNLP pipeline;
     Properties properties=new Properties();
 
-    ProductRating productRating1;
+          @Value("${value1}")
+          private String value1;
+          @Value("${value2}")
+          private String value2;
+         @Value("${value3}")
+         private String value3;
+          @Value("${value4}")
+         private String value4;
+         @Value("${value5}")
+        private String value5;
+        @Value("${value6}")
+        private String value6;
+        @Value("${value7}")
+        private String value7;
+
+
+
+            ProductRating productRating1;
 
     String review="";
     String result="";
@@ -40,8 +57,10 @@ public class productdetailserviceimpl implements  Productdetailservice {
     int creditpoints;
     @PostConstruct
     public void init(){
+        System.out.println("Inside init");
         properties.setProperty("annotators", "tokenize,ssplit,pos,lemma,depparse,parse,natlog,openie,sentiment");
         pipeline=new StanfordCoreNLP(properties);
+
     }
 
     @Override
@@ -119,30 +138,44 @@ public class productdetailserviceimpl implements  Productdetailservice {
 
     @Override
     public float generateRating(String sentiment,float value,int score) {
+        float nvalue1= Float.parseFloat(""+value1);
+        System.out.println("after parse"+nvalue1);
+        float nvalue2= Float.parseFloat(""+value2);
+        System.out.println("after parse"+nvalue2);
+        float nvalue3= Float.parseFloat(""+value3);
+        System.out.println("after parse"+nvalue3);
+        float nvalue4= Float.parseFloat(""+value4);
+        System.out.println("after parse"+nvalue4);
+        float nvalue5= Float.parseFloat(""+value5);
+        System.out.println("after parse"+nvalue5);
+        float nvalue6= Float.parseFloat(""+value6);
+        System.out.println("after parse"+nvalue6);
+        float nvalue7= Float.parseFloat(""+value7);
+        System.out.println("after parse"+nvalue7);
         if(value <5)
         {
             if( score>=100 &&  score<=400)
             {
                 if(sentiment == "Very negative")
                 {
-                    rating=value-0.2f;
+                    rating=value-nvalue2;
                 }
                else if(sentiment == "Negative")
                {
-                  rating=value-0.1f;
+                  rating=value-nvalue1;
                }
               else if(sentiment == "Neutral")
                {
-                  rating=value-0.05f;
+                  rating=value-nvalue7;
                }
                else if(sentiment== "Positive")
                 {
 
-                   rating=value+0.1f;
+                   rating=value+nvalue1;
                 }
                else if(sentiment == "Very Positive")
                 {
-                   rating=value+0.2f;
+                   rating=value+nvalue2;
                 }
 
             }
@@ -154,24 +187,24 @@ public class productdetailserviceimpl implements  Productdetailservice {
                 System.out.println("monisha");
                 if(sentiment == "Very negative")
                 {
-                    rating=value-0.4f;
+                    rating=value-nvalue4;
                 }
                 else if(review == "Negative")
                 {
-                    rating=value-0.2f;
+                    rating=value-nvalue2;
                 }
                 else if(sentiment == "Neutral")
                 {
-                    rating=value-0.05f;
+                    rating=value-nvalue7;
                 }
                 else if(sentiment == "Positive")
                 {
 
-                    rating=value+0.2f;
+                    rating=value+nvalue2;
                 }
                 else if(sentiment == "Very Positive")
                 {
-                    rating=value+0.4f;
+                    rating=value+nvalue4;
                 }
 
             }
@@ -179,24 +212,24 @@ public class productdetailserviceimpl implements  Productdetailservice {
            {
                 if(sentiment== "Very negative")
                 {
-                rating=value-0.6f;
+                rating=value-nvalue5;
                 }
             else if(sentiment == "Negative")
                {
-                rating=value-0.3f;
+                rating=value-nvalue3;
                }
             else if(sentiment == "Neutral")
                {
-                rating=value-0.05f;
+                rating=value-nvalue7;
                }
             else if(sentiment == "Positive")
                {
 
-                rating=value+0.3f;
+                rating=value+nvalue3;
                 }
             else if(sentiment== "Very Positive")
                 {
-                rating=value+0.6f;
+                rating=value+nvalue5;
                 }
 
            }
@@ -206,24 +239,24 @@ public class productdetailserviceimpl implements  Productdetailservice {
         {
             if(sentiment == "Very negative")
               {
-                rating=value-0.8f;
+                rating=value-nvalue6;
               }
             else if(sentiment == "Negative")
               {
-                rating=value-0.4f;
+                rating=value-nvalue4;
               }
             else if(sentiment == "Neutral")
               {
-                rating=value-0.05f;
+                rating=value-nvalue7;
               }
             else if(sentiment == "Positive")
               {
 
-                rating=value+0.4f;
+                rating=value+nvalue4;
               }
             else if(sentiment == "Very Positive")
               {
-                rating=value+0.8f;
+                rating=value+nvalue6;
               }
         }
 
@@ -235,11 +268,11 @@ public class productdetailserviceimpl implements  Productdetailservice {
             {
                 if(sentiment == "very negative")
                 {
-                    rating=value-0.8f;
+                    rating=value-nvalue6;
                 }
                else if(sentiment == "Negative")
                 {
-                rating=value-0.4f;
+                rating=value-nvalue4;
                 }
             }
         }

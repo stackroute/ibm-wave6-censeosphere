@@ -10,13 +10,13 @@ import { ProductService } from '../product.service';
 import { error } from 'util';
 
 const helper = new JwtHelperService();
-@Component({
-  selector: 'app-landing-page',
-  templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.css']
-})
 
-export class LandingPageComponent implements OnInit {
+@Component({
+  selector: 'app-productreview',
+  templateUrl: './productreview.component.html',
+  styleUrls: ['./productreview.component.css']
+})
+export class ProductreviewComponent implements OnInit {
   showFiller = false;
   productDetails = [];
   categories = [];
@@ -89,7 +89,7 @@ export class LandingPageComponent implements OnInit {
           if (role == this.job) {
             console.log(role);
             console.log("in if1");
-            this.router.navigateByUrl("/reviewerdash");
+            this.router.navigateByUrl("/writereview/"+ emailId);
 
           }
           else {
@@ -99,39 +99,38 @@ export class LandingPageComponent implements OnInit {
 
       })
   }
-  productOwner(emailId, password): any {
-    this.auth.emailId = emailId;
-    this.auth.password = password;
-    this.loginvalidation.login(this.auth).
-      subscribe((data: any) => {
-        console.log("data from backend ", data.token);
-        if (data.token) {
-          console.log("in if");
+  // productOwner(emailId, password): any {
+  //   this.auth.emailId = emailId;
+  //   this.auth.password = password;
+  //   this.loginvalidation.login(this.auth).
+  //     subscribe((data: any) => {
+  //       console.log("data from backend ", data.token);
+  //       if (data.token) {
+  //         console.log("in if");
 
-          let role = this.helper.decodeToken(data.token).sub;
-          console.log("we are having this......", data.token);
+  //         let role = this.helper.decodeToken(data.token).sub;
+  //         console.log("we are having this......", data.token);
 
-          console.log("in if print email   " + emailId);
-          console.log("in if print password   " + password);
-          console.log("in if print role   ", role);
+  //         console.log("in if print email   " + emailId);
+  //         console.log("in if print password   " + password);
+  //         console.log("in if print role   ", role);
 
-          sessionStorage.setItem('productOwnerEmail',emailId);
-          if (role == this.job) {
-            console.log(role);
-            console.log("in if1");
-            console.log(emailId);
-            this.router.navigateByUrl("/productownerdashboard/"+ emailId);
+  //         sessionStorage.setItem('productOwnerEmail',emailId);
+  //         if (role == this.job) {
+  //           console.log(role);
+  //           console.log("in if1");
+  //           console.log(emailId);
+  //           this.router.navigateByUrl("/productownerdashboard/"+ emailId);
 
-          }
-          else {
-            alert("provide valid credentailds");
-          }
-        }
+  //         }
+  //         else {
+  //           alert("provide valid credentailds");
+  //         }
+  //       }
 
-      })
+  //     })
 
-
-  }
+  // }
 
   onclick(rrole) {
     console.log(rrole);
@@ -163,7 +162,7 @@ export class LandingPageComponent implements OnInit {
             console.log(role);
             console.log("in if1");
 
-            this.router.navigateByUrl("/rdashboard");
+            this.router.navigateByUrl("/writereview");
           }
           else if (role == 'product-owner') {
             this.router.navigateByUrl("/productownerdashboard");
@@ -187,6 +186,3 @@ export class LandingPageComponent implements OnInit {
      
   }
 }
-
-
-
