@@ -125,7 +125,7 @@ emailId="";
     this.reviewer.emailId=this.emailId;
     this.reviewer.role=this.role;
     this.reviewer.reconfirmPassword=this.verifyFormGroup.controls.reconfirmPassword.value;
-
+     console.log("ppppppppppppppp"+this.reviewer.role);
     if(this.role == 'reviewer'){
     this.profileService.saveReviewer(this.reviewer).
      subscribe(data =>{

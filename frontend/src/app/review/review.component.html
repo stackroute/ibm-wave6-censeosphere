@@ -23,10 +23,10 @@
 <h4 id="reason"><strong>Write a review</strong></h4>
 <hr>
 <!-- card start  -->
-<div class="container">
+<!-- <div class="container">
       <div class="thumb-wrapper">
         <div class="img-box">
-          <img src="../assets/img/nikon.jpeg" class="img-responsive img-fluid" alt="">
+          <img src="../assets/img/{{product.image}}" id="productimage" class="img-responsive img-fluid" alt="Image not found">
         </div>
         <div class="thumb-content">
           <h4>{{product.productName}}</h4>
@@ -40,11 +40,44 @@
             </ul>
           </div>
           <p class="item-price"><b>{{product.price}}</b></p>
-          <h6>2 reviews</h6>
+         
         </div>
     </div>
+</div> -->
+<!--product card end-->
+
+<!-- card start  -->
+<div class="flex-container">
+  <div class="left">
+  <div class="thumb-wrapper">
+    <div class="img-box">
+      <img src="./assets/img/{{product.image}}" id="productimage" class="img-responsive img-fluid" alt="image not available">
+    </div>
+  </div>
+  </div>
+  <div class="right">
+    <div class="thumb-content">
+      <h4>{{product.productName}}</h4>
+      <div class="star-rating">
+        <ul class="list-inline">
+          <li class="list-inline-item"><i class="fa fa-star"></i></li>
+          <li class="list-inline-item"><i class="fa fa-star"></i></li>
+          <li class="list-inline-item"><i class="fa fa-star"></i></li>
+          <li class="list-inline-item"><i class="fa fa-star"></i></li>
+          <li class="list-inline-item"><i class="fa fa-star"></i></li>
+        </ul>
+      </div>
+      <p class="item-price"><b>{{product.price}}</b></p>
+      
+    </div>
+  </div>
+
 </div>
 <!--product card end-->
+
+
+
+
 
   <!-- <div class="row" id="prod">
     <div class="col-sm-3"></div>

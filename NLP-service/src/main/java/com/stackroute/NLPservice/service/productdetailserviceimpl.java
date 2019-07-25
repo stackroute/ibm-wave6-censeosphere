@@ -121,7 +121,7 @@ public class productdetailserviceimpl implements  Productdetailservice {
     public float generateRating(String sentiment,float value,int score) {
         if(value <5)
         {
-            if( score>=100 &&  score<=400)
+            if( score>=0 &&  score<=400)
             {
                 if(sentiment == "Very negative")
                 {

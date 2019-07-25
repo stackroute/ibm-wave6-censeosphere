@@ -15,7 +15,7 @@ export class ReviewComponent implements OnInit {
   products: [];
   writereview:Writereview=new Writereview();
   review:any;
-
+  product : [];
  
   
   productDetails: any;
@@ -50,7 +50,7 @@ export class ReviewComponent implements OnInit {
       this.reviews=data;
     })
 
-   
+    this.product=JSON.parse(sessionStorage.getItem('data'));
 
 
 
@@ -68,9 +68,9 @@ export class ReviewComponent implements OnInit {
     this.writereview.reviewerEmail=sessionStorage.getItem('reviewerEmail');
     this.writereview.subCategory=JSON.parse(sessionStorage.getItem('data')).subCategory;
 
-    this.writereview.creditpoints=JSON.parse(sessionStorage.getItem('rdata')).creditpoints
+    this.writereview.creditpoints=JSON.parse(sessionStorage.getItem('rdata')).creditpoints;
     let family=JSON.parse(sessionStorage.getItem('data')).productFamily;
-
+    let subcategory=this.writereview.subCategory;
     this.reviewService.addReview(this.writereview).
       subscribe(data=>{
         console.log("data stored successfully");
@@ -82,8 +82,8 @@ export class ReviewComponent implements OnInit {
     //      console.log("in product by family variable : ",this.productByFamily);
     //    });
 
-    // this.router.navigateByUrl("/reviewerdash/"+this.productByFamily);
-    this.router.navigateByUrl("/reviewerdash");
+    this.router.navigateByUrl("/reviewerdash/"+family+"/"+subcategory);
+    // this.router.navigateByUrl("/reviewerdash");
   } 
 
 }

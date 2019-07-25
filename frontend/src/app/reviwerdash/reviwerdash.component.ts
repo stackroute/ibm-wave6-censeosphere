@@ -35,9 +35,9 @@ export class ReviwerdashComponent implements OnInit {
     })
     this.reviewerDetails();
      
-    // this.route1.params.subscribe(params =>{
-     // console.log("data from recommendation by productFamily : ",params);
-      this.recommendationService.getProductByFamily(JSON.parse(sessionStorage.getItem('data')).productFamily).
+    this.route1.params.subscribe(params =>{
+     console.log("data from recommendation by productFamily : ",params);
+      this.recommendationService.getProductByFamily(params['family']).
       subscribe((data:any)=>{
         console.log(data);
         // this.productDetails=data;
@@ -54,7 +54,7 @@ export class ReviwerdashComponent implements OnInit {
         console.log("in product by family  : ",this.productDetails);
       });
 
-      this.recommendationService.getProductBySubCategory(JSON.parse(sessionStorage.getItem('data')).subCategory).
+      this.recommendationService.getProductBySubCategory(params['subcategory']).
         subscribe((data2:any)=>{
           console.log(data2);
 
@@ -67,7 +67,7 @@ export class ReviwerdashComponent implements OnInit {
               });
             }
         });      
-    // });
+    });
   }
 
   update()
@@ -90,7 +90,7 @@ export class ReviwerdashComponent implements OnInit {
         let a = JSON.stringify(data)
           console.log("product info in rdashboard : ",JSON.stringify(data));
           sessionStorage.setItem('data', a);
-          this.router.navigateByUrl("/rsearch"); 
+          this.router.navigateByUrl("/rsearch/"+data); 
       });
   } 
 
@@ -108,6 +108,12 @@ export class ReviwerdashComponent implements OnInit {
     });
    }
   
-    
+   imageclick(product){
+    let a = JSON.stringify(product)
+    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    console.log("product info from recommendation : "+JSON.stringify(product));
+    sessionStorage.setItem('data', a);
+    this.router.navigateByUrl("/rsearch"); 
+   } 
   
 }

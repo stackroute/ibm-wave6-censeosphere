@@ -21,11 +21,12 @@ const routes: Routes = [
   {path:'reviwerdashboard',component:ReviwerdashComponent},
   {path:'returnlanding',component:LandingPageComponent},
   {path: 'rsearch',component:SearchForReviewComponent},
+  {path: 'rsearch/:data',component:SearchForReviewComponent},
   {path:'productownerdashboard/:emailId',component:ProductownerdashboardComponent},
   {path:'productownerdashboard',component:ProductownerdashboardComponent},
   {path:'add-product',component:AddProductComponent},
   // {path:'reviewerdash/:emailId',component:ReviwerdashComponent}
-  // {path:'reviewerdash/:productByFamily',component:ReviwerdashComponent},
+  {path:'reviewerdash/:family/:subcategory',component:ReviwerdashComponent},
   {path:'reviewerdash',component:ReviwerdashComponent},
   {path:'reviewerdash',component:ReviwerdashComponent},
   {path:'writereview',component:ReviewComponent},

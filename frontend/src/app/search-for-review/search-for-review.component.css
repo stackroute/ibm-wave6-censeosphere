@@ -187,5 +187,15 @@ ul.social-network {
     text-align: center;
     margin-top: 100px;
   }
+  #reviewimg{
+      height: 150px;
+      width: 250px;
+      border-radius: 50%;
+  }
+  #productimage{
+    height: 350px;
+    width: 350px;
+    padding-left: 0px;
+  }
   
   

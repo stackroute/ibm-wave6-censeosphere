@@ -28,6 +28,7 @@ export class SearchForReviewComponent implements OnInit {
   score:any;
   reviewerone=new Reviewerone();
   reviewdetails:any;
+  products : [];
   ngOnInit() {
 
 
@@ -46,21 +47,21 @@ export class SearchForReviewComponent implements OnInit {
        console.log("reviewer data in search component"+JSON.stringify(this.reviewerinfo));
     })
     
-  //  this.searchforreview.getAllReviews().subscribe((data:any) =>{
-  //   console.log(data);
-  //   this.reviews=data;
-  // })
-
     this.reviewService.getAllReviewsbyName(this.productname).subscribe((data:any) => {
     console.log("review details in search"+JSON.stringify(data));
     this.reviewdetails=data;
     console.log(JSON.stringify(this.reviewdetails));
-    
-  //  this.searchforreview.getAllReviews().subscribe((data:any) =>{
-  //   console.log(data);
-  //   this.reviews=data;
+  });
 
-  })
+  this.products=JSON.parse(sessionStorage.getItem('data'));
+  console.log("pkpkpkpkpkpk",this.products);
+
+  // this.activatedRoute.params.subscribe(params=>{
+  //   console.log("data in search for review : ",params['data']);
+  //   this.products=params['data'];
+  //   console.log("pkpkpkpkpkpk",this.products);
+    
+  // });
 }
   // wreview()
   // {

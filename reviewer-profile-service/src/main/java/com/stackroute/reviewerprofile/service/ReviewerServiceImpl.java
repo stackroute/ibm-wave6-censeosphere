@@ -46,8 +46,10 @@ public class ReviewerServiceImpl implements ReviewerService {
         {
             throw new ReviewerAlreadyExistsException("Reviewer already exists");
         }
+
         List<Review> myreviews=new ArrayList<Review>();
         reviewer.setRevieweswritten(myreviews);
+
         Reviewer savedReviewer=reviewerRepository.save(reviewer);
         ReviewerDTO reviewerDTO=new ReviewerDTO(reviewer.getEmailId(),reviewer.getReconfirmPassword(),reviewer.getRole());
          sendreviewer(reviewerDTO);
@@ -163,9 +165,9 @@ public class ReviewerServiceImpl implements ReviewerService {
               myreviewes =reviewer1.getRevieweswritten();
               System.out.println("list "+myreviewes);
               myreviewes.add(review);
-               point=reviewer.getCreditpoints();
+               point=reviewer1.getCreditpoints();
                point=point+5;
-               reviewer.setCreditpoints(point);
+               reviewer1.setCreditpoints(point);
               for (int i = 0; i < myreviewes.size(); i++) {
                System.out.println("inside list"+myreviewes.get(i));
               }
