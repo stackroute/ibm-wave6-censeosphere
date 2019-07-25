@@ -12,6 +12,6 @@ public interface Productdetailservice {
     public List<ProductRating> getAllRatings();
     public int findSentiment(String productName,String review);
     public String sentimentResult(int sentiments);
-    public int generateRating(String sentiment,int rating);
-    public void  updaterating(String productname,int rating);
+    public float generateRating(String sentiment,float rating,int score);
+    public void  updaterating(String productname,float rating);
 }

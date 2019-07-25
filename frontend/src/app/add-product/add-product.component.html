@@ -40,7 +40,8 @@
        <select formControlName="SubCategoryCtrl" class="form-control">
       <option value="T.V">T.V</option>
       <option value="Mobile">Mobile</option>
-      <option value="AC">A.C</option>
+      <option value="AC">AC</option>
+      <option value="Laptop">Laptop</option>
        </select>
      </div>
     </div>
@@ -108,8 +109,20 @@
             <!-- <button type="button">Upload</button> -->
 
             <label class="control-label small" for="file_img">Product Image(jpg/png/jpeg/gif):</label> 
-            <input type="file" accept=".jpg,.jpeg,.gif,.png" [(ngModel)]="productImage" formControlName="ProductImageCtrl"> 
+            <!-- <input type="file" accept=".jpg,.jpeg,.gif,.png" [(ngModel)]="productImage" formControlName="ProductImageCtrl">  -->
            
+
+            <!--priyanka -->
+             
+              <input class="aligns" type="file" (change)="selectVideo($event)" accept=".jpg,.jpeg,.gif,.png/*">
+              <br><br>
+              <div id="upload">
+            <!-- <input type="file" class="form-control" formControlName="video" (change)="selectVideo($event)"> -->
+            <button class="btn btn-outline-dark" (click)="uploadVideo()">Upload Photo</button>
+          </div>
+          
+
+          <!-- priyanka -->
 
         </div>
       </div> 
@@ -136,7 +149,7 @@
         </div>
       
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="account()">Close</button>
+          <button type="button" class="btn btn-outline-dark" data-dismiss="modal" (click)="account()">Close</button>
         </div>
         
       </div>

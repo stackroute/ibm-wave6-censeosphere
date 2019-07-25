@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ReviewServiceImpl implements ReviewService {
@@ -45,7 +46,7 @@ public class ReviewServiceImpl implements ReviewService {
 
         //rabbitmq queue, exchange,routingkey generation
         Review savedReview = reviewRepository.save(review);
-        ReviewDTO reviewDTO=new ReviewDTO(review.getProductName(),review.getReviewDescription());
+        ReviewDTO reviewDTO=new ReviewDTO(review.getProductName(),review.getReviewDescription(),review.getCreditpoints());
         sendRating(reviewDTO);
 //        ReviewDetailDTO reviewDetailDTO=new ReviewDetailDTO(review.getReviewerEmail(),review.getReviewTitle(),review.getReviewDescription(),review.getProductName(),review.getPrice(),review.getReviewedOn());
         sendReviewer(savedReview);
@@ -61,6 +62,13 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
 
+    @Override
+    public List<Review> getAllReviewsbyProduct(String pname)
+    {
+
+        return reviewRepository.getAllReviewsbyProduct(pname);
+
+    }
     @Override
     public void sendRating(ReviewDTO reviewDTO)
     {

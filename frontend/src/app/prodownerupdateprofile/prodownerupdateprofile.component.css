@@ -47,6 +47,14 @@ nav img{
 {
   margin-top: 25px;
 }
+.container-fluid{
+  background-image:url(../../assets/img/ph.jpg);
+  border-style: 1px solid grey;
+  background-size: cover;
+  padding-top:20px;
+  /* padding-bottom:300px; */
+  
+}
 .fakeimg {
   height: 200px;
   background: #aaa;
@@ -167,4 +175,11 @@ ul.social-network li {
     padding-top: 66px;
     font-size:15px;
 }
- 
+.avatar{
+  height: 150px;
+  width: 150px;
+}
+
+#uploadbutton{
+  margin-top: 20px;
+}

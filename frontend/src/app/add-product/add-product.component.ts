@@ -47,7 +47,8 @@ saveProduct()
   this.product.price=this.firstFormGroup.controls.ProductPriceCtrl.value;
   this.product.specifications=this.firstFormGroup.controls.ProductSpecificationsCtrl.value;
   this.product.description=this.firstFormGroup.controls.ProductDescriptionCtrl.value;
-  this.product.image=this.firstFormGroup.controls.ProductImageCtrl.value;
+  // this.product.image=this.firstFormGroup.controls.ProductImageCtrl.value;
+  this.product.image=this.mediaName;
   this.product.addedby=sessionStorage.getItem('productOwnerEmail');
   console.log(this.product);    environment:
 
@@ -63,13 +64,27 @@ lpage()
  }
 update()
  {
-   this.router.navigateByUrl("/prodownerupdateprofile");
+   this.router.navigateByUrl("/prodownerupdateprofile/name/gmail/reconfirmpassword");
  }
   account()
   {
     this.router.navigateByUrl("/productownerdashboard");
   }
 
- 
 
+  //priyanka 
+  currentFileUpload:File;
+  selectedVideo:FileList;
+  mediaName:any;
+
+  selectVideo(event){
+    this.selectedVideo=event.target.files;
+  }
+  uploadVideo(){
+    
+    this.currentFileUpload = this.selectedVideo.item(0)
+    this.mediaName=this.currentFileUpload.name;
+   }
+
+//priyanka
 }

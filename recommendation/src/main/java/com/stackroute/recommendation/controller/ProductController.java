@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/rest/neo4j/product")
 public class ProductController {
