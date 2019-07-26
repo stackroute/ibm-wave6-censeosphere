@@ -100,7 +100,7 @@ export class ReviwerdashComponent implements OnInit {
     // sessionStorage.setItem("remailId",emailId);
   
     this.updates.getReviewerDetails(emailId).subscribe((data: any) => {
-      console.log(data);
+      console.log("ppppppppppppppppppppppppppppp",JSON.stringify(data));
       sessionStorage.setItem("data1", JSON.stringify(data));
       console.log("inside reviewerdash"+data);
       // sessionStorage.setItem("data", JSON.stringify(data));

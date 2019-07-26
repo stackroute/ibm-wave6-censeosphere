@@ -176,17 +176,28 @@ export class LandingPageComponent implements OnInit {
 
   }
 
-  searchproduct(product){
-     console.log(product);
-      this.productService.getProduct(product).
-      subscribe(data=>{
-          console.log("product info : ",data);
-          // this.router.navigateByUrl("/searchreview/"+data);
+  // searchproduct(product){
+  //    console.log(product);
+  //     this.productService.getProduct(product).
+  //     subscribe(data=>{
+  //         console.log("product info : ",data);
+  //         // this.router.navigateByUrl("/searchreview/"+data);
+  //     });
+
+searchproduct(product)
+  {
+    console.log(product);
+      this.productService.getProduct(product).subscribe(data=>{
+        let a = JSON.stringify(data)
+          console.log("product info in rdashboard : ",JSON.stringify(data));
+          sessionStorage.setItem('data', a);
+          this.router.navigateByUrl("/nsearch"); 
       });
+  } 
      
      
   }
-}
+
 
 
 

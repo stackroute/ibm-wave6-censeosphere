@@ -1,4 +1,5 @@
 <!-- header -->
+<div class="image">
 <div class="containerbody">
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="example-sidenav-content">
@@ -19,13 +20,13 @@
     </nav>
   </div>
   <!-- end header -->
-
+<div class="container">
   
     <h4 id="searchheading">Product Details</h4>
     <hr>
 
     <!-- card start  -->
-<div class="flex-container">
+<div class="flex-container" >
     <div class="left">
     <div class="thumb-wrapper">
       <div class="img-box">
@@ -59,7 +60,6 @@
 
 <!-- tabbed panel -->
 
-<mat-tab-group mat-align-tabs="start">
     <!-- <mat-tab label="Reviews">
    
        <div *ngFor="let review of reviews">
@@ -87,13 +87,20 @@
                    </div>
                   </div>
                   </div>
+
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+    </mat-tab>
+
                 </div>
               </div>
               </div>
               </div>
     </mat-tab> -->
                   
-
+    <mat-tab-group mat-align-tabs="start">
  <mat-tab label="Reviews">
 
     <div *ngFor="let review of reviewdetails">
@@ -180,9 +187,15 @@
   
    </mat-tab-group>
    <!-- tabbed panel end -->
-
+</div>
    <!-- footer -->
 <footer class="page-footer font-small mdb-color pt-4 bg-dark footer-dark">
+
+
+ 
+ <!-- footer -->
+ <!-- <footer class="page-footer font-small mdb-color pt-4 bg-dark footer-dark"> -->
+
 
     <!-- Footer Links -->
     <div class="container text-center text-md-left">
@@ -192,9 +205,14 @@
   
         <!-- Grid column -->
         <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+
+          <!-- <h2 style="color: white"><strong>CenseoSphere</strong></h2>
+          <a href="#" style='font-size:24px'><i class='fas fa-home'></i></a> -->
+
           <!-- <img style="margin-top: 20px; height:100px;width: 50px;" class="card-img-top" src="assets/img/logo5.png" alt="image"> -->
         <h2 style="color: white"><strong>CenseoSphere</strong></h2>
         <a href="#" style='font-size:24px'><i class='fas fa-home'></i></a>
+
         </div>
         <!-- Grid column -->
   
@@ -308,4 +326,6 @@
       </div>
     </footer>
 <!-- end footer -->
+</div>
    
+

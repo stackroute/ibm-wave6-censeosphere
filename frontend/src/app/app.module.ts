@@ -25,6 +25,7 @@ import { ReviewComponent } from './review/review.component';
 import { ReviewerdashboardComponent } from './reviewerdashboard/reviewerdashboard.component';
 import { CardComponent } from './card/card.component';
 import { ProductreviewComponent } from './productreview/productreview.component';
+import { AftersearchinlandingComponent } from './aftersearchinlanding/aftersearchinlanding.component';
 // import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 
@@ -44,7 +45,8 @@ import { ProductreviewComponent } from './productreview/productreview.component'
     ReviewComponent,
     ReviewerdashboardComponent,
     CardComponent,
-    ProductreviewComponent
+    ProductreviewComponent,
+    AftersearchinlandingComponent
 
 
   ],

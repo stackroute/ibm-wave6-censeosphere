@@ -7,6 +7,7 @@ import { FormGroup } from '@angular/forms';
 import {FormBuilder, Validators, FormControl, NgForm, AbstractControl} from '@angular/forms';
 import { UpdateProfile} from '../update-profile'
 import { UpdateProfileService } from '../update-profile.service';
+import { ProductService } from '../product.service';
 
 
 @Component({
@@ -16,25 +17,27 @@ import { UpdateProfileService } from '../update-profile.service';
 })
 export class UpdateprofileComponent implements OnInit {
 
-  firstFormGroup:FormGroup;
-  reviewer:any;
-
-  email="";
+   firstFormGroup:FormGroup;
+   reviewer:any;
+   productname="";
+   email="";
+  
   update1=new UpdateProfile();
   hide:true;
 
-  productDetails=[];
+  productDetails:any;
+
   reviews=[];
   constructor(private router:Router,private landingpageservice:LandingpageService,
     private searchforreview:SearchForReviewService,private http:HttpClient,
-    private _formBuilder: FormBuilder,private updates:UpdateProfileService) { }
+    private _formBuilder: FormBuilder,private updates:UpdateProfileService,private productservice:ProductService) { }
 
   ngOnInit() {
 
-    this.landingpageservice.getAllProducts().subscribe((data:any) => {
-      console.log(data);
-      this.productDetails=data;
-    })
+    // this.landingpageservice.getAllProducts().subscribe((data:any) => {
+    //   console.log(data);
+    //   this.productDetails=data;
+    // })
 
     // this.searchforreview.getAllReviews().subscribe((data:any) =>{
     //   console.log(data);
@@ -54,15 +57,28 @@ export class UpdateprofileComponent implements OnInit {
   //  this.reviewer=JSON.parse(sessionStorage.getItem("data"));
   //  console.log("inside update profile page" +this.reviewer);
    this.reviewer=JSON.parse(sessionStorage.getItem("data1"));
-   console.log(this.reviewer);
+   console.log("Reviewer info. :"+this.reviewer);
+   console.log("reviewer info2",this.reviewer.revieweswritten);
+   this.reviews=this.reviewer.revieweswritten;
+   this.reviews.forEach((y:any) => { 
+    console.log("review list:",y);
+   }) 
+   for(let i=0;i<(this.reviews).length;i++)
+   {
+      this.productname=this.reviews[i].productName;
+     console.log(this.productname);
+   }
+   this.productservice.getProduct(this.productname).subscribe((data:any) => {
+    console.log(data);
+    this.productDetails=data;
+  })
 
+   
    
   }
 
   updateDetails()
   {
-
-    
 
     this.email=sessionStorage.getItem('reviewerEmail');
     console.log("from session"+this.email);

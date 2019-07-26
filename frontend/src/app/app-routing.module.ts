@@ -13,6 +13,7 @@ import { ReviewComponent } from './review/review.component';
 import { ReviewerdashboardComponent } from './reviewerdashboard/reviewerdashboard.component';
 import { CardComponent } from './card/card.component';
 import { ProductreviewComponent } from './productreview/productreview.component';
+import { AftersearchinlandingComponent } from './aftersearchinlanding/aftersearchinlanding.component';
 const routes: Routes = [  
   { path: '',component:LandingPageComponent},
   {path:'productreview',component:ProductreviewComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:'reviwerdashboard',component:ReviwerdashComponent},
   {path:'returnlanding',component:LandingPageComponent},
   {path: 'rsearch',component:SearchForReviewComponent},
+  {path: 'nsearch',component:ProductreviewComponent},
   {path:'productownerdashboard/:emailId',component:ProductownerdashboardComponent},
   {path:'productownerdashboard',component:ProductownerdashboardComponent},
   {path:'add-product',component:AddProductComponent},
