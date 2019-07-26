@@ -72,11 +72,11 @@ label{
 }
 .jumbotron{
     height: 500px;
-    background: url('../../assets/img/Banner.png');
+    background: url('../../assets/img/den.png');
     /* width: 100%; */
 }
 #jumbotroninput{
-    margin: auto;
+    margin-left: 350px;
     display: inline;
 }
 #jumbotronheading{
@@ -99,6 +99,10 @@ label{
 }
 #productbutton:hover{
     color: midnightblue;
+}
+hr.style5 {
+	background-color: #fff;
+    border-top: 4px dashed #8c8b8b;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
 }
 footer
 {
@@ -310,8 +314,15 @@ ul.social-network li {
 }
 
   #searchbutton{
-      margin-top: 0px;
-      background-color: white; 
+      /* margin-top: 0px; */
+      /* color:white; */
+      margin-right: 330px;
   }
 
   
+  #searchbutton a{
+      color: white;
+  }
+#searchbutton a:hover{
+      color:midnightblue;
+}

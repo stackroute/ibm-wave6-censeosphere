@@ -32,15 +32,30 @@
     <div class="container">
       <h1 id="jumbotronheading"><b>India's Largest Review Platform</b></h1>
       <form >
-        <div class="form-group">
+
+        <!-- <div class="form-group">
           <input type="search" #inputsearch placeholder="search here to write a review" name="search" class="form-control col-md-3" id="jumbotroninput" >
             <button type="submit" class="btn btn-outline-light" id="searchbutton" (click)="searchproduct(inputsearch.value)"><a href="#"><i class="fa fa-search"></i></a></button> <br>
           <button type="submit" class="btn btn-outline-light" id="reviewbutton"
-           data-toggle="modal" #rrole value="reviewer" (click)="onclick(rrole.value)"
+           data-toggle="modal" #rrole value="reviewer" (click)="onclick(rrole.value)" -->
+
+        <div class="input-group">
+
+                <input type="search" #inputsearch class="form-control col-md-6" placeholder="Search here" name="search" id="jumbotroninput">
+                <!-- <div class="input-group-append"> -->
+                   <button class="btn btn-outline-secondary" type="submit" id="searchbutton" (click)="searchproduct(inputsearch.value)">
+                      <a href="#"><i class="fa fa-search"></i></a>
+                  </button>
+                <!-- </div> -->
+              
+              </div>
+          <!-- <input type="search" #inputsearch placeholder="Search here" name="search" class="form-control col-md-3" id="jumbotroninput" >
+            <button type="submit" class="btn btn-outline-light" id="searchbutton" (click)="searchproduct(inputsearch.value)"><a href="#">Search</a></button> <br> -->
+            <button type="submit" class="btn btn-outline-light" id="reviewbutton" data-toggle="modal" #rrole value="reviewer" (click)="onclick(rrole.value)"
             data-target="#signup1">Write a Review</button>&nbsp;
-          <button type="submit" class="btn btn-outline-light" id="productbutton" data-toggle="modal" #prole value="product-owner" (click)="onclick1(prole.value)"
+            <button type="submit" class="btn btn-outline-light" id="productbutton" data-toggle="modal" #prole value="product-owner" (click)="onclick1(prole.value)"
             data-target="#signup2">Post a Product</button>
-        </div>
+        
       </form>
     </div>
   </div>
@@ -49,6 +64,8 @@
   <!--  start carousel for recent productDetails -->
   <div id="container">
     <h2>Recent Products</h2>
+
+    
     <div ng2-carouselamos class="slides-wrapper" [items]="productDetails" [width]="900" [$prev]="prev" [$next]="next"
       [$item]="product">
     </div>
@@ -63,24 +80,27 @@
 
     <ng-template #product let-product let-i="index">
       <div class="productDetails">
-        <!-- <div class="thumb-wrapper"> -->
-            <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
-                <div class="card">
+        <div class="thumb-wrapper">
           <div class="img-box">
 
             <img src="./assets/img/{{product.image}}" class="img-responsive img-fluid" alt="Image not available" routerLink="/productreview">
             <!-- <img src="{{product.image}}" class="img-responsive img-fluid" alt="" routerLink="/searchreview"> -->
           </div>
           <!-- <div class="thumb-content"> -->
-              <div class="card-block">
+              <!-- <div class="card-block"> -->
             <h4 >{{product.productName}}</h4>
+
+            <!-- <img src="{{product.image}}" class="img-responsive img-fluid" alt=""> -->
+          </div>
+          <div class="thumb-content">
+            <h4>{{product.productName}}</h4>
             <div class="star-rating">
               <ul class="list-inline">
                 <li class="list-inline-item"><i class="fa fa-star"></i></li>
                 <li class="list-inline-item"><i class="fa fa-star"></i></li>
                 <li class="list-inline-item"><i class="fa fa-star"></i></li>
                 <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
               </ul>
             </div>
             <p class="item-price"><b>{{product.price}}</b></p>
@@ -88,7 +108,6 @@
           </div>
         </div>
       </div>
-    </div>
     </ng-template>
   </div>
   <!-- end carousel for recent productDetails -->
@@ -110,14 +129,13 @@
 
     <ng-template #product let-product let-i="index">
       <div class="productDetails">
-        <!-- <div class="thumb-wrapper"> -->
-            <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
-                <div class="card">
+        <div class="thumb-wrapper">
           <div class="img-box">
             <img src="./assets/img/{{product.image}}" class="img-responsive img-fluid" alt="Image not available" routerLink="/productreview">
+
+            <img src="{{product.image}}" class="img-responsive img-fluid" alt="Image not available">
           </div>
-          <!-- <div class="thumb-content"> -->
-              <div class="card-block">
+          <div class="thumb-content">
             <h4>{{product.productName}}</h4>
             <div class="star-rating">
               <ul class="list-inline">
@@ -132,7 +150,6 @@
             <h6>2 reviews</h6>
           </div>
         </div>
-      </div>
       </div>
     </ng-template>
   </div>
@@ -176,7 +193,9 @@
             <label for="rsubmitbutton" id="newaccountlabel">New Account </label>
           <button type="button" #role value="reviewer"  class="btn btn-dark" data-dismiss="modal" (click)="onClick(role.value)">Reviewer</button>
           <button type="button" #role1 value="product-owner"  class="btn btn-dark" data-dismiss="modal" (click)="onClickPO(role1.value)">Product
-            Owner</button>
+          <!-- <button type="button" #role value="reviewer" class="btn btn-info" data-dismiss="modal" (click)="onClick(role.value)">Reviewer</button> -->
+          <!-- <button type="button" #role1 value="product-owner" class="btn btn-info" data-dismiss="modal" (click)="onClickPO(role1.value)">Product
+            Owner</button> -->
         </div>
       </div>
     </div>
@@ -205,6 +224,7 @@
               <input   #password type="password" name="password" id="reviewerpassword" class="form-control fas fa-key" placeholder="&#xf084;enter your password">
             </div>
             <button type="submit"  class="btn btn-dark" id="reviewersigninbutton" >Sign
+            <button type="submit" class="btn btn-info" id="reviewersigninbutton" >Sign
               In</button>
           </form>
         </div>

@@ -36,13 +36,15 @@ body {
 }
 .jumbotron{
    height: 500px;
-   background: url('../../assets/img/Teksun.png') center center no-repeat;
+   background: url('../../assets/img/new.jpg') center center no-repeat;
     background-size: 100%;
 }
 #jumbotroninput{
    /* width: 600px;
    margin-left: 250px; */
-  margin: auto;
+  /* margin: auto; */
+  margin-left: 350px;
+    display: inline;
 }
 #jumbotronheading{
    background: rgba(0,0,0,0.4);
@@ -233,7 +235,19 @@ h5{
       padding-top: 66px;
       font-size:15px;
   }
-  .card {
+
+  #searchbutton{
+      margin-right: 330px;
+      background-color: grey;
+  }
+  #searchbutton a{
+      color: white;
+  }
+#searchbutton a:hover{
+      color:midnightblue;
+}
+
+  /* .card {
     margin-left: 4px;
     margin-right: 3px;
      padding: 25px 15px;
@@ -246,4 +260,5 @@ h5{
     border: none;
      border-radius: 9px;
     box-shadow: 1.5px 1.5px 3px rgba(0,0,0,2.5);
- }
+ } */
+

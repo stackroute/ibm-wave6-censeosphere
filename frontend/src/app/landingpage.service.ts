@@ -10,7 +10,7 @@ export class LandingpageService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json'
-      
+
     })
   };
 
