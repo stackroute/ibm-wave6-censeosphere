@@ -40,13 +40,15 @@ nav img{
 
 .jumbotron{
     height: 500px;
-    background: url('../../assets/img/Electronics-Supply-Chain-1024x375.jpg') center center no-repeat;
+    background: url('../../assets/img/Banner-principal-del-home.png') center center no-repeat;
     background-size: 100%;
 }
 #jumbotroninput{
     /* width: 600px;
     margin-left: 250px; */
-    margin: auto;
+    /* margin: auto; */
+    margin-left: 350px;
+    display: inline;
 }
 .jumbotron .container{
     padding-top: 50px;
@@ -214,4 +216,15 @@ ul.social-network li {
     color: white;
     padding-top: 66px;
     font-size:15px;
+}
+#searchbutton{
+    /* margin-top: 0px; */
+    /* color:white; */
+    margin-right: 330px;
+}
+#searchbutton a{
+    color: white;
+}
+#searchbutton a:hover{
+    color:midnightblue;
 }
