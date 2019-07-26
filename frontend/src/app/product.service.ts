@@ -27,4 +27,10 @@ export class ProductService {
     return this._http.get("http://localhost:8081/api/v1/product/"+productName, this.httpOptions);
   }
 
+  deleteProduct(productName:String)
+  {
+    console.log("from service :"+productName);
+    return this._http.delete<Product>("http://localhost:8081/api/v1/product/"+productName, this.httpOptions);
+  }
+
 }

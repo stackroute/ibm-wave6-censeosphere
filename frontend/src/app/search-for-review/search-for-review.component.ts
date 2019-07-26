@@ -28,6 +28,7 @@ export class SearchForReviewComponent implements OnInit {
   score:any;
   reviewerone=new Reviewerone();
   reviewdetails:any;
+
   ngOnInit() {
 
 
@@ -138,7 +139,8 @@ export class SearchForReviewComponent implements OnInit {
 wreview()
     {
 
-      this.router.navigateByUrl("/writereview");
+       this.router.navigateByUrl("/writereview");
+     
 
 }
 }  

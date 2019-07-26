@@ -74,8 +74,26 @@
       <p>{{product.description}}</p>
       <p class="timestamp">{{product.uploadedOn}}</p>
       <br>
-      <button type="submit" class="btn btn-info" id="editproduct" data-target="#edit">Edit</button>
-      <button type="submit" class="btn btn-info" id="deleteproduct" data-target="#delete">Delete</button>
+      <!-- <button type="submit" class="btn btn-info" id="editproduct" data-target="#edit">Edit</button> -->
+      <button type="submit" class="btn btn-info" id="deleteproduct" data-toggle="modal" data-target="#myModal"
+       (click)="deleteProduct(product.productName)">Delete</button>
+
+       <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+          
+            <div class="modal-body">
+              Deleted Successfully..
+            </div>
+          
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="account()">Close</button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
    </div>
   </div>
   </div>

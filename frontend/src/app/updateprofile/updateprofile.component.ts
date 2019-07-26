@@ -47,6 +47,7 @@ export class UpdateprofileComponent implements OnInit {
       passwordCtrl:['',[Validators.required,Validators.minLength(5)]],
       ReConfirmPasswordCtrl: ['', Validators.required],
       emailCtrl: ['', Validators.required],
+      
    });
 
 
@@ -69,10 +70,13 @@ export class UpdateprofileComponent implements OnInit {
     this.update1.name=this.firstFormGroup.controls.NameCtrl.value;
     this.update1.image=this.mediaName;
     this.update1.reconfirmPassword=this.firstFormGroup.controls.ReConfirmPasswordCtrl.value;
+    this.update1.creditpoints=JSON.parse(sessionStorage.getItem('data1')).creditpoints;
     console.log(this.update1.emailId);
     console.log(this.update1.name);
     console.log(this.update1.image);
     console.log(this.update1.reconfirmPassword);
+    console.log("ppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp",this.update1.creditpoints);
+  
 
     this.updates.updateReviewerDetails(this.update1,this.email).
       subscribe(data =>{

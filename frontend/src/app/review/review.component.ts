@@ -97,8 +97,11 @@ update()
  this.router.navigateByUrl("/rprofile/name/gmail/reconfirmpassword"); 
 }
 
+account()
 
-
+{
+  this.router.navigateByUrl("/")
+}
 
 // reviewerDetails(){
 //   const emailId=this.route1.snapshot.paramMap.get('emailId');
