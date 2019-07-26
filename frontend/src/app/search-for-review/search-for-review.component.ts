@@ -133,12 +133,9 @@ export class SearchForReviewComponent implements OnInit {
 
 
 }
-
-
 wreview()
     {
 
       this.router.navigateByUrl("/writereview");
-
-}
+    }
 }  
