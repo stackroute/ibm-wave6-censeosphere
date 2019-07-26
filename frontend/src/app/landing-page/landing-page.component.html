@@ -169,12 +169,13 @@
                 <div *ngIf="form.get('password').errors">Password mismatch </div>
               </div>
             </div>
-            <button type="submit" class="btn btn-outline-light" id="signinbutton">Sign In</button>
+            <button type="submit" class="btn btn-dark" id="signinbutton">Sign In</button>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" #role value="reviewer"  class="btn btn-outline-light" data-dismiss="modal" (click)="onClick(role.value)">Reviewer</button>
-          <button type="button" #role1 value="product-owner"  class="btn btn-outline-light" data-dismiss="modal" (click)="onClickPO(role1.value)">Product
+            <label for="rsubmitbutton" id="newaccountlabel">New Account </label>
+          <button type="button" #role value="reviewer"  class="btn btn-dark" data-dismiss="modal" (click)="onClick(role.value)">Reviewer</button>
+          <button type="button" #role1 value="product-owner"  class="btn btn-dark" data-dismiss="modal" (click)="onClickPO(role1.value)">Product
             Owner</button>
         </div>
       </div>
@@ -203,14 +204,14 @@
               <label for="reviewerpassword">Password</label>
               <input   #password type="password" name="password" id="reviewerpassword" class="form-control fas fa-key" placeholder="&#xf084;enter your password">
             </div>
-            <button type="submit"  class="btn btn-outline-light" id="reviewersigninbutton" >Sign
+            <button type="submit"  class="btn btn-dark" id="reviewersigninbutton" >Sign
               In</button>
           </form>
         </div>
         <div class="modal-footer">
           <label for="rsubmitbutton" id="newaccountlabel">New Account </label>
 
-          <button type="button"  class="btn btn-outline-light" #role value="reviewer" data-dismiss="modal" (click)="onClick(role.value)"
+          <button type="button"  class="btn btn-dark" #role value="reviewer" data-dismiss="modal" (click)="onClick(role.value)"
             id="rsubmitbutton">Reviewer</button>
 
         </div>
@@ -240,11 +241,12 @@
               <label for="productownerpassword">Password</label>
               <input type="password" #ppassword name="password" id="productownerpassword" class="form-control fas fa-key" placeholder=" &#xf084;enter your password">
             </div>
-            <button type="submit" class="btn btn-outline-light" id="productownersigninbutton">Sign In</button>
+            <button type="submit" class="btn btn-dark" id="productownersigninbutton">Sign In</button>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" #role1 value="product-owner"  class="btn btn-outline-light"  data-dismiss="modal" (click)="onClickPO(role1.value)"
+            <label for="rsubmitbutton" id="newaccountlabel">New Account </label>
+          <button type="button" #role1 value="product-owner"  class="btn btn-dark"  data-dismiss="modal" (click)="onClickPO(role1.value)"
             id="psubmitbutton">Product Owner</button>
         </div>
       </div>
@@ -468,4 +470,3 @@
     </div>
   </footer>
 <!-- end footer -->
-

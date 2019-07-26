@@ -58,7 +58,11 @@ nav img{
 
 .image
 {
-  background:url('../../assets/img/splash2.jpeg') center center no-repeat;
+  background:url('../../assets/img/productowner.jpeg') center center no-repeat;
+   /* Add the blur effect */
+   /* filter: blur(0px);
+   -webkit-filter: blur(0px); */
+   
   background-size: cover;
   height: 100%;
   overflow: hidden;
