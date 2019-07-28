@@ -35,9 +35,9 @@ export class ReviwerdashComponent implements OnInit {
     })
     this.reviewerDetails();
      
-    this.route1.params.subscribe(params =>{
-     console.log("data from recommendation by productFamily : ",params);
-      this.recommendationService.getProductByFamily(params['family']).
+    // this.route1.params.subscribe(params =>{
+    //  console.log("data from recommendation by productFamily : ",params);
+      this.recommendationService.getProductBySubCategory(sessionStorage.getItem('reviewerEmail')).
       subscribe((data:any)=>{
         console.log(data);
         // this.productDetails=data;
@@ -45,29 +45,15 @@ export class ReviwerdashComponent implements OnInit {
         for (let i = 0; i < data.length; i ++) {
         this.productService.getProduct(data[i].productName).
           subscribe((data:any)=>{
-            console.log("Products from recommendation by productFamily",data);
+            console.log("Products from recommendation by productSubCategory",data);
             // this.productDetails=data;
             this.productDetails.push(data);
           });
         }
 
         console.log("in product by family  : ",this.productDetails);
-      });
-
-      this.recommendationService.getProductBySubCategory(params['subcategory']).
-        subscribe((data2:any)=>{
-          console.log(data2);
-
-          for (let i = 0; i < data2.length; i ++) {
-            this.productService.getProduct(data2[i].productName).
-              subscribe((data2:any)=>{
-                console.log("Products from recommendation by product subCategory",data2);
-                // this.productDetails=data;
-                this.productDetails1.push(data2);
-              });
-            }
-        });      
-    });
+      });      
+    // });
   }
 
   update()
@@ -79,10 +65,10 @@ export class ReviwerdashComponent implements OnInit {
    this.router.navigateByUrl("/"); 
   }
   
-  searches()
-  {
-    this.router.navigate(['card'],{relativeTo:this.route});
-  } 
+  // searches()
+  // {
+  //   this.router.navigate(['card'],{relativeTo:this.route});
+  // } 
   search(product)
   {
     console.log(product);
@@ -90,7 +76,7 @@ export class ReviwerdashComponent implements OnInit {
         let a = JSON.stringify(data)
           console.log("product info in rdashboard : ",JSON.stringify(data));
           sessionStorage.setItem('data', a);
-          this.router.navigateByUrl("/rsearch/"+data); 
+          this.router.navigateByUrl("/rsearch"); 
       });
   } 
 

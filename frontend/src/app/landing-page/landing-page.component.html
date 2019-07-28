@@ -34,7 +34,7 @@
       <form >
         <div class="form-group">
           <input type="search" #inputsearch placeholder="search here to write a review" name="search" class="form-control col-md-3" id="jumbotroninput" >
-            <button type="submit" class="btn btn-outline-light" id="searchbutton" (click)="searchproduct(inputsearch.value)"><a href="#"><i class="fa fa-search"></i></a></button> <br>
+            <button type="submit" class="btn btn-outline-light" id="searchbutton" (click)="searchproductL(inputsearch.value)"><a href="#"><i class="fa fa-search"></i></a></button> <br>
           <button type="submit" class="btn btn-outline-light" id="reviewbutton"
            data-toggle="modal" #rrole value="reviewer" (click)="onclick(rrole.value)"
             data-target="#signup1">Write a Review</button>&nbsp;
@@ -45,6 +45,9 @@
     </div>
   </div>
   <!-- end jumbotron -->
+
+  <app-card *ngIf="showComponent"></app-card>
+
 
   <!--  start carousel for recent productDetails -->
   <div id="container">
@@ -68,23 +71,17 @@
                 <div class="card">
           <div class="img-box">
 
-            <img src="./assets/img/{{product.image}}" class="img-responsive img-fluid" alt="Image not available" routerLink="/productreview">
-            <!-- <img src="{{product.image}}" class="img-responsive img-fluid" alt="" routerLink="/searchreview"> -->
+            <img src="./assets/img/{{product.image}}" class="img-responsive img-fluid" alt="Image not available" (click)="imageclick(product)">
+            
           </div>
           <!-- <div class="thumb-content"> -->
               <div class="card-block">
-            <h4 >{{product.productName}}</h4>
+            <h4><b>{{product.productName}}</b></h4>
             <div class="star-rating">
-              <ul class="list-inline">
-                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              </ul>
+              <h5>{{product.rating}}</h5>
             </div>
-            <p class="item-price"><b>{{product.price}}</b></p>
-            <h6>2 reviews</h6>
+            <h5 class="item-price">${{product.price}}</h5>
+        
           </div>
         </div>
       </div>
@@ -114,22 +111,16 @@
             <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
                 <div class="card">
           <div class="img-box">
-            <img src="./assets/img/{{product.image}}" class="img-responsive img-fluid" alt="Image not available" routerLink="/productreview">
+            <img src="./assets/img/{{product.image}}" class="img-responsive img-fluid" alt="Image not available" (click)="imageclick(product)">
           </div>
           <!-- <div class="thumb-content"> -->
               <div class="card-block">
-            <h4>{{product.productName}}</h4>
+            <h4><b>{{product.productName}}</b></h4>
             <div class="star-rating">
-              <ul class="list-inline">
-                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-              </ul>
+              <h5>{{product.rating}}</h5>
             </div>
-            <p class="item-price"><b>{{product.price}}</b></p>
-            <h6>2 reviews</h6>
+            <h5 class="item-price">${{product.price}}</h5>
+            
           </div>
         </div>
       </div>
@@ -254,91 +245,6 @@
 
 </mat-sidenav-container>
 <!-- end side bar container -->
-
-
-<!-- <footer class="page-footer font-small blue pt-4">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-3">
-        <ul class="list-unstyled lead">
-            <li>
-                <h5><strong>About us</strong></h5>
-            </li>
-            <li>
-                <a href="#"><strong> Vision & Goals </strong></a>
-              </li>
-              <li>
-                <a href="#"><strong> Company </strong></a>
-              </li>
-              <li>
-                <a href="#"><strong> Blog </strong></a>
-              </li>
-              <li>
-                <a href="#"><strong> Careers </strong></a>
-              </li>
-        </ul>
-
-      </div>
-
-      <div class="col-sm-3">
-        <ul class="list-unstyled lead">
-            <li>
-                <h5><strong>Contact us</strong></h5>
-            </li>
-              <li>
-                <a href="#"><i class="fa fa-map-marker"></i>&nbsp;<Strong>Location</Strong></a>
-              </li>
-              <li>
-                <a href="#"><i class="fa fa-phone"></i>&nbsp;<Strong>9874563129</Strong></a>
-              </li>
-              <li> 
-                <a href="#"> <i class="fa fa-envelope"></i>&nbsp;<Strong>niitstkrt@gmail.com</Strong></a>
-              </li> 
-        </ul>
-      </div>
-      
-      <div class="col-sm-3">
-        <ul class="list-unstyled lead">
-            <li>
-                <h5><strong>Insights</strong></h5>
-            </li>
-            <li>
-                <a href="#"><Strong>Privacy policy</Strong></a>
-              </li>
-              <li>
-                <a href="#"><Strong>Terms & Conditions </Strong></a>
-              </li>
-              <li>
-                <a href="#"><Strong>FAQs</Strong></a>
-              </li>
-              <li>
-                <a href="#"><Strong>Support</Strong></a>
-              </li>
-        </ul>
-      </div>
-
-      <div class="col-sm-3">
-        <ul class="list-unstyled lead">
-          <li>
-            <h5><strong>Keep connected with</strong></h5>
-          </li>
-          <li>
-              <a href="#"><i class="fa fa-twitter"></i>&nbsp;<Strong>twitter</Strong></a>
-            </li>
-              <li>
-                <a href="#"><i class="fa fa-facebook-official"></i>&nbsp;<Strong>facebook</Strong></a>
-              </li>
-              <li> 
-              <a href="#"><i class="fa fa-linkedin"></i>&nbsp;<Strong>linkedin</Strong></a>
-            </li>
-        </ul>
-      </div>
-      
-    </div>
-  </div>
-</footer> -->
-
-
 
 
 <!-- Footer -->

@@ -36,17 +36,17 @@
     <hr>
 
     <!-- card start  -->
-<div class="flex-container">
+<div class="flex-container" >
     <div class="left">
     <div class="thumb-wrapper">
       <div class="img-box">
-        <img src="../assets/img/nikon.jpeg" class="img-responsive img-fluid" alt="">
+        <img src="./assets/img/{{products.image}}" id="productimage" class="img-responsive img-fluid" alt="image not available">
       </div>
     </div>
     </div>
     <div class="right">
       <div class="thumb-content">
-        <h4>Nikon D5600</h4>
+        <h4>{{products.productName}}</h4>
         <div class="star-rating">
           <ul class="list-inline">
             <li class="list-inline-item"><i class="fa fa-star"></i></li>
@@ -56,10 +56,11 @@
             <li class="list-inline-item"><i class="fa fa-star"></i></li>
           </ul>
         </div>
-        <p class="item-price"><b>49999</b></p>
-        <h6>2 reviews</h6>
+        <p class="item-price"><b>{{products.price}}</b></p>
+        
       </div>
     </div>
+  
 </div>
 <!--product card end-->
 <br>

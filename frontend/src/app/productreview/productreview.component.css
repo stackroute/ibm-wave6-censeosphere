@@ -155,25 +155,6 @@ ul.social-network {
      font-size:15px;
  }
 
-/* .left {
-    float: left;
-}
-/* .right {
-    float: right;
-} */ 
-/* .thumb-wrapper {
-    /* margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 30px;
-     padding: 25px 25px;
-     border-radius: 8px;
-     text-align: center;
-     position: relative;
-     box-shadow: 0 2px 3px rgba(0,0,0,0.2);
-     width: 950px; 
-      background-image:url(../../assets/img/header.png);  
- } */
- 
  .flex-container{
     width: 800px;
     border-radius: 8px;
@@ -191,7 +172,6 @@ ul.social-network {
 
 .flex-container .left{
     padding: 10px;
-    /* background: #dbdfe5; */
     -webkit-flex: 1; /* Safari */
     -ms-flex: 1; /* IE 10 */
     flex: 1; /* Standard syntax */
@@ -203,16 +183,7 @@ ul.social-network {
     flex: 1; /* Standard syntax */
     padding: 10px;
 }
-.thumb-wrapper .img-box img{
-    padding-left: 120px;
-    padding-top: 25px;
-}
-.thumb-content{
-    padding-top: 30px;
-}
- .thumb-wrapper a:hover{
-    color:rgb(38, 4, 161);
- }
+
  #mainbtn{
     margin-left:680px;
   }
@@ -233,3 +204,8 @@ ul.social-network {
      padding-top: 30px;
      color:midnightblue ;
  }
+ #productimage{
+    height: 350px;
+    width: 450px;
+    padding-left: 0px;
+  }

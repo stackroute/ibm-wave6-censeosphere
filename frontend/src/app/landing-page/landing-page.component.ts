@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router , ActivatedRoute} from '@angular/router';
 import { LandingpageService } from '../landingpage.service';
 import { Authentication } from '../authentication';
 import { LoginvalidationService } from '../loginvalidation.service';
@@ -22,8 +22,10 @@ export class LandingPageComponent implements OnInit {
   categories = [];
   subCategories = [];
   job = "";
+  showComponent:any;
   // validatingForm: FormGroup;
 
+  route: ActivatedRoute;
 
   form=new FormGroup({
     emailId: new FormControl('',[Validators.required,Validators.email]),
@@ -163,7 +165,7 @@ export class LandingPageComponent implements OnInit {
             console.log(role);
             console.log("in if1");
 
-            this.router.navigateByUrl("/rdashboard");
+            this.router.navigateByUrl("/reviewerdash");
           }
           else if (role == 'product-owner') {
             this.router.navigateByUrl("/productownerdashboard");
@@ -176,16 +178,29 @@ export class LandingPageComponent implements OnInit {
 
   }
 
-  searchproduct(product){
+  
+  searchproductL(product){
      console.log(product);
       this.productService.getProduct(product).
       subscribe(data=>{
           console.log("product info : ",data);
-          // this.router.navigateByUrl("/searchreview/"+data);
+          let a = JSON.stringify(data)
+          sessionStorage.setItem('data123', a);
+
+          this.showComponent = true;
+          
       });
      
      
   }
+
+  imageclick(product){
+    let a = JSON.stringify(product)
+    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    console.log("product info in card : "+JSON.stringify(product));
+    sessionStorage.setItem('data', a);
+    this.router.navigateByUrl("/productreview"); 
+   } 
 }
 
 

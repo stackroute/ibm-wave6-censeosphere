@@ -18,7 +18,7 @@ const helper = new JwtHelperService();
 })
 export class ProductreviewComponent implements OnInit {
   showFiller = false;
-  productDetails = [];
+  products : any;
   categories = [];
   subCategories = [];
   job = "";
@@ -35,28 +35,8 @@ export class ProductreviewComponent implements OnInit {
 
   ngOnInit() {
 
-    // get modalFormDarkEmail() {
-    //   return this.validatingForm.get('modalFormDarkEmail');
-    // }
+    this.products=JSON.parse(sessionStorage.getItem('data'));
   
-    // get modalFormDarkPassword() {
-    //   return this.validatingForm.get('modalFormDarkPassword');
-    // }
-
-
-    this.landingpageservice.getRecentProducts().subscribe((data: any) => {
-      console.log(data);
-      this.productDetails = data;
-    })
-
-    this.landingpageservice.getAllCategory().subscribe((data: any) => {
-      console.log(data);
-      this.categories = data;
-    })
-    this.landingpageservice.getAllSubCategories().subscribe((data: any) => {
-      console.log(data);
-      this.subCategories = data;
-    })
   }
 
   onClick(role) {
@@ -99,39 +79,7 @@ export class ProductreviewComponent implements OnInit {
 
       })
   }
-  // productOwner(emailId, password): any {
-  //   this.auth.emailId = emailId;
-  //   this.auth.password = password;
-  //   this.loginvalidation.login(this.auth).
-  //     subscribe((data: any) => {
-  //       console.log("data from backend ", data.token);
-  //       if (data.token) {
-  //         console.log("in if");
-
-  //         let role = this.helper.decodeToken(data.token).sub;
-  //         console.log("we are having this......", data.token);
-
-  //         console.log("in if print email   " + emailId);
-  //         console.log("in if print password   " + password);
-  //         console.log("in if print role   ", role);
-
-  //         sessionStorage.setItem('productOwnerEmail',emailId);
-  //         if (role == this.job) {
-  //           console.log(role);
-  //           console.log("in if1");
-  //           console.log(emailId);
-  //           this.router.navigateByUrl("/productownerdashboard/"+ emailId);
-
-  //         }
-  //         else {
-  //           alert("provide valid credentailds");
-  //         }
-  //       }
-
-  //     })
-
-  // }
-
+  
   onclick(rrole) {
     console.log(rrole);
     this.job = rrole;

@@ -1,27 +1,21 @@
 
-        <div class="products" routerLink="/reviwerdash">
-             <div *ngFor="let product of productdetails"> 
+        <div class="products">
+             
             <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
                     <div class="card">
         <div class="img-box">
-            <img src="{{product.image}}" class="img-responsive img-fluid" routerLink="/searchreview" alt="Image not available">
+            <img src="./assets/img/{{product.image}}" class="img-responsive img-fluid"  alt="Image not available" (click)="imageclick(product)">
         </div>
                 <div class="card-block">
-            <h4>{{product.productName}}</h4>
+            <h4><b>{{product.productName}}</b></h4>
             <div class="star-rating">
-                <ul class="list-inline">
-                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                    <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-                </ul>
+               <h5>{{product.rating}}</h5>
             </div>
-            <p class="item-price"><b>{{product.price}}</b></p>
-            <h6>2 reviews</h6>
+            <h5 class="item-price">${{product.price}}</h5>
+           
         </div>
     </div>
 </div>&nbsp;
-</div>
+
    </div>
 

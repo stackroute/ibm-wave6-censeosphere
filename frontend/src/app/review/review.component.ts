@@ -78,15 +78,8 @@ export class ReviewComponent implements OnInit {
       subscribe(data=>{
         console.log("data stored successfully");
       });
-    // this.recommendationService.getProductByFamily(JSON.parse(sessionStorage.getItem('data')).productFamily).
-    //    subscribe((data:any)=>{
-    //      console.log(data);
-    //      this.productByFamily=data;
-    //      console.log("in product by family variable : ",this.productByFamily);
-    //    });
-
-    this.router.navigateByUrl("/reviewerdash/"+family+"/"+subcategory);
-    // this.router.navigateByUrl("/reviewerdash");
+  
+    this.router.navigateByUrl("/reviewerdash");
   } 
 lpage()
 {

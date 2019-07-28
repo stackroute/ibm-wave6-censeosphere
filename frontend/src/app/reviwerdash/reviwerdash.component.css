@@ -72,19 +72,6 @@ footer a:hover{
     height: 200px;
     background: #aaa;
   }
-  /* .thumb-wrapper {
-    margin-left: 4px;
-    margin-right: 3px;
-	padding: 25px 15px;
-	background: #def2f1;
-	border-radius: 9px;
-	text-align: center;
-	position: relative;
-    box-shadow: 1.5px 1.5px 3px rgba(0,0,0,2.5);
-    width: 300px;
-    color: midnightblue;
-    font-size: 12px;
-} */
 .card {
   margin-left: 4px;
   margin-right: 3px;
@@ -121,11 +108,6 @@ h4 {
  h4,   p,  ul {
 	margin-bottom: 5px;
 }
-
-h5{
-  color:white;
-}
-
 .item-price {
 	font-size: 13px;
 	padding: 2px 0;

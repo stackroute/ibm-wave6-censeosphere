@@ -13,15 +13,13 @@ import { ReviewService } from '../review.service';
 export class SearchForReviewComponent implements OnInit {
   reviews = [];
 
-  // constructor(private router:Router, private searchforreview:SearchForReviewService,private activatedRoute:ActivatedRoute) { }
+  
   productName="";
   price="";
   reviewedOn="";
 
   constructor(private router:Router, private searchforreview:SearchForReviewService,private activatedRoute:ActivatedRoute,private reviewerdetail:ReviewerdetailsService,private  reviewService:ReviewService) { }
-  // productName="";
-  // price="";
-  // reviewedOn="";
+  
   revieweremail="";
   reviewerinfo:any;
   productname="";
@@ -54,31 +52,8 @@ export class SearchForReviewComponent implements OnInit {
   });
 
   this.products=JSON.parse(sessionStorage.getItem('data'));
-  console.log("pkpkpkpkpkpk",this.products);
-
-  // this.activatedRoute.params.subscribe(params=>{
-  //   console.log("data in search for review : ",params['data']);
-  //   this.products=params['data'];
-  //   console.log("pkpkpkpkpkpk",this.products);
-    
-  // });
-}
-  // wreview()
-  // {
-//   }
-
-  
-  // ngOnInit() {
-  //   this.searchforreview.getAllReviews().subscribe((data:any) =>{
-  //     console.log(data);
-  //     this.reviews=data;
-  //   })
-  // }
-
  
-
-
-
+}
   yes(email)
   {
 
@@ -133,22 +108,23 @@ export class SearchForReviewComponent implements OnInit {
 
     })
 
-
     
   }
 
 wreview()
-{
+    {
+  
       this.router.navigateByUrl("/writereview");
 
+  }
+
+  update()
+  {
+   this.router.navigateByUrl("/rprofile/name/gmail/reconfirmpassword"); 
+  }
+  lpage()
+  {
+   this.router.navigateByUrl("/"); 
+  }
 
 }
-
-
-// wreview()
-//     {
-
-//       this.router.navigateByUrl("/writereview");
-
-// }
-}  

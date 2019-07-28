@@ -53,4 +53,10 @@ public class ProductController {
         return productService.saveRelation(productname,subcategory);
     }
 
+    @GetMapping("recommendedproduct/{emailid}")
+    public Collection<Product> getRecommendedProduct(@PathVariable String emailid){
+        return productService.getProduct(emailid);
+    }
+
+
 }

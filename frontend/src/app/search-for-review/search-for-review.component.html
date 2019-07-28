@@ -38,15 +38,9 @@
       <div class="thumb-content">
         <h4>{{products.productName}}</h4>
         <div class="star-rating">
-          <ul class="list-inline">
-            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-          </ul>
+        <h5>{{products.rating}}</h5>
         </div>
-        <p class="item-price"><b>{{products.price}}</b></p>
+        <h5 class="item-price">${{products.price}}</h5>
         
       </div>
     </div>
@@ -62,48 +56,7 @@
 <!-- tabbed panel -->
 
 <mat-tab-group mat-align-tabs="start">
-    <!-- <mat-tab label="Reviews">
-   
-       <div *ngFor="let review of reviews">
-   
-        <div class="tab-content responsive">
-            <div class="tab-pane active" id="home" role="tabpanel">
-               <div class="container-fluid">
-                <div class="row mt-3">
-                  <div class="col-3">
-                    <img alt="nikon" src="{{review.image}}" class="w-100"><br><h4>{{review.reviewer}}</h4><br>
-                  </div>
-
-                  <div class="col-9">
-                              <p class="h4">{{review.reviewTitle}}</p>
-                              <div class="star-rating">
-                                  <span class="fa fa-star checked"></span>
-                                  <span class="fa fa-star checked"></span>
-                                  <span class="fa fa-star checked"></span>
-                                  <span class="fa fa-star"></span>
-                                  <span class="fa fa-star"></span>
-                                  </div>
-                    <p>{{review.reviewDescription}}</p>      
-                    <div>
-                         <button class="btn-primary" type="button" name="useful">Most helpful??</button>
-                   </div>
-                  </div>
-                  </div>
-
-                  </div>
-                  </div>
-                  </div>
-                  </div>
-    </mat-tab>
-
-                </div>
-              </div>
-              </div>
-              </div>
-    </mat-tab> -->
-                  
-
-
+  
  <mat-tab label="Reviews">
 
     <div *ngFor="let review of reviewdetails">
@@ -121,13 +74,6 @@
 
                <div class="col-9">
                            <p class="h4">{{review.reviewTitle}}</p>
-                           <div class="star-rating">
-                               <span class="fa fa-star checked"></span>
-                               <span class="fa fa-star checked"></span>
-                               <span class="fa fa-star checked"></span>
-                               <span class="fa fa-star"></span>
-                               <span class="fa fa-star"></span>
-                               </div>
                  <p>{{review.reviewDescription}}</p>      
                  <div>
                       <button class="btn-primary" type="button" (click)="yes(review.reviewerEmail)" name="useful">yse??</button>

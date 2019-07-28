@@ -25,6 +25,7 @@ import { ReviewComponent } from './review/review.component';
 import { ReviewerdashboardComponent } from './reviewerdashboard/reviewerdashboard.component';
 import { CardComponent } from './card/card.component';
 import { ProductreviewComponent } from './productreview/productreview.component';
+import { Routes, RouterModule } from '@angular/router';
 // import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 
@@ -63,7 +64,8 @@ import { ProductreviewComponent } from './productreview/productreview.component'
     MatSidenavModule,
     ReactiveFormsModule,
     MatTabsModule,
-    Ng2CarouselamosModule
+    Ng2CarouselamosModule,
+    
    
   ],
   providers: [LoginService],
