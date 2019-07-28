@@ -22,9 +22,15 @@ export class ProductService {
     return this._http.post<Product>(this._url, product, this.httpOptions);
   }
 
-  getProduct(productName:Product){
+  getProduct(productName){
     console.log("from service : "+productName);
     return this._http.get("http://localhost:8081/api/v1/product/"+productName, this.httpOptions);
+  }
+
+  deleteProduct(productName:String)
+  {
+    console.log("from service :"+productName);
+    return this._http.delete<Product>("http://localhost:8081/api/v1/product/"+productName, this.httpOptions);
   }
 
 }

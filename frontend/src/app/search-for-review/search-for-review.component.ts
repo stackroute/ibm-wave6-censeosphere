@@ -26,7 +26,9 @@ export class SearchForReviewComponent implements OnInit {
   score:any;
   reviewerone=new Reviewerone();
   reviewdetails:any;
+
   products : [];
+
   ngOnInit() {
 
 
@@ -108,6 +110,7 @@ export class SearchForReviewComponent implements OnInit {
 
     })
 
+
     
   }
 
@@ -128,3 +131,7 @@ wreview()
   }
 
 }
+
+
+
+

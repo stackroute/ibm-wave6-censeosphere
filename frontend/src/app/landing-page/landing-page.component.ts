@@ -188,11 +188,11 @@ export class LandingPageComponent implements OnInit {
           sessionStorage.setItem('data123', a);
 
           this.showComponent = true;
-          
-      });
+                });
+  } 
      
      
-  }
+  
 
   imageclick(product){
     let a = JSON.stringify(product)

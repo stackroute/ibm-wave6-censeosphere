@@ -13,6 +13,7 @@ import { ReviewComponent } from './review/review.component';
 import { ReviewerdashboardComponent } from './reviewerdashboard/reviewerdashboard.component';
 import { CardComponent } from './card/card.component';
 import { ProductreviewComponent } from './productreview/productreview.component';
+
 const routes: Routes = [  
   { path: '',component:LandingPageComponent},
   {path:'productreview',component:ProductreviewComponent},
@@ -31,10 +32,7 @@ const routes: Routes = [
   {path:'writereview/:emailId',component:ReviewComponent},
   {path:'searchreview',component:SearchForReviewComponent},
   { path:'prodownerupdateprofile/:name/:emailId/:reconfirmPassword',component:ProdownerupdateprofileComponent},
-  {path:'rdashboard',component:ReviewerdashboardComponent},
-//   {path:'',component:LandingPageComponent,pathMatch:'prefix',children:[{
-//     path:'card',component:CardComponent
-// }]},
+  // {path:'rdashboard',component:ReviewerdashboardComponent},
   // { path: '**',component:LandingPageComponent}
   
 

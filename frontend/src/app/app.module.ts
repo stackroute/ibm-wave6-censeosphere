@@ -45,7 +45,8 @@ import { Routes, RouterModule } from '@angular/router';
     ReviewComponent,
     ReviewerdashboardComponent,
     CardComponent,
-    ProductreviewComponent
+    ProductreviewComponent,
+    
 
 
   ],

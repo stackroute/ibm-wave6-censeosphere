@@ -133,4 +133,10 @@ export class ProductreviewComponent implements OnInit {
      
      
   }
+  // When the user clicks anywhere outside of the modal, close it
+  // onClickw(event) {
+  // if (event.target == modal) {
+  //   modal.style.display = "none";
+  // }
+
 }
