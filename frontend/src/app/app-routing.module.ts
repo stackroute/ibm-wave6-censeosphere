@@ -13,7 +13,7 @@ import { ReviewComponent } from './review/review.component';
 import { ReviewerdashboardComponent } from './reviewerdashboard/reviewerdashboard.component';
 import { CardComponent } from './card/card.component';
 import { ProductreviewComponent } from './productreview/productreview.component';
-import { AftersearchinlandingComponent } from './aftersearchinlanding/aftersearchinlanding.component';
+
 const routes: Routes = [  
   { path: '',component:LandingPageComponent},
   {path:'productreview',component:ProductreviewComponent},

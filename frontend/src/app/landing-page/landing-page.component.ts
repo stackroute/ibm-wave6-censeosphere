@@ -23,7 +23,7 @@ export class LandingPageComponent implements OnInit {
   subCategories = [];
   job = "";
   // validatingForm: FormGroup;
-
+  productDetails1 = [];
 
   form=new FormGroup({
     emailId: new FormControl('',[Validators.required,Validators.email]),
@@ -47,6 +47,12 @@ export class LandingPageComponent implements OnInit {
     this.landingpageservice.getRecentProducts().subscribe((data: any) => {
       console.log(data);
       this.productDetails = data;
+    })
+
+
+    this.landingpageservice.getTrendingProducts().subscribe((data: any) => {
+      console.log(data);
+      this.productDetails1 = data;
     })
 
     this.landingpageservice.getAllCategory().subscribe((data: any) => {

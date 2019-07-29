@@ -31,36 +31,36 @@
       </div>
     </mat-sidenav>
  -->
-
+ <div class="container">
   
-    <h4 id="searchheading">Product Details</h4>
-    <hr>
+  <h4 id="searchheading">Product Details</h4>
+  <hr>
 
-    <!-- card start  -->
-<div class="flex-container">
-    <div class="left">
-    <div class="thumb-wrapper">
-      <div class="img-box">
-        <img src="../assets/img/nikon.jpeg" class="img-responsive img-fluid" alt="">
+  <!-- card start  -->
+<div class="flex-container" >
+  <div class="left">
+  <div class="thumb-wrapper">
+    <div class="img-box">
+      <img src="../assets/img/nikon.jpeg" class="img-responsive img-fluid" alt="">
+    </div>
+  </div>
+  </div>
+  <div class="right">
+    <div class="thumb-content">
+      <h4>Nikon D5600</h4>
+      <div class="star-rating">
+        <ul class="list-inline">
+          <li class="list-inline-item"><i class="fa fa-star"></i></li>
+          <li class="list-inline-item"><i class="fa fa-star"></i></li>
+          <li class="list-inline-item"><i class="fa fa-star"></i></li>
+          <li class="list-inline-item"><i class="fa fa-star"></i></li>
+          <li class="list-inline-item"><i class="fa fa-star"></i></li>
+        </ul>
       </div>
+      <p class="item-price"><b>49999</b></p>
+      <h6>2 reviews</h6>
     </div>
-    </div>
-    <div class="right">
-      <div class="thumb-content">
-        <h4>Nikon D5600</h4>
-        <div class="star-rating">
-          <ul class="list-inline">
-            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-          </ul>
-        </div>
-        <p class="item-price"><b>49999</b></p>
-        <h6>2 reviews</h6>
-      </div>
-    </div>
+  </div>
 </div>
 <!--product card end-->
 <br>
@@ -71,6 +71,96 @@
   data-target="#signup1">Write a Review</button>
 </div>
 
+<!--tabbed panel-->
+                
+  <mat-tab-group mat-align-tabs="start">
+<mat-tab label="Reviews">
+
+  <div *ngFor="let review of reviewdetails">
+
+   <div class="tab-content responsive">
+       <div class="tab-pane active" id="home" role="tabpanel">
+
+          <div class="container-fluid">
+
+           <div class="row mt-3">
+            
+            <div class="col-3">
+               <img alt="nikon" src="{{review.image}}" class="w-100"><br><h4>{{review.reviewerEmail}}</h4><br>
+             </div>
+
+             <div class="col-9">
+                         <p class="h4">{{review.reviewTitle}}</p>
+                         <div class="star-rating">
+                             <span class="fa fa-star checked"></span>
+                             <span class="fa fa-star checked"></span>
+                             <span class="fa fa-star checked"></span>
+                             <span class="fa fa-star"></span>
+                             <span class="fa fa-star"></span>
+                             </div>
+               <p>{{review.reviewDescription}}</p>      
+               <div>
+                    <button class="btn-primary" type="button" (click)="yes(review.reviewerEmail)" name="useful">yse??</button>
+                    <button class="btn-primary" type="button" (click)="no(review.reviewerEmail)" name="useful">no??</button>
+              </div>
+            </div>
+           </div>
+      </div>           
+    </div>
+    </div>
+    </div>
+  </mat-tab>
+  
+  <mat-tab label="Specification">
+      <div class="tab-pane" id="profile" role="tabpanel">
+          <div class="container-fluid">
+            <div class="row mt-3">
+              <div class="col-9">
+                <p class="h3">Specification</p>
+                                <ul>
+                                          <li> Brand:	Nikon</li>
+                                          <li> Model:	D5600</li>
+                                          <li>Model Name:	D5600</li>
+                                          <li>  Item Weight:	467 g</li>
+                                          <li> Product Dimensions	7 x 12.4 x 9.7 cm</li>
+                                          <li>  Batteries:	1 Lithium ion batteries required. (included)</li>
+                                          <li>  Item model number:	D5600</li>
+                                          <li>   Resolution:	1920 x 1080</li>
+                                          <li>  Included Components:	Digital Camera D5600 BK In 18-55 VR and 70-300 VR Kit,DK-25 rubber eyecup, BF-1B body cap.</li>
+                                          <li>  Number Of Items:	1</li>
+                                           <li>   Screen Size	:3.2 Inches</li>
+                                           <li>  Optical Zoom	:16.67 X</li>
+                                           <li> Optical Sensor Resolution:	8 Megapixels</li>
+                                           <li>  Video Capture Resolution:	full hd (1920x1080)</li>
+                                           <li>  Batteries Included:	Yes</li>
+                                           <li>  Batteries Required:	Yes</li>
+                                           <li> Battery Cell Composition:	Lithium Ion</li>
+                                           <li> Viewfinder Type:	Optical</li>
+                                           <li>Has Auto Focus:	Yes</li>
+                                           <li>Has Self Timer	:   Yes</li>
+                                </ul>
+                           </div>
+                       </div>
+                  </div>
+               </div>
+  </mat-tab>
+
+  <mat-tab label="Description">
+      <div class="tab-pane" id="messages" role="tabpanel">
+          <div class="container-fluid">
+            <div class="row mt-3">
+              <div class="col">
+                <p class="h3">Description</p>
+                <p>The new D5600 features 24.2 effective megapixels, an EXPEED 4 image-processing engine, and an ISO range of 100-25600 that captures beautiful and vibrant imagery, full HD videos and time-lapse movies even in low light situations. Inspiration also comes easy when you discover new perspectives with the vari-angle LCD monitor and intuitive touch interface with Bluetooth and the Nikon SnapBridge app for automatic transfer of images to your compatible smart devices, the D5600 is perfect for the connected world. </p>
+              </div>
+            </div>
+          </div>
+        </div>
+  </mat-tab>
+
+ </mat-tab-group>
+ <!-- tabbed panel end -->
+</div>
 
   
     <!-- sign up modal window for login -->

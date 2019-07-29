@@ -96,6 +96,8 @@ export class ProductownerdashboardComponent implements OnInit {
    
   deleteProduct(product){
     console.log(product);
+    sessionStorage.removeItem('pdata');
+    sessionStorage.clear();
      this.productService.deleteProduct(product).
      subscribe(data=>{
          console.log("product info : ",data);
