@@ -18,7 +18,7 @@ const helper = new JwtHelperService();
 })
 export class ProductreviewComponent implements OnInit {
   showFiller = false;
-  productDetails = [];
+  products : any;
   categories = [];
   subCategories = [];
   job = "";
@@ -35,16 +35,11 @@ export class ProductreviewComponent implements OnInit {
 
   ngOnInit() {
 
-    // get modalFormDarkEmail() {
-    //   return this.validatingForm.get('modalFormDarkEmail');
-    // }
-  
+    this.products=JSON.parse(sessionStorage.getItem('data'));
     // get modalFormDarkPassword() {
     //   return this.validatingForm.get('modalFormDarkPassword');
     // }
 
-
-    
   }
 
   onClick(role) {
@@ -87,8 +82,7 @@ export class ProductreviewComponent implements OnInit {
 
       })
   }
- 
-
+  
   onclick(rrole) {
     console.log(rrole);
     this.job = rrole;

@@ -123,9 +123,7 @@ footer a:hover{
     color:darkgoldenrod;
     font-size: 18px;
 }
-h5{
-    color:white;
-}
+
 .example-sidenav-container{
     top: 80px;   
 }
@@ -133,28 +131,14 @@ h5{
     background: rgba(170, 167, 167, 0.3);;
     width: 300px; 
 }
-/* 
-.thumb-wrapper {
-    margin-left: 4px;
-    margin-right: 3px;
-	padding: 25px 15px;
-	background: #def2f1;
-	border-radius: 9px;
-	text-align: center;
-	position: relative;
-    box-shadow: 1.5px 1.5px 3px rgba(0,0,0,2.5);
-    width: 300px;
-    color: midnightblue;
-    font-size: 12px;
-} */
 
 .card {
     margin-left: 4px;
     margin-right: 3px;
 	padding: 25px 15px;
-    background: #def2f1;
+    background: url('../../assets/img/i3.jpg') center center no-repeat;
     text-align: center;
-    position: relative;
+    /* position: relative; */
     font-size: 12px;
     width: 300px;
     overflow: hidden;
@@ -186,7 +170,7 @@ h4 {
 }
 
 .item-price {
-	font-size: 13px;
+	/* font-size: 13px; */
 	padding: 2px 0;
 }
 .star-rating li {

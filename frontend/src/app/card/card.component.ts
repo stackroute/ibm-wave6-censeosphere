@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -7,12 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
-  productdetails:any;
+  product:any;
   ngOnInit() {
 
-    this.productdetails=sessionStorage.getItem('data');
-    console.log("in card component"+this.productdetails);
+    this.product=JSON.parse(sessionStorage.getItem('data123'));
+    console.log("in card component"+this.product);
   }
+
+  imageclick(product){
+    let a = JSON.stringify(product)
+    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    console.log("product info in card : "+JSON.stringify(product));
+    sessionStorage.setItem('data', a);
+    this.router.navigateByUrl("/productreview"); 
+   } 
 }

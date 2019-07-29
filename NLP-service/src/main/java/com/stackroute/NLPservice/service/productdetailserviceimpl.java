@@ -154,7 +154,7 @@ public class productdetailserviceimpl implements  Productdetailservice {
         System.out.println("after parse"+nvalue7);
         if(value <5)
         {
-            if( score>=100 &&  score<=400)
+            if( score>=0 &&  score<=400)
             {
                 if(sentiment == "Very negative")
                 {
