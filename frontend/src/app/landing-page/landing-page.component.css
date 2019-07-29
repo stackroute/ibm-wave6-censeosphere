@@ -310,3 +310,7 @@ ul.social-network li {
 #searchbutton a:hover{
       color:midnightblue;
 }
+.onclick{
+    margin-left: 0px;
+    margin-right: 0px;
+}
