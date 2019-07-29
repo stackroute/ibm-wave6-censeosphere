@@ -16,7 +16,7 @@ export class ReviewComponent implements OnInit {
   products: [];
   writereview:Writereview=new Writereview();
   review:any;
-
+  product : [];
  
   
   productDetails: any;
@@ -53,7 +53,7 @@ export class ReviewComponent implements OnInit {
       this.reviews=data;
     })
 
-   
+    this.product=JSON.parse(sessionStorage.getItem('data'));
 
     // this.reviewerDetails();
 
@@ -73,19 +73,12 @@ export class ReviewComponent implements OnInit {
 
     this.writereview.creditpoints=JSON.parse(sessionStorage.getItem('rdata')).creditpoints;
     let family=JSON.parse(sessionStorage.getItem('data')).productFamily;
-
+    let subcategory=this.writereview.subCategory;
     this.reviewService.addReview(this.writereview).
       subscribe(data=>{
         console.log("data stored successfully");
       });
-    // this.recommendationService.getProductByFamily(JSON.parse(sessionStorage.getItem('data')).productFamily).
-    //    subscribe((data:any)=>{
-    //      console.log(data);
-    //      this.productByFamily=data;
-    //      console.log("in product by family variable : ",this.productByFamily);
-    //    });
-
-    // this.router.navigateByUrl("/reviewerdash/"+this.productByFamily);
+  
     this.router.navigateByUrl("/reviewerdash");
   } 
 lpage()
@@ -97,8 +90,11 @@ update()
  this.router.navigateByUrl("/rprofile/name/gmail/reconfirmpassword"); 
 }
 
+account()
 
-
+{
+  this.router.navigateByUrl("/")
+}
 
 // reviewerDetails(){
 //   const emailId=this.route1.snapshot.paramMap.get('emailId');

@@ -9,9 +9,9 @@
     position: fixed;
  }
 
- h5{
+ /* h5{
   color:white;
-}
+} */
  /* .thumb-wrapper {
   margin-left: 200px;
   margin-top: 30px;
@@ -43,9 +43,7 @@
     margin-right:100px;
     
   }
-h5{
-    color: white;
-}
+
   footer
 {   margin-top: 80px;
     padding-top: 25px;
@@ -144,33 +142,15 @@ ul.social-network {
      padding-top: 66px;
      font-size:15px;
  }
-
 #searchheading{
   text-align: center;
   margin-top: 100px;
 }
 #mainbtn{
-  margin-left:680px;
+  margin-left:500px;
 }
 
-/* .left {
-    float: left;
-}
-/* .right {
-    float: right;
-} */ 
-/* .thumb-wrapper {
-    /* margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 30px;
-     padding: 25px 25px;
-     border-radius: 8px;
-     text-align: center;
-     position: relative;
-     box-shadow: 0 2px 3px rgba(0,0,0,0.2);
-     width: 950px; 
-      background-image:url(../../assets/img/header.png);  
- } */
+
  .image{
     background:url('../../assets/img/productd.jpeg') center center no-repeat;
     background-size: cover;
@@ -204,15 +184,12 @@ ul.social-network {
     flex: 1; /* Standard syntax */
     padding: 10px;
 }
-.thumb-wrapper .img-box img{
-    padding-left: 120px;
-    padding-top: 20px;
-}
+
 .thumb-content{
     padding-top: 30px;
 }
 
-/* ul.social-network {
+ul.social-network {
 	list-style: none;
 	display: inline;
 	margin-left:0 !important;
@@ -247,7 +224,7 @@ ul.social-network li {
 	height: 50px;
     font-size:20px;
     margin-right: 30px;
-    // background-color: #D3D3D3; 
+    /*  background-color: #D3D3D3;  */
 } 
 .social-circle li i {
 	margin:0;
@@ -293,14 +270,31 @@ ul.social-network li {
     font-size:15px;
 } 
 
- /* .thumb-wrapper a:hover{
+  .thumb-wrapper a:hover{
     color:rgb(38, 4, 161);
  }
+
  #mainbtn{
     margin-left:480px;
   }
   #searchheading{
     text-align: center;
     margin-top: 100px;
-  } */
+
+  }
+  #reviewimg{
+      height: 150px;
+      width: 250px;
+      border-radius: 50%;
+  }
+  #productimage{
+    height: 300px;
+    width: 450px;
+    padding-left: 0px;
+    padding-top: 0px;
+}
+  
+  
+  
  
+

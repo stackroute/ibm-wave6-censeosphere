@@ -19,6 +19,11 @@ export class LandingpageService {
     return this.http.get('http://localhost:8081/api/v1/recentproducts', this.httpOptions);
   }
 
+  getTrendingProducts()
+  {
+    return this.http.get('http://localhost:8081/api/v1/trendingproducts', this.httpOptions);
+  }
+
   
   getAllProducts(){
     return this.http.get('http://localhost:3000/products', this.httpOptions);

@@ -226,9 +226,7 @@ ul.social-network li {
 #searchbutton a{
     color: white;
 }
-#searchbutton a:hover{
-    color:midnightblue;
-}
+
 #deleteproduct a{
     color: #222930;  
     margin-left: 10px;
@@ -239,4 +237,7 @@ ul.social-network li {
 }
 .col-sm-8{
     padding-left: 200px;
+}
+#searchbutton a i:hover{
+    color:darkgoldenrod;
 }

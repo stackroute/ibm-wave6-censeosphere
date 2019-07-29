@@ -28,5 +28,9 @@ public interface ProductRepository extends Neo4jRepository<Product,String> {
     @Query("MATCH (m:Product),(n:SubCategory) WHERE m.productName={productName} and n.subCategory={subCategory} CREATE (m)-[r:isA]->(n) RETURN m")
     public Product createRelation(@Param("productName")String productName, @Param("subCategory")String subCategory);
 
+    @Query("MATCH (r:Reviewer) WHERE r.emailId={emailId} "+"OPTIONAL MATCH (r)-[:REVIEWS]->(p:Product) "+"OPTIONAL MATCH (p)-[:isA]->(s:SubCategory) WHERE (s.subCategory=p.subCategory) "+"RETURN p")
+    Collection<Product> getProduct(@Param("emailId")String emailId);
+
+
 
 }

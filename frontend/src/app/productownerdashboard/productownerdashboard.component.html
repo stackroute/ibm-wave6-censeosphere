@@ -3,7 +3,7 @@
 <div class="containerbody">
     <nav class="navbar navbar-expand-lg fixed-top">
      
-      <img src="../../assets/img/logo6.png">
+      <img src="../../assets/img/logo14.png">
       <div class="addclass">
       <button type="submit" class="btn btn-outline-light" id="addproduct" (click)="add()" >Add Product</button>
       </div>&nbsp;&nbsp;
@@ -29,24 +29,16 @@
             <div class="input-group">
 
                 <input type="search" class="form-control col-md-6" placeholder="Search products" name="search" id="jumbotroninput">
-                <!-- <div class="input-group-append"> -->
-                   <button class="btn btn-outline-secondary" type="submit" id="searchbutton" (click)="searchproduct(inputsearch.value)">
+
+           
+                   <!-- <button class="btn btn-outline-secondary" type="submit" id="searchbutton" (click)="searchproduct(inputsearch.value)"> -->
+
+               
+                   <button class="btn btn-secondary" type="submit" id="searchbutton" (click)="searchproduct(inputsearch.value)">
+
                       <a href="#"><i class="fa fa-search"></i></a>
                   </button>
-                <!-- </div> -->
-              
               </div>
-
-       <!-- <div class="form-group"> -->
-
-            <!-- <input type="text" placeholder="search productDetails" name="search" class="form-control"
-              id="jumbotroninput"><br> -->
-
-          <!--  <input type="text" placeholder="search products" name="search" class="form-control col-md-3"
-              id="jumbotroninput"> -->
-              <!-- <a href="#"><i class="fa fa-search"></i></a> <br> -->
-
-          <!--</div> -->
         </form>
       </div>
     </div>
@@ -81,14 +73,34 @@
     </div>
     <div class="col-sm-8"> 
       <h5><b>{{product.productName}}</b></h5>
-      <!-- <h6>{{product.rating}}</h6> -->
-     
-      <p class="specification">{{product.specifications}}</p>
-      <p>{{product.description}}</p>
-      <p class="timestamp">{{product.uploadedOn}}</p>
+      <p class="specification"><b>Product Specification : </b>{{product.specifications}}</p>
+      <p><b>Product Description : </b>{{product.description}}</p>
+      <p class="timestamp"><b>Uploaded On : </b>{{product.uploadedOn}}</p>
       <br>
+
       <!-- <button type="submit" class="btn btn-dark" id="editproduct" data-target="#edit">Edit</button> -->
       <button type="submit" ng-click="removeDIV()"class="btn btn-outline-dark" id="deleteproduct" data-target="#delete">Delete</button>
+
+      <button type="submit" class="btn btn-info" id="deleteproduct" data-toggle="modal" data-target="#myModal"
+       (click)="deleteProduct(product.productName)">Delete</button>
+
+       <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+          
+            <div class="modal-body">
+              Deleted Successfully..
+            </div>
+          
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="account()">Close</button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+
    </div>
   </div>
   </div>

@@ -59,6 +59,10 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.createRelation(productName,subCategory);
     }
 
+    @Override
+    public Collection<Product> getProduct(String emailId) {
+        return productRepository.getProduct(emailId);
+    }
 
 
     @RabbitListener(queues="${stackroute.rabbitmq.queuesix}")

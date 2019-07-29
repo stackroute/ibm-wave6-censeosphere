@@ -7,7 +7,7 @@
         <i class="fa fa-bars" aria-hidden="true"></i>
       </button>
     </div>
-    <img src="../../assets/img/logo6.png">
+    <img src="../../assets/img/logo14.png">
     <div class="dropdown">
       <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
        <span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
@@ -23,34 +23,36 @@
 <div class="container">
 <h4 id="reason"><strong>Write a review</strong></h4>
 <hr>
+
 <!-- card start  -->
 <div class="flex-container">
   <div class="left">
-      <div class="thumb-wrapper">
-        <div class="img-box">
-          <img src="../assets/img/nikon.jpeg" class="img-responsive img-fluid" alt="">
-        </div>
-      </div>
+  <div class="thumb-wrapper">
+    <div class="img-box">
+      <img src="./assets/img/{{product.image}}" id="productimage" class="img-responsive img-fluid" alt="image not available">
+    </div>
   </div>
-        <div class="right">
-        <div class="thumb-content">
-          <h4>Nikon D5600</h4>
-          <div class="star-rating">
-            <ul class="list-inline">
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-            </ul>
-          </div>
-          <p class="item-price"><b>49999</b></p>
-          <h6>2 reviews</h6>
+  </div>
+  <div class="right">
+    <div class="thumb-content">
+      <h4><b>{{product.productName}}</b></h4>
+      <div class="star-rating">
+       <h5>{{product.rating}}</h5>
+      </div>
+      <h5 class="item-price">${{product.price}}</h5>
+      
+    <!-- </div>
+  </div> -->
+
+          
         </div>
     </div>
-  
 </div>
 <!--product card end-->
+
+
+
+
 
   <!-- <div class="row" id="prod">
     <div class="col-sm-3"></div>
@@ -93,8 +95,23 @@
       <textarea type="text" class="form-control" #reviewdesc id="review" required> </textarea>
     </div>
 
-    <button type="submit" id="submitit" class="btn btn-outline-dark">Submit Review</button>
-
+    <button type="submit" id="submitit" class="btn btn-outline-dark" data-toggle="modal" 
+    data-target="#myModal">Submit Review</button>
+    <div class="modal fade" data-backdrop="" id="myModal">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+        
+          <div class="modal-body">
+            Reviewed Successfully..
+          </div>
+        
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="account()">Close</button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
   </form>
  </div>
   <!--form end here-->

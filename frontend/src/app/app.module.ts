@@ -46,8 +46,6 @@ import { ProductreviewComponent } from './productreview/productreview.component'
     ReviewerdashboardComponent,
     CardComponent,
     ProductreviewComponent
-    
-
 
   ],
   imports: [
@@ -65,7 +63,8 @@ import { ProductreviewComponent } from './productreview/productreview.component'
     MatSidenavModule,
     ReactiveFormsModule,
     MatTabsModule,
-    Ng2CarouselamosModule
+    Ng2CarouselamosModule,
+    
    
   ],
   providers: [LoginService],

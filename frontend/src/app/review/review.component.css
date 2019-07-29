@@ -26,9 +26,7 @@ nav img{
    margin-right:100px;
    
  }
- h5{
-   color:white;
- }
+ 
 footer
 {
     margin-top: 80px;
@@ -99,7 +97,7 @@ footer a:hover{
 
 .thumb-wrapper a:hover{
    color:rgb(38, 4, 161);
-}
+} */
 .reviewForm {
    margin-top: 25px;
    margin-left: 200px;
@@ -110,16 +108,6 @@ footer a:hover{
    padding: 15px;
 }
 
-/* #prod{
-   margin-top: 120px;
-   text-align: center;
-}
-
-.props{
-   padding-top:20px;
-   text-align: left;
-   font-size: 18px; 
-} */
 .star-rating .checked {
    color: orange;
  }
@@ -208,6 +196,48 @@ footer a:hover{
        padding-top: 66px;
        font-size:15px;
    }
+   #productimage{
+     height: 250px;
+     width: 300px;
+   }
+   
+ .flex-container{
+   width: 950px;
+   border-radius: 8px;
+   min-height: 300px;
+   margin: 0 auto;
+   box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+   display: -webkit-flex; /* Safari */     
+   display: flex; /* Standard syntax */
+   background:url(../../assets/img/header.png);
+}
+
+.flex-container .left{
+   padding: 10px;
+   /* background: #dbdfe5; */
+   -webkit-flex: 1; /* Safari */
+   -ms-flex: 1; /* IE 10 */
+   flex: 1; /* Standard syntax */
+}
+.flex-container .right{
+   /* background: #dbdfe5; */
+   -webkit-flex: 1; /* Safari */
+   -ms-flex: 1; /* IE 10 */
+   flex: 1; /* Standard syntax */
+   padding: 10px;
+}
+
+.thumb-content{
+   padding-top: 30px;
+}
+
+#productimage{
+height: 350px;
+width: 450px;
+padding-left: 0px;
+padding-top: 0px;
+}
+
    .image{
       background:url('../../assets/img/cbgi.jpeg') center center no-repeat;
       background-size: cover;
@@ -217,3 +247,4 @@ footer a:hover{
       padding-top: 20px;
   }
  
+

@@ -24,22 +24,15 @@ const routes: Routes = [
   {path:'reviwerdashboard',component:ReviwerdashComponent},
   {path:'returnlanding',component:LandingPageComponent},
   {path: 'rsearch',component:SearchForReviewComponent},
-  {path: 'nsearch',component:ProductreviewComponent},
   {path:'productownerdashboard/:emailId',component:ProductownerdashboardComponent},
   {path:'productownerdashboard',component:ProductownerdashboardComponent},
   {path:'add-product',component:AddProductComponent},
-  // {path:'reviewerdash/:emailId',component:ReviwerdashComponent}
-  // {path:'reviewerdash/:productByFamily',component:ReviwerdashComponent},
-  {path:'reviewerdash',component:ReviwerdashComponent},
   {path:'reviewerdash',component:ReviwerdashComponent},
   {path:'writereview',component:ReviewComponent},
   {path:'writereview/:emailId',component:ReviewComponent},
   {path:'searchreview',component:SearchForReviewComponent},
   { path:'prodownerupdateprofile/:name/:emailId/:reconfirmPassword',component:ProdownerupdateprofileComponent},
-  {path:'rdashboard',component:ReviewerdashboardComponent},
-  {path:'',component:ReviwerdashComponent,pathMatch:'prefix',children:[{
-    path:'card',component:CardComponent
-  }]},
+  // {path:'rdashboard',component:ReviewerdashboardComponent},
   // { path: '**',component:LandingPageComponent}
   
 
