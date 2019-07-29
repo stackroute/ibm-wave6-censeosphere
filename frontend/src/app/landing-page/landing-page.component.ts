@@ -25,6 +25,9 @@ export class LandingPageComponent implements OnInit {
   showComponent:any;
   // validatingForm: FormGroup;
 
+  productDetails1 = [];
+
+
   route: ActivatedRoute;
 
   form=new FormGroup({
@@ -49,6 +52,12 @@ export class LandingPageComponent implements OnInit {
     this.landingpageservice.getRecentProducts().subscribe((data: any) => {
       console.log(data);
       this.productDetails = data;
+    })
+
+
+    this.landingpageservice.getTrendingProducts().subscribe((data: any) => {
+      console.log(data);
+      this.productDetails1 = data;
     })
 
     this.landingpageservice.getAllCategory().subscribe((data: any) => {

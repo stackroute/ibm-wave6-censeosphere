@@ -36,7 +36,7 @@ body {
 }
 .jumbotron{
    height: 500px;
-   background: url('../../assets/img/new.jpg') center center no-repeat;
+   background: url('../../assets/img/rdash.jpeg') center center no-repeat;
     background-size: 100%;
 }
 #jumbotroninput{
@@ -221,6 +221,6 @@ h4 {
   #searchbutton a{
       color: white;
   }
-#searchbutton a:hover{
-      color:midnightblue;
+#searchbutton a i:hover{
+      color:darkgoldenrod;
 }

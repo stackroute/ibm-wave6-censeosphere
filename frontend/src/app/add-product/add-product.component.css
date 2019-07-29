@@ -160,3 +160,7 @@ ul.social-network li {
     padding-top: 66px;
     font-size:15px;
 }
+.image{
+    background:url('../../assets/img/addprod2.jpeg') center center no-repeat;
+    background-size: cover;
+ }

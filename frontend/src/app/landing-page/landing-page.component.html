@@ -1,15 +1,17 @@
 <!-- header -->
 <div class="containerbody">
-    <nav class="navbar navbar-expand-lg fixed-top">
-      <div class="example-sidenav-content">
-        <button id="sidebar" class="hamburger mat-button" mat-button (click)="snav.toggle()" style="color: white">
-          <i class="fa fa-bars" aria-hidden="true"></i>
-        </button>
-      </div>
-      <img src="../../assets/img/logo6.png">
-      <button class="btn btn-outline-light" data-toggle="modal" href="#signup" id="login">Login</button>
-    </nav>
-  </div>
+
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="example-sidenav-content">
+      <button id="sidebar" class="hamburger mat-button" mat-button (click)="snav.toggle()" style="color: white">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </button>
+    </div>
+    <img src="../../assets/img/logo14.png">
+    <button class="btn btn-outline-light" data-toggle="modal" href="#signup" id="login">Login</button>
+  </nav>
+</div>
+
   <!-- end header -->
   <!-- side bar container -->
   <mat-sidenav-container class="example-sidenav-container">
@@ -26,28 +28,36 @@
         </mat-nav-list>
       </div>
     </mat-sidenav>
-    
-    <!-- jumbotron start -->
-    <div class="jumbotron jumbotron-fluid text-center">
-      <div class="container">
-        <h1 id="jumbotronheading"><b>India's Largest Review Platform</b></h1>
-        <form >
-          <div class="form-group">
-            <input type="search" #inputsearch placeholder="search here to write a review" name="search" class="form-control col-md-3" id="jumbotroninput" >
-              <button type="submit" class="btn btn-outline-light" id="searchbutton" (click)="searchproductL(inputsearch.value)"><a href="#"><i class="fa fa-search"></i></a></button> <br>
-            <button type="submit" class="btn btn-outline-light" id="reviewbutton"
-             data-toggle="modal" #rrole value="reviewer" (click)="onclick(rrole.value)"
-              data-target="#signup1">Write a Review</button>&nbsp;
-            <button type="submit" class="btn btn-outline-light" id="productbutton" data-toggle="modal" #prole value="product-owner" (click)="onclick1(prole.value)"
-              data-target="#signup2">Post a Product</button>
-          </div>
-        </form>
-      </div>
-    </div>
-    <!-- end jumbotron -->
   
-    <div class="onclick">
-    <app-card *ngIf="showComponent"></app-card>
+
+  <!-- jumbotron start -->
+  <div class="jumbotron jumbotron-fluid text-center">
+    <div class="container">
+      <h1 id="jumbotronheading"><b>India's Largest Review Platform</b></h1>
+      <form >
+              <div class="input-group">
+
+                <input type="search" #inputsearch class="form-control col-md-6" placeholder="Search here" name="search" id="jumbotroninput">
+               
+                   <button class="btn btn-secondary" type="submit" id="searchbutton" (click)="searchproductL(inputsearch.value)">
+                      <a href="#"><i class="fa fa-search"></i></a>
+                   </button><br>
+                  </div>
+                   <button type="submit" class="btn btn-outline-light" id="reviewbutton"
+                   data-toggle="modal" #rrole value="reviewer" (click)="onclick(rrole.value)"
+                    data-target="#signup1">Write a Review</button>&nbsp;
+                  <button type="submit" class="btn btn-outline-light" id="productbutton" data-toggle="modal" #prole value="product-owner" (click)="onclick1(prole.value)"
+                    data-target="#signup2">Post a Product</button>
+                  
+      </form>
+      </div>
+      </div>
+              
+
+
+<div class="onclick">
+
+<app-card *ngIf="showComponent"></app-card>
   </div>
   
     <!--  start carousel for recent productDetails -->
@@ -67,22 +77,23 @@
   
       <ng-template #product let-product let-i="index">
         <div class="productDetails">
-          <!-- <div class="thumb-wrapper"> -->
+          
               <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
                   <div class="card">
             <div class="img-box">
   
               <img src="./assets/img/{{product.image}}" class="img-responsive img-fluid" alt="Image not available" (click)="imageclick(product)">
+
               
             </div>
-            <!-- <div class="thumb-content"> -->
-                <div class="card-block">
+      <div class="card-block">
               <h4><b>{{product.productName}}</b></h4>
               <div class="star-rating">
                 <h5>{{product.rating}}</h5>
               </div>
+
               <h5 class="item-price">${{product.price}}</h5>
-          
+        
             </div>
           </div>
         </div>
@@ -108,26 +119,28 @@
   
       <ng-template #product let-product let-i="index">
         <div class="productDetails">
-          <!-- <div class="thumb-wrapper"> -->
+       
               <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
                   <div class="card">
             <div class="img-box">
               <img src="./assets/img/{{product.image}}" class="img-responsive img-fluid" alt="Image not available" (click)="imageclick(product)">
             </div>
-            <!-- <div class="thumb-content"> -->
+            
                 <div class="card-block">
               <h4><b>{{product.productName}}</b></h4>
               <div class="star-rating">
                 <h5>{{product.rating}}</h5>
+
               </div>
               <h5 class="item-price">${{product.price}}</h5>
-              
             </div>
           </div>
         </div>
+
         </div>
       </ng-template>
     </div>
+
     <!-- end carousel for recent reviews -->
   
     <!-- sign up modal window for login -->
@@ -262,6 +275,7 @@
           <!-- <img style="margin-top: 20px; height:100px;width: 50px;" class="card-img-top" src="assets/img/logo5.png" alt="image"> -->
         <h2 style="color: white"><strong>CenseoSphere</strong></h2>
         <a href="#" style='font-size:24px'><i class='fas fa-home'></i></a>
+
         </div>
         <!-- Grid column -->
   

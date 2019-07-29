@@ -26,6 +26,7 @@ import { ReviewerdashboardComponent } from './reviewerdashboard/reviewerdashboar
 import { CardComponent } from './card/card.component';
 import { ProductreviewComponent } from './productreview/productreview.component';
 import { Routes, RouterModule } from '@angular/router';
+
 // import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 
@@ -45,9 +46,7 @@ import { Routes, RouterModule } from '@angular/router';
     ReviewComponent,
     ReviewerdashboardComponent,
     CardComponent,
-    ProductreviewComponent,
-    
-
+    ProductreviewComponent
 
   ],
   imports: [

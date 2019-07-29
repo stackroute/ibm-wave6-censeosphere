@@ -36,7 +36,10 @@ export class ProductreviewComponent implements OnInit {
   ngOnInit() {
 
     this.products=JSON.parse(sessionStorage.getItem('data'));
-  
+    // get modalFormDarkPassword() {
+    //   return this.validatingForm.get('modalFormDarkPassword');
+    // }
+
   }
 
   onClick(role) {
