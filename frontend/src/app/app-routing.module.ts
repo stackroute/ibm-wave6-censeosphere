@@ -13,6 +13,7 @@ import { ReviewComponent } from './review/review.component';
 import { ReviewerdashboardComponent } from './reviewerdashboard/reviewerdashboard.component';
 import { CardComponent } from './card/card.component';
 import { ProductreviewComponent } from './productreview/productreview.component';
+
 const routes: Routes = [  
   { path: '',component:LandingPageComponent},
   {path:'productreview',component:ProductreviewComponent},
@@ -26,18 +27,12 @@ const routes: Routes = [
   {path:'productownerdashboard/:emailId',component:ProductownerdashboardComponent},
   {path:'productownerdashboard',component:ProductownerdashboardComponent},
   {path:'add-product',component:AddProductComponent},
-  // {path:'reviewerdash/:emailId',component:ReviwerdashComponent}
-  // {path:'reviewerdash/:productByFamily',component:ReviwerdashComponent},
-  {path:'reviewerdash',component:ReviwerdashComponent},
   {path:'reviewerdash',component:ReviwerdashComponent},
   {path:'writereview',component:ReviewComponent},
   {path:'writereview/:emailId',component:ReviewComponent},
   {path:'searchreview',component:SearchForReviewComponent},
   { path:'prodownerupdateprofile/:name/:emailId/:reconfirmPassword',component:ProdownerupdateprofileComponent},
-  {path:'rdashboard',component:ReviewerdashboardComponent},
-  {path:'',component:ReviwerdashComponent,pathMatch:'prefix',children:[{
-    path:'card',component:CardComponent
-  }]},
+  // {path:'rdashboard',component:ReviewerdashboardComponent},
   // { path: '**',component:LandingPageComponent}
   
 

@@ -4,4 +4,5 @@ export class UpdateProfile {
     image:String;
     role:String;
     reconfirmPassword:String;
-}
+    creditpoints:Number;
+   }

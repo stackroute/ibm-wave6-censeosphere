@@ -13,21 +13,22 @@ import { ReviewService } from '../review.service';
 export class SearchForReviewComponent implements OnInit {
   reviews = [];
 
-  // constructor(private router:Router, private searchforreview:SearchForReviewService,private activatedRoute:ActivatedRoute) { }
+  
   productName="";
   price="";
   reviewedOn="";
 
   constructor(private router:Router, private searchforreview:SearchForReviewService,private activatedRoute:ActivatedRoute,private reviewerdetail:ReviewerdetailsService,private  reviewService:ReviewService) { }
-  // productName="";
-  // price="";
-  // reviewedOn="";
+  
   revieweremail="";
   reviewerinfo:any;
   productname="";
   score:any;
   reviewerone=new Reviewerone();
   reviewdetails:any;
+
+  products : [];
+
   ngOnInit() {
 
 
@@ -46,38 +47,15 @@ export class SearchForReviewComponent implements OnInit {
        console.log("reviewer data in search component"+JSON.stringify(this.reviewerinfo));
     })
     
-  //  this.searchforreview.getAllReviews().subscribe((data:any) =>{
-  //   console.log(data);
-  //   this.reviews=data;
-  // })
-
     this.reviewService.getAllReviewsbyName(this.productname).subscribe((data:any) => {
     console.log("review details in search"+JSON.stringify(data));
     this.reviewdetails=data;
     console.log(JSON.stringify(this.reviewdetails));
-    
-  //  this.searchforreview.getAllReviews().subscribe((data:any) =>{
-  //   console.log(data);
-  //   this.reviews=data;
+  });
 
-  })
-}
-  // wreview()
-  // {
-//   }
-
-  
-  // ngOnInit() {
-  //   this.searchforreview.getAllReviews().subscribe((data:any) =>{
-  //     console.log(data);
-  //     this.reviews=data;
-  //   })
-  // }
-
+  this.products=JSON.parse(sessionStorage.getItem('data'));
  
-
-
-
+}
   yes(email)
   {
 
@@ -137,17 +115,23 @@ export class SearchForReviewComponent implements OnInit {
   }
 
 wreview()
-{
+    {
+  
       this.router.navigateByUrl("/writereview");
 
+  }
+
+  update()
+  {
+   this.router.navigateByUrl("/rprofile/name/gmail/reconfirmpassword"); 
+  }
+  lpage()
+  {
+   this.router.navigateByUrl("/"); 
+  }
 
 }
 
 
-// wreview()
-//     {
 
-//       this.router.navigateByUrl("/writereview");
 
-// }
-}  

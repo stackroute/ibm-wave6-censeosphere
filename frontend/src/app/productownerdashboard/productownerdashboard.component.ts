@@ -4,6 +4,7 @@ import { ProdownerserviceService } from '../prodownerservice.service';
 import { LandingpageService } from '../landingpage.service';
 import {Reviewer} from '../reviewer'
 import { UpdateProfileService } from '../update-profile.service';
+import { ProductService } from '../product.service';
 //import { getMaxListeners } from 'cluster';
 
 
@@ -25,7 +26,8 @@ export class ProductownerdashboardComponent implements OnInit {
 
   reviewer;
   constructor(private updates:UpdateProfileService,private route1:ActivatedRoute,
-    private router:Router,private prodownerservice:ProdownerserviceService,private landingpageservice:LandingpageService) { }
+    private router:Router,private prodownerservice:ProdownerserviceService,
+    private landingpageservice:LandingpageService,private productService:ProductService) { }
  
 
 
@@ -92,8 +94,19 @@ export class ProductownerdashboardComponent implements OnInit {
     });
    }
    
+  deleteProduct(product){
+    console.log(product);
+    sessionStorage.removeItem('pdata');
+    sessionStorage.clear();
+     this.productService.deleteProduct(product).
+     subscribe(data=>{
+         console.log("product info : ",data);
+     });
     
-    
-
+    }
+    account()
+    {
+      this.router.navigateByUrl("/productownerdashboard");
+    }
 
 }

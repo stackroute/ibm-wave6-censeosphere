@@ -22,4 +22,5 @@ public interface ProductService {
 
     public Product saveRelation(String productName,String subCategory);
 
+    Collection<Product> getProduct(String emailId);
 }
