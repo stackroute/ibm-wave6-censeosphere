@@ -72,7 +72,7 @@ label{
 }
 .jumbotron{
     height: 500px;
-    background: url('../../assets/img/den.png');
+    background: url('../../assets/img/landing.jpg');
     /* width: 100%; */
 }
 #jumbotroninput{
@@ -323,6 +323,6 @@ ul.social-network li {
   #searchbutton a{
       color: white;
   }
-#searchbutton a:hover{
-      color:midnightblue;
+#searchbutton a i:hover{
+      color:darkgoldenrod;
 }

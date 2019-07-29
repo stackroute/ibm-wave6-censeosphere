@@ -225,6 +225,6 @@ ul.social-network li {
 #searchbutton a{
     color: white;
 }
-#searchbutton a:hover{
-    color:midnightblue;
+#searchbutton a i:hover{
+    color:darkgoldenrod;
 }
