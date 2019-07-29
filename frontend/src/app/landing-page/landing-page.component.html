@@ -29,6 +29,7 @@
       </div>
     </mat-sidenav>
   
+
   <!-- jumbotron start -->
   <div class="jumbotron jumbotron-fluid text-center">
     <div class="container">
@@ -38,9 +39,9 @@
 
                 <input type="search" #inputsearch class="form-control col-md-6" placeholder="Search here" name="search" id="jumbotroninput">
                
-                   <button class="btn btn-secondary" type="submit" id="searchbutton" (click)="searchproduct(inputsearch.value)">
+                   <button class="btn btn-secondary" type="submit" id="searchbutton" (click)="searchproductL(inputsearch.value)">
                       <a href="#"><i class="fa fa-search"></i></a>
-                  </button>
+                   </button><br>
                   </div>
                   <button type="submit" class="btn btn-outline-light" id="reviewbutton" data-toggle="modal" #rrole value="reviewer" (click)="onclick(rrole.value)"
                   data-target="#signup1">Write a Review</button>&nbsp;
@@ -50,8 +51,12 @@
       </div>
       </div>
               
-    <app-card *ngIf="showComponent"></app-card>
-  
+
+
+<div class="onclick">
+
+<app-card *ngIf="showComponent"></app-card>
+  </div>
   
     <!--  start carousel for recent productDetails -->
     <div id="container">

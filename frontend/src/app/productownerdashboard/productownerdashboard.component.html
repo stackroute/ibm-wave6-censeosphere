@@ -28,12 +28,15 @@
             <div class="input-group">
 
                 <input type="search" class="form-control col-md-6" placeholder="Search products" name="search" id="jumbotroninput">
-                <!-- <div class="input-group-append"> -->
+
+           
+                   <!-- <button class="btn btn-outline-secondary" type="submit" id="searchbutton" (click)="searchproduct(inputsearch.value)"> -->
+
+               
                    <button class="btn btn-secondary" type="submit" id="searchbutton" (click)="searchproduct(inputsearch.value)">
+
                       <a href="#"><i class="fa fa-search"></i></a>
                   </button>
-                <!-- </div> -->
-              
               </div>
         </form>
       </div>
@@ -69,13 +72,10 @@
     </div>
     <div class="col-sm-8"> 
       <h5><b>{{product.productName}}</b></h5>
-      <!-- <h6>{{product.rating}}</h6> -->
-     
-      <p class="specification">{{product.specifications}}</p>
-      <p>{{product.description}}</p>
-      <p class="timestamp">{{product.uploadedOn}}</p>
+      <p class="specification"><b>Product Specification : </b>{{product.specifications}}</p>
+      <p><b>Product Description : </b>{{product.description}}</p>
+      <p class="timestamp"><b>Uploaded On : </b>{{product.uploadedOn}}</p>
       <br>
-      <!-- <button type="submit" class="btn btn-info" id="editproduct" data-target="#edit">Edit</button> -->
       <button type="submit" class="btn btn-info" id="deleteproduct" data-toggle="modal" data-target="#myModal"
        (click)="deleteProduct(product.productName)">Delete</button>
 
