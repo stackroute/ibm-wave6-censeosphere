@@ -241,3 +241,7 @@ ul.social-network li {
 #searchbutton a i:hover{
     color:darkgoldenrod;
 }
+hr.side {
+    border:solid;
+    border-width: 1px;
+}

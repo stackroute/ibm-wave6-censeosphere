@@ -24,7 +24,7 @@
 <div class="container">
   
     <h4 id="searchheading">Product Details</h4>
-    <hr>
+    <hr class="side">
 
     <!-- card start  -->
 <div class="flex-container" >
@@ -78,8 +78,12 @@
                                <p class="h4">{{review.reviewTitle}}</p>
                      <p>{{review.reviewDescription}}</p>      
                      <div>
-                          <button class="btn-primary" type="button" (click)="yes(review.reviewerEmail)" name="useful">yse??</button>
-                          <button class="btn-primary" type="button" (click)="no(review.reviewerEmail)" name="useful">no??</button>
+                          <!-- <button class="btn-primary" type="button" (click)="yes(review.reviewerEmail)" name="useful">yse??</button>
+                          <button class="btn-primary" type="button" (click)="no(review.reviewerEmail)" name="useful">no??</button> -->
+
+                    <strong>Was this helpful??</strong>
+                      <button class="btn btn-light" type="button" (click)="yes(review.reviewerEmail)" name="useful"><i class="fas fa-thumbs-up"> YES</i></button>
+                      <button class="btn btn-light" type="button" (click)="no(review.reviewerEmail)" name="useful"><i class="fas fa-thumbs-down">NO</i></button>
                     </div>
                   </div>
                  </div>
@@ -207,8 +211,7 @@
           </div>
           <!-- Footer links -->
         
-          <hr>
-      
+          <hr class="side">      
           <!-- Grid row -->
           <div class="row d-flex align-items-center">
       
