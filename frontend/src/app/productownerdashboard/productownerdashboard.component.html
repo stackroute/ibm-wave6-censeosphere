@@ -1,3 +1,4 @@
+
 <!-- header -->
 <div class="containerbody">
     <nav class="navbar navbar-expand-lg fixed-top">
@@ -56,7 +57,7 @@
   <h3>My Products</h3>
   <hr>
   <div *ngFor="let product of listofproducts">
-  <div class="row d-outline-block">
+  <div id="div2" class="row d-outline-block">
     <div class="col-sm-4">
         <div class="thumb-wrapper">
             <div class="img-box">
@@ -86,8 +87,8 @@
       <p>{{product.description}}</p>
       <p class="timestamp">{{product.uploadedOn}}</p>
       <br>
-      <button type="submit" class="btn btn-info" id="editproduct" data-target="#edit">Edit</button>
-      <button type="submit" class="btn btn-info" id="deleteproduct" data-target="#delete">Delete</button>
+      <!-- <button type="submit" class="btn btn-dark" id="editproduct" data-target="#edit">Edit</button> -->
+      <button type="submit" ng-click="removeDIV()"class="btn btn-outline-dark" id="deleteproduct" data-target="#delete">Delete</button>
    </div>
   </div>
   </div>

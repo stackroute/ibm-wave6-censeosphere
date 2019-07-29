@@ -54,7 +54,7 @@ public class ProductSearchController {
         return new ResponseEntity<List<ProductDetails>>(productSearchService.getAllProducts(), HttpStatus.OK);
     }
 
-    @DeleteMapping("product/{productName}")
+    @DeleteMapping("products/{productName}")
     public ResponseEntity<?> deleteProduct(@PathVariable("productName") String productName) {
         //return new ResponseEntity<String>(trackService.deleteTrack(id),HttpStatus.OK);
 

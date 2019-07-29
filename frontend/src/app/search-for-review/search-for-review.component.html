@@ -127,8 +127,12 @@
                                </div>
                  <p>{{review.reviewDescription}}</p>      
                  <div>
-                      <button class="btn-primary" type="button" (click)="yes(review.reviewerEmail)" name="useful">yse??</button>
-                      <button class="btn-primary" type="button" (click)="no(review.reviewerEmail)" name="useful">no??</button>
+
+                    <strong>Was this helpful??</strong>
+                    <button class="btn btn-light" type="button" (click)="yes(review.reviewerEmail)" name="useful"><i class="fas fa-thumbs-up"> YES</i></button>
+                    <button class="btn btn-light" type="button" (click)="no(review.reviewerEmail)" name="useful"><i class="fas fa-thumbs-down">NO</i></button>
+                      <!-- <button class="btn-primary" type="button" (click)="yes(review.reviewerEmail)" name="useful">yse??</button>
+                      <button class="btn-primary" type="button" (click)="no(review.reviewerEmail)" name="useful">no??</button> -->
                 </div>
               </div>
              </div>

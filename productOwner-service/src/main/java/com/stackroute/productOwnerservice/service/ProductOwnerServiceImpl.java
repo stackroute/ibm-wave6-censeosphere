@@ -131,6 +131,33 @@ public class ProductOwnerServiceImpl implements ProductOwnerService {
         rabbitTemplate.convertAndSend(exchange, routingkeytwo, productOwnerDTO);
         System.out.println("Send msg = " + productOwnerDTO.toString());
     }
+    @RabbitListener(queues="${stackroute.rabbitmq.queuenine}")
+    public  void recieveRemove(ProductDetails productDetails)
+    {
+        System.out.println("recieved msg from delete function = " + productDetails.toString());
+        System.out.println(productDetails);
+        Optional optional;
+        ProductOwner productOwner1;
+        optional=productownerRepository.findById(productDetails.getAddedby());
+        List<ProductDetails> myproducts;
+        if(optional.isPresent())
+        {
+            System.out.println("hai");
+            productOwner1=productownerRepository.findById(productDetails.getAddedby()).get();
+            System.out.println("Reviewer 1:"+productOwner1);
+
+            myproducts =productOwner1.getProductsadded();
+            System.out.println("list "+myproducts);
+//            myproducts=new ArrayList<>();
+            myproducts.remove(productDetails);
+            for (int i = 0; i < myproducts.size(); i++) {
+                System.out.println("inside list"+myproducts.get(i));
+            }
+            productOwner1.setProductsadded(myproducts);
+            System.out.println(productOwner1);
+            productownerRepository.save(productOwner1);
+        }
+    }
 
 
     @RabbitListener(queues="${stackroute.rabbitmq.queuefour}")

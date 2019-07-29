@@ -1,9 +1,8 @@
-package com.stackroute.NLPservice.Domain;
+package com.stackroute.productsearchservice.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.stackroute.NLPservice.dto.ProductRatingDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,8 +14,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "productrating")
-@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@id", scope = ProductRating.class)
 public class ProductRating {
 
     @Id

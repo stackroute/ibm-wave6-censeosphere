@@ -82,22 +82,23 @@ footer a:hover{
     color: darkgoldenrod;
     font-size: 18px;
 }
-#deleteproduct{
-    margin-left: 10px;
-}
+
 .thumb-wrapper {
 	padding: 25px 15px;
 	background: #def2f1;
 	border-radius: 6px;
 	text-align: center;
 	position: relative;
-	box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+    background-image: url(../../assets/img/cardbg.jpeg);
+
 }
 .img-box {
 	height: 120px;
 	margin-bottom: 20px;
 	width: 100%;
-	position: relative;
+    position: relative;
+
 }
  .img-box img {	
 	max-width: 100%;
@@ -107,7 +108,7 @@ footer a:hover{
 	bottom: 0;
 	margin: 0 auto;
 	left: 0;
-	right: 0;
+    right: 0;
 }
 h4 {
 	font-size: 18px;
@@ -227,4 +228,15 @@ ul.social-network li {
 }
 #searchbutton a:hover{
     color:midnightblue;
+}
+#deleteproduct a{
+    color: #222930;  
+    margin-left: 10px;
+  
+}
+#deleteproduct a:hover{
+    color:white;
+}
+.col-sm-8{
+    padding-left: 200px;
 }

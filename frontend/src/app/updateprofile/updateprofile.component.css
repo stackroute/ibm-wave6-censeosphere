@@ -66,6 +66,7 @@ nav img{
   box-shadow: 1.5px 1.5px 3px rgba(0,0,0,2.5);
   width: 300px;
   color: midnightblue;
+  background-image: url(../../assets/img/cardbg.jpeg);
 }
 .img-box {
 	height: 120px;
@@ -230,4 +231,7 @@ ul.social-network li {
 }
 #uploadbutton{
   margin-top: 20px;
+}
+.col-sm-8{
+  padding-left: 200px;
 }

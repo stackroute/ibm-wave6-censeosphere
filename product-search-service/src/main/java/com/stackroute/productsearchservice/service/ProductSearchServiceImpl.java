@@ -1,10 +1,12 @@
 package com.stackroute.productsearchservice.service;
 
 import com.stackroute.productsearchservice.dto.ProductDTO;
+import com.stackroute.productsearchservice.dto.ProductRating;
 import com.stackroute.productsearchservice.exception.ProductAlreadyExistsException;
 import com.stackroute.productsearchservice.exception.ProductNotFoundException;
 import com.stackroute.productsearchservice.domain.ProductDetails;
 import com.stackroute.productsearchservice.repository.ProductSearchRepository;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,8 +23,10 @@ public class ProductSearchServiceImpl implements ProductSearchService {
     @Autowired
     private ProductSearchRepository productSearchRepository;
 
+
     @Autowired
     private RabbitTemplate rabbitTemplate;
+
 
     @Value("${stackroute.rabbitmq.exchange}")
     private String exchange;
@@ -34,8 +38,14 @@ public class ProductSearchServiceImpl implements ProductSearchService {
     @Value("${stackroute.rabbitmq.routingkeysix}")
     private String routingkeysix;
 
+    @Value("${stackroute.rabbitmq.routingkeynine}")
+    private String routingkeynine;
 
-    ProductDetails productDetails1;
+
+    private ProductDetails productDetails1;
+    private ProductDetails productDetails2;
+    private ProductDetails productDetails3;
+
 
     @Autowired
     public ProductSearchServiceImpl(ProductSearchRepository productSearchRepository)
@@ -72,9 +82,14 @@ public class ProductSearchServiceImpl implements ProductSearchService {
 
     @Override
     public ProductDetails deleteProduct(String productName) throws ProductNotFoundException {
-        if(productSearchRepository.existsById(productName))
+//        Optional optional=productSearchRepository.findById(productName);
+
+        if (productSearchRepository.existsById(productName))
         {
+            System.out.println("Hiii");
+            productDetails3=productSearchRepository.findById(productName).get();
             productSearchRepository.deleteById(productName);
+            sendRemove(productDetails3);
         }
         else
         {
@@ -106,15 +121,15 @@ public class ProductSearchServiceImpl implements ProductSearchService {
          Optional optional=null;
          optional=productSearchRepository.findById(productName);
          if(optional.isPresent())
-        {
+          {
 
             productDetails1=productSearchRepository.findById(productName).get();
 
-        }
+          }
         else
-        {
+          {
             throw new ProductNotFoundException("Details not found");
-        }
+          }
 
         return productDetails1;
     }
@@ -146,10 +161,29 @@ public class ProductSearchServiceImpl implements ProductSearchService {
         System.out.println("inside send");
         rabbitTemplate.convertAndSend(exchange, routingkeysix,productDTO);
         System.out.println("Send msg = " + productDTO.toString());
+    }
 
+    @Override
+    public void sendRemove(ProductDetails productDetails) {
 
+        rabbitTemplate.convertAndSend(exchange, routingkeynine,productDetails);
+        System.out.println("Send msg = " + productDetails.toString());
 
     }
 
+    @RabbitListener(queues="${stackroute.rabbitmq.queueeight}")
+    public void  recieveRating(ProductRating productRating) {
 
+            System.out.println("recieved msg  from nlpservice= " + productRating.toString());
+            Optional optional;
+            optional = productSearchRepository.findById(productRating.getProductName());
+            System.out.println(optional);
+            if (optional != null)
+             {
+                productDetails2 = productSearchRepository.findById(productRating.getProductName()).get();
+                productDetails2.setRating(productRating.getRating());
+                productSearchRepository.save(productDetails2);
+
+              }
+     }
 }
