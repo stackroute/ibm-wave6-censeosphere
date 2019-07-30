@@ -22,7 +22,7 @@ public interface ReviewerRepository extends Neo4jRepository<Reviewer,String> {
     public Reviewer deleteNode(String emailId);
 
     @Query("MATCH (r:Reviewer) WHERE r.emailId={emailId} RETURN r")
-    public Reviewer getNode(@Param("studentName") String emailId);
+    public Reviewer getNode(@Param("emailId") String emailId);
 
     @Query("MATCH (a:Reviewer),(b:Product) WHERE a.emailId={emailId} and b.productName={productName} CREATE (a)-[r:REVIEWS]->(b) RETURN a")
     public Reviewer createRelation(@Param("emailId")String emailId, @Param("productName")String  productName);

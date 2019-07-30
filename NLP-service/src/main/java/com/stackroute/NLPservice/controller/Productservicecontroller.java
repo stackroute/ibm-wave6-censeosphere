@@ -32,23 +32,5 @@ public class Productservicecontroller {
              responseEntity=new ResponseEntity<String>( "successfully created", HttpStatus.CREATED);
              return  responseEntity;
         }
-        @GetMapping("/ratings")
-        public ResponseEntity<?> getAllRatings()
-        {
-            return  new ResponseEntity<List<ProductRating>>(productdetailservice.getAllRatings(),HttpStatus.OK);
-        }
-
-//        @PostMapping("analysis/{{productName}}/{{review}}")
-//        public ResponseEntity<?> getSentiment(@PathVariable("productName") String productName,@PathVariable("review") String review)
-//        {
-//            ResponseEntity responseEntity;
-//            int sentiments=productdetailservice.findSentiment(productName,review);
-//            String sentiment=productdetailservice.sentimentResult(sentiments);
-//            int rating=productdetailservice.generateRating(sentiment,productRating.getRating());
-//            System.out.println(rating);
-//            responseEntity=new ResponseEntity<Integer>(rating,HttpStatus.OK);
-//            return  responseEntity;
-//        }
-
 
 }

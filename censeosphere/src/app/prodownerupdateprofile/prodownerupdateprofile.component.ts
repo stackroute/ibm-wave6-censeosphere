@@ -39,7 +39,7 @@ export class ProdownerupdateprofileComponent implements OnInit {
    });
 
   //  console.log(JSON.parse(sessionStorage.getItem("data")))
-  this.productOwner=JSON.parse(sessionStorage.getItem("data"));
+  this.productOwner=JSON.parse(sessionStorage.getItem("pdata"));
   console.log(this.productOwner);
   }
    

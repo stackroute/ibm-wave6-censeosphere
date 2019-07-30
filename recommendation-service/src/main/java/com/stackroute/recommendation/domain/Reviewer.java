@@ -15,7 +15,7 @@ import java.util.List;
 @NodeEntity
 public class Reviewer {
     @Id
-    private String emailId;
+    public String emailId;
     private String productName;
 
 

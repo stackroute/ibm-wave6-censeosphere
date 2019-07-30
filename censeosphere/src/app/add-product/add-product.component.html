@@ -1,14 +1,16 @@
 <!-- header -->
-
+<div class="image">
   <nav class="navbar navbar-expand-lg fixed-top">
-    <img src="../../assets/img/logo6.png">
+    <img src="../../assets/img/logo14.png">
     <div class="dropdown">
       <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-       <span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
+        <span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
       </a>
       <ul id="drop" class="dropdown-menu">
-       <li><button class="dropdown-item" (click)="update()" ><span><i class="fa fa-refresh"></i></span>  Update profile</button></li>
-       <li><button class="dropdown-item" (click)="lpage()" ><span><i class="fa fa-power-off"></i></span> Log out</button></li>
+        <li><button class="dropdown-item" (click)="update()"><span><i class="fa fa-refresh"></i></span> Update
+            profile</button></li>
+        <li><button class="dropdown-item" (click)="lpage()"><span><i class="fa fa-power-off"></i></span> Log
+            out</button></li>
       </ul>
     </div>
   </nav>
@@ -16,253 +18,248 @@
   <div class="container" id="main">
     <br>
       <h2>Add a Product</h2> 
-    <hr>
+    <hr class="side">
+
 
     <!-- <form class="form-horizontal" #myForm="ngForm"> -->
 
-    <form  [formGroup]="firstFormGroup"  >
-    <div class="form-group">
+    <form [formGroup]="firstFormGroup">
+      <div class="form-group">
         <label for="category" class="col-sm-3 control-label">Product Category</label>
-        <div class="col-sm-3">
-       <select class="form-control" formControlName="CategoryCtrl">
-      <option value="Electronic Devices">Electronic Device</option>
-      <option value="education">Education</option>
-      <option value="hospitals">Hospitals</option>
-       </select>
+        <div class="col-sm-4">
+          <select class="form-control" formControlName="CategoryCtrl">
+            <option value="Electronic Devices">Electronic Device</option>
+            <option value="education">Education</option>
+            <option value="hospitals">Hospitals</option>
+          </select>
+        </div>
       </div>
-    </div>
-    
-        <!--Produt Subcategory-->
-    
-     <div class="form-group">
-        <label for="tech" class="col-sm-3 control-label" >Product Subcategory</label>
-        <div class="col-sm-3">
-       <select formControlName="SubCategoryCtrl" class="form-control">
-      <option value="T.V">T.V</option>
-      <option value="Mobile">Mobile</option>
-      <option value="AC">AC</option>
-      <option value="Laptop">Laptop</option>
-       </select>
-     </div>
-    </div>
-    
-    <!--Product Name-->
-    
-     <div class="form-group">
+
+      <!--Produt Subcategory-->
+
+      <div class="form-group">
+        <label for="tech" class="col-sm-3 control-label">Product Subcategory</label>
+        <div class="col-sm-4">
+          <select formControlName="SubCategoryCtrl" class="form-control">
+            <option value="T.V">T.V</option>
+            <option value="Mobile">Mobile</option>
+            <option value="AC">AC</option>
+            <option value="Laptop">Laptop</option>
+          </select>
+        </div>
+      </div>
+
+      <!--Product Name-->
+
+      <div class="form-group">
         <label for="qty" class="col-sm-4 control-label">Product Name</label>
-        <div class="col-sm-4">         
-            <input type="text" class="form-control" placeholder="Enter Product Name" [(ngModel)]="productName" 
+        <div class="col-sm-4">
+          <input type="text" class="form-control" placeholder="Enter Product Name" [(ngModel)]="productName"
             formControlName="ProductNameCtrl">
 
 
-          </div>
         </div>
-    
-    <!--Product Family-->
-    
-     <div class="form-group">
+      </div>
+
+      <!--Product Family-->
+
+      <div class="form-group">
         <label for="qty" class="col-sm-4 control-label">Product Family</label>
         <div class="col-sm-4">
-       <input type="text" class="form-control" placeholder="Enter Product Family" [(ngModel)]="productFamily" formControlName="ProductFamilyCtrl">
-        </div>
-    </div>
-    
-    <!--Product Price-->
-
-    <div class="form-group">
-      <label for="qty" class="col-sm-4 control-label">Product Price</label>
-      <div class="col-sm-4">         
-          <input type="text" class="form-control" placeholder="Enter Product Price" [(ngModel)]="productPrice" formControlName="ProductPriceCtrl">
+          <input type="text" class="form-control" placeholder="Enter Product Family" [(ngModel)]="productFamily"
+            formControlName="ProductFamilyCtrl">
         </div>
       </div>
-  
 
-    <!--Product Specifications-->
-    
-     <div class="form-group">
+      <!--Product Price-->
+
+      <div class="form-group">
+        <label for="qty" class="col-sm-4 control-label">Product Price</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" placeholder="Enter Product Price" [(ngModel)]="productPrice"
+            formControlName="ProductPriceCtrl">
+        </div>
+      </div>
+
+
+      <!--Product Specifications-->
+
+      <div class="form-group">
         <label for="about" class="col-sm-3 control-label">Product Specifications</label>
         <div class="col-sm-9">
-          <textarea class="form-control" [(ngModel)]="productSpecifications" formControlName="ProductSpecificationsCtrl"></textarea>
-        </div>
-     </div>
-    
-
-    
-    
-    <!--Product Description-->
-    
-     <div class="form-group">
-        <label for="about" class="col-sm-3 control-label">Product Description</label>
-        <div class="col-sm-9">
-          <textarea class="form-control" [(ngModel)]="productDescription" formControlName="ProductDescriptionCtrl"></textarea>
+          <textarea class="form-control" [(ngModel)]="productSpecifications"
+            formControlName="ProductSpecificationsCtrl"></textarea>
         </div>
       </div>
-    
-    
-    <!--Adding a image-->
-     
+
+
+
+
+      <!--Product Description-->
+
+      <div class="form-group">
+        <label for="about" class="col-sm-3 control-label">Product Description</label>
+        <div class="col-sm-9">
+          <textarea class="form-control" [(ngModel)]="productDescription"
+            formControlName="ProductDescriptionCtrl"></textarea>
+        </div>
+      </div>
+
+
+      <!--Adding a image-->
+
       <div class="form-group">
         <label for="name" class="col-sm-3 control-label">Add a Image</label>
         <div class="col-sm-3">
-            <!-- <label class="control-label small" for="file_img">Product Image(jpg/png/jpeg/gif):</label> 
-            <input type="file" accept=".jpg,.jpeg,.gif,.png" [(ngModel)]="productImage" formControlName="ProductImageCtrl">  -->
-            <!-- <button type="button">Upload</button> -->
 
-            <label class="control-label small" for="file_img">Product Image(jpg/png/jpeg/gif):</label> 
-            <!-- <input type="file" accept=".jpg,.jpeg,.gif,.png" [(ngModel)]="productImage" formControlName="ProductImageCtrl">  -->
-           
+          <label class="control-label small" for="file_img">Product Image(jpg/png/jpeg/gif):</label>
 
-            <!--priyanka -->
-             
-              <input class="aligns" type="file" (change)="selectVideo($event)" accept=".jpg,.jpeg,.gif,.png/*">
-              <br><br>
-              <div id="upload">
-            <!-- <input type="file" class="form-control" formControlName="video" (change)="selectVideo($event)"> -->
+          <input class="aligns" type="file" (change)="selectVideo($event)" accept=".jpg,.jpeg,.gif,.png/*">
+          <br><br>
+          <div id="upload">
             <button class="btn btn-outline-dark" (click)="uploadVideo()">Upload Photo</button>
           </div>
-          
 
-          <!-- priyanka -->
 
         </div>
-      </div> 
-    
-    <!--Save Product-->
-    
+      </div>
+
+      <!--Save Product-->
+
       <div class="form-group">
         <div class="col-sm-offset-3 col-sm-9">
-           <!-- <button type="submit" class="btn btn-primary" (click)="saveProduct()">Save Product</button> -->
-           <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal" (click)="saveProduct()">
-              Save Product
-            </button> 
+          <!-- <button type="submit" class="btn btn-primary" (click)="saveProduct()">Save Product</button> -->
+          <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal"
+            (click)="saveProduct()">
+            Save Product
+          </button>
         </div>
-      </div> 
-
-
-  <!-- The Modal -->
-  <div class="modal fade" id="myModal">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-      
-        <div class="modal-body">
-          Product Saved Successfully..
-        </div>
-      
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-dark" data-dismiss="modal" (click)="account()">Close</button>
-        </div>
-        
       </div>
-    </div>
+
+
+      <!-- The Modal -->
+      <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+
+            <div class="modal-body">
+              Product Saved Successfully..
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-dark" data-dismiss="modal" (click)="account()">Close</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </form>
   </div>
-  
-</form>
-</div>
 
-    
-
-
-<!-- footer -->
-<footer class="page-footer font-small mdb-color pt-4 bg-dark footer-dark">
+  <!-- footer -->
+  <footer class="page-footer font-small mdb-color pt-4 bg-dark footer-dark">
 
     <!-- Footer Links -->
     <div class="container text-center text-md-left">
-  
+
       <!-- Footer links -->
       <div class="row text-center text-md-left mt-3 pb-3">
-  
+
         <!-- Grid column -->
         <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
           <!-- <img style="margin-top: 20px; height:100px;width: 50px;" class="card-img-top" src="assets/img/logo5.png" alt="image"> -->
-        <h2 style="color: white"><strong>CenseoSphere</strong></h2>
-        <a href="#" style='font-size:24px'><i class='fas fa-home'></i></a>
+          <h2 style="color: white"><strong>CenseoSphere</strong></h2>
+          <a href="#" style='font-size:24px'><i class='fas fa-home'></i></a>
         </div>
         <!-- Grid column -->
-  
+
         <hr class="w-100 clearfix d-md-none">
-  
+
         <!-- Grid column -->
         <div class="col-md-3 col-lg-3 mx-auto mt-3">
           <ul class="list-unstyled lead">
             <li>
-                <h5><strong>About us</strong></h5>
+              <h5><strong>About us</strong></h5>
             </li>
             <li>
-                <a href="#"><strong> Vision & Goals </strong></a>
-              </li>
-              <li>
-                <a href="#"><strong> Company </strong></a>
-              </li>
-              <li>
-                <a href="#"><strong> Blog </strong></a>
-              </li>
-              <li>
-                <a href="#"><strong> Careers </strong></a>
-              </li>
-        </ul>
-  
+              <a href="#"><strong> Vision & Goals </strong></a>
+            </li>
+            <li>
+              <a href="#"><strong> Company </strong></a>
+            </li>
+            <li>
+              <a href="#"><strong> Blog </strong></a>
+            </li>
+            <li>
+              <a href="#"><strong> Careers </strong></a>
+            </li>
+          </ul>
+
         </div>
         <!-- Grid column -->
-  
+
         <hr class="w-100 clearfix d-md-none">
-  
+
         <!-- Grid column -->
         <div class="col-md-3 col-lg-3  mx-auto mt-3">
           <ul class="list-unstyled lead">
             <li>
-                <h5><strong>Contact us</strong></h5>
+              <h5><strong>Contact us</strong></h5>
             </li>
-              <li>
-                <a href="#"><i class="fa fa-map-marker"></i>&nbsp;<Strong>Location</Strong></a>
-              </li>
-              <li>
-                <a href="#"><i class="fa fa-phone"></i>&nbsp;<Strong>9874563129</Strong></a>
-              </li>
-              <li> 
-                <a href="#"> <i class="fa fa-envelope"></i>&nbsp;<Strong>niitstkrt@gmail.com</Strong></a>
-              </li> 
-        </ul>
-  
+            <li>
+              <a href="#"><i class="fa fa-map-marker"></i>&nbsp;<Strong>Location</Strong></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-phone"></i>&nbsp;<Strong>9874563129</Strong></a>
+            </li>
+            <li>
+              <a href="#"> <i class="fa fa-envelope"></i>&nbsp;<Strong>niitstkrt@gmail.com</Strong></a>
+            </li>
+          </ul>
+
         </div>
-  
+
         <!-- Grid column -->
         <hr class="w-100 clearfix d-md-none">
-  
+
         <!-- Grid column -->
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
           <ul class="list-unstyled lead">
             <li>
-                <h5><strong>Insights</strong></h5>
+              <h5><strong>Insights</strong></h5>
             </li>
             <li>
-                <a href="#"><Strong>Privacy policy</Strong></a>
-              </li>
-              <li>
-                <a href="#"><Strong>Terms & Conditions </Strong></a>
-              </li>
-              <li>
-                <a href="#"><Strong>FAQs</Strong></a>
-              </li>
-              <li>
-                <a href="#"><Strong>Support</Strong></a>
-              </li>
-        </ul>
+              <a href="#"><Strong>Privacy policy</Strong></a>
+            </li>
+            <li>
+              <a href="#"><Strong>Terms & Conditions </Strong></a>
+            </li>
+            <li>
+              <a href="#"><Strong>FAQs</Strong></a>
+            </li>
+            <li>
+              <a href="#"><Strong>Support</Strong></a>
+            </li>
+          </ul>
         </div>
         <!-- Grid column -->
-  
+
       </div>
       <!-- Footer links -->
+
     
-      <hr>
+      <hr class="side">
   
+
       <!-- Grid row -->
       <div class="row d-flex align-items-center">
-  
-  
+
+
         <!-- Grid column -->
         <div class="col-md-7 col-lg-8">
-  
-  
+
+
           <div class="col-md-12">
             <ul class="social-network social-circle">
               <li><a href="#"><i class="fab fa-facebook" id="facebook"></i></a></li>
@@ -272,23 +269,22 @@
               <li><a href="#"><i class="fab fa-instagram" id="instagram"></i></a></li>
               <li></li>
               <li><a href="#"><i class="fab fa-linkedin-in" id="linkedin"></i></a></li>
-  
+
             </ul>
           </div>
-  
-  
+
+
           <!--Copyright-->
-  
+
           <p class="text-center text-md-right">Copyright © All Rights Reserved by
             <strong>CenseoSphere</strong>
           </p>
-  
-         </div>
+
         </div>
-        <!-- Grid column -->
       </div>
-    </footer>
+      <!-- Grid column -->
+    </div>
+  </footer>
 
-<!-- end footer -->
-
-
+  <!-- end footer -->
+</div>

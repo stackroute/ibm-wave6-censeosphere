@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
+import { ReviewService } from '../review.service';
 
 @Component({
   selector: 'app-card',
@@ -8,13 +9,22 @@ import { Router} from '@angular/router';
 })
 export class CardComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private reviewService: ReviewService) { }
 
   product:any;
+  reviewsgiven : any;
   ngOnInit() {
 
     this.product=JSON.parse(sessionStorage.getItem('data123'));
     console.log("in card component"+this.product);
+
+
+    this.reviewService.getAllReviewsbyName(this.product.productName).subscribe((data: any) => {
+      console.log("priyanka" + JSON.stringify(data));
+      this.reviewsgiven = data.length;
+      console.log("length of product list", this.reviewsgiven);
+    });
+
   }
 
   imageclick(product){

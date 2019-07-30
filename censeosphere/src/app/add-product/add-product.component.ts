@@ -65,8 +65,7 @@ lpage()
 update()
  {
 
-  // this.router.navigateByUrl('/prodownerupdateprofile/name/gmail/reconfirmpassword');
-
+ 
    this.router.navigateByUrl("/prodownerupdateprofile/name/gmail/reconfirmpassword");
  }
   account()
@@ -75,7 +74,7 @@ update()
   }
 
 
-  //priyanka 
+  
   currentFileUpload:File;
   selectedVideo:FileList;
   mediaName:any;
@@ -89,5 +88,4 @@ update()
     this.mediaName=this.currentFileUpload.name;
    }
 
-//priyanka
 }

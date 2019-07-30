@@ -36,14 +36,11 @@ body {
 }
 .jumbotron{
    height: 500px;
-   background: url('../../assets/img/new.jpg') center center no-repeat;
+   background: url('../../assets/img/rdash.jpeg') center center no-repeat;
     background-size: 100%;
 }
 #jumbotroninput{
-   /* width: 600px;
-   margin-left: 250px; */
-  /* margin: auto; */
-  margin-left: 350px;
+    margin-left: 350px;
     display: inline;
 }
 #jumbotronheading{
@@ -78,7 +75,7 @@ footer a:hover{
   margin-left: 4px;
   margin-right: 3px;
 padding: 25px 15px;
-  background: #def2f1;
+background: url('../../assets/img/i3.jpg') center center no-repeat;
   text-align: center;
   position: relative;
   font-size: 12px;
@@ -103,6 +100,9 @@ border-radius: 9px;
 	margin: 0 auto;
 	left: 0;
 	right: 0;
+}
+h5{
+  color: white;
 }
 h4 {
 	font-size: 18px;
@@ -225,22 +225,12 @@ h4 {
   #searchbutton a{
       color: white;
   }
-#searchbutton a:hover{
-      color:midnightblue;
+#searchbutton a i:hover{
+      color:darkgoldenrod;
 }
-
-  /* .card {
-    margin-left: 4px;
-    margin-right: 3px;
-     padding: 25px 15px;
-    background: url('../../assets/img/i3.jpg') center center no-repeat;
-    text-align: center;
-    position: relative;
-    font-size: 12px;
-    width: 300px;
-    overflow: hidden;
-    border: none;
-     border-radius: 9px;
-    box-shadow: 1.5px 1.5px 3px rgba(0,0,0,2.5);
- } */
-
+h5{
+  color: white;
+}
+.info,.item-price{
+  color: black;
+}

@@ -11,15 +11,19 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductDto implements Serializable {
+public class ProductDetails implements Serializable {
 
-    private String productName;
+    private String addedby;
+    private String category;
     private String subCategory;
+    @Id
+    private String productName;
     private String productFamily;
     private String image;
     private Float price;
     private Float rating;
     private String specifications;
     private String description;
+    //@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date uploadedOn;
 }

@@ -15,19 +15,33 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SubcategoryConnection {
 
-    @Value("${stackroute.rabbitmq.queueSix}")
-    String queueSix;
+    @Value("${stackroute.rabbitmq.queueten}")
+    String queueTen;
 
     @Value("${stackroute.rabbitmq.exchange}")
     String exchangeName;
 
-    @Value("${stackroute.rabbitmq.routingkeySix}")
-    private String routingkeySix;
+    @Value("${stackroute.rabbitmq.routingkeyfour}")
+    private String routingkeyFour;
+
+
+    @Value("${stackroute.rabbitmq.queueeleven}")
+    String queueEleven;
+
+
 
 
     @Bean
+
     org.springframework.amqp.core.Queue queueMethod() {
-        return new org.springframework.amqp.core.Queue(queueSix, true);
+        return new org.springframework.amqp.core.Queue(queueTen, true);
+
+    }
+
+    @Bean
+
+    org.springframework.amqp.core.Queue queueMethod2() {
+        return new org.springframework.amqp.core.Queue(queueEleven, true);
 
     }
 
@@ -38,7 +52,11 @@ public class SubcategoryConnection {
 
     @Bean
     org.springframework.amqp.core.Binding binding() {
-        return BindingBuilder.bind(queueMethod()).to(exchangeMethod()).with(routingkeySix).noargs();
+        return BindingBuilder.bind(queueMethod()).to(exchangeMethod()).with(routingkeyFour).noargs();
+    }
+    @Bean
+    org.springframework.amqp.core.Binding binding2() {
+        return BindingBuilder.bind(queueMethod2()).to(exchangeMethod()).with(routingkeyFour).noargs();
     }
 
 

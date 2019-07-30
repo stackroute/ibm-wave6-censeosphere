@@ -1,7 +1,7 @@
 FROM openjdk:11
 
-ADD ./target/write-a-review-0.0.1-SNAPSHOT.jar /writeareview/src/write-a-review-0.0.1-SNAPSHOT.jar
+ADD ./target/review-service-0.0.1-SNAPSHOT.jar /writeareview/src/review-service-0.0.1-SNAPSHOT.jar
 
 WORKDIR /writeareview/src
 
-ENTRYPOINT ["java","-jar", "write-a-review-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar", "review-service-0.0.1-SNAPSHOT.jar"]

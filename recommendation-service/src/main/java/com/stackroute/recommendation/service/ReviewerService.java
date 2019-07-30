@@ -1,19 +1,19 @@
 package com.stackroute.recommendation.service;
 
 import com.stackroute.recommendation.domain.Reviewer;
-import org.springframework.stereotype.Service;
+import com.stackroute.recommendation.exception.ReviewerNotFoundException;
 
 import java.util.Collection;
 
 
 public interface ReviewerService {
-    public Reviewer saveReviewer(Reviewer reviewer);
+    public Reviewer saveReviewer(Reviewer reviewer) ;
 
-    public Collection<Reviewer> getAll();
+    public Collection<Reviewer> getAll() throws Exception;
 
-    public void deleteReviewer(String emailId);
+    public void deleteReviewer(String emailId) throws ReviewerNotFoundException;
 
-    public Reviewer getByName(String emailId);
+    public Reviewer getByName(String emailId) throws ReviewerNotFoundException;
 
     public Reviewer saveRelation(String emailId,String productName);
 }

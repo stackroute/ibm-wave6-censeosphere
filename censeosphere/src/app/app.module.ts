@@ -25,7 +25,8 @@ import { ReviewComponent } from './review/review.component';
 import { ReviewerdashboardComponent } from './reviewerdashboard/reviewerdashboard.component';
 import { CardComponent } from './card/card.component';
 import { ProductreviewComponent } from './productreview/productreview.component';
-import { Routes, RouterModule } from '@angular/router';
+import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 // import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
@@ -65,10 +66,11 @@ import { Routes, RouterModule } from '@angular/router';
     ReactiveFormsModule,
     MatTabsModule,
     Ng2CarouselamosModule,
+    NgbModule
     
    
   ],
-  providers: [LoginService],
+  providers: [LoginService,NgbRatingConfig],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [MatButtonModule, MatCheckboxModule]

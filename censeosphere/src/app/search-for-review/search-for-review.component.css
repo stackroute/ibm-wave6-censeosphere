@@ -147,12 +147,12 @@ ul.social-network {
   margin-top: 100px;
 }
 #mainbtn{
-  margin-left:680px;
+  margin-left:500px;
 }
 
 
  .image{
-    background:url('../../assets/img/productd.jpeg') center center no-repeat;
+    background:url('../../assets/img/addprod2.jpeg') center center no-repeat;
     background-size: cover;
  }
  .container{
@@ -285,7 +285,6 @@ ul.social-network li {
   #reviewimg{
       height: 150px;
       width: 250px;
-      border-radius: 50%;
   }
   #productimage{
     height: 300px;
@@ -293,8 +292,23 @@ ul.social-network li {
     padding-left: 0px;
     padding-top: 0px;
 }
-  
-  
-  
- 
+h5{
+
+    color: white;
+}  
+.info,.item-price{
+    color: black;
+}
+#up:hover{
+color: green;
+} 
+#down:hover{
+    color: red;
+
+}  
+hr.side {
+     border:solid;
+     border-width: 1px;
+
+}
 

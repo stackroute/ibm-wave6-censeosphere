@@ -1,6 +1,6 @@
 <div class="containerbody">
 	<nav class="navbar navbar-expand-lg fixed-top">
-		<img src="../../assets/img/logo6.png">
+		<img src="../../assets/img/logo14.png">
 		<div class="dropdown">
 			<a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
@@ -19,13 +19,20 @@
 	<div class="container">
 		<h1 id="jumbotronheading">India's Largest Review Platform</h1>
 		<form>
+
 			<div class="form-group">
-					<div class="active-cyan-3 active-cyan-4 mb-4">
-				<input type="text" #searchproduct placeholder="search here to write a review" 
-				name="search" class="form-control col-md-3"	id="jumbotroninput"> <br>
-				<button class="btn btn-info" (click)="search(searchproduct.value)">search</button> 
+
+				<div class="input-group">
+
+						<input type="search" #searchproduct class="form-control col-md-6" placeholder="Search here to write a review" name="search" id="jumbotroninput">
+					
+						   <button class="btn btn-secondary" type="submit" id="searchbutton" (click)="search(searchproduct.value)">
+							  <a href="#"><i class="fa fa-search"></i></a>
+						  </button>
+						
+					  
+						</div>
 					</div>
-				</div>
 		</form>
 	</div>
 </div>
@@ -51,28 +58,29 @@
 
 	<ng-template #product let-product let-i="index">
 		<div class="productDetails">
-			<!-- <div class="thumb-wrapper"> -->
+		
 				<div class="col-sm-6 col-md-4 col-lg-3 mt-4">
 				<div class="card">
 
 				<div class="img-box">
 					<img src="./assets/img/{{product.image}}"  class="img-responsive img-fluid" alt="Image not available" (click)="imageclick(product)">
 				</div>
-				<!-- <div class="thumb-content"> -->
+			
 
 					<div class="card-block">
-					<h4>{{product.productName}}</h4>
+					<h4><b>{{product.productName}}</b></h4>
 					<div class="star-rating">
-						<h5>{{product.rating}}</h5>
+						<h5 class="info">{{product.rating}}</h5>
 					</div>
-					<p class="item-price"><b>${{product.price}}</b></p>
+					<h5 class="item-price">${{product.price}}</h5>
+					<h6 class="info">{{product.size}} Reviews</h6>
 				</div>
-				<!-- </div> -->
+				
 				</div>
 				</div>
-			<!-- </div> -->
+			
 		</div>&nbsp;
-		<!-- </div> -->
+	
 	</ng-template>
 </div>
 <!-- end carousel for recommended product by subcategory -->

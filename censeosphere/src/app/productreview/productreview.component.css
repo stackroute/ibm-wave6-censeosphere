@@ -194,7 +194,7 @@ ul.social-network {
       background-image:url(../../assets/img/header.png);  
  } */
  .image{
-    background:url('../../assets/img/cbgi.jpeg') center center no-repeat;
+    background:url('../../assets/img/addprod2.jpeg') center center no-repeat;
     background-size: cover;
     height: 100%;
     overflow: hidden;
@@ -251,3 +251,19 @@ ul.social-network {
     width: 450px;
     padding-left: 0px;
   }
+
+  .info,.item-price{
+      color: black;
+  }
+  .matlabel{
+      font-size: 50px;
+  }
+  #reviewimg{
+    height: 150px;
+    width: 250px;
+  }
+  hr.side {
+    border:solid;
+    border-width: 1px;
+
+}
