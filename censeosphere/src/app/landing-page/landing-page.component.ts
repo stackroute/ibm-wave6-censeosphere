@@ -8,9 +8,9 @@ import { Reviewer } from '../reviewer';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { error } from 'util';
-import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
-import { ReviewService } from '../review.service';
 
+import { ReviewService } from '../review.service';
+import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 
 const helper = new JwtHelperService();
 @Component({
@@ -42,7 +42,9 @@ export class LandingPageComponent implements OnInit {
 
 
   constructor(private router: Router, private landingpageservice: LandingpageService, private loginvalidation: LoginvalidationService,private productService:ProductService,
-    private reviewService: ReviewService) { }
+    private reviewService: ReviewService,private config: NgbRatingConfig) {  config.max = 5;
+      config.readonly = true; }
+  
 
   ngOnInit() {
 

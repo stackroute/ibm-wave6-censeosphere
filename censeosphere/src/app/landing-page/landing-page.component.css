@@ -316,3 +316,29 @@ h5{
 .info,.item-price{
 color: black;
 }
+.star 
+{
+      position: relative;
+      display: inline-block;
+      font-size: 2rem;
+      color: #d3d3d3;
+    
+    }
+    .full 
+    {
+      color:navy;
+    }
+    .half 
+    {
+      position: absolute;
+      display: inline-block;
+      overflow: hidden;
+      color:navy;
+    }
+    .rate
+    {
+        background-color:rgba(0, 128, 0, 0.5);
+        width: fit-content;
+        margin: 0 auto;
+    }
+  
