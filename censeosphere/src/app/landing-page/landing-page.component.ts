@@ -76,6 +76,12 @@ export class LandingPageComponent implements OnInit {
       }
     })
 
+    this.landingpageservice.getTrendingProducts().subscribe((data:any)=>{
+      console.log(data);
+      this.productDetails1 = data;
+      console.log("pooja",this.productDetails);
+      
+    })
     this.landingpageservice.getAllCategory().subscribe((data: any) => {
       console.log(data);
       this.categories = data;
