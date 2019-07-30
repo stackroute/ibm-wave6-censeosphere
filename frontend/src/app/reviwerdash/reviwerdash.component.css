@@ -228,3 +228,9 @@ h4 {
 #searchbutton a i:hover{
       color:darkgoldenrod;
 }
+h5{
+  color: white;
+}
+.info,.item-price{
+  color: black;
+}

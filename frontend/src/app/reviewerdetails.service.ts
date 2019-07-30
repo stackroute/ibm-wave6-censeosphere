@@ -18,7 +18,7 @@ getReviewer(email)
 {
 
   console.log("in Reviwerdetailservice ", email);
-  return this.http.get<Reviewerone>("http://localhost:8087/api/v1/reviewer/" +email);
+  return this.http.get("http://localhost:8087/api/v1/reviewer/" +email);
 }
 
 updateReviewer(reviewerone:Reviewerone,email)

@@ -9,6 +9,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { error } from 'util';
 import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
+import { ReviewService } from '../review.service';
+
 
 const helper = new JwtHelperService();
 @Component({
@@ -25,10 +27,11 @@ export class LandingPageComponent implements OnInit {
   subCategories = [];
   job = "";
   showComponent:any;
+  reviewsgiven = [];
+  productname = "";
   // validatingForm: FormGroup;
-
   productDetails1 = [];
-  route: ActivatedRoute;
+ route: ActivatedRoute;
 
   form=new FormGroup({
     emailId: new FormControl('',[Validators.required,Validators.email]),
@@ -36,31 +39,41 @@ export class LandingPageComponent implements OnInit {
   })
   helper = new JwtHelperService();
   auth: Authentication = new Authentication();
-  constructor(private router: Router, private landingpageservice: LandingpageService, private loginvalidation: LoginvalidationService,private productService:ProductService,private config: NgbRatingConfig) {  config.max = 5;
-    config.readonly = true; }
+
+
+  constructor(private router: Router, private landingpageservice: LandingpageService, private loginvalidation: LoginvalidationService,private productService:ProductService,
+    private reviewService: ReviewService) { }
 
   ngOnInit() {
-
-
-    
-    // get modalFormDarkEmail() {
-    //   return this.validatingForm.get('modalFormDarkEmail');
-    // }
-  
-    // get modalFormDarkPassword() {
-    //   return this.validatingForm.get('modalFormDarkPassword');
-    // }
-
 
     this.landingpageservice.getRecentProducts().subscribe((data: any) => {
       console.log(data);
       this.productDetails = data;
-    })
+      console.log("pooja",this.productDetails);
+      
+      for (let i = 0; i < (this.productDetails).length; i++){
+        this.productname = this.productDetails[i].productName;
 
 
-    this.landingpageservice.getTrendingProducts().subscribe((data: any) => {
-      console.log(data);
-      this.productDetails1 = data;
+        this.reviewService.getAllReviewsbyName(this.productname).subscribe((data: any) => {
+          console.log("priyanka" + JSON.stringify(data));
+          this.reviewsgiven = data;
+          
+          console.log("length of product list", this.reviewsgiven.length);
+    
+    
+          this.productDetails = this.productDetails.map((e, j) => {
+            if (e.productName === data[0].productName) {
+              e.size = this.reviewsgiven.length;
+    
+            }
+            console.log(e, "list size")
+            return e
+          })
+    
+        });
+      
+      }
     })
 
     this.landingpageservice.getAllCategory().subscribe((data: any) => {
@@ -71,6 +84,9 @@ export class LandingPageComponent implements OnInit {
       console.log(data);
       this.subCategories = data;
     })
+
+
+  
   }
 
   onClick(role) {
@@ -202,9 +218,6 @@ export class LandingPageComponent implements OnInit {
           this.showComponent = true;
                 });
   } 
-     
-     
-  
 
   imageclick(product){
     let a = JSON.stringify(product)

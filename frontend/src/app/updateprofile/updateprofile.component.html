@@ -124,29 +124,23 @@
         <div class="col-sm-4">
           <div class="thumb-wrapper">
             <div class="img-box">
-              <img src="./assets/img/{{productDetails.image}}" class="img-responsive img-fluid" alt="Image not available">
+              <img src="./assets/img/{{review.image}}" class="img-responsive img-fluid" alt="Image not available">
             </div>
             <div class="thumb-content">
-              <h4>{{productDetails.productName}}</h4>
+              <h4><b>{{review.productName}}</b></h4>
               <div class="star-rating">
-                <ul class="list-inline">
-                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                  <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-                </ul>
+                  <h5 class="info">{{review.rating}}</h5>
               </div>
-              <p class="item-price"><b>{{productDetails.price}}</b></p>
-              <h6>{{productDetails.rating}}</h6>
+              <h5 class="item-price">${{review.price}}</h5>
+              <h5 class="item-price">{{review.size}} Reviews</h5>
             </div>
           </div>
           <br>
         </div>
         <div class="col-sm-8">
-          <div>
-            <h3>{{review.reviewTitle}}</h3>
-            <p>{{review.reviewDescription}}</p>
+          <div id="productinfo">
+            <h3>Title: {{review.reviewTitle}}</h3>
+            <p>Description: {{review.reviewDescription}}</p>
             <br>
           </div>
         </div>

@@ -222,6 +222,12 @@ padding-top: 0px;
       padding-top: 20px;
   }
 
+ h5{
+    color: white;
+ }
+ .info,.item-price{
+    color:black;
+ }
   hr.side {
    border:solid;
    border-width: 1px;

@@ -8,6 +8,8 @@ import { Reviewer } from '../reviewer';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { error } from 'util';
+import { ReviewService } from '../review.service';
+import { ReviewerdetailsService } from '../reviewerdetails.service';
 
 const helper = new JwtHelperService();
 
@@ -22,6 +24,9 @@ export class ProductreviewComponent implements OnInit {
   categories = [];
   subCategories = [];
   job = "";
+  reviewdetails:any;
+  productname="";
+  reviewerinfo1 = [];
   // validatingForm: FormGroup;
 
 
@@ -31,14 +36,63 @@ export class ProductreviewComponent implements OnInit {
   })
   helper = new JwtHelperService();
   auth: Authentication = new Authentication();
-  constructor(private router: Router, private landingpageservice: LandingpageService, private loginvalidation: LoginvalidationService,private productService:ProductService) { }
+  constructor(private router: Router, private landingpageservice: LandingpageService, private loginvalidation: LoginvalidationService,private productService:ProductService,
+    private  reviewService:ReviewService,private reviewerdetail: ReviewerdetailsService) { }
 
   ngOnInit() {
+
+    // priyanka
+    this.productname = JSON.parse(sessionStorage.getItem('data')).productName;
+    console.log("productname in  write a review" + this.productname);
+
+    this.reviewService.getAllReviewsbyName(this.productname).subscribe((data: any) => {
+      console.log("review details in search" + JSON.stringify(data));
+      this.reviewdetails = data;
+      console.log(JSON.stringify(this.reviewdetails));
+
+      for (let i = 0; i < data.length; i++) {
+        let image = data[i].reviewerEmail;
+        console.log("emailId", image);
+
+        this.reviewerdetail.getReviewer(image).subscribe((data: any) => {
+          console.log("reviewer data in search componentttttttttttttt" + JSON.stringify(data));
+          this.reviewerinfo1.push(data);
+          this.reviewdetails = this.reviewdetails.map((e, i) => {
+            if (e.reviewerEmail === data.emailId) {
+              e.image = data.image
+            }
+            console.log(e, "is this object has image ??")
+            return e
+          })
+          console.log("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzz", this.reviewerinfo1);
+
+        })
+
+      }
+
+    });
+
+    // priyanka
+
+
+
 
     this.products=JSON.parse(sessionStorage.getItem('data'));
     // get modalFormDarkPassword() {
     //   return this.validatingForm.get('modalFormDarkPassword');
     // }
+    // this.productname=JSON.parse(sessionStorage.getItem('data')).productName;
+    // this.reviewService.getAllReviewsbyName(this.productname).subscribe((data:any) => {
+    //   console.log("review details in search"+JSON.stringify(data));
+    //   this.reviewdetails=data;
+    //   console.log(JSON.stringify(this.reviewdetails));
+    // });
+
+
+
+
+
+
 
   }
 

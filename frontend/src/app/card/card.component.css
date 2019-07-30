@@ -1,4 +1,4 @@
-.card { 
+#card { 
   padding: 25px 15px;
   background: url('../../assets/img/i3.jpg') center center no-repeat;
     text-align: center;
@@ -8,11 +8,13 @@
     border: none;
   border-radius: 9px;
     box-shadow: 1.5px 1.5px 3px rgba(0,0,0,2.5);
-    
-  
+    margin: 0 auto;
+    display: inline-block;
+    left: 230%;
+    margin-left: -230px;
   }
-  .products{
+  /* .products{
     margin-left: auto;
     margin-right: auto;
-  }
+  } */
   

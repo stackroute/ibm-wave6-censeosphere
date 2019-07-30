@@ -110,16 +110,16 @@ public class ReviewerServiceImpl implements ReviewerService {
         {
 
 
-           reviewer1=reviewerRepository.save(reviewer);
-//           reviewer1=reviewerRepository.findById(emailId).get();
-//
-//            System.out.println("from update method "+reviewer1);
-//            reviewer1.setName(reviewer.getName());
-//            reviewer1.setImage(reviewer.getImage());
-//            reviewer1.setReconfirmPassword(reviewer.getReconfirmPassword());
-//
-//            System.out.println("After updating "+reviewer1);
-//            reviewerRepository.save(reviewer1);
+//           reviewer1=reviewerRepository.save(reviewer);
+           reviewer1=reviewerRepository.findById(emailId).get();
+
+            System.out.println("from update method "+reviewer1);
+            reviewer1.setName(reviewer.getName());
+            reviewer1.setImage(reviewer.getImage());
+            reviewer1.setReconfirmPassword(reviewer.getReconfirmPassword());
+
+            System.out.println("After updating "+reviewer1);
+            reviewerRepository.save(reviewer1);
 
             ReviewerDTO reviewerDTO1=new ReviewerDTO(reviewer1.getEmailId(),reviewer1.getReconfirmPassword(),reviewer1.getRole());
             sendreviewer(reviewerDTO1);
@@ -163,8 +163,10 @@ public class ReviewerServiceImpl implements ReviewerService {
               myreviewes =reviewer1.getRevieweswritten();
               System.out.println("list "+myreviewes);
               myreviewes.add(review);
+
               reviewer1.setRevieweswritten(myreviewes);
                point=reviewer1.getCreditpoints();
+              point=reviewer1.getCreditpoints();
                point=point+5;
                reviewer1.setCreditpoints(point);
                for (int i = 0; i < myreviewes.size(); i++) {

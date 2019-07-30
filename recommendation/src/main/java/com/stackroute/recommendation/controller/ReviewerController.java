@@ -1,6 +1,7 @@
 package com.stackroute.recommendation.controller;
 
 import com.stackroute.recommendation.domain.Reviewer;
+import com.stackroute.recommendation.exception.ReviewerNotFoundException;
 import com.stackroute.recommendation.service.ReviewerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,7 @@ public class ReviewerController {
     }
 
     @GetMapping("reviewers")
-    public Collection<Reviewer> getAll()
+    public Collection<Reviewer> getAll() throws Exception
     {
         return reviewerService.getAll();
     }
@@ -35,12 +36,12 @@ public class ReviewerController {
     }
 
     @GetMapping("emailid/{emailid}")
-    public  Reviewer getReviewer(@PathVariable String emailid){
+    public  Reviewer getReviewer(@PathVariable String emailid)throws ReviewerNotFoundException{
         return reviewerService.getByName(emailid);
     }
 
     @DeleteMapping("reviewerdelete/{emailid}")
-    public String deleteReviewer(@PathVariable String emailid) {
+    public String deleteReviewer(@PathVariable String emailid) throws ReviewerNotFoundException {
         reviewerService.deleteReviewer(emailid);
         return "Deleted Reviewer";
     }
