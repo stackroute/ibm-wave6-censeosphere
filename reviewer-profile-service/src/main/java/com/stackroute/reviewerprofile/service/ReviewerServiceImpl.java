@@ -110,16 +110,16 @@ public class ReviewerServiceImpl implements ReviewerService {
         {
 
 
-           reviewer1=reviewerRepository.save(reviewer);
-//           reviewer1=reviewerRepository.findById(emailId).get();
-//
-//            System.out.println("from update method "+reviewer1);
-//            reviewer1.setName(reviewer.getName());
-//            reviewer1.setImage(reviewer.getImage());
-//            reviewer1.setReconfirmPassword(reviewer.getReconfirmPassword());
-//
-//            System.out.println("After updating "+reviewer1);
-//            reviewerRepository.save(reviewer1);
+//           reviewer1=reviewerRepository.save(reviewer);
+           reviewer1=reviewerRepository.findById(emailId).get();
+
+            System.out.println("from update method "+reviewer1);
+            reviewer1.setName(reviewer.getName());
+            reviewer1.setImage(reviewer.getImage());
+            reviewer1.setReconfirmPassword(reviewer.getReconfirmPassword());
+
+            System.out.println("After updating "+reviewer1);
+            reviewerRepository.save(reviewer1);
 
             ReviewerDTO reviewerDTO1=new ReviewerDTO(reviewer1.getEmailId(),reviewer1.getReconfirmPassword(),reviewer1.getRole());
             sendreviewer(reviewerDTO1);

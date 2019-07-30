@@ -285,7 +285,6 @@ ul.social-network li {
   #reviewimg{
       height: 150px;
       width: 250px;
-      border-radius: 50%;
   }
   #productimage{
     height: 300px;
@@ -293,8 +292,16 @@ ul.social-network li {
     padding-left: 0px;
     padding-top: 0px;
 }
-  
-  
-  
- 
+h5{
+    color: white;
+}  
+.info,.item-price{
+    color: black;
+}
+#up:hover{
+color: green;
+} 
+#down:hover{
+    color: red;
+}
 

@@ -1,6 +1,7 @@
 package com.stackroute.recommendation.controller;
 
 import com.stackroute.recommendation.domain.Product;
+import com.stackroute.recommendation.exception.ProductNotFoundException;
 import com.stackroute.recommendation.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,7 @@ public class ProductController {
     }
 
     @GetMapping("products")
-    public Collection<Product> getAll(){
+    public Collection<Product> getAll()throws Exception{
         return productService.getAll();
     }
 
@@ -33,17 +34,17 @@ public class ProductController {
     }
 
     @GetMapping("productfamily/{productfamily}")
-    public Collection<Product> getProduct(@PathVariable String productfamily){
+    public Collection<Product> getProduct(@PathVariable String productfamily) throws ProductNotFoundException {
         return productService.getByFamily(productfamily);
     }
 
     @GetMapping("subcategory/{subcategory}")
-    public Collection<Product> getProductBySubCategory(@PathVariable String subcategory){
+    public Collection<Product> getProductBySubCategory(@PathVariable String subcategory) throws ProductNotFoundException{
         return productService.getBySubCategory(subcategory);
     }
 
     @DeleteMapping("productdelete/{productname}")
-    public String deleteCourse1(@PathVariable String productname) {
+    public String deleteCourse1(@PathVariable String productname) throws  ProductNotFoundException{
         productService.deleteProduct(productname);
         return "Deleted Product";
     }

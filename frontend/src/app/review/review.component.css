@@ -246,5 +246,9 @@ padding-top: 0px;
    .container{
       padding-top: 20px;
   }
- 
-
+ h5{
+    color: white;
+ }
+ .info,.item-price{
+    color:black;
+ }

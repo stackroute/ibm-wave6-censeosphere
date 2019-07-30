@@ -58,14 +58,14 @@ nav img{
  .thumb-wrapper {
 	padding: 25px 15px;
   /* background: #fff; */
-  background: #def2f1;
+  background: url('../../assets/img/i3.jpg') center center no-repeat;
 	border-radius: 6px;
 	text-align: center;
 	position: relative;
   /* box-shadow: 0 2px 3px rgba(0,0,0,0.2); */
   box-shadow: 1.5px 1.5px 3px rgba(0,0,0,2.5);
   width: 300px;
-  color: midnightblue;
+  /* color: midnightblue; */
 }
 .img-box {
 	height: 120px;
@@ -225,9 +225,13 @@ ul.social-network li {
   height: 150px;
   width: 150px;
 }
-.aligns{
-  display: inline;
-}
+
 #uploadbutton{
   margin-top: 20px;
+}
+.info,.item-price{
+  color: black;
+}
+#productinfo{
+margin-top: 100px;
 }

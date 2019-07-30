@@ -76,8 +76,9 @@ label{
     /* width: 100%; */
 }
 #jumbotroninput{
-    margin-left: 350px;
-    display: inline;
+    /* margin-left: 350px; */
+    /* margin: auto; */
+ display: inline;   
 }
 #jumbotronheading{
     background: rgba(170, 167, 167, 0.3);
@@ -132,7 +133,7 @@ footer a:hover{
     width: 300px; 
 }
 
-.card {
+#card1,#card2 {
     margin-left: 4px;
     margin-right: 3px;
 	padding: 25px 15px;
@@ -297,12 +298,7 @@ ul.social-network li {
     font-size:15px;
 }
 
-  #searchbutton{
-      /* margin-top: 0px; */
-      /* color:white; */
-      margin-right: 330px;
-  }
-
+  
   
   #searchbutton a{
       color: white;
@@ -311,6 +307,12 @@ ul.social-network li {
       color:darkgoldenrod;
 }
 .onclick{
-    margin-left: 0px;
-    margin-right: 0px;
+    /* margin-left: 570px;    */
+    margin: 0 auto;
+}
+h5{
+    color: white;
+}
+.info,.item-price{
+color: black;
 }
