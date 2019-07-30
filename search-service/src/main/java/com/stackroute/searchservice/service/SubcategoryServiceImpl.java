@@ -84,7 +84,7 @@ public class SubcategoryServiceImpl implements SubcategoryService {
 
     }
 
-    @RabbitListener(queues="${stackroute.rabbitmq.queueSix}")
+    @RabbitListener(queues="${stackroute.rabbitmq.queue}")
     public Subcategory updateSubcategory(ProductDto productDto) {
         System.out.println("recieved product= " + productDto.toString());
 

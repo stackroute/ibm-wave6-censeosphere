@@ -12,6 +12,7 @@ import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
 import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.util.CoreMap;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -29,16 +30,26 @@ public class productdetailserviceimpl implements  Productdetailservice {
 
     private StanfordCoreNLP pipeline;
     Properties properties=new Properties();
+    private  ProductRating productRating2;
 
-          @Value("${value1}")
-          private String value1;
-          @Value("${value2}")
-          private String value2;
-         @Value("${value3}")
-         private String value3;
-          @Value("${value4}")
-         private String value4;
-         @Value("${value5}")
+
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
+    @Value("${stackroute.rabbitmq.exchange}")
+    private String exchange;
+
+    @Value("${stackroute.rabbitmq.routingkeyeight}")
+    private String routingkeyeight;
+
+        @Value("${value1}")
+        private String value1;
+        @Value("${value2}")
+        private String value2;
+        @Value("${value3}")
+        private String value3;
+        @Value("${value4}")
+        private String value4;
+        @Value("${value5}")
         private String value5;
         @Value("${value6}")
         private String value6;
@@ -65,9 +76,9 @@ public class productdetailserviceimpl implements  Productdetailservice {
 
     @Override
     public ProductRating saveRating(ProductRating productRating) {
-         productRating1= productdetailrepository.save(productRating);
-         System.out.println(productRating1);
-         System.out.println(review);
+            productRating1= productdetailrepository.save(productRating);
+            System.out.println(productRating1);
+            System.out.println(review);
             sentiments =findSentiment(productRating1.getProductName(),review);
              System.out.println(sentiments);
              sentiment=sentimentResult(sentiments);
@@ -183,9 +194,7 @@ public class productdetailserviceimpl implements  Productdetailservice {
           else if(score>=400 &&  score<=700)
           {
 
-
-                System.out.println("monisha");
-                if(sentiment == "Very negative")
+              if(sentiment == "Very negative")
                 {
                     rating=value-nvalue4;
                 }
@@ -258,13 +267,12 @@ public class productdetailserviceimpl implements  Productdetailservice {
               {
                 rating=value+nvalue6;
               }
-        }
+          }
 
         }
-
         else if(rating == 5)
         {
-            if(   score>=100 )
+            if(   score>=1000 )
             {
                 if(sentiment == "very negative")
                 {
@@ -276,8 +284,6 @@ public class productdetailserviceimpl implements  Productdetailservice {
                 }
             }
         }
-
-
         System.out.println("inside rating"+rating);
         return rating;
 
@@ -298,6 +304,8 @@ public class productdetailserviceimpl implements  Productdetailservice {
             productRating1=productdetailrepository.findById(productname).get();
             productRating1.setRating(rating);
             productdetailrepository.save(productRating1);
+            sendRating(productRating1);
+
         }
 
     }
@@ -309,17 +317,23 @@ public class productdetailserviceimpl implements  Productdetailservice {
         return  word;
     }
 
-    ProductRating productRating2;
+    @Override
+    public void sendRating(ProductRating productRating) {
+
+        rabbitTemplate.convertAndSend(exchange, routingkeyeight, productRating);
+        System.out.println("Send msg from nlp = " + productRating.toString());
+    }
+
+
+
     @RabbitListener(queues="${stackroute.rabbitmq.queuethree}")
-    public  void recieverating(ProductRatingDTO productRatingDTO)
+    public  void recieveReview(ProductRatingDTO productRatingDTO)
     {
         System.out.println("recieved msg from write a review service = " + productRatingDTO.toString());
         ProductRating productRating=new ProductRating();
         if(productdetailrepository.existsById(productRatingDTO.getProductName())) {
 
-
             Optional optional;
-
             optional=productdetailrepository.findById(productRatingDTO.getProductName());
             System.out.println(optional);
             if(optional != null)

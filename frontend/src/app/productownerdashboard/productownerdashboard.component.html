@@ -1,3 +1,4 @@
+
 <!-- header -->
 <div class="containerbody">
     <nav class="navbar navbar-expand-lg fixed-top">
@@ -46,9 +47,9 @@
 
 <div class="container">
   <h3>My Products</h3>
-  <hr>
+  <hr class="side">
   <div *ngFor="let product of listofproducts">
-  <div class="row d-outline-block">
+  <div id="div2" class="row d-outline-block">
     <div class="col-sm-4">
         <div class="thumb-wrapper">
             <div class="img-box">
@@ -76,6 +77,10 @@
       <p><b>Product Description : </b>{{product.description}}</p>
       <p class="timestamp"><b>Uploaded On : </b>{{product.uploadedOn}}</p>
       <br>
+
+      <!-- <button type="submit" class="btn btn-dark" id="editproduct" data-target="#edit">Edit</button> -->
+      <button type="submit" ng-click="removeDIV()"class="btn btn-outline-dark" id="deleteproduct" data-target="#delete">Delete</button>
+
       <button type="submit" class="btn btn-info" id="deleteproduct" data-toggle="modal" data-target="#myModal"
        (click)="deleteProduct(product.productName)">Delete</button>
 
@@ -94,6 +99,7 @@
           </div>
         </div>
       </div>
+
 
    </div>
   </div>
@@ -192,7 +198,7 @@
     </div>
     <!-- Footer links -->
   
-    <hr>
+    <hr class="side">
 
     <!-- Grid row -->
     <div class="row d-flex align-items-center">

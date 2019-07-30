@@ -15,19 +15,19 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SubcategoryConnection {
 
-    @Value("${stackroute.rabbitmq.queueSix}")
-    String queueSix;
+    @Value("${stackroute.rabbitmq.queueten}")
+    String queueTen;
 
     @Value("${stackroute.rabbitmq.exchange}")
     String exchangeName;
 
-    @Value("${stackroute.rabbitmq.routingkeySix}")
-    private String routingkeySix;
+    @Value("${stackroute.rabbitmq.routingkeyten}")
+    private String routingkeyTen;
 
 
     @Bean
     org.springframework.amqp.core.Queue queueMethod() {
-        return new org.springframework.amqp.core.Queue(queueSix, true);
+        return new org.springframework.amqp.core.Queue(queueTen, true);
 
     }
 
@@ -38,7 +38,7 @@ public class SubcategoryConnection {
 
     @Bean
     org.springframework.amqp.core.Binding binding() {
-        return BindingBuilder.bind(queueMethod()).to(exchangeMethod()).with(routingkeySix).noargs();
+        return BindingBuilder.bind(queueMethod()).to(exchangeMethod()).with(routingkeyTen).noargs();
     }
 
 

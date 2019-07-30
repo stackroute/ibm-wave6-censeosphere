@@ -14,4 +14,5 @@ public interface Productdetailservice {
     public String sentimentResult(int sentiments);
     public float generateRating(String sentiment,float rating,int score);
     public void  updaterating(String productname,float rating);
+    public void sendRating(ProductRating productRating);
 }

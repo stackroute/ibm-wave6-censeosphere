@@ -22,7 +22,7 @@ export class ProductownerdashboardComponent implements OnInit {
   productDetails=[];
   myproducts:any;
   listofproducts=[];
-
+ 
 
   reviewer;
   constructor(private updates:UpdateProfileService,private route1:ActivatedRoute,
@@ -72,6 +72,7 @@ export class ProductownerdashboardComponent implements OnInit {
   }
 
   productOwnerDetails(){
+
     // const emailId=this.route1.snapshot.paramMap.get('emailId');
     const emailId=sessionStorage.getItem("productOwnerEmail");
     console.log("product Owner profile " +emailId);
