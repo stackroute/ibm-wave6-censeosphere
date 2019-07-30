@@ -18,6 +18,6 @@ public class ProductRating {
 
     @Id
      String productName;
-     float rating=0;
+     float rating;
 }
 

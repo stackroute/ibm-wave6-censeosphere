@@ -103,7 +103,7 @@ export class ProductownerdashboardComponent implements OnInit {
      subscribe(data=>{
          console.log("product info : ",data);
      });
-    
+     this.listofproducts.pop();
     }
     account()
     {

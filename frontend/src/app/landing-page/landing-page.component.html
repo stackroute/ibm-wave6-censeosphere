@@ -69,20 +69,21 @@
         <div class="card-block">
                 <h4><b>{{product.productName}}</b></h4>
                 <div class="star-rating">
-                  <h5>{{product.rating}}</h5>
+                  
+                  <ngb-rating rate= {{product.rating}}></ngb-rating>
                 </div>
                 <h5 class="item-price">${{product.price}}</h5>
               </div>
             </div>
           </div>
         </div>
-        </ng-template>
+        </ng-temlate>
       </div>
       <!-- end carousel for recent productDetails -->
       <!--  start carousel for trending productDetails -->
       <div id="container1">
         <h2>Trending Products</h2>
-        <div ng2-carouselamos class="slides-wrapper" [items]="productDetails" [width]="900" [$prev]="prev" [$next]="next"
+        <div ng2-carouselamos class="slides-wrapper" [items]="productDetails1" [width]="900" [$prev]="prev" [$next]="next"
           [$item]="product">
         </div>
         <ng-template #prev>
@@ -101,7 +102,8 @@
                   <div class="card-block">
                 <h4><b>{{product.productName}}</b></h4>
                 <div class="star-rating">
-                  <h5>{{product.rating}}</h5>
+                 
+                  <ngb-rating rate={{product.rating}}></ngb-rating>
                 </div>
                 <h5 class="item-price">${{product.price}}</h5>
               </div>

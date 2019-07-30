@@ -8,12 +8,14 @@ import { Reviewer } from '../reviewer';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { error } from 'util';
+import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 
 const helper = new JwtHelperService();
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.css']
+  styleUrls: ['./landing-page.component.css'],
+ 
 })
 
 export class LandingPageComponent implements OnInit {
@@ -26,8 +28,6 @@ export class LandingPageComponent implements OnInit {
   // validatingForm: FormGroup;
 
   productDetails1 = [];
-
-
   route: ActivatedRoute;
 
   form=new FormGroup({
@@ -36,10 +36,13 @@ export class LandingPageComponent implements OnInit {
   })
   helper = new JwtHelperService();
   auth: Authentication = new Authentication();
-  constructor(private router: Router, private landingpageservice: LandingpageService, private loginvalidation: LoginvalidationService,private productService:ProductService) { }
+  constructor(private router: Router, private landingpageservice: LandingpageService, private loginvalidation: LoginvalidationService,private productService:ProductService,private config: NgbRatingConfig) {  config.max = 5;
+    config.readonly = true; }
 
   ngOnInit() {
 
+
+    
     // get modalFormDarkEmail() {
     //   return this.validatingForm.get('modalFormDarkEmail');
     // }

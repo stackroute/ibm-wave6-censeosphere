@@ -183,7 +183,7 @@ public class ProductSearchServiceImpl implements ProductSearchService {
                 productDetails2 = productSearchRepository.findById(productRating.getProductName()).get();
                 productDetails2.setRating(productRating.getRating());
                 productSearchRepository.save(productDetails2);
-
-              }
+                sendProduct(productDetails2);
+             }
      }
 }

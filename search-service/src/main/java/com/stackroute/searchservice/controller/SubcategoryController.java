@@ -2,11 +2,10 @@ package com.stackroute.searchservice.controller;
 
 import com.stackroute.searchservice.domain.Products;
 import com.stackroute.searchservice.domain.Subcategory;
-import com.stackroute.searchservice.dto.ProductDto;
+import com.stackroute.searchservice.dto.ProductDetails;
 import com.stackroute.searchservice.exception.SubcategoryAlreadyExistsExceptions;
 import com.stackroute.searchservice.exception.SubcategoryNotFoundException;
 import com.stackroute.searchservice.service.SubcategoryService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -75,20 +74,18 @@ public class SubcategoryController {
         }
     }
     @PostMapping("products")
-    public  ResponseEntity<?> updateSubcategory(@RequestBody ProductDto productDto)
+    public  ResponseEntity<?> updateSubcategory(@RequestBody ProductDetails productDetails)
     {
 
         Date date=new Date();
         long millies=date.getTime();
         Timestamp timestamp=new Timestamp(millies);
-        productDto.setUploadedOn(timestamp);
+        productDetails.setUploadedOn(timestamp);
 
-        try {
-            subcategoryService.updateSubcategory(productDto);
+
+            subcategoryService.updateSubcategory(productDetails);
             return new ResponseEntity<String>("Subcategory updated successfully!", HttpStatus.OK);
-        } catch (SubcategoryNotFoundException e) {
-            return new ResponseEntity<String>("Details not found", HttpStatus.NOT_FOUND);
-        }
+
     }
 
 }

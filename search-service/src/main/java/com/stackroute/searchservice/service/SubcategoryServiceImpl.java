@@ -2,7 +2,7 @@ package com.stackroute.searchservice.service;
 
 import com.stackroute.searchservice.domain.Products;
 import com.stackroute.searchservice.domain.Subcategory;
-import com.stackroute.searchservice.dto.ProductDto;
+import com.stackroute.searchservice.dto.ProductDetails;
 import com.stackroute.searchservice.exception.SubcategoryAlreadyExistsExceptions;
 import com.stackroute.searchservice.exception.SubcategoryNotFoundException;
 import com.stackroute.searchservice.repository.SubcategoryRepository;
@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 //function implementation
 @Service
@@ -42,8 +43,9 @@ public class SubcategoryServiceImpl implements SubcategoryService {
         }
         else
         {
-           Subcategory savedSubcategory=subcategoryRepository.save(subcategory);
-          return subcategory;
+
+            Subcategory savedSubcategory=subcategoryRepository.save(subcategory);
+             return subcategory;
         }
     }
 
@@ -84,49 +86,81 @@ public class SubcategoryServiceImpl implements SubcategoryService {
 
     }
 
-    @RabbitListener(queues="${stackroute.rabbitmq.queue}")
-    public Subcategory updateSubcategory(ProductDto productDto) {
-        System.out.println("recieved product= " + productDto.toString());
+
+    @RabbitListener(queues="${stackroute.rabbitmq.queueeleven}")
+    public void  Recieverating(ProductDetails productDetails)
+    {
+
+
+        System.out.println("recieved msg  after update rating= " + productDetails.toString());
+        Subcategory newSubcategory=new Subcategory();
+        Products newProduct = new Products();
+        Subcategory fetchedSubcategory= subcategoryRepository.findBySubCategory(productDetails.getSubCategory());
+
+        if(fetchedSubcategory!=null){
+            System.out.println("hai");
+            List<Products> newProductsList = fetchedSubcategory.getProducts();
+            for (int i=0;i< newProductsList.size();i++){
+                if(((newProductsList.get(i)).getProductName())==(productDetails.getProductName())) {
+                    newProduct.setRating(productDetails.getRating());
+                    newProductsList.add(newProduct);
+                    fetchedSubcategory.setProducts(newProductsList);
+                    subcategoryRepository.save(fetchedSubcategory);
+                }
+            }
+
+        }
+
+
+    }
+
+    @RabbitListener(queues="${stackroute.rabbitmq.queueten}")
+    public void updateSubcategory(ProductDetails productDetails) {
+        System.out.println("recieved product= " + productDetails.toString());
 
         Subcategory newSubcategory=new Subcategory();
         Products newProduct = new Products();
-        Subcategory fetchedSubcategory= subcategoryRepository.findBySubCategory(productDto.getSubCategory());
+        Subcategory fetchedSubcategory= subcategoryRepository.findBySubCategory(productDetails.getSubCategory());
 
         if(fetchedSubcategory!=null){
 
+            System.out.println("hai");
             // fetchedSubcategory.setProducts(subcategory.getProducts());
             List<Products> newProductsList = fetchedSubcategory.getProducts();
-
-            newProduct.setUploadedOn(productDto.getUploadedOn());
-            newProduct.setPrice(productDto.getPrice());
-            newProduct.setSpecifications(productDto.getSpecifications());
-            newProduct.setDescription(productDto.getDescription());
-            newProduct.setRating(productDto.getRating());
-            newProduct.setProductFamily(productDto.getProductFamily());
-            newProduct.setProductName(productDto.getProductName());
-            newProduct.setImage(productDto.getImage());
+            newProduct.setUploadedOn(productDetails.getUploadedOn());
+            newProduct.setPrice(productDetails.getPrice());
+            newProduct.setSpecifications(productDetails.getSpecifications());
+            newProduct.setDescription(productDetails.getDescription());
+            newProduct.setRating(productDetails.getRating());
+            newProduct.setProductFamily(productDetails.getProductFamily());
+            newProduct.setProductName(productDetails.getProductName());
+            newProduct.setImage(productDetails.getImage());
             newProductsList.add(newProduct);
             fetchedSubcategory.setProducts(newProductsList);
             subcategoryRepository.save(fetchedSubcategory);
-            return fetchedSubcategory;
-        }
+
+         }
     else {
-        Subcategory fetchedSubcategory1=new Subcategory();
-        fetchedSubcategory1.setSubCategory(productDto.getSubCategory());
-        subcategoryRepository.save(fetchedSubcategory1);
-         newProduct.setUploadedOn(productDto.getUploadedOn());
-         newProduct.setPrice(productDto.getPrice());
-         newProduct.setSpecifications(productDto.getSpecifications());
-         newProduct.setDescription(productDto.getDescription());
-         newProduct.setRating(productDto.getRating());
-         newProduct.setProductFamily(productDto.getProductFamily());
-         newProduct.setProductName(productDto.getProductName());
-         newProduct.setImage(productDto.getImage());
+
+         System.out.println("bai");
+         Subcategory fetchedSubcategory1=new Subcategory();
+         fetchedSubcategory1.setSubCategory(productDetails.getSubCategory());
+         subcategoryRepository.save(fetchedSubcategory1);
+         newProduct.setUploadedOn(productDetails.getUploadedOn());
+         newProduct.setPrice(productDetails.getPrice());
+         newProduct.setSpecifications(productDetails.getSpecifications());
+         newProduct.setDescription(productDetails.getDescription());
+         newProduct.setRating(productDetails.getRating());
+         newProduct.setProductFamily(productDetails.getProductFamily());
+         newProduct.setProductName(productDetails.getProductName());
+         newProduct.setImage(productDetails.getImage());
          productsList.add(newProduct);
          fetchedSubcategory1.setProducts(productsList);
          subcategoryRepository.save(fetchedSubcategory1);
-            return fetchedSubcategory1;
+
         }
 
     }
+
+
 }

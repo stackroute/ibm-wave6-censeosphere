@@ -2,32 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e550382-b763-4af2-a629-d786415f77c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../NLP-service/src/main/java/com/stackroute/NLPservice/Domain/ProductRating.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NLP-service/src/main/java/com/stackroute/NLPservice/Domain/ProductRating.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NLP-service/src/main/java/com/stackroute/NLPservice/dto/ProductRatingDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NLP-service/src/main/java/com/stackroute/NLPservice/dto/ProductRatingDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NLP-service/src/main/java/com/stackroute/NLPservice/service/Productdetailservice.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NLP-service/src/main/java/com/stackroute/NLPservice/service/Productdetailservice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NLP-service/src/main/java/com/stackroute/NLPservice/service/productdetailserviceimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NLP-service/src/main/java/com/stackroute/NLPservice/service/productdetailserviceimpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/review.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/review.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/review/review.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/review/review.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/reviewer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/reviewer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/reviwerdash/reviwerdash.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/reviwerdash/reviwerdash.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/search-for-review.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/search-for-review.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/search-for-review.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/search-for-review.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/search-for-review/search-for-review.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/search-for-review/search-for-review.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/search-for-review/search-for-review.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/search-for-review/search-for-review.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/updateprofile/updateprofile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/updateprofile/updateprofile.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/writereview.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/writereview.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../review-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../review-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/controller/ReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/domain/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/domain/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/dto/ReviewDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/dto/ReviewDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/repository/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/repository/ReviewRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/service/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/service/ReviewService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/service/ReviewServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/service/ReviewServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../reviewer-profile-service/src/main/java/com/stackroute/reviewerprofile/controller/ReviewerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../reviewer-profile-service/src/main/java/com/stackroute/reviewerprofile/controller/ReviewerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../reviewer-profile-service/src/main/java/com/stackroute/reviewerprofile/domain/Reviewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../reviewer-profile-service/src/main/java/com/stackroute/reviewerprofile/domain/Reviewer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../reviewer-profile-service/src/main/java/com/stackroute/reviewerprofile/service/ReviewerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../reviewer-profile-service/src/main/java/com/stackroute/reviewerprofile/service/ReviewerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/productownerdashboard/productownerdashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/productownerdashboard/productownerdashboard.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/productownerdashboard/productownerdashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/productownerdashboard/productownerdashboard.component.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +20,7 @@
     <option name="width" value="1299" />
     <option name="height" value="743" />
   </component>
+  <component name="ProjectId" id="1OgSr043Cmr0oUNCY0RFj1Wrnnb" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -70,34 +47,15 @@
     </task>
     <servers />
   </component>
-  <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1533" height="875" extended-state="6" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Maven" order="7" />
-    </layout>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

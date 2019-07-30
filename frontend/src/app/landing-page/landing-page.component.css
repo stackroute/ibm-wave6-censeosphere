@@ -173,11 +173,11 @@ h4 {
 	/* font-size: 13px; */
 	padding: 2px 0;
 }
-.star-rating li {
+.star-rating  {
 	padding: 0;
 }
-.star-rating i {
-	font-size: 14px;
+.star-rating  {
+	font-size: 22px;
 	color: #ffc000;
 }
 .subcategory{
