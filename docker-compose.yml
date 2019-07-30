@@ -29,14 +29,15 @@ services:
     image: zuul-api
     hostname: localhost
     ports:
-      - 8080:8080
+      - 8083:8083
 
   userloginservice:
-    build: user-login-service
+    build: user-authentication-service
     restart: always
     network_mode: "host"
     depends_on:
       - mysqldb
+      - eureka-server
     ports:
       - 8088:8088
 
@@ -46,6 +47,7 @@ services:
     network_mode: "host"
     depends_on:
       - mongodb
+      - eureka-server
     ports:
       - 8089:8089
 
@@ -55,6 +57,7 @@ services:
     network_mode: "host"
     depends_on:
       - mongodb
+      - eureka-server
     ports:
       - 8090:8090
 
@@ -87,15 +90,17 @@ services:
     network_mode: "host"
     depends_on:
       - mongodb
+      - eureka-server
     ports:
       - 8087:8087
 
   productownerprofileservice:
-    build: productOwner-service
+    build: product-owner-service
     restart: always
     network_mode: "host"
     depends_on:
       - mongodb
+      - eureka-server
     ports:
       - 8060:8060
 
@@ -105,6 +110,7 @@ services:
     network_mode: "host"
     depends_on:
       - mongodb
+      - eureka-server
     ports:
       - 8877:8877
 
@@ -114,6 +120,7 @@ services:
       network_mode: "host"
       depends_on:
         - mongodb
+        - eureka-server
       ports:
         - 8081:8081
 
@@ -134,11 +141,12 @@ services:
 
 
   recommendation:
-    build: recommendation
+    build: recommendation-service
     restart: always
     network_mode: "host"
     depends_on:
       - neo4j
+      - eureka-server
     ports:
       - 8085:8085
     expose:

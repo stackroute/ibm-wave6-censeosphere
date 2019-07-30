@@ -119,6 +119,7 @@ public class SubcategoryServiceImpl implements SubcategoryService {
          newProduct.setSpecifications(productDto.getSpecifications());
          newProduct.setDescription(productDto.getDescription());
          newProduct.setRating(productDto.getRating());
+
          newProduct.setProductFamily(productDto.getProductFamily());
          newProduct.setProductName(productDto.getProductName());
          newProduct.setImage(productDto.getImage());
