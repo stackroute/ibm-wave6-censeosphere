@@ -51,12 +51,6 @@ public class ProductOwnerServiceImpl implements ProductOwnerService {
 
         ProductOwnerDTO productOwnerDTO=new ProductOwnerDTO(productowner.getEmailId(),productowner.getReconfirmPassword(),productowner.getRole());
         sendproductOwnner(productOwnerDTO);
-
-        if(savedDetails==null)
-        {
-            throw new ProductOwnerDetailsAlreadyExistsException("Details already exists");
-        }
-
         return savedDetails;
     }
 

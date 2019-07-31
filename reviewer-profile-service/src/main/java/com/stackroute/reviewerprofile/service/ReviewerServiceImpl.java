@@ -53,12 +53,7 @@ public class ReviewerServiceImpl implements ReviewerService {
         Reviewer savedReviewer=reviewerRepository.save(reviewer);
         ReviewerDTO reviewerDTO=new ReviewerDTO(reviewer.getEmailId(),reviewer.getReconfirmPassword(),reviewer.getRole());
          sendreviewer(reviewerDTO);
-        if(savedReviewer==null)
-        {
-            throw new ReviewerAlreadyExistsException("Reviewer already exists");
-        }
-
-        return savedReviewer;
+         return savedReviewer;
     }
 
     @Override
@@ -106,7 +101,7 @@ public class ReviewerServiceImpl implements ReviewerService {
         Reviewer reviewer1=null;
         Optional optional;
         optional=reviewerRepository.findById(emailId);
-        if(optional != null)
+        if(optional.isPresent())
         {
 
 

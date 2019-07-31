@@ -26,7 +26,7 @@ public class ReviewerController {
     }
 
     @PostMapping("reviewer")
-    public ResponseEntity<?> saveReviewers(@RequestBody Reviewer reviewer) throws ReviewerAlreadyExistsException   {
+    public ResponseEntity<String> saveReviewers(@RequestBody Reviewer reviewer) throws ReviewerAlreadyExistsException   {
         ResponseEntity responseEntity;
 
             reviewerService.saveReviewers(reviewer);
@@ -45,30 +45,22 @@ public class ReviewerController {
         } catch (ReviewerNotFoundException e) {
             return new ResponseEntity<String>("Reviewer not found", HttpStatus.NOT_FOUND);
         }
-       /* ResponseEntity responseEntity;
-        Reviewer reviewer=reviewerService.getReviewerByEmailId(emailId);
-        if(reviewer==null){
-            throw new ReviewerNotFoundException("Reviewer Not Found");
-        }
-        else {
-            responseEntity=new ResponseEntity<String>("Reviewer found",HttpStatus.OK);
-        }
-        return responseEntity;*/
+
     }
 
     @DeleteMapping("reviewer/{emailId}")
-    public ResponseEntity<?> deleteReviewer(@PathVariable("emailId") String emailId) throws ReviewerNotFoundException {
+    public ResponseEntity<List<Reviewer>> deleteReviewer(@PathVariable("emailId") String emailId) throws ReviewerNotFoundException {
         return new ResponseEntity<List<Reviewer>>(reviewerService.deleteReviewer(emailId),HttpStatus.OK);
     }
 
 
     @GetMapping("reviewers")
-    public ResponseEntity<?> displayAllReviewers() throws ReviewerNotFoundException {
+    public ResponseEntity<List<Reviewer>> displayAllReviewers() throws ReviewerNotFoundException {
         return new ResponseEntity<List<Reviewer>>(reviewerService.displayAllReviewers(), HttpStatus.OK);
     }
 
     @PutMapping("reviewer/{emailId}")
-    public ResponseEntity<?> updateReviewer(@RequestBody Reviewer reviewer,@PathVariable("emailId") String emailId) throws ReviewerNotFoundException {
+    public ResponseEntity<Reviewer> updateReviewer(@RequestBody Reviewer reviewer,@PathVariable("emailId") String emailId) throws ReviewerNotFoundException {
 
 
        Reviewer reviewer1 = reviewerService.updateReviewer(reviewer,emailId);

@@ -66,7 +66,7 @@ public class ReviewerControllerTest {
     @Test
     public void testGetAll() throws Exception {
         when(reviewerService.getAll()).thenReturn(list);
-        mockMvc.perform(MockMvcRequestBuilders.get("/rest/neo4j/reviewer/reviewers")
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/reviewers")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(reviewer)))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print());
@@ -75,7 +75,7 @@ public class ReviewerControllerTest {
     @Test
     public void testGetReviewerByEmailId() throws Exception{
         when(reviewerService.getByName("monisha@gmail.com")).thenReturn(reviewer);
-        mockMvc.perform(MockMvcRequestBuilders.get("/rest/neo4j/reviewer/emailid/monisha@gmail.com")
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/emailid/monisha@gmail.com")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(reviewer)))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print());

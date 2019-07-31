@@ -77,7 +77,7 @@ public class UserController {
 
         }
     @PostMapping("/users")
-    public ResponseEntity<?> saveUser(@RequestBody User user)
+    public ResponseEntity<String> saveUser(@RequestBody User user)
     {
         System.out.println("***********");
         ResponseEntity responseEntity;
@@ -97,7 +97,7 @@ public class UserController {
 
 
   @GetMapping("/getuser")
-    public ResponseEntity<?> getAllUsers() {
+    public ResponseEntity<List<User>> getAllUsers() {
            return new ResponseEntity<List<User>> (userService.getAllUsers(),HttpStatus.OK);
         }
 

@@ -28,4 +28,6 @@ public interface ProductSearchService {
     public void sendToRecommendation(ProductDTO productDTO);
     public void sendRemove(ProductDetails productDetails);
     public  void sendToSearch(ProductDetails productDetails);
+    public ProductDetails searchProductByProductOwner(String emailId, String ProductName);
+
 }

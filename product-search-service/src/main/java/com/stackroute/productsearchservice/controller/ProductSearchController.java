@@ -55,7 +55,7 @@ public class ProductSearchController {
     }
 
     @DeleteMapping("products/{productName}")
-    public ResponseEntity<?> deleteProduct(@PathVariable("productName") String productName) {
+    public ResponseEntity<String> deleteProduct(@PathVariable("productName") String productName) {
         //return new ResponseEntity<String>(trackService.deleteTrack(id),HttpStatus.OK);
 
         try {
@@ -68,7 +68,7 @@ public class ProductSearchController {
 
 
     @PutMapping("product/{productName}")
-    public ResponseEntity<?> updateComments(@RequestBody ProductDetails productDetails,@PathVariable String productName) {
+    public ResponseEntity<String> updateComments(@RequestBody ProductDetails productDetails,@PathVariable String productName) {
         try {
             ProductDetails productDetails1 = productSearchService.updateProduct(productDetails, productName);
             return new ResponseEntity<String>("Details updated", HttpStatus.OK);
@@ -109,6 +109,12 @@ public class ProductSearchController {
         } catch (Exception e) {
             return new ResponseEntity<String>("No products", HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("search/{emailId}/{prodcutName}")
+    public ResponseEntity<?> getProductByEmailId(@PathVariable("emailId") String emailId,@PathVariable("prodcutName") String prodcutName) {
+        ProductDetails productDetails = productSearchService.searchProductByProductOwner(emailId, prodcutName);
+        return new ResponseEntity<ProductDetails>(productDetails, HttpStatus.OK);
     }
 
 

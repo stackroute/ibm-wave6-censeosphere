@@ -65,13 +65,11 @@ public class ProductSearchServiceImpl implements ProductSearchService {
         }
         else{
 
-            System.out.println("inside");
+
             ProductDetails savedProducts=productSearchRepository.save(productDetails);
-            System.out.println(savedProducts.toString());
             sendProduct(savedProducts);
             ProductDTO productDTO=new ProductDTO(savedProducts.getProductName(),savedProducts.getRating(),savedProducts.getPrice(),savedProducts.getProductFamily(),savedProducts.getSubCategory());
             sendToRecommendation(productDTO);
-            System.out.println("after send");
             return savedProducts;
         }
 
@@ -84,11 +82,12 @@ public class ProductSearchServiceImpl implements ProductSearchService {
 
     @Override
     public ProductDetails deleteProduct(String productName) throws ProductNotFoundException {
-//        Optional optional=productSearchRepository.findById(productName);
+
+
 
         if (productSearchRepository.existsById(productName))
         {
-            System.out.println("Hiii");
+
             productDetails3=productSearchRepository.findById(productName).get();
             productSearchRepository.deleteById(productName);
             sendRemove(productDetails3);
@@ -151,45 +150,44 @@ public class ProductSearchServiceImpl implements ProductSearchService {
     public void sendProduct(ProductDetails productDetails)
     {
 
-        System.out.println("inside send");
+
         rabbitTemplate.convertAndSend(exchange, routingkeyfour, productDetails);
-        System.out.println("Send msg = " + productDetails.toString());
+
 
     }
     @Override
     public void sendToSearch(ProductDetails productDetails)
     {
 
-        System.out.println("inside send");
+
         rabbitTemplate.convertAndSend(exchange, routingkeyeleven, productDetails);
-        System.out.println("Send msg = " + productDetails.toString());
+
 
     }
 
     @Override
     public void sendToRecommendation(ProductDTO productDTO) {
 
-        System.out.println("inside send");
+
         rabbitTemplate.convertAndSend(exchange, routingkeysix,productDTO);
-        System.out.println("Send msg = " + productDTO.toString());
+
     }
 
     @Override
     public void sendRemove(ProductDetails productDetails) {
 
         rabbitTemplate.convertAndSend(exchange, routingkeynine,productDetails);
-        System.out.println("Send msg = " + productDetails.toString());
 
     }
 
     @RabbitListener(queues="${stackroute.rabbitmq.queueeight}")
     public void  recieveRating(ProductRating productRating) {
 
-            System.out.println("recieved msg  from nlpservice= " + productRating.toString());
+
             Optional optional;
             optional = productSearchRepository.findById(productRating.getProductName());
             System.out.println(optional);
-            if (optional != null)
+            if (optional.isPresent())
              {
                 productDetails2 = productSearchRepository.findById(productRating.getProductName()).get();
                 productDetails2.setRating(productRating.getRating());
@@ -197,4 +195,22 @@ public class ProductSearchServiceImpl implements ProductSearchService {
                 sendToSearch(productDetails2);
              }
      }
+
+    @Override
+    public ProductDetails searchProductByProductOwner(String emailId, String ProductName) {
+        ProductDetails productDetails=null;
+        Optional optional=null;
+        optional=productSearchRepository.findById(ProductName);
+
+
+          if(optional.isPresent() ){
+            productDetails=productSearchRepository.findById(ProductName).get();
+            System.out.println(productDetails);
+            if(productDetails.getAddedby().equals(emailId)){
+
+                return productDetails;
+            }
+        }
+        return null;
+    }
 }

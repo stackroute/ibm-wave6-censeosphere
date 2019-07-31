@@ -12,15 +12,11 @@ export class RecommendationService {
   httpOptions={
     headers : new HttpHeaders({'Access-Control-Allow-Origin' : '*'})}
 
-    // getProductByFamily(productFamily:string){
-    //     console.log("data in recommendation service :",productFamily);
-    //     return this.http.get<Product>('http://localhost:8085/rest/neo4j/product/productfamily/'+productFamily);
-      
-    // }
+  
 
     getProductBySubCategory(emailId:string){
       console.log("data in recommendation service :",emailId);
-        return this.http.get<Product>('http://13.126.244.58:8083/recommendation-service/rest/neo4j/product/recommendedproduct/'+emailId);
+        return this.http.get<Product>('http://13.126.244.58:8083/recommendation-service/api/v1/recommendedproducts/'+emailId);
       
     }
 

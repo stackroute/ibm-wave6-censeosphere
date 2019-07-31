@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 
 @RestController
-@RequestMapping("/rest/neo4j/reviewer")
+@RequestMapping(value = "api/v1")
 public class ReviewerController {
 
 

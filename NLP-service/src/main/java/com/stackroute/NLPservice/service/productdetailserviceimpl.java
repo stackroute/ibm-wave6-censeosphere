@@ -41,6 +41,18 @@ public class productdetailserviceimpl implements  Productdetailservice {
     @Value("${stackroute.rabbitmq.routingkeyeight}")
     private String routingkeyeight;
 
+    @Value("${string1}")
+    private String  string1;
+    @Value("${string2}")
+    private String string2;
+    @Value("${string3}")
+    private String string3;
+    @Value("${string4}")
+    private String string4;
+    @Value("${string5}")
+    private String string5;
+
+
         @Value("${value1}")
         private String value1;
         @Value("${value2}")
@@ -68,7 +80,7 @@ public class productdetailserviceimpl implements  Productdetailservice {
     int creditpoints;
     @PostConstruct
     public void init(){
-        System.out.println("Inside init");
+
         properties.setProperty("annotators", "tokenize,ssplit,pos,lemma,depparse,parse,natlog,openie,sentiment");
         pipeline=new StanfordCoreNLP(properties);
 
@@ -77,14 +89,9 @@ public class productdetailserviceimpl implements  Productdetailservice {
     @Override
     public ProductRating saveRating(ProductRating productRating) {
             productRating1= productdetailrepository.save(productRating);
-            System.out.println(productRating1);
-            System.out.println(review);
-            sentiments =findSentiment(productRating1.getProductName(),review);
-             System.out.println(sentiments);
+             sentiments =findSentiment(productRating1.getProductName(),review);
              sentiment=sentimentResult(sentiments);
-             System.out.println(sentiment);
              rating=generateRating(sentiment,productRating1.getRating(),creditpoints);
-             System.out.println("from saveRating "+rating);
              updaterating(productRating1.getProductName(),rating);
              return  productRating1;
     }
@@ -118,7 +125,6 @@ public class productdetailserviceimpl implements  Productdetailservice {
                 }
             }
         }
-        System.out.println(mainSentiment);
         return mainSentiment;
     }
 
@@ -127,22 +133,22 @@ public class productdetailserviceimpl implements  Productdetailservice {
 
         if(sentiments == 0)
         {
-            result="Very negative";
+            result=string2;
         }
         else if(sentiments == 1)
         {
-            result ="Negative";
+            result =string4;
         }
         else  if(sentiments == 2)
         {
-            result="Neutral";
+            result=string5;
         }
         else if(sentiments == 3)
         {
-            result="Positive";
+            result=string3;
         }
         else {
-            result="Very Positive";
+            result=string1;
         }
         return  result;
     }
@@ -150,41 +156,35 @@ public class productdetailserviceimpl implements  Productdetailservice {
     @Override
     public float generateRating(String sentiment,float value,int score) {
         float nvalue1= Float.parseFloat(""+value1);
-        System.out.println("after parse"+nvalue1);
         float nvalue2= Float.parseFloat(""+value2);
-        System.out.println("after parse"+nvalue2);
         float nvalue3= Float.parseFloat(""+value3);
-        System.out.println("after parse"+nvalue3);
         float nvalue4= Float.parseFloat(""+value4);
-        System.out.println("after parse"+nvalue4);
         float nvalue5= Float.parseFloat(""+value5);
-        System.out.println("after parse"+nvalue5);
         float nvalue6= Float.parseFloat(""+value6);
-        System.out.println("after parse"+nvalue6);
         float nvalue7= Float.parseFloat(""+value7);
-        System.out.println("after parse"+nvalue7);
+
         if(value <5)
         {
             if( score>=0 &&  score<=400)
             {
-                if(sentiment == "Very negative")
+                if((sentiment).equals(string2))
                 {
                     rating=value-nvalue2;
                 }
-               else if(sentiment == "Negative")
+               else if((sentiment).equals( string4))
                {
                   rating=value-nvalue1;
                }
-              else if(sentiment == "Neutral")
+              else if((sentiment).equals(string5))
                {
                   rating=value-nvalue7;
                }
-               else if(sentiment== "Positive")
+               else if((sentiment).equals( string3))
                 {
 
                    rating=value+nvalue1;
                 }
-               else if(sentiment == "Very Positive")
+               else if((sentiment).equals( string1))
                 {
                    rating=value+nvalue2;
                 }
@@ -194,24 +194,24 @@ public class productdetailserviceimpl implements  Productdetailservice {
           else if(score>=400 &&  score<=700)
           {
 
-              if(sentiment == "Very negative")
+              if((sentiment).equals(string2))
                 {
                     rating=value-nvalue4;
                 }
-                else if(review == "Negative")
+                else if((sentiment).equals( string4))
                 {
                     rating=value-nvalue2;
                 }
-                else if(sentiment == "Neutral")
+                else if((sentiment).equals( string5))
                 {
                     rating=value-nvalue7;
                 }
-                else if(sentiment == "Positive")
+                else if((sentiment).equals(string3))
                 {
 
                     rating=value+nvalue2;
                 }
-                else if(sentiment == "Very Positive")
+                else if((sentiment).equals(string1))
                 {
                     rating=value+nvalue4;
                 }
@@ -219,24 +219,24 @@ public class productdetailserviceimpl implements  Productdetailservice {
             }
            else if( score>=700 &&  score<=1000 )
            {
-                if(sentiment== "Very negative")
+                if((sentiment).equals( string2))
                 {
                 rating=value-nvalue5;
                 }
-            else if(sentiment == "Negative")
+            else if((sentiment).equals( string4))
                {
                 rating=value-nvalue3;
                }
-            else if(sentiment == "Neutral")
+            else if((sentiment ).equals(string5))
                {
                 rating=value-nvalue7;
                }
-            else if(sentiment == "Positive")
+            else if((sentiment).equals( string3))
                {
 
                 rating=value+nvalue3;
                 }
-            else if(sentiment== "Very Positive")
+            else if((sentiment).equals(string1))
                 {
                 rating=value+nvalue5;
                 }
@@ -246,24 +246,24 @@ public class productdetailserviceimpl implements  Productdetailservice {
 
         else if(  score>=1000 )
         {
-            if(sentiment == "Very negative")
+            if((sentiment) .equals( string2))
               {
                 rating=value-nvalue6;
               }
-            else if(sentiment == "Negative")
+            else if((sentiment) .equals(string4))
               {
                 rating=value-nvalue4;
               }
-            else if(sentiment == "Neutral")
+            else if(sentiment .equals( string5))
               {
                 rating=value-nvalue7;
               }
-            else if(sentiment == "Positive")
+            else if((sentiment).equals( string3))
               {
 
                 rating=value+nvalue4;
               }
-            else if(sentiment == "Very Positive")
+            else if((sentiment).equals( string1))
               {
                 rating=value+nvalue6;
               }
@@ -272,19 +272,19 @@ public class productdetailserviceimpl implements  Productdetailservice {
         }
         else if(rating == 5)
         {
-            if(   score>=1000 )
+            if(   score>=1000  &&  (sentiment).equals(string2))
             {
-                if(sentiment == "very negative")
-                {
-                    rating=value-nvalue6;
-                }
-               else if(sentiment == "Negative")
-                {
-                rating=value-nvalue4;
-                }
+
+                rating = value - nvalue6;
+
             }
+            else if(score>=1000 && (sentiment).equals(string4))
+                {
+
+                   rating=value-nvalue4;
+                }
         }
-        System.out.println("inside rating"+rating);
+
         return rating;
 
 
@@ -293,13 +293,10 @@ public class productdetailserviceimpl implements  Productdetailservice {
     @Override
     public void updaterating(String productname, float rating)
     {
-
-        System.out.println("product name : "+productname);
-        System.out.println("updated rating : "+rating);
         Optional optional;
         optional=productdetailrepository.findById(productname);
-        System.out.println(optional);
-        if(optional != null)
+
+        if(optional.isPresent())
         {
             productRating1=productdetailrepository.findById(productname).get();
             productRating1.setRating(rating);
@@ -321,7 +318,7 @@ public class productdetailserviceimpl implements  Productdetailservice {
     public void sendRating(ProductRating productRating) {
 
         rabbitTemplate.convertAndSend(exchange, routingkeyeight, productRating);
-        System.out.println("Send msg from nlp = " + productRating.toString());
+
     }
 
 
@@ -329,13 +326,13 @@ public class productdetailserviceimpl implements  Productdetailservice {
     @RabbitListener(queues="${stackroute.rabbitmq.queuethree}")
     public  void recieveReview(ProductRatingDTO productRatingDTO)
     {
-        System.out.println("recieved msg from write a review service = " + productRatingDTO.toString());
+
         ProductRating productRating=new ProductRating();
         if(productdetailrepository.existsById(productRatingDTO.getProductName())) {
 
             Optional optional;
             optional=productdetailrepository.findById(productRatingDTO.getProductName());
-            System.out.println(optional);
+
             if(optional != null)
             {
                 productRating2=productdetailrepository.findById(productRatingDTO.getProductName()).get();
@@ -344,13 +341,9 @@ public class productdetailserviceimpl implements  Productdetailservice {
 
             review = productRatingDTO.getReviewDescription();
             creditpoints=productRatingDTO.getCreditpoints();
-            System.out.println("credit points:"+creditpoints);
             sentiments =findSentiment(productRatingDTO.getProductName(),review);
-            System.out.println(sentiments);
             sentiment=sentimentResult(sentiments);
-            System.out.println(sentiment);
             rating=generateRating(sentiment,productRating2.getRating(),creditpoints);
-            System.out.println("from rabbitmq"+rating);
             updaterating(productRatingDTO.getProductName(),rating);
             }
           else
@@ -358,7 +351,6 @@ public class productdetailserviceimpl implements  Productdetailservice {
             productRating.setProductName(productRatingDTO.getProductName());
             review = productRatingDTO.getReviewDescription();
             creditpoints=productRatingDTO.getCreditpoints();
-            System.out.println("credit points:"+creditpoints);
             saveRating(productRating);
            }
 

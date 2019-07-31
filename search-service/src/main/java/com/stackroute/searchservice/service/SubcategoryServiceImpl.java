@@ -61,16 +61,12 @@ public class SubcategoryServiceImpl implements SubcategoryService {
         if(fetchedSubCategory!= null){
             return fetchedSubCategory.getProducts();
         }
-        else{
+        else
+            {
             throw new SubcategoryNotFoundException("SubCategory not found");
-        }
+            }
 
-//        if (subcategoryRepository.existsById(subcategory.getSubCategory()))
-//        {
-//       productsList = subcategoryRepository.findBySubCategory(subCategory);
-//
-//        }
-//        return productsList;
+
     }
 
     @Override
@@ -94,14 +90,14 @@ public class SubcategoryServiceImpl implements SubcategoryService {
 
         System.out.println("recieved msg  after update rating= " + productDetails.toString());
         Subcategory fetchedSubcategory= subcategoryRepository.findBySubCategory(productDetails.getSubCategory());
-
+        System.out.println(fetchedSubcategory);
         if(fetchedSubcategory!=null){
             System.out.println("inside  update rating");
-            List<Products> newProductsList = fetchedSubcategory.getProducts();
+            List<Products> newProductsList = subcategoryRepository.findBySubCategory(productDetails.getSubCategory()).getProducts();
             System.out.println("before loop");
             for (int i=0;i< newProductsList.size();i++){
                 System.out.println("inside for loop");
-                if(((newProductsList.get(i)).getProductName())==(productDetails.getProductName())) {
+                if(((newProductsList.get(i)).getProductName()).equals(productDetails.getProductName())) {
                     System.out.println("insides equal");
                     (newProductsList.get(i)).setRating(productDetails.getRating());
                     fetchedSubcategory.setProducts(newProductsList);
@@ -154,7 +150,6 @@ public class SubcategoryServiceImpl implements SubcategoryService {
          newProduct.setProductFamily(productDetails.getProductFamily());
          newProduct.setProductName(productDetails.getProductName());
          newProduct.setImage(productDetails.getImage());
-
          productsList.add(newProduct);
          fetchedSubcategory1.setProducts(productsList);
          subcategoryRepository.save(fetchedSubcategory1);
