@@ -132,7 +132,6 @@ public class SubcategoryServiceImpl implements SubcategoryService {
 
          Subcategory fetchedSubcategory1=new Subcategory();
          fetchedSubcategory1.setSubCategoryName(productDetails.getSubCategory());
-//         subcategoryRepository.save(fetchedSubcategory1);
          newProduct.setUploadedOn(productDetails.getUploadedOn());
          newProduct.setPrice(productDetails.getPrice());
          newProduct.setSpecifications(productDetails.getSpecifications());

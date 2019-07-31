@@ -94,13 +94,9 @@ public class ProductServiceImpl implements ProductService {
 
     @RabbitListener(queues="${stackroute.rabbitmq.queuesix}")
     public void  recieveproductowner(ProductDTO productDTO) {
-        if(productRepository.existsById(product.getProductName())){
-            // product already found
-        }
-        else {
             saveProduct(productDTO.getProductName(),productDTO.getRating(),productDTO.getPrice(),productDTO.getProductFamily(),productDTO.getSubCategory());
             saveRelation(productDTO.getProductName(),productDTO.getSubCategory());
-        }
+
     }
 
 

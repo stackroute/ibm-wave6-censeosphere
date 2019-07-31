@@ -180,3 +180,16 @@ services:
       - $HOME/neo4j-data:/data
       - $HOME/neo4j-plugins:/plugins
       - $HOME/neo4j-ext:/var/lib/neo4j/extension
+
+    censosphere:
+      build:
+        context: ./censosphere
+        args:
+          NG_CLI_ANYALYTICS: ci
+      network_mode: "host"
+      hostname: localhost
+      ports:
+        - 8181:8181
+      restart: always
+      environment:
+        NG_CLI_ANYALYTICS: ci
