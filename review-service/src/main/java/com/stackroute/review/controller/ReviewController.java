@@ -24,7 +24,7 @@ public class ReviewController {
     }
 
     @PostMapping(value = "/review")     //,produces = {MimeTypeUtils.APPLICATION_JSON_VALUE}
-    public ResponseEntity<?> addReview(@RequestBody Review review)
+    public ResponseEntity<Review> addReview(@RequestBody Review review)
     {
         ResponseEntity responseEntity;
         ReviewRepository reviewRepository;
@@ -41,12 +41,12 @@ public class ReviewController {
     }
 
     @GetMapping("/reviews")
-    public ResponseEntity<?> getAllReviews() {
+    public ResponseEntity<List<Review>> getAllReviews() {
         return new ResponseEntity<List<Review>> (reviewService.getAllReviews(),HttpStatus.OK);
     }
 
     @GetMapping("/byname/{productname}")
-    public ResponseEntity<?> getAllReviewsbyProduct(@PathVariable String productname) {
+    public ResponseEntity<List<Review>> getAllReviewsbyProduct(@PathVariable String productname) {
         return new ResponseEntity<List<Review>> (reviewService.getAllReviewsbyProduct(productname),HttpStatus.OK);
     }
 
