@@ -181,9 +181,9 @@ services:
       - $HOME/neo4j-plugins:/plugins
       - $HOME/neo4j-ext:/var/lib/neo4j/extension
 
-    censosphere:
+    censeosphere:
       build:
-        context: ./censosphere
+        context: ./censeosphere
         args:
           NG_CLI_ANYALYTICS: ci
       network_mode: "host"
