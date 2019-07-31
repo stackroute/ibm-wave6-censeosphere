@@ -13,7 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Component
-public class Products  {
+public class Products implements Serializable {
     @Id
     private String productName;
     private String productFamily;
