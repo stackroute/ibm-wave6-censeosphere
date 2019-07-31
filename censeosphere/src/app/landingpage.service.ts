@@ -16,12 +16,12 @@ export class LandingpageService {
 
 
   getRecentProducts(){
-    return this.http.get('http://localhost:8081/api/v1/recentproducts', this.httpOptions);
+    return this.http.get('http://13.126.244.58:8083/product-search-service/api/v1/recentproducts', this.httpOptions);
   }
 
   getTrendingProducts()
   {
-    return this.http.get('http://localhost:8081/api/v1/trendingproducts', this.httpOptions);
+    return this.http.get('http://13.126.244.58:8083/product-search-service/api/v1/trendingproducts', this.httpOptions);
   }
 
   

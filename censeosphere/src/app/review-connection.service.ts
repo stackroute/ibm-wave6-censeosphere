@@ -13,9 +13,9 @@ headers= new HttpHeaders({'Access-Control-Allow-Origin' : '*'})
 
   addReview(reviewConn:ReviewConnectionService){
 
-    return this.http.post<ReviewComponent>('http://localhost:8089/review', reviewConn);
+    return this.http.post<ReviewComponent>('http://13.126.244.58:8083/review-service/review', reviewConn);
   }
   getAllReviews(){
-    return this.http.get('http://localhost:8089/reviews');
+    return this.http.get('http://13.126.244.58:8083/review-service/reviews');
   }
 }

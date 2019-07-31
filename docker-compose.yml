@@ -38,6 +38,8 @@ services:
     depends_on:
       - mysqldb
       - eureka-server
+      - zuul-api
+      - rabbitmq
     ports:
       - 8088:8088
 
@@ -48,6 +50,8 @@ services:
     depends_on:
       - mongodb
       - eureka-server
+      - zuul-api
+      - rabbitmq
     ports:
       - 8089:8089
 
@@ -58,6 +62,8 @@ services:
     depends_on:
       - mongodb
       - eureka-server
+      - zuul-api
+      - rabbitmq
     ports:
       - 8090:8090
 
@@ -91,6 +97,8 @@ services:
     depends_on:
       - mongodb
       - eureka-server
+      - zuul-api
+      - rabbitmq
     ports:
       - 8087:8087
 
@@ -101,6 +109,8 @@ services:
     depends_on:
       - mongodb
       - eureka-server
+      - zuul-api
+      - rabbitmq
     ports:
       - 8060:8060
 
@@ -111,6 +121,8 @@ services:
     depends_on:
       - mongodb
       - eureka-server
+      - zuul-api
+      - rabbitmq
     ports:
       - 8877:8877
 
@@ -121,6 +133,8 @@ services:
       depends_on:
         - mongodb
         - eureka-server
+        - zuul-api
+        - rabbitmq
       ports:
         - 8081:8081
 
@@ -147,6 +161,8 @@ services:
     depends_on:
       - neo4j
       - eureka-server
+      - zuul-api
+      - rabbitmq
     ports:
       - 8085:8085
     expose:

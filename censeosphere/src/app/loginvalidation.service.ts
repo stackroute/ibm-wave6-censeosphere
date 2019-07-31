@@ -14,7 +14,7 @@ headers= new HttpHeaders({'Access-Control-Allow-Origin' : '*'})
 
   login(auth:Authentication){
     console.log("in service "+JSON.stringify(auth));
-    return this.http.post("http://172.17.0.1:8088/api/user/user",auth);
+    return this.http.post("http://13.126.244.58:8083/user-login-service/api/user/user",auth);
 
   }
 }

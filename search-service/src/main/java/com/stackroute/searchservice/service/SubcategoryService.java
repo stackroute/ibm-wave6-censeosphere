@@ -19,6 +19,6 @@ public interface SubcategoryService {
 
     public String deleteSubcategory(String subcategory) throws SubcategoryNotFoundException;
 
-    public void updateSubcategory(ProductDetails productDetails);
+//    public void updateSubcategory(ProductDetails productDetails);
 
 }

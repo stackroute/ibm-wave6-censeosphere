@@ -41,6 +41,8 @@ public class ProductSearchServiceImpl implements ProductSearchService {
     @Value("${stackroute.rabbitmq.routingkeynine}")
     private String routingkeynine;
 
+    @Value("${stackroute.rabbitmq.routingkeyeleven}")
+    private String routingkeyeleven;
 
     private ProductDetails productDetails1;
     private ProductDetails productDetails2;
@@ -154,6 +156,15 @@ public class ProductSearchServiceImpl implements ProductSearchService {
         System.out.println("Send msg = " + productDetails.toString());
 
     }
+    @Override
+    public void sendToSearch(ProductDetails productDetails)
+    {
+
+        System.out.println("inside send");
+        rabbitTemplate.convertAndSend(exchange, routingkeyeleven, productDetails);
+        System.out.println("Send msg = " + productDetails.toString());
+
+    }
 
     @Override
     public void sendToRecommendation(ProductDTO productDTO) {
@@ -183,7 +194,7 @@ public class ProductSearchServiceImpl implements ProductSearchService {
                 productDetails2 = productSearchRepository.findById(productRating.getProductName()).get();
                 productDetails2.setRating(productRating.getRating());
                 productSearchRepository.save(productDetails2);
-                sendProduct(productDetails2);
+                sendToSearch(productDetails2);
              }
      }
 }

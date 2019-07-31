@@ -9,7 +9,7 @@ import { UpdateProfile } from '../update-profile'
 import { UpdateProfileService } from '../update-profile.service';
 import { ProductService } from '../product.service';
 import { ReviewService } from '../review.service';
-
+import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-updateprofile',
@@ -32,7 +32,8 @@ export class UpdateprofileComponent implements OnInit {
   constructor(private router: Router, private landingpageservice: LandingpageService,
     private searchforreview: SearchForReviewService, private http: HttpClient,
     private _formBuilder: FormBuilder, private updates: UpdateProfileService, private productservice: ProductService,
-    private reviewService: ReviewService) { }
+    private reviewService: ReviewService,private config: NgbRatingConfig) {  config.max = 5;
+      config.readonly = true;}
 
   ngOnInit() {
 

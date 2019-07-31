@@ -73,19 +73,19 @@ public class SubcategoryController {
             return new ResponseEntity<String>("Details not found", HttpStatus.NOT_FOUND);
         }
     }
-    @PostMapping("products")
-    public  ResponseEntity<?> updateSubcategory(@RequestBody ProductDetails productDetails)
-    {
-
-        Date date=new Date();
-        long millies=date.getTime();
-        Timestamp timestamp=new Timestamp(millies);
-        productDetails.setUploadedOn(timestamp);
-
-
-            subcategoryService.updateSubcategory(productDetails);
-            return new ResponseEntity<String>("Subcategory updated successfully!", HttpStatus.OK);
-
-    }
+//    @PostMapping("products")
+//    public  ResponseEntity<?> updateSubcategory(@RequestBody ProductDetails productDetails)
+//    {
+//
+//        Date date=new Date();
+//        long millies=date.getTime();
+//        Timestamp timestamp=new Timestamp(millies);
+//        productDetails.setUploadedOn(timestamp);
+//
+//
+//            subcategoryService.updateSubcategory(productDetails);
+//            return new ResponseEntity<String>("Subcategory updated successfully!", HttpStatus.OK);
+//
+//    }
 
 }

@@ -43,17 +43,17 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Override
     public Review addReview(Review review) {
+             Review savedReview=null;
+           if(((review.getReviewDescription()).length())>=10) {
+             savedReview = reviewRepository.save(review);
+             ReviewDTO reviewDTO = new ReviewDTO(review.getProductName(), review.getReviewDescription(), review.getCreditpoints());
+             sendRating(reviewDTO);
+             sendReviewer(savedReview);
+             RecommendationDTO recommendationDTO = new RecommendationDTO(review.getReviewerEmail(), review.getProductName(), review.getSubCategory());
+             sendRecommendation(recommendationDTO);
 
-        //rabbitmq queue, exchange,routingkey generation
-        Review savedReview = reviewRepository.save(review);
-        ReviewDTO reviewDTO=new ReviewDTO(review.getProductName(),review.getReviewDescription(),review.getCreditpoints());
-        sendRating(reviewDTO);
-//        ReviewDetailDTO reviewDetailDTO=new ReviewDetailDTO(review.getReviewerEmail(),review.getReviewTitle(),review.getReviewDescription(),review.getProductName(),review.getPrice(),review.getReviewedOn());
-        sendReviewer(savedReview);
-        RecommendationDTO recommendationDTO=new RecommendationDTO(review.getReviewerEmail(),review.getProductName(),review.getSubCategory());
-        sendRecommendation(recommendationDTO);
+             }
         return savedReview;
-
     }
 
     @Override

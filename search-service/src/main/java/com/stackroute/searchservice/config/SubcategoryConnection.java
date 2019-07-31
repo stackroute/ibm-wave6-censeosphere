@@ -25,6 +25,9 @@ public class SubcategoryConnection {
     private String routingkeyFour;
 
 
+    @Value("${stackroute.rabbitmq.routingkeyfour}")
+    private String routingkeyeleven;
+
     @Value("${stackroute.rabbitmq.queueeleven}")
     String queueEleven;
 
@@ -56,7 +59,7 @@ public class SubcategoryConnection {
     }
     @Bean
     org.springframework.amqp.core.Binding binding2() {
-        return BindingBuilder.bind(queueMethod2()).to(exchangeMethod()).with(routingkeyFour).noargs();
+        return BindingBuilder.bind(queueMethod2()).to(exchangeMethod()).with(queueEleven).noargs();
     }
 
 

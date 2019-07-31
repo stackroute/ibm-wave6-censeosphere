@@ -148,9 +148,14 @@
             </div>
             <div class="thumb-content">
               <h4><b>{{review.productName}}</b></h4>
-              <div class="star-rating">
-                  <h5 class="info">{{review.rating}}</h5>
-              </div>
+              <div class="rate">
+                <h5 class="info">{{product.rating}}</h5></div>
+                <ng-template #t let-fill="fill">
+                  <span class="star" [class.full]="fill === 100">
+                    <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                  </span>
+                </ng-template>
+                <ngb-rating  [starTemplate]="t" rate={{review.rating}}></ngb-rating>
               <h5 class="item-price">${{review.price}}</h5>
               <h5 class="item-price">{{review.size}} Reviews</h5>
             </div>

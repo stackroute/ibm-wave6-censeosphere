@@ -7,7 +7,7 @@ import {Product} from './product'
 })
 export class ProductService {
 
-  _url = 'http://localhost:8081/api/v1/product';
+  _url = 'http://13.126.244.58:8083/product-search-service/api/v1/product';
 
  httpOptions = {
    headers: new HttpHeaders({
@@ -24,13 +24,13 @@ export class ProductService {
 
   getProduct(productName){
     console.log("from service : "+productName);
-    return this._http.get("http://localhost:8081/api/v1/product/"+productName, this.httpOptions);
+    return this._http.get("http://13.126.244.58:8083/product-search-service/api/v1/product/"+productName, this.httpOptions);
   }
 
   deleteProduct(productName:String)
   {
     console.log("from service :"+productName);
-    return this._http.delete<Product>("http://localhost:8081/api/v1/product/"+productName, this.httpOptions);
+    return this._http.delete<Product>("http://13.126.244.58:8083/product-search-service/api/v1/product/"+productName, this.httpOptions);
   }
 
 }

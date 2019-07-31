@@ -6,7 +6,7 @@ import { ProdownerserviceService } from '../prodownerservice.service';
 import { ProductService } from '../product.service';
 import { RecommendationService } from '../recommendation.service';
 import { ReviewService } from '../review.service';
-
+import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-reviwerdash',
@@ -25,7 +25,8 @@ export class ReviwerdashComponent implements OnInit {
 
   constructor(private router: Router, private landingpageservice: LandingpageService, private updates: UpdateProfileService,
     private route1: ActivatedRoute, private prodownerservice: ProdownerserviceService, private productService: ProductService,
-    private recommendationService: RecommendationService,private reviewService: ReviewService) { }
+    private recommendationService: RecommendationService,private reviewService: ReviewService,private config: NgbRatingConfig) {  config.max = 5;
+      config.readonly = true;}
 
   ngOnInit() {
     this.landingpageservice.getAllProducts().subscribe((data: any) => {

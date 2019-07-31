@@ -27,4 +27,5 @@ public interface ProductSearchService {
     public void sendProduct(ProductDetails productDetails);
     public void sendToRecommendation(ProductDTO productDTO);
     public void sendRemove(ProductDetails productDetails);
+    public  void sendToSearch(ProductDetails productDetails);
 }
