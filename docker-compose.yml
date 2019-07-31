@@ -181,15 +181,15 @@ services:
       - $HOME/neo4j-plugins:/plugins
       - $HOME/neo4j-ext:/var/lib/neo4j/extension
 
-    censeosphere:
-      build:
-        context: ./censeosphere
-        args:
-          NG_CLI_ANYALYTICS: ci
-      network_mode: "host"
-      hostname: localhost
-      ports:
-        - 8181:8181
-      restart: always
-      environment:
-        NG_CLI_ANYALYTICS: ci
+  censeosphere:
+    build:
+     context: ./censeosphere
+     args:
+      NG_CLI_ANYALYTICS: ci
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8181:8181
+    restart: always
+    environment:
+      NG_CLI_ANYALYTICS: ci
