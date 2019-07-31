@@ -28,7 +28,7 @@ public class SubcategoryController {
     }
 
     @PostMapping("subcategory")
-    public ResponseEntity<?> saveSubcategory(@RequestBody Subcategory subcategory){
+    public ResponseEntity<Subcategory> saveSubcategory(@RequestBody Subcategory subcategory){
 
         ResponseEntity responseEntity;
 
@@ -45,13 +45,13 @@ public class SubcategoryController {
 
 
     @GetMapping("subcategories")
-    public ResponseEntity<?> getAllSubcategory()
+    public ResponseEntity<List<Subcategory>> getAllSubcategory()
     {
         return new ResponseEntity<List<Subcategory>>(subcategoryService.getAllSubcategories(), HttpStatus.OK);
     }
 
     @GetMapping("products/{subCategory}")
-    public ResponseEntity<?> findAllProductsBySubcategory(@PathVariable("subCategory") String subCategory)throws SubcategoryNotFoundException
+    public ResponseEntity<List<Products>> findAllProductsBySubcategory(@PathVariable("subCategory") String subCategory)throws SubcategoryNotFoundException
     {
         ResponseEntity responseEntity;
         try {
@@ -64,7 +64,7 @@ public class SubcategoryController {
 
     }
     @DeleteMapping("subcategory/{subCategory}")
-    public ResponseEntity<?> deleteProduct(@PathVariable("subCategory") String subCategory) {
+    public ResponseEntity<String> deleteProduct(@PathVariable("subCategory") String subCategory) {
 
         try {
 
@@ -73,19 +73,19 @@ public class SubcategoryController {
             return new ResponseEntity<String>("Details not found", HttpStatus.NOT_FOUND);
         }
     }
-//    @PostMapping("products")
-//    public  ResponseEntity<?> updateSubcategory(@RequestBody ProductDetails productDetails)
-//    {
-//
-//        Date date=new Date();
-//        long millies=date.getTime();
-//        Timestamp timestamp=new Timestamp(millies);
-//        productDetails.setUploadedOn(timestamp);
-//
-//
-//            subcategoryService.updateSubcategory(productDetails);
-//            return new ResponseEntity<String>("Subcategory updated successfully!", HttpStatus.OK);
-//
-//    }
+    @PostMapping("products")
+    public  ResponseEntity<String> updateSubcategory(@RequestBody ProductDetails productDetails)
+    {
+
+        Date date=new Date();
+        long millies=date.getTime();
+        Timestamp timestamp=new Timestamp(millies);
+        productDetails.setUploadedOn(timestamp);
+
+
+            subcategoryService.updateSubcategory(productDetails);
+            return new ResponseEntity<>("Subcategory updated successfully!", HttpStatus.OK);
+
+    }
 
 }

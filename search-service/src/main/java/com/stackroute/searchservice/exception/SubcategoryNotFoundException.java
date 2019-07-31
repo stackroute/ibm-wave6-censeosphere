@@ -1,7 +1,7 @@
 package com.stackroute.searchservice.exception;
 
 public class SubcategoryNotFoundException extends Exception{
-    private  String message;
+    String message;
 
     public SubcategoryNotFoundException() {
     }
