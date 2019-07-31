@@ -20,8 +20,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public Category saveCategory(Category category) {
         Category savedCategory=null;
-        savedCategory=categoryRepository.createNode(category.getCategory());
-        System.out.println(savedCategory);
+        savedCategory=categoryRepository.createNode(category.getCategoryName());
         return savedCategory;
     }
 

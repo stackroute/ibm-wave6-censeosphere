@@ -1,15 +1,9 @@
 package com.stackroute.productsearchservice.domain;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.*;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.math.BigDecimal;
 import java.util.Date;
 
 
@@ -20,8 +14,6 @@ import java.util.Date;
 @Document(collection = "productsearch")
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@id", scope = ProductDetails.class)
 public class ProductDetails {
-
-
     private String addedby;
     private String category;
     private String subCategory;
@@ -33,6 +25,5 @@ public class ProductDetails {
     private Float rating;
     private String specifications;
     private String description;
-    //@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date uploadedOn;
 }

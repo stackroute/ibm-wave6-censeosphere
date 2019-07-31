@@ -27,7 +27,7 @@ public class ProductSearchController {
     }
 
     @PostMapping("product")
-    public ResponseEntity<?> saveProduct(@RequestBody ProductDetails productDetails){
+    public ResponseEntity<String> saveProduct(@RequestBody ProductDetails productDetails){
 
         ResponseEntity responseEntity;
 
@@ -49,15 +49,13 @@ public class ProductSearchController {
 
 
     @GetMapping("product")
-    public ResponseEntity<?> getAllProducts()
+    public ResponseEntity<List<ProductDetails>> getAllProducts()
     {
-        return new ResponseEntity<List<ProductDetails>>(productSearchService.getAllProducts(), HttpStatus.OK);
+        return new ResponseEntity<>(productSearchService.getAllProducts(), HttpStatus.OK);
     }
 
     @DeleteMapping("products/{productName}")
     public ResponseEntity<?> deleteProduct(@PathVariable("productName") String productName) {
-        //return new ResponseEntity<String>(trackService.deleteTrack(id),HttpStatus.OK);
-
         try {
             ProductDetails productDetails = productSearchService.deleteProduct(productName);
             return new ResponseEntity<String>("Details Deleted", HttpStatus.OK);

@@ -71,7 +71,9 @@ public class ReviewerServiceImpl implements ReviewerService {
         Reviewer foundReviewer=null;
         if(reviewerRepository.existsById(emailId)){
             Optional optional=reviewerRepository.findById(emailId);
-            foundReviewer=(Reviewer) optional.get();
+            if(optional.isPresent()) {
+                foundReviewer = (Reviewer) optional.get();
+            }
         }
         else {
 //            try {
@@ -109,8 +111,6 @@ public class ReviewerServiceImpl implements ReviewerService {
         if(optional != null)
         {
 
-
-//           reviewer1=reviewerRepository.save(reviewer);
            reviewer1=reviewerRepository.findById(emailId).get();
 
             System.out.println("from update method "+reviewer1);

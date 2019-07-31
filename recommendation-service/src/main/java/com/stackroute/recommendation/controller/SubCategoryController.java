@@ -23,8 +23,8 @@ public class SubCategoryController {
     }
 
     @PostMapping("subcategorysave")
-    public SubCategory saveSubCategory(@RequestBody SubCategory subCategory) {
-        return subCategoryService.saveSubCategory(subCategory);
+    public SubCategory saveSubCategory(@RequestBody SubCategory subCategoryName) {
+        return subCategoryService.saveSubCategory(subCategoryName);
     }
 
     @DeleteMapping("subcategorydelete/{subcategory}")

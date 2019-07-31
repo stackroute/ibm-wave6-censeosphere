@@ -9,7 +9,7 @@ import java.util.Collection;
 public interface ReviewerService {
     public Reviewer saveReviewer(Reviewer reviewer) ;
 
-    public Collection<Reviewer> getAll() throws Exception;
+    public Collection<Reviewer> getAll() throws ReviewerNotFoundException;
 
     public void deleteReviewer(String emailId) throws ReviewerNotFoundException;
 

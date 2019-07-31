@@ -21,8 +21,7 @@ public class SubCategoryServiceImpl implements SubCategoryService{
     @Override
     public SubCategory saveSubCategory(SubCategory subCategory) {
         SubCategory savedSubCategory=null;
-        savedSubCategory=subCategoryRepository.createNode(subCategory.getSubCategory());
-        System.out.println(savedSubCategory);
+        savedSubCategory=subCategoryRepository.createNode(subCategory.getSubCategoryName());
         return savedSubCategory;
     }
 

@@ -67,12 +67,13 @@ public class ProductOwnerServiceImpl implements ProductOwnerService {
 
     @Override
     public ProductOwner deleteDetails(String emailId) throws ProductOwnerDetailsNotFoundException {
-
+        ProductOwner productOwner=null;
         Optional optional=productownerRepository.findById(emailId);
-        ProductOwner productOwner=productownerRepository.findById(emailId).get();
+
        //System.out.println(productOwner+"\t"+optional.isPresent());
         if(optional.isPresent())
         {
+            productOwner=productownerRepository.findById(emailId).get();
             productownerRepository.deleteById(emailId);
         }
         else
@@ -88,7 +89,9 @@ public class ProductOwnerServiceImpl implements ProductOwnerService {
         ProductOwner savedowner=null;
         if(productownerRepository.existsById(emailId)){
             Optional optional=productownerRepository.findById(emailId);
-            savedowner=(ProductOwner) optional.get();
+            if(optional.isPresent()) {
+                savedowner = (ProductOwner) optional.get();
+            }
         }
         else {
             throw new ProductOwnerDetailsNotFoundException("productOwner Not found");
