@@ -18,6 +18,6 @@ import java.util.List;
 @Component
 public class Subcategory implements Serializable {
     @Id
-    private String subCategory;
+    private String subCategoryName;
     private List<Products> products;
 }
