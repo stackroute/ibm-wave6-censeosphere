@@ -14,6 +14,5 @@ public interface ReviewerService {
     public Reviewer getReviewerByEmailId(String emailId) throws ReviewerNotFoundException;
     public List<Reviewer> deleteReviewer(String emailId) throws ReviewerNotFoundException;
     public Reviewer updateReviewer(Reviewer reviewer,String emailId) throws ReviewerNotFoundException;
-//    public List <Reviewer> getAllReviews() throws ReviewerNotFoundException;
     public void sendreviewer(ReviewerDTO reviewerDTO);
 }

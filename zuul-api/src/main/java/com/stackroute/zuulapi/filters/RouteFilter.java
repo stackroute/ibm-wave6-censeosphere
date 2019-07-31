@@ -21,9 +21,6 @@ public class RouteFilter extends ZuulFilter {
 
     @Override
     public Object run() throws ZuulException {
-        System.out.println("Inside Route Filter");
-
         return null;
-
     }
 }

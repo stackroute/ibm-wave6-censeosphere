@@ -45,15 +45,7 @@ public class ReviewerController {
         } catch (ReviewerNotFoundException e) {
             return new ResponseEntity<String>("Reviewer not found", HttpStatus.NOT_FOUND);
         }
-       /* ResponseEntity responseEntity;
-        Reviewer reviewer=reviewerService.getReviewerByEmailId(emailId);
-        if(reviewer==null){
-            throw new ReviewerNotFoundException("Reviewer Not Found");
-        }
-        else {
-            responseEntity=new ResponseEntity<String>("Reviewer found",HttpStatus.OK);
-        }
-        return responseEntity;*/
+
     }
 
     @DeleteMapping("reviewer/{emailId}")
@@ -72,6 +64,6 @@ public class ReviewerController {
 
 
        Reviewer reviewer1 = reviewerService.updateReviewer(reviewer,emailId);
-        return new ResponseEntity<Reviewer>(reviewer, HttpStatus.OK);
+        return new ResponseEntity<Reviewer>(reviewer1, HttpStatus.OK);
     }
 }

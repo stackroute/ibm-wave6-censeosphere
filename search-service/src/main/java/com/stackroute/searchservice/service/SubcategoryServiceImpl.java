@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 //function implementation
 @Service
@@ -36,16 +35,14 @@ public class SubcategoryServiceImpl implements SubcategoryService {
 
     @Override
     public Subcategory saveSubcategory(Subcategory subcategory) throws SubcategoryAlreadyExistsExceptions {
-        if (subcategoryRepository.existsById(subcategory.getSubCategory()))
+        if (subcategoryRepository.existsById(subcategory.getSubCategoryName()))
         {
 
             throw new SubcategoryAlreadyExistsExceptions("Subcategory already exists!");
         }
         else
         {
-
-            Subcategory savedSubcategory=subcategoryRepository.save(subcategory);
-             return subcategory;
+             return subcategoryRepository.save(subcategory);
         }
     }
 
@@ -65,12 +62,6 @@ public class SubcategoryServiceImpl implements SubcategoryService {
             throw new SubcategoryNotFoundException("SubCategory not found");
         }
 
-//        if (subcategoryRepository.existsById(subcategory.getSubCategory()))
-//        {
-//       productsList = subcategoryRepository.findBySubCategory(subCategory);
-//
-//        }
-//        return productsList;
     }
 
     @Override
@@ -91,18 +82,16 @@ public class SubcategoryServiceImpl implements SubcategoryService {
     public void  Recieverating(ProductDetails productDetails)
     {
 
-
-        System.out.println("recieved msg  after update rating= " + productDetails.toString());
         Subcategory fetchedSubcategory= subcategoryRepository.findBySubCategory(productDetails.getSubCategory());
 
         if(fetchedSubcategory!=null){
-            System.out.println("inside  update rating");
+
             List<Products> newProductsList = fetchedSubcategory.getProducts();
-            System.out.println("before loop");
+
             for (int i=0;i< newProductsList.size();i++){
-                System.out.println("inside for loop");
-                if(((newProductsList.get(i)).getProductName())==(productDetails.getProductName())) {
-                    System.out.println("insides equal");
+
+                if(((newProductsList.get(i)).getProductName()).equals(productDetails.getProductName())) {
+
                     (newProductsList.get(i)).setRating(productDetails.getRating());
                     fetchedSubcategory.setProducts(newProductsList);
                     subcategoryRepository.save(fetchedSubcategory);
@@ -116,16 +105,13 @@ public class SubcategoryServiceImpl implements SubcategoryService {
 
     @RabbitListener(queues="${stackroute.rabbitmq.queueten}")
     public void updateSubcategory(ProductDetails productDetails) {
-        System.out.println("recieved product= " + productDetails.toString());
 
-        Subcategory newSubcategory=new Subcategory();
         Products newProduct = new Products();
         Subcategory fetchedSubcategory= subcategoryRepository.findBySubCategory(productDetails.getSubCategory());
 
         if(fetchedSubcategory!=null){
 
-            System.out.println("hai");
-            // fetchedSubcategory.setProducts(subcategory.getProducts());
+
             List<Products> newProductsList = fetchedSubcategory.getProducts();
             newProduct.setUploadedOn(productDetails.getUploadedOn());
             newProduct.setPrice(productDetails.getPrice());
@@ -142,9 +128,8 @@ public class SubcategoryServiceImpl implements SubcategoryService {
          }
     else {
 
-         System.out.println("bai");
          Subcategory fetchedSubcategory1=new Subcategory();
-         fetchedSubcategory1.setSubCategory(productDetails.getSubCategory());
+         fetchedSubcategory1.setSubCategoryName(productDetails.getSubCategory());
          subcategoryRepository.save(fetchedSubcategory1);
          newProduct.setUploadedOn(productDetails.getUploadedOn());
          newProduct.setPrice(productDetails.getPrice());
