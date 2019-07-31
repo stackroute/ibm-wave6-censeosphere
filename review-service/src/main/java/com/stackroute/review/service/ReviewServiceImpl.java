@@ -3,7 +3,7 @@ package com.stackroute.review.service;
 import com.stackroute.review.domain.Review;
 import com.stackroute.review.dto.RecommendationDTO;
 import com.stackroute.review.dto.ReviewDTO;
-//import com.stackroute.review.dto.ReviewDetailDTO;
+
 import com.stackroute.review.repository.ReviewRepository;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,7 +74,7 @@ public class ReviewServiceImpl implements ReviewService {
     {
 
         rabbitTemplate.convertAndSend(exchange, routingkeythree, reviewDTO);
-        System.out.println("Send msg = " + reviewDTO.toString());
+
 
     }
 
@@ -82,13 +82,13 @@ public class ReviewServiceImpl implements ReviewService {
     public void sendReviewer(Review review) {
 
         rabbitTemplate.convertAndSend(exchange, routingkeyfive, review);
-        System.out.println("Send msg = " + review.toString());
+
 
     }
 
     @Override
     public void sendRecommendation(RecommendationDTO recommendationDTO) {
         rabbitTemplate.convertAndSend(exchange, routingkeyseven, recommendationDTO);
-        System.out.println("Send msg = " + recommendationDTO.toString());
+
     }
 }

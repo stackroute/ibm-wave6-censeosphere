@@ -23,7 +23,7 @@ public class ProductOwnerController {
     }
 
     @PostMapping("product")
-    public ResponseEntity<?> saveTrack(@RequestBody ProductOwner productowner) {
+    public ResponseEntity<String> saveTrack(@RequestBody ProductOwner productowner) {
         ResponseEntity responseEntity;
         try {
             productownerService.saveDetails(productowner);
@@ -36,8 +36,8 @@ public class ProductOwnerController {
     }
 
     @DeleteMapping("product/{emailId}")
-    public ResponseEntity<?> deleteProduct(@PathVariable("emailId") String emailId) {
-        //return new ResponseEntity<String>(trackService.deleteTrack(id),HttpStatus.OK);
+    public ResponseEntity<String> deleteProduct(@PathVariable("emailId") String emailId) {
+
 
         try {
             ProductOwner productowner = productownerService.deleteDetails(emailId);
@@ -53,10 +53,10 @@ public class ProductOwnerController {
     }
 
     @PutMapping("products/{emailId}")
-    public ResponseEntity<?> updateComments(@RequestBody ProductOwner productowner,@PathVariable("emailId") String emailId) throws ProductOwnerDetailsNotFoundException {
+    public ResponseEntity<?> updateDetails(@RequestBody ProductOwner productowner,@PathVariable("emailId") String emailId) throws ProductOwnerDetailsNotFoundException {
 
          ProductOwner productowner1 = productownerService.updateDetails(productowner, emailId);
-          return new ResponseEntity<String>("Details updated", HttpStatus.OK);
+          return new ResponseEntity<ProductOwner>(productowner1, HttpStatus.OK);
 
     }
 

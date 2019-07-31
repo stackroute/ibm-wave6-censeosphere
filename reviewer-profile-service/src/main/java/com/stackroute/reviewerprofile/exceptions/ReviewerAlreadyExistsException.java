@@ -8,6 +8,4 @@ public class ReviewerAlreadyExistsException extends Exception{
         this.message=message;
     }
 
-   // public ReviewerAlreadyExistsException() {
-    //}
 }

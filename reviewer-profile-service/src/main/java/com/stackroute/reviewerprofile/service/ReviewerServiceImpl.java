@@ -2,8 +2,6 @@ package com.stackroute.reviewerprofile.service;
 
 import com.stackroute.reviewerprofile.domain.Reviewer;
 import com.stackroute.reviewerprofile.domain.Review;
-//clear
-
 import com.stackroute.reviewerprofile.dto.ReviewerDTO;
 import com.stackroute.reviewerprofile.exceptions.ReviewerAlreadyExistsException;
 import com.stackroute.reviewerprofile.exceptions.ReviewerNotFoundException;
@@ -74,11 +72,9 @@ public class ReviewerServiceImpl implements ReviewerService {
             foundReviewer=(Reviewer) optional.get();
         }
         else {
-//            try {
+
                 throw new ReviewerNotFoundException("Reviewer Not Found");
-//            } catch (ReviewerNotFoundException e) {
-//                e.printStackTrace();
-//            }
+
         }
         return foundReviewer;
     }
@@ -110,15 +106,12 @@ public class ReviewerServiceImpl implements ReviewerService {
         {
 
 
-//           reviewer1=reviewerRepository.save(reviewer);
            reviewer1=reviewerRepository.findById(emailId).get();
 
-            System.out.println("from update method "+reviewer1);
             reviewer1.setName(reviewer.getName());
             reviewer1.setImage(reviewer.getImage());
             reviewer1.setReconfirmPassword(reviewer.getReconfirmPassword());
 
-            System.out.println("After updating "+reviewer1);
             reviewerRepository.save(reviewer1);
 
             ReviewerDTO reviewerDTO1=new ReviewerDTO(reviewer1.getEmailId(),reviewer1.getReconfirmPassword(),reviewer1.getRole());
@@ -138,30 +131,28 @@ public class ReviewerServiceImpl implements ReviewerService {
     {
 
         rabbitTemplate.convertAndSend(exchange, routingkeyone, reviewerDTO);
-        System.out.println("Send msg = " + reviewerDTO.toString());
+
 
     }
 
     @RabbitListener(queues="${stackroute.rabbitmq.queuefive}")
     public  void recievereview(Review review)
     {
-        System.out.println("recieved msg from reviewer = " + review.toString());
-//        Review review =new Review(reviewDetailDTO.getReviewerEmail(),reviewDetailDTO.getReviewTitle(),reviewDetailDTO.getReviewDescription(),reviewDetailDTO.getProductName(),reviewDetailDTO.getPrice(),reviewDetailDTO.getReviewedOn());
-        System.out.println(review);
+
         Optional optional;
         Reviewer reviewer1;
         optional=reviewerRepository.findById(review.getReviewerEmail());
-        System.out.println("optional info :"+optional);
+
         List<Review> myreviewes;
 
 
         if(optional.isPresent())
         {
-              System.out.println("hai");
+
               reviewer1=reviewerRepository.findById(review.getReviewerEmail()).get();
-              System.out.println("Reviewer 1:"+reviewer1);
+
               myreviewes =reviewer1.getRevieweswritten();
-              System.out.println("list "+myreviewes);
+
               myreviewes.add(review);
 
               reviewer1.setRevieweswritten(myreviewes);
@@ -169,11 +160,7 @@ public class ReviewerServiceImpl implements ReviewerService {
               point=reviewer1.getCreditpoints();
                point=point+5;
                reviewer1.setCreditpoints(point);
-               for (int i = 0; i < myreviewes.size(); i++) {
-               System.out.println("inside list"+myreviewes.get(i));
-              }
 
-              System.out.println(reviewer1);
               reviewerRepository.save(reviewer1);
         }
     }
