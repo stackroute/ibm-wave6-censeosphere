@@ -54,7 +54,7 @@ public class SubcategoryServiceImpl implements SubcategoryService {
 
     @Override
     public List<Products> findAllProductsBySubcategory(String subCategory) throws SubcategoryNotFoundException {
-        Subcategory fetchedSubCategory = subcategoryRepository.findBySubCategory(subCategory);
+        Subcategory fetchedSubCategory = subcategoryRepository.findBySubCategoryName(subCategory);
         if(fetchedSubCategory!= null){
             return fetchedSubCategory.getProducts();
         }
@@ -82,7 +82,7 @@ public class SubcategoryServiceImpl implements SubcategoryService {
     public void  Recieverating(ProductDetails productDetails)
     {
 
-        Subcategory fetchedSubcategory= subcategoryRepository.findBySubCategory(productDetails.getSubCategory());
+        Subcategory fetchedSubcategory= subcategoryRepository.findBySubCategoryName(productDetails.getSubCategory());
 
         if(fetchedSubcategory!=null){
 
@@ -107,7 +107,7 @@ public class SubcategoryServiceImpl implements SubcategoryService {
     public void updateSubcategory(ProductDetails productDetails) {
 
         Products newProduct = new Products();
-        Subcategory fetchedSubcategory= subcategoryRepository.findBySubCategory(productDetails.getSubCategory());
+        Subcategory fetchedSubcategory= subcategoryRepository.findBySubCategoryName(productDetails.getSubCategory());
 
         if(fetchedSubcategory!=null){
 
