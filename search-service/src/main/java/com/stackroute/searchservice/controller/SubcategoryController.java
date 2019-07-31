@@ -6,6 +6,7 @@ import com.stackroute.searchservice.dto.ProductDetails;
 import com.stackroute.searchservice.exception.SubcategoryAlreadyExistsExceptions;
 import com.stackroute.searchservice.exception.SubcategoryNotFoundException;
 import com.stackroute.searchservice.service.SubcategoryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,9 +20,9 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class SubcategoryController {
 
-    SubcategoryService subcategoryService;
+private SubcategoryService subcategoryService;
 
-
+    @Autowired
     public SubcategoryController(SubcategoryService subcategoryService1)
     {
         this.subcategoryService=subcategoryService1;

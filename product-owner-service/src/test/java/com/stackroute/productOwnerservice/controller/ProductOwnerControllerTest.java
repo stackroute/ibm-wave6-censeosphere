@@ -87,24 +87,7 @@ public class ProductOwnerControllerTest {
                 .andDo(MockMvcResultHandlers.print());
 
     }
-/*
-    @Test
-    public void getUpdateDetails() throws Exception {
-        when(productOwnerService.updateDetails(productOwner,emailId)).thenReturn(productOwner);
-        mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/product/rainarohith@gmail.com")
-                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(productOwner)))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andDo(MockMvcResultHandlers.print());
 
-    }
-   @Test
-    public void getUpdateDetailsFailure() throws Exception {
-        when(productOwnerService.updateDetails(any())).thenThrow(ProductOwnerDetailsNotFoundException.class);
-        mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/product/ainarohith@gmail.com")
-                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(productOwner)))
-                .andExpect(MockMvcResultMatchers.status().isNotFound())
-                .andDo(MockMvcResultHandlers.print());
-    }*/
 
     @Test
     public void getDeleteDetails() throws Exception {
@@ -115,15 +98,6 @@ public class ProductOwnerControllerTest {
                 .andDo(MockMvcResultHandlers.print());
 
     }
-  /* @Test
-    public void getDeleteDetailsFailure() throws ProductOwnerDetailsNotFoundException,Exception {
-        when(productOwnerService.deleteProduct(productOwner.getEmailId())).thenThrow(ProductOwnerDetailsNotFoundException.class);
-        mockMvc.perform(MockMvcRequestBuilders.delete("/api/v1/product/rainaarohith@gmail")
-                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(productOwner)))
-                .andExpect(MockMvcResultMatchers.status().isNotFound())
-                .andDo(MockMvcResultHandlers.print());
-
-    }*/
 
     @Test
     public void testGetProductOwnerByEmailId() throws Exception{
