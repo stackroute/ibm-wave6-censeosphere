@@ -22,7 +22,7 @@ public class ProductController {
     }
 
     @GetMapping("products")
-    public Collection<Product> getAll()throws Exception{
+    public Collection<Product> getAll()throws ProductNotFoundException{
         return productService.getAll();
     }
 

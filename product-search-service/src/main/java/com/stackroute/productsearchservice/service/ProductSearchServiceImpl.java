@@ -44,11 +44,6 @@ public class ProductSearchServiceImpl implements ProductSearchService {
     @Value("${stackroute.rabbitmq.routingkeyeleven}")
     private String routingkeyeleven;
 
-    private ProductDetails productDetails1;
-    private ProductDetails productDetails2;
-    private ProductDetails productDetails3;
-
-
     @Autowired
     public ProductSearchServiceImpl(ProductSearchRepository productSearchRepository)
     {
@@ -64,8 +59,6 @@ public class ProductSearchServiceImpl implements ProductSearchService {
          throw new ProductAlreadyExistsException("Product already exists");
         }
         else{
-
-
             ProductDetails savedProducts=productSearchRepository.save(productDetails);
             sendProduct(savedProducts);
             ProductDTO productDTO=new ProductDTO(savedProducts.getProductName(),savedProducts.getRating(),savedProducts.getPrice(),savedProducts.getProductFamily(),savedProducts.getSubCategory());
@@ -83,14 +76,16 @@ public class ProductSearchServiceImpl implements ProductSearchService {
     @Override
     public ProductDetails deleteProduct(String productName) throws ProductNotFoundException {
 
-
-
+        ProductDetails productDetails3=null;
+        Optional optional;
         if (productSearchRepository.existsById(productName))
         {
-
-            productDetails3=productSearchRepository.findById(productName).get();
-            productSearchRepository.deleteById(productName);
-            sendRemove(productDetails3);
+            optional=productSearchRepository.findById(productName);
+            if(optional.isPresent()) {
+                productDetails3 = productSearchRepository.findById(productName).get();
+                productSearchRepository.deleteById(productName);
+                sendRemove(productDetails3);
+            }
         }
         else
         {
@@ -121,11 +116,10 @@ public class ProductSearchServiceImpl implements ProductSearchService {
     public ProductDetails getProductByName(String productName) throws ProductNotFoundException {
          Optional optional=null;
          optional=productSearchRepository.findById(productName);
+         ProductDetails productDetails1=null;
          if(optional.isPresent())
           {
-
-            productDetails1=productSearchRepository.findById(productName).get();
-
+              productDetails1=productSearchRepository.findById(productName).get();
           }
         else
           {
@@ -136,12 +130,12 @@ public class ProductSearchServiceImpl implements ProductSearchService {
     }
 
     @Override
-    public List<ProductDetails> getRecentProducts() throws Exception {
+    public List<ProductDetails> getRecentProducts() throws ProductNotFoundException {
         return productSearchRepository.findAll(Sort.by(Sort.Direction.DESC, "uploadedOn"));
     }
 
     @Override
-    public List<ProductDetails> getTrendingProducts() throws Exception {
+    public List<ProductDetails> getTrendingProducts() throws ProductNotFoundException {
         return productSearchRepository.findAll(Sort.by(Sort.Direction.DESC, "rating"));
     }
 
@@ -149,44 +143,32 @@ public class ProductSearchServiceImpl implements ProductSearchService {
     @Override
     public void sendProduct(ProductDetails productDetails)
     {
-
-
         rabbitTemplate.convertAndSend(exchange, routingkeyfour, productDetails);
-
-
     }
     @Override
     public void sendToSearch(ProductDetails productDetails)
     {
 
-
         rabbitTemplate.convertAndSend(exchange, routingkeyeleven, productDetails);
-
-
     }
 
     @Override
     public void sendToRecommendation(ProductDTO productDTO) {
 
-
         rabbitTemplate.convertAndSend(exchange, routingkeysix,productDTO);
-
     }
 
     @Override
     public void sendRemove(ProductDetails productDetails) {
-
         rabbitTemplate.convertAndSend(exchange, routingkeynine,productDetails);
-
     }
 
     @RabbitListener(queues="${stackroute.rabbitmq.queueeight}")
     public void  recieveRating(ProductRating productRating) {
 
-
-            Optional optional;
+        ProductDetails productDetails2=null;
+        Optional optional;
             optional = productSearchRepository.findById(productRating.getProductName());
-            System.out.println(optional);
             if (optional.isPresent())
              {
                 productDetails2 = productSearchRepository.findById(productRating.getProductName()).get();

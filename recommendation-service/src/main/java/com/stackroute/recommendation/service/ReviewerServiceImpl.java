@@ -6,6 +6,7 @@ import com.stackroute.recommendation.exception.ReviewerNotFoundException;
 import com.stackroute.recommendation.repository.ReviewerRepository;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -14,29 +15,25 @@ import java.util.Collection;
 public class ReviewerServiceImpl implements ReviewerService {
     private ReviewerRepository reviewerRepository;
 
-    private Reviewer reviewer;
-
     @Autowired
     public ReviewerServiceImpl(ReviewerRepository reviewerRepository) {
         this.reviewerRepository = reviewerRepository;
     }
 
+    @Value("${reviewerNotFound}")
+    String reviewerNotFound;
     @Override
     public Reviewer saveReviewer(Reviewer reviewer) {
-
         Reviewer  savedReviewer=null;
-
         savedReviewer=reviewerRepository.createNode(reviewer.getEmailId());
-
-        System.out.println(savedReviewer);
         return savedReviewer;
     }
 
     @Override
-    public Collection<Reviewer> getAll() throws Exception {
+    public Collection<Reviewer> getAll() throws ReviewerNotFoundException {
         Collection<Reviewer> reviewerCollection=reviewerRepository.getAllReviewers();
         if(reviewerCollection.isEmpty()){
-            throw  new Exception("Reviewer not available");
+            throw  new ReviewerNotFoundException(reviewerNotFound);
         }
         return reviewerRepository.getAllReviewers();
     }
@@ -48,7 +45,7 @@ public class ReviewerServiceImpl implements ReviewerService {
         }
         else
         {
-            throw new ReviewerNotFoundException("Reviewer Not Found");
+            throw new ReviewerNotFoundException(reviewerNotFound);
         }
     }
 
@@ -58,7 +55,7 @@ public class ReviewerServiceImpl implements ReviewerService {
             return reviewerRepository.getNode(emailId);
         }
         else {
-            throw new ReviewerNotFoundException("Reviewer Not Found");
+            throw new ReviewerNotFoundException(reviewerNotFound);
         }
     }
 
@@ -71,17 +68,13 @@ public class ReviewerServiceImpl implements ReviewerService {
 
     @RabbitListener(queues="${stackroute.rabbitmq.queueseven}")
     public void  recievereviw(ReviewDTO reviewDTO) {
-
-        System.out.println("recieved msg  from write a review= " + reviewDTO.toString());
-        Reviewer reviewer=new Reviewer(reviewDTO.getReviewerEmail(),reviewDTO.getProductName());
+        Reviewer reviewer1=new Reviewer(reviewDTO.getReviewerEmail(),reviewDTO.getProductName());
         if(reviewerRepository.existsById(reviewDTO.getReviewerEmail())){
             saveRelation(reviewDTO.getReviewerEmail(),reviewDTO.getProductName());
-            System.out.println("Relation created old new reviewer");
         }
         else {
-            saveReviewer(reviewer);
+            saveReviewer(reviewer1);
             saveRelation(reviewDTO.getReviewerEmail(),reviewDTO.getProductName());
-            System.out.println("Relation created for new reviewer");
         }
     }
 }

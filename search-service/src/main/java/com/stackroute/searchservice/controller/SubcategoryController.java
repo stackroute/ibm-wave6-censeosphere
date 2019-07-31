@@ -6,6 +6,7 @@ import com.stackroute.searchservice.dto.ProductDetails;
 import com.stackroute.searchservice.exception.SubcategoryAlreadyExistsExceptions;
 import com.stackroute.searchservice.exception.SubcategoryNotFoundException;
 import com.stackroute.searchservice.service.SubcategoryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,16 +20,16 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class SubcategoryController {
 
-    SubcategoryService subcategoryService;
+private SubcategoryService subcategoryService;
 
-
+    @Autowired
     public SubcategoryController(SubcategoryService subcategoryService1)
     {
         this.subcategoryService=subcategoryService1;
     }
 
     @PostMapping("subcategory")
-    public ResponseEntity<?> saveSubcategory(@RequestBody Subcategory subcategory){
+    public ResponseEntity<Subcategory> saveSubcategory(@RequestBody Subcategory subcategory){
 
         ResponseEntity responseEntity;
 
@@ -45,13 +46,13 @@ public class SubcategoryController {
 
 
     @GetMapping("subcategories")
-    public ResponseEntity<?> getAllSubcategory()
+    public ResponseEntity<List<Subcategory>> getAllSubcategory()
     {
         return new ResponseEntity<List<Subcategory>>(subcategoryService.getAllSubcategories(), HttpStatus.OK);
     }
 
     @GetMapping("products/{subCategory}")
-    public ResponseEntity<?> findAllProductsBySubcategory(@PathVariable("subCategory") String subCategory)throws SubcategoryNotFoundException
+    public ResponseEntity<List<Products>> findAllProductsBySubcategory(@PathVariable("subCategory") String subCategory)throws SubcategoryNotFoundException
     {
         ResponseEntity responseEntity;
         try {
@@ -64,7 +65,7 @@ public class SubcategoryController {
 
     }
     @DeleteMapping("subcategory/{subCategory}")
-    public ResponseEntity<?> deleteProduct(@PathVariable("subCategory") String subCategory) {
+    public ResponseEntity<String> deleteProduct(@PathVariable("subCategory") String subCategory) {
 
         try {
 
@@ -73,19 +74,19 @@ public class SubcategoryController {
             return new ResponseEntity<String>("Details not found", HttpStatus.NOT_FOUND);
         }
     }
-//    @PostMapping("products")
-//    public  ResponseEntity<?> updateSubcategory(@RequestBody ProductDetails productDetails)
-//    {
-//
-//        Date date=new Date();
-//        long millies=date.getTime();
-//        Timestamp timestamp=new Timestamp(millies);
-//        productDetails.setUploadedOn(timestamp);
-//
-//
-//            subcategoryService.updateSubcategory(productDetails);
-//            return new ResponseEntity<String>("Subcategory updated successfully!", HttpStatus.OK);
-//
-//    }
+    @PostMapping("products")
+    public  ResponseEntity<String> updateSubcategory(@RequestBody ProductDetails productDetails)
+    {
+
+        Date date=new Date();
+        long millies=date.getTime();
+        Timestamp timestamp=new Timestamp(millies);
+        productDetails.setUploadedOn(timestamp);
+
+
+            subcategoryService.updateSubcategory(productDetails);
+            return new ResponseEntity<>("Subcategory updated successfully!", HttpStatus.OK);
+
+    }
 
 }

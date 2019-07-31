@@ -11,7 +11,7 @@ import java.util.Collection;
 
 public interface ProductService {
 
-    public Collection<Product> getAll() throws Exception;
+    public Collection<Product> getAll() throws ProductNotFoundException;
 
     public Product saveProduct(String productName, float rating, float price, String productFamily,String subCategory);
 

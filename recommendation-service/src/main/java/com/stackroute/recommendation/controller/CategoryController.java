@@ -23,8 +23,8 @@ public class CategoryController {
     }
 
     @PostMapping("categorysave")
-    public Category saveCategory(@RequestBody Category category) {
-        return  categoryService.saveCategory(category);
+    public Category saveCategory(@RequestBody Category categoryName) {
+        return  categoryService.saveCategory(categoryName);
     }
 
     @DeleteMapping("categorydelete/{category}")

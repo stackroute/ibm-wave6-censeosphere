@@ -25,7 +25,7 @@ public class SubcategoryConnection {
     private String routingkeyFour;
 
 
-    @Value("${stackroute.rabbitmq.routingkeyfour}")
+    @Value("${stackroute.rabbitmq.routingkeyeleven}")
     private String routingkeyeleven;
 
     @Value("${stackroute.rabbitmq.queueeleven}")

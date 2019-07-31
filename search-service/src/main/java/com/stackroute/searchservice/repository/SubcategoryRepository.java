@@ -7,6 +7,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 
 public interface SubcategoryRepository extends MongoRepository<Subcategory,String> {
-    Subcategory findBySubCategory(String subCategory);
+    Subcategory findBySubCategoryName(String subCategoryName);
 
 }

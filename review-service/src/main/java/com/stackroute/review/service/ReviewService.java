@@ -3,8 +3,6 @@ package com.stackroute.review.service;
 import com.stackroute.review.domain.Review;
 import com.stackroute.review.dto.RecommendationDTO;
 import com.stackroute.review.dto.ReviewDTO;
-//import com.stackroute.review.dto.ReviewDetailDTO;
-
 import java.util.List;
 
 public interface ReviewService {
