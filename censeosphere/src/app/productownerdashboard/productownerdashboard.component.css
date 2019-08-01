@@ -87,7 +87,6 @@ footer a:hover{
 	border-radius: 7px;
 	text-align: center;
 	position: relative;
-    background-image: url(../../assets/img/cardbg.jpeg);
     margin:8px;
     font-size: 12px;
     width: 300px;
@@ -101,6 +100,8 @@ footer a:hover{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+    background-image: url('../../assets/img/cardbg.jpeg');
 
 }
 .thumb-wrapper:hover {
@@ -327,3 +328,7 @@ hr.side {
   .row-footer{
       margin-right:55px;
   }
+.onclick{
+    /* margin-left: 570px;    */
+    margin: 0 auto;
+}

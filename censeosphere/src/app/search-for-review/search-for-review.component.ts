@@ -84,7 +84,7 @@ export class SearchForReviewComponent implements OnInit {
   yes(email) {
 
     console.log("inside yes" + email);
-    this.reviewerdetail.getReviewer(email).subscribe((data: any) => {
+     this.reviewerdetail.getReviewer(email).subscribe((data: any) => {
       let a = JSON.stringify(data)
       console.log("reviewer data in yes method" + JSON.stringify(data));
       sessionStorage.setItem('rdata', a);

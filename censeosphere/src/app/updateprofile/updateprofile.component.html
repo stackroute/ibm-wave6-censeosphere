@@ -7,8 +7,7 @@
         <span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
       </a>
       <ul id="drop" class="dropdown-menu">
-        <li><button class="dropdown-item" (click)="update()"><span><i class="fa fa-refresh"></i></span> Update
-            Profile</button></li>
+        <li><button class="dropdown-item" (click)="update()"><span><i class="fa fa-refresh"></i></span>Profile</button></li>
         <li><button class="dropdown-item" (click)="lpage()"><span><i class="fa fa-power-off"></i></span> Log
             Out</button></li>
       </ul>
@@ -151,10 +150,11 @@
             <div class="thumb-content">
               <h4><b>{{review.productName}}</b></h4>
               <div class="rate">
+
                 <!-- <h5 class="info">{{review.rating}}</h5></div> -->
-                <h4 class="info">{{review.rating}}&#9733;</h4></div>
-              <ng-template #t let-fill="fill">
-                  <span class="star" [class.full]="fill === 100">
+                 <h4 class="info">{{review.rating}}&#9733;</h4></div>
+                 <ng-template #t let-fill="fill">
+                 <span class="star" [class.full]="fill === 100">
                     <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
                   </span>
                 </ng-template>

@@ -60,7 +60,8 @@ nav img{
 	border-radius: 7px;
 	text-align: center;
 	position: relative;
-    background-image: url(../../assets/img/cardbg.jpeg);
+
+   
     margin:8px;
     font-size: 12px;
     width: 300px;
@@ -74,6 +75,11 @@ nav img{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+
+
+  width: 300px;
+  background-image: url('../../assets/img/cardbg.jpeg');
+
 
 }
 .thumb-wrapper:hover {

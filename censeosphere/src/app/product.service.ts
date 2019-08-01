@@ -33,4 +33,9 @@ export class ProductService {
     return this._http.delete<Product>("http://13.126.244.58:8083/product-search-service/api/v1/product/"+productName, this.httpOptions);
   }
 
+  searchProductByProductOwner(emailId:string,product:String){
+    console.log("product owner email for search",emailId);
+    console.log("Product name for search ",product);
+    return this._http.get("http://13.126.244.58:8083/product-search-service/api/v1/search/"+emailId+"/"+product, this.httpOptions);
+  }
 }
