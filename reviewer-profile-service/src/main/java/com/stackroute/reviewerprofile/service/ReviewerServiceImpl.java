@@ -106,6 +106,7 @@ public class ReviewerServiceImpl implements ReviewerService {
             reviewer1.setName(reviewer.getName());
             reviewer1.setImage(reviewer.getImage());
             reviewer1.setReconfirmPassword(reviewer.getReconfirmPassword());
+            reviewer1.setCreditpoints(reviewer.getCreditpoints());
 
             reviewerRepository.save(reviewer1);
 
