@@ -176,9 +176,9 @@ services:
       - 7474:7474
     expose:
       - 7474
-#    volumes:
-#      - ./neo4J/data:/data
-#      - ./neo4J/import:/import
+    volumes:
+      - ./neo4J/data:/data
+      - ./neo4J/import:/import
 
 
   censeosphere:
