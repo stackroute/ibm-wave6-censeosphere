@@ -179,6 +179,10 @@ services:
     volumes:
       - ./neo4J/data:/data
       - ./neo4J/import:/import
+    environment:
+      - NEO4J_AUTH=neo4j/root123
+
+
 
 
   censeosphere:
