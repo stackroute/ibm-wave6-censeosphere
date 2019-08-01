@@ -76,9 +76,8 @@ label{
     /* width: 100%; */
 }
 #jumbotroninput{
-    /* margin-left: 350px; */
-    /* margin: auto; */
- display: inline;   
+    margin-left: 350px;
+    display: inline;   
 }
 #jumbotronheading{
     background:rgba(0,0,0,0.4);
@@ -298,9 +297,11 @@ ul.social-network li {
     font-size:15px;
 }
 
+#searchbutton{
+    margin-right:330px;
+} 
   
-  
-  #searchbutton a{
+#searchbutton a{
       color: white;
   }
 #searchbutton a i:hover{

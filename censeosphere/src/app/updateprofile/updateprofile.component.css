@@ -55,18 +55,60 @@ nav img{
   height: 200px;
   background: #aaa;
 }
- .thumb-wrapper {
-	padding: 25px 15px;
-  /* background: #fff; */
-  /* background: url('../../assets/img/i3.jpg') center center no-repeat; */
-	border-radius: 6px;
+
+.thumb-wrapper {
+	border-radius: 7px;
 	text-align: center;
 	position: relative;
-  /* box-shadow: 0 2px 3px rgba(0,0,0,0.2); */
-  box-shadow: 1.5px 1.5px 3px rgba(0,0,0,2.5);
-  width: 300px;
-background-image: url(../../assets/img/cardbg.jpeg);
+    background-image: url(../../assets/img/cardbg.jpeg);
+    margin:8px;
+    font-size: 12px;
+    width: 300px;
+    height: 310px;
+    overflow: hidden;
+    border: none;
+    box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+    cursor: pointer;
+    transition: 0.4s;
+    z-index: 0;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 
+}
+.thumb-wrapper:hover {
+    transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25),
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+.flex-container{
+  width: 1000px;
+  border-radius: 8px;
+  min-height: 380px;
+  margin: 0 auto;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+  display: -webkit-flex; 
+  display: flex; 
+  background-color: rgba(255, 255, 255, 0.5)
+}
+.col-sm-4{
+  
+  padding-top: 35px;
+  padding-left: 90px;
+  -webkit-flex: 1; 
+  -ms-flex: 1; 
+  flex: 1; 
+}
+.col-sm-8{
+  padding-bottom: 50px;
+  -webkit-flex: 1; 
+  -ms-flex: 1; 
+  flex: 1; 
+  padding-right: 50px;
+}
+.image{
+  background:url('../../assets/img/addprod2.jpeg') center center no-repeat;
+  background-size: cover;
 }
 .img-box {
 	height: 120px;
@@ -75,6 +117,7 @@ background-image: url(../../assets/img/cardbg.jpeg);
 	position: relative;
 }
  .img-box img {	
+  padding-top:20px;
 	max-width: 100%;
 	max-height: 100%;
 	display: inline-block;

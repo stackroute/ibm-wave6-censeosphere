@@ -84,14 +84,54 @@ footer a:hover{
 }
 
 .thumb-wrapper {
-	padding: 25px 15px;
-	background: #def2f1;
-	border-radius: 6px;
+	border-radius: 7px;
 	text-align: center;
 	position: relative;
-    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
     background-image: url(../../assets/img/cardbg.jpeg);
+    margin:8px;
+    font-size: 12px;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border: none;
+    box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+    cursor: pointer;
+    transition: 0.4s;
+    z-index: 0;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 
+}
+.thumb-wrapper:hover {
+    transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25),
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+.flex-container{
+    width: 1000px;
+    border-radius: 8px;
+    min-height: 380px;
+    margin: 0 auto;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+    display: -webkit-flex; 
+    display: flex; 
+    background-color: rgba(255, 255, 255, 0.5)
+}
+.col-sm-4{
+    padding-top: 50px;
+    padding-left: 100px;
+    -webkit-flex: 1; 
+    -ms-flex: 1; 
+    flex: 1; 
+}
+ .col-sm-8{
+
+    -webkit-flex: 1; 
+    -ms-flex: 1; 
+    flex: 1; 
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 .img-box {
 	height: 120px;
@@ -101,6 +141,7 @@ footer a:hover{
 
 }
  .img-box img {	
+     padding-top:20px;
 	max-width: 100%;
 	max-height: 100%;
 	display: inline-block;
@@ -109,6 +150,10 @@ footer a:hover{
 	margin: 0 auto;
 	left: 0;
     right: 0;
+
+    /* width: inherit;
+    height: inherit; */
+    display: flex;
 }
 h4 {
 	font-size: 18px;
@@ -136,8 +181,17 @@ h4 {
       font-size: 20px;
       color: white;
   }
+  #one{
+    padding-left:125px;
+}
+#drop{
+  margin-left:105px;
+}
 h5{
     color:white;
+}
+#pname{
+    color: black;
 }
   ul.social-network {
 	list-style: none;
@@ -245,3 +299,31 @@ hr.side {
     border:solid;
     border-width: 1px;
 }
+.star 
+{
+      position: relative;
+      display: inline-block;
+      font-size: 2rem;
+      color: #d3d3d3;
+    
+    }
+    .full 
+    {
+      color:navy;
+    }
+    .half 
+    {
+      position: absolute;
+      display: inline-block;
+      overflow: hidden;
+      color:navy;
+    }
+    .rate
+    {
+        background-color:rgba(0, 128, 0, 0.5);
+        width: fit-content;
+        margin: 0 auto;
+    }
+  .row-footer{
+      margin-right:55px;
+  }
