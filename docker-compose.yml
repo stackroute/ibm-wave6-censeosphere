@@ -176,10 +176,10 @@ services:
       - 7474:7474
     expose:
       - 7474
-    volumes:
-      - $HOME/neo4j-data:/data
-      - $HOME/neo4j-plugins:/plugins
-      - $HOME/neo4j-ext:/var/lib/neo4j/extension
+#    volumes:
+#      - ./neo4J/data:/data
+#      - ./neo4J/import:/import
+
 
   censeosphere:
     build:

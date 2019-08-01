@@ -245,3 +245,7 @@ hr.side {
     border:solid;
     border-width: 1px;
 }
+.onclick{
+    /* margin-left: 570px;    */
+    margin: 0 auto;
+}

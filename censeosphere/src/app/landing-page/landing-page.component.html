@@ -33,7 +33,7 @@
       <form >
               <div class="input-group">
                 <input type="search" #inputsearch class="form-control col-md-6" placeholder="Search here" name="search" id="jumbotroninput">
-                   <button class="btn btn-secondary" type="submit" id="searchbutton" (click)="searchproductL(inputsearch.value)">
+                   <button class="btn btn-secondary" type="submit" id="searchbutton" (click)="searchproductL(inputsearch.value)" data-toggle="modal" data-target="#myModal">
                       <a href="#"><i class="fa fa-search"></i></a>
                    </button><br>
                   </div>
@@ -46,7 +46,7 @@
     </div>
             
 
-
+    <app-modelwindow *ngIf="showComponent1"></app-modelwindow>
 <div class="onclick">
 
 <app-card *ngIf="showComponent"></app-card>
@@ -99,6 +99,8 @@
     </ng-template>
     </div>
   <!-- end carousel for recent productDetails -->
+
+  <app-modelwindow *ngIf="showComponent1"></app-modelwindow>
 
   <!--  start carousel for trending productDetails -->
   <div id="container1">

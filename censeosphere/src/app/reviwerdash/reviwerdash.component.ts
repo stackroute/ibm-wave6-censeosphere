@@ -37,9 +37,9 @@ export class ReviwerdashComponent implements OnInit {
 
     this.recommendationService.getProductBySubCategory(sessionStorage.getItem('reviewerEmail')).
       subscribe((data: any) => {
-        console.log(data);
+        console.log("ppppppppppppppprrrrrrrrrrrrriiiiiiiiii",data);
 
-
+    
         for (let i = 0; i < data.length; i++) {
           this.productService.getProduct(data[i].productName).
             subscribe((data: any) => {

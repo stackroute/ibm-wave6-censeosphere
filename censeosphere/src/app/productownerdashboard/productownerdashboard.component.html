@@ -28,13 +28,9 @@
 
             <div class="input-group">
 
-                <input type="search" class="form-control col-md-6" placeholder="Search products" name="search" id="jumbotroninput">
-
-           
-                   <!-- <button class="btn btn-outline-secondary" type="submit" id="searchbutton" (click)="searchproduct(inputsearch.value)"> -->
-
-               
-                   <button class="btn btn-secondary" type="submit" id="searchbutton" (click)="searchproduct(inputsearch.value)">
+                <input type="search" #inputsearch class="form-control col-md-6" placeholder="Search products" name="search" id="jumbotroninput">
+   
+                   <button class="btn btn-secondary" type="submit" id="searchbutton" (click)="searchproductO(inputsearch.value)">
 
                       <a href="#"><i class="fa fa-search"></i></a>
                   </button>
@@ -44,6 +40,11 @@
     </div>
     <!-- end jumbotron -->
 
+    <div class="onclick">
+     <app-card2 *ngIf="showComponent"></app-card2>
+      </div>
+
+      <app-modelwindow *ngIf="showComponent1"></app-modelwindow> 
 
 <div class="container">
   <h3>My Products</h3>
