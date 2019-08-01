@@ -177,6 +177,10 @@ services:
     expose:
       - 7474
     volumes:
+      - $HOME/neo4j-data:/data
+      - $HOME/neo4j-plugins:/plugins
+      - $HOME/neo4j-ext:/var/lib/neo4j/extension
+
       - ./neo4J/data:/data
       - ./neo4J/import:/import
     environment:
@@ -194,3 +198,24 @@ services:
     restart: always
     environment:
       NG_CLI_ANYALYTICS: ci
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - 9090:9090
+    restart: always
+    network_mode: host
+    hostname: localhost
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+       - prometheus
+    network_mode: "host"
+    hostname: localhost

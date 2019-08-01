@@ -70,7 +70,8 @@
 					<div class="card-block">
 					<h4><b>{{product.productName}}</b></h4>
 					<div class="rate">
-						<h5 class="info">{{product.rating}}</h5></div>
+						<!-- <h5 class="info">{{product.rating}}</h5></div> -->
+						<h4 class="info">{{product.rating}}&#9733;</h4></div>
 						<ng-template #t let-fill="fill">
 							<span class="star" [class.full]="fill === 100">
 								<span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
