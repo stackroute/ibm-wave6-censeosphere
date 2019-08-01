@@ -182,9 +182,6 @@ services:
     environment:
       - NEO4J_AUTH=neo4j/root123
 
-
-
-
   censeosphere:
     build:
      context: ./censeosphere
