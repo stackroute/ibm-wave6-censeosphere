@@ -68,7 +68,7 @@
     </ng-template>
 
     <ng-template #product let-product let-i="index">
-      <div class="productDetails">
+      <!-- <div class="productDetails">
         
             <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
                 <div class="card" id="card1">
@@ -78,16 +78,19 @@
 
             
           </div>
-    <div class="card-block">
+            <div class="card-block">
             <h4><b>{{product.productName}}</b></h4>
             <div class="rate">
-              <h5 class="info">{{product.rating}}</h5></div>
+              <h5 class="info">{{product.rating}}</h5>
+            </div>
               <ng-template #t let-fill="fill">
                 <span class="star" [class.full]="fill === 100">
                   <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
                 </span>
               </ng-template>
-              <ngb-rating  [starTemplate]="t" rate={{product.rating}}></ngb-rating>
+              <ngb-rating  [starTemplate]="t" rate={{product.rating}}>
+
+              </ngb-rating>
             
 
             <h5 class="item-price">${{product.price}}</h5>
@@ -95,12 +98,46 @@
           </div>
         </div>
 </div>
-</div>
+</div>    -->
+
+<div class="productDetails">
+  <div class="card1" onclick="this.classList.toggle('expanded')">
+     <div class="label1" viewBox="0 0 100 100" height="50" width="50">
+       <img id="carimg" src="../assets/img/{{product.image}}" class="img-responsive img-fluid" alt="Image not available" (click)="imageclick(product)">
+     </div>
+     <div class="text1">
+       <div class="text-content">
+         <h1 class="title">{{product.productName}}</h1>
+         <div class="body-text">
+             <!-- <div class="star-rating">
+                 <h5>{{product.rating}}</h5>
+               </div> -->
+               <div class="rate">
+                <h5 class="info">{{product.rating}}</h5>
+              </div>
+              <ng-template #t let-fill="fill">
+                <span class="star" [class.full]="fill === 100">
+                  <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                </span>
+              </ng-template>
+              <ngb-rating  [starTemplate]="t" rate={{product.rating}}>
+                
+              </ngb-rating>
+               <h5 class="item-price">${{product.price}}</h5>
+         </div>
+       </div>
+     </div>
+     <!-- <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 35" width="30"><path d="M5 30L50 5l45 25" fill="none" stroke="#000" stroke-width="5"/></svg> -->
+   </div>
+ </div>
+
+
     </ng-template>
     </div>
   <!-- end carousel for recent productDetails -->
 
   <!--  start carousel for trending productDetails -->
+  
   <div id="container1">
     <h2>Trending Products</h2>
     <div ng2-carouselamos class="slides-wrapper" [items]="productDetails1" [width]="900" [$prev]="prev" [$next]="next"
@@ -116,7 +153,7 @@
     </ng-template>
 
     <ng-template #product let-product let-i="index">
-      <div class="productDetails">
+      <!-- <div class="productDetails">
      
             <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
                 <div class="card" id="card2">
@@ -140,7 +177,39 @@
            </div>
           </div>
         </div>
-      </div>
+      </div> -->
+
+      <div class="productDetails">
+  <div class="card1" onclick="this.classList.toggle('expanded')">
+     <div class="label1" viewBox="0 0 100 100" height="50" width="50">
+       <img id="carimg" src="../assets/img/{{product.image}}" class="img-responsive img-fluid" alt="Image not available" (click)="imageclick(product)">
+     </div>
+     <div class="text1">
+       <div class="text-content">
+         <h1 class="title">{{product.productName}}</h1>
+         <div class="body-text">
+             <!-- <div class="star-rating">
+                 <h5>{{product.rating}}</h5>
+               </div> -->
+               <div class="rate">
+                <h5 class="info">{{product.rating}}</h5>
+              </div>
+              <ng-template #t let-fill="fill">
+                <span class="star" [class.full]="fill === 100">
+                  <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                </span>
+              </ng-template>
+              <ngb-rating  [starTemplate]="t" rate={{product.rating}}>
+                
+              </ngb-rating>
+               <h5 class="item-price">${{product.price}}</h5>
+         </div>
+       </div>
+     </div>
+     <!-- <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 35" width="30"><path d="M5 30L50 5l45 25" fill="none" stroke="#000" stroke-width="5"/></svg> -->
+   </div>
+ </div>
+
       </ng-template>
     </div>
   <!-- end carousel for trending products -->
@@ -331,14 +400,14 @@
         <!-- Grid column -->
       </div>
       <!-- Footer links -->
-      <hr>
+      <hr class="side">
       <!-- Grid row -->
       <div class="row d-flex align-items-center">
         <!-- Grid column -->
         <div class="col-md-7 col-lg-8">
           <div class="col-md-12">
             <ul class="social-network social-circle">
- <li><a href="#"><i class="fab fa-facebook" id="facebook"></i></a></li>
+              <li><a href="#"><i class="fab fa-facebook" id="facebook"></i></a></li>
               <li></li>
               <li><a href="#"><i class="fab fa-twitter" id="twitter"></i></a></li>
               <li></li>
