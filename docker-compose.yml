@@ -181,6 +181,14 @@ services:
       - $HOME/neo4j-plugins:/plugins
       - $HOME/neo4j-ext:/var/lib/neo4j/extension
 
+      - ./neo4J/data:/data
+      - ./neo4J/import:/import
+    environment:
+      - NEO4J_AUTH=neo4j/root123
+
+
+
+
   censeosphere:
     build:
      context: ./censeosphere
