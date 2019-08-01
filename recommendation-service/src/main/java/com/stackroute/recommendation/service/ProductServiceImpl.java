@@ -94,11 +94,10 @@ public class ProductServiceImpl implements ProductService {
 
     @RabbitListener(queues="${stackroute.rabbitmq.queuesix}")
     public void  recieveproductowner(ProductDTO productDTO) {
-            saveProduct(productDTO.getProductName(),productDTO.getRating(),productDTO.getPrice(),productDTO.getProductFamily(),productDTO.getSubCategory());
-            saveRelation(productDTO.getProductName(),productDTO.getSubCategory());
 
+        Product product=new Product(productDTO.getProductName(),productDTO.getRating(),productDTO.getPrice(),productDTO.getProductFamily(),productDTO.getSubCategory());
+            saveProduct(product.getProductName(),product.getRating(),product.getPrice(),product.getProductFamily(),product.getSubCategory());
+            saveRelation(product.getProductName(),product.getSubCategory());
     }
-
-
 
 }

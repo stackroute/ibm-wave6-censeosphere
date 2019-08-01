@@ -8,8 +8,8 @@
       <button type="submit" class="btn btn-outline-light" id="addproduct" (click)="add()" >Add Product</button>
       </div>&nbsp;&nbsp;
       <div class="dropdown">
-        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         <span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
+        <a id="one" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <span> <i class='fas fa-user-circle'></i>&nbsp;</span><strong class="caret">My Account</strong>
         </a>
         <ul id="drop" class="dropdown-menu">
          <li><button class="dropdown-item" (click)="update()" ><span><i class="fa fa-refresh"></i></span>  Update profile</button></li>
@@ -28,13 +28,9 @@
 
             <div class="input-group">
 
-                <input type="search" class="form-control col-md-6" placeholder="Search products" name="search" id="jumbotroninput">
-
-           
-                   <!-- <button class="btn btn-outline-secondary" type="submit" id="searchbutton" (click)="searchproduct(inputsearch.value)"> -->
-
-               
-                   <button class="btn btn-secondary" type="submit" id="searchbutton" (click)="searchproduct(inputsearch.value)">
+                <input type="search" #inputsearch class="form-control col-md-6" placeholder="Search products" name="search" id="jumbotroninput">
+   
+                   <button class="btn btn-secondary" type="submit" id="searchbutton" (click)="searchproductO(inputsearch.value)">
 
                       <a href="#"><i class="fa fa-search"></i></a>
                   </button>
@@ -44,6 +40,11 @@
     </div>
     <!-- end jumbotron -->
 
+    <div class="onclick">
+     <app-card2 *ngIf="showComponent"></app-card2>
+      </div>
+
+      <app-modelwindow *ngIf="showComponent1"></app-modelwindow> 
 
 <div class="container">
   <h3>My Products</h3>

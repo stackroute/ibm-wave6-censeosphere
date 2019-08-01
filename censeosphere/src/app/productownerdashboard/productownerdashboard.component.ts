@@ -22,7 +22,8 @@ export class ProductownerdashboardComponent implements OnInit {
   productDetails=[];
   myproducts:any;
   listofproducts=[];
- 
+  showComponent:any;
+  showComponent1:any;
 
   reviewer;
   constructor(private updates:UpdateProfileService,private route1:ActivatedRoute,
@@ -109,4 +110,21 @@ export class ProductownerdashboardComponent implements OnInit {
       this.router.navigateByUrl("/productownerdashboard");
     }
 
-}
+    searchproductO(product){
+      
+      this.productService.searchProductByProductOwner(sessionStorage.getItem('productOwnerEmail'),product).
+      subscribe(data=>{
+        if(data==null){
+          this.showComponent1 = true;
+        }
+        else{
+          console.log("product info  : ",data);
+          let a = JSON.stringify(data)
+          sessionStorage.setItem('data123', a);
+          this.showComponent = true;
+        }
+      });
+
+    }
+
+  }

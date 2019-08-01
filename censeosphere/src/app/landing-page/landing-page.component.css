@@ -76,7 +76,7 @@ label{
     /* width: 100%; */
 }
 #jumbotroninput{
-    /* margin-left: 350px; */
+    margin-left: 350px;
     /* margin: auto; */
  display: inline;   
 }
@@ -297,10 +297,11 @@ ul.social-network li {
     padding-top: 66px;
     font-size:15px;
 }
-
+#searchbutton{
+  margin-right:330px;
+}
   
-  
-  #searchbutton a{
+#searchbutton a{
       color: white;
   }
 #searchbutton a i:hover{
@@ -315,6 +316,10 @@ h5{
 }
 .info,.item-price{
 color: black;
+}
+hr.side {
+  border:solid;
+  border-width: 1px;
 }
 .star 
 {
@@ -341,4 +346,71 @@ color: black;
         width: fit-content;
         margin: 0 auto;
     }
-  
+    .card1 {
+        background:  url('../../assets/img/i3.jpg') center center no-repeat;
+        border-radius: 9px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        cursor: pointer;
+        font-size: 12px;
+        height: 300px;
+        margin: 20px;
+        padding: 0 20px;
+        overflow: hidden;
+        border: none;
+        position: relative;
+        -webkit-tap-highlight-color: rgba(0,0,0,0.025);
+        text-align: center;
+        transition: height 1000ms;
+        width: 280px;
+      }
+      @media (max-width: 767px) {
+        .card1 {
+          left: calc(50% - 0px);
+          transform: translateX(-50%);
+        }
+      }
+      .card1.expanded {
+        height: 350px;
+      }
+      .label1 {
+        margin-top: 30px;
+        transform: translateY(10px);
+        transition: transform 1000ms;
+      }
+      .card1.expanded .label1 {
+        transform: translateY(0);
+      }
+      .text1 {
+        clip-path: polygon(0% 100%, 0 -90%, 50% -5%, 100% -90%, 100% 100%);
+        -webkit-clip-path: polygon(40% 100%, 0 -90%, 50% -5%, 100% 90%, 10% 100%);
+        transition: clip-path 1000ms;
+      }
+      .card1.expanded .text1 {
+        clip-path: polygon(0% 100%, 0 -100%, 50% -15%, 100% -100%, 100% 100%);
+        -webkit-clip-path: polygon(0% 100%, 0 -100%, 50% -15%, 100% -100%, 100% 100%);
+      }
+      .text-content {
+        transform: translateY(160px);
+        transition: transform 1000ms;
+      }
+      .card1.expanded .text-content {
+        transform: translateY(-15px);
+      }
+      .title {
+        font-family: 'Alegreya Sans', sans-serif;
+        font-weight: 90;
+        margin: 20px 0 12px;
+        font-size: 20px;
+      }
+      .body-text {
+        padding: 0 20px;
+      }
+      #carimg{
+      max-width: 200px;
+      max-height: 200px;
+      display: inline-block;
+      bottom: 20;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      }
