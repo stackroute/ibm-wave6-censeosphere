@@ -5,5 +5,5 @@ RUN npm install
 RUN npm install http-server -g
 RUN npm run build
 RUN echo $NG_CLI_ANYALYTICS
-WORKDIR /app/dist/censosphere
+WORKDIR /app/dist/censeosphere
 ENTRYPOINT ["http-server", "-c1", "-p", "4200"]

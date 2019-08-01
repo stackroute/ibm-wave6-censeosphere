@@ -88,16 +88,19 @@ public class SubcategoryServiceImpl implements SubcategoryService {
 
         if(fetchedSubcategory!=null){
 
-            List<Products> newProductsList = fetchedSubcategory.getProducts();
+              System.out.println("inside if");
+              List<Products> newProductsList = fetchedSubcategory.getProducts();
 
-            for (int i=0;i< newProductsList.size();i++){
-
-                if(((newProductsList.get(i)).getProductName()).equals(productDetails.getProductName())) {
-
-                    (newProductsList.get(i)).setRating(productDetails.getRating());
-                    fetchedSubcategory.setProducts(newProductsList);
-                    subcategoryRepository.save(fetchedSubcategory);
-                }
+                    for (int i=0;i< newProductsList.size();i++){
+                    System.out.println("inside for");
+                       Products products=newProductsList.get(i);
+                    if(((products).getProductName()).equals(productDetails.getProductName()))
+                     {
+                       System.out.println("inside equals");
+                       products.setRating(productDetails.getRating());
+                       fetchedSubcategory.setProducts(newProductsList);
+                       subcategoryRepository.save(fetchedSubcategory);
+                    }
             }
 
         }
