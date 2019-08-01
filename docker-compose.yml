@@ -177,10 +177,6 @@ services:
     expose:
       - 7474
     volumes:
-      - $HOME/neo4j-data:/data
-      - $HOME/neo4j-plugins:/plugins
-      - $HOME/neo4j-ext:/var/lib/neo4j/extension
-
       - ./neo4J/data:/data
       - ./neo4J/import:/import
     environment:
