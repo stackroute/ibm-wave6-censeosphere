@@ -57,7 +57,7 @@
 	</ng-template>
 
 	<ng-template #product let-product let-i="index">
-		<div class="productDetails">
+		<!-- <div class="productDetails">
 		
 				<div class="col-sm-6 col-md-4 col-lg-3 mt-4">
 				<div class="card">
@@ -84,7 +84,39 @@
 				</div>
 				</div>
 			
-		</div>&nbsp;
+		</div> -->
+
+		<div class="productDetails">
+			<div class="card1" onclick="this.classList.toggle('expanded')">
+			   <div class="label1" viewBox="0 0 100 100" height="50" width="50">
+				 <img id="carimg" src="../assets/img/{{product.image}}" class="img-responsive img-fluid" alt="Image not available" (click)="imageclick(product)">
+			   </div>
+			   <div class="text1">
+				 <div class="text-content">
+				   <h1 class="title">{{product.productName}}</h1>
+				   <div class="body-text">
+					   <!-- <div class="star-rating">
+						   <h5>{{product.rating}}</h5>
+						 </div> -->
+						 <div class="rate">
+						  <h5 class="info">{{product.rating}}</h5>
+						</div>
+						<ng-template #t let-fill="fill">
+						  <span class="star" [class.full]="fill === 100">
+							<span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+						  </span>
+						</ng-template>
+						<ngb-rating  [starTemplate]="t" rate={{product.rating}}>
+						  
+						</ngb-rating>
+						 <h5 class="item-price">${{product.price}}</h5>
+				   </div>
+				 </div>
+			   </div>
+			   <!-- <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 35" width="30"><path d="M5 30L50 5l45 25" fill="none" stroke="#000" stroke-width="5"/></svg> -->
+			 </div>
+		   </div>
+		&nbsp;
 	
 	</ng-template>
 </div>

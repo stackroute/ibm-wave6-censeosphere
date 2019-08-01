@@ -107,7 +107,7 @@ public class productdetailserviceimpl implements  Productdetailservice {
     @Override
     public int findSentiment(String productName,String desc) {
 
-        System.out.println((desc));
+
         int mainSentiment=0;
         String clearReviewText=clearReview(desc);
         if(clearReviewText != null && clearReviewText.length()>0)

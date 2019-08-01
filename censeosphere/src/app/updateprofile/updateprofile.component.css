@@ -65,7 +65,7 @@ nav img{
   /* box-shadow: 0 2px 3px rgba(0,0,0,0.2); */
   box-shadow: 1.5px 1.5px 3px rgba(0,0,0,2.5);
   width: 300px;
-background-image: url(../../assets/img/cardbg.jpeg);
+background-image: url('../../assets/img/cardbg.jpeg');
 
 }
 .img-box {
