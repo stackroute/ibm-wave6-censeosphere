@@ -211,9 +211,7 @@ services:
     hostname: localhost
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
-    command:
-      - "--config.file=/etc/prometheus/prometheus.yml"
-      - "--storage.tsdb.path=/prometheus"
+
   grafana:
     image: grafana/grafana
     ports:
