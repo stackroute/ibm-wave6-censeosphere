@@ -68,17 +68,16 @@ public class productdetailserviceimpl implements  Productdetailservice {
         @Value("${value7}")
         private String value7;
 
-        ProductRating productRating1;
+
+
+            ProductRating productRating1;
 
     String review="";
     String result="";
     float rating=0.0f;
-    float finalrating=0.0f;
     String sentiment="";
     int sentiments;
     int creditpoints;
-    float sum;
-    int count;
     @PostConstruct
     public void init(){
 
@@ -92,8 +91,8 @@ public class productdetailserviceimpl implements  Productdetailservice {
             productRating1= productdetailrepository.save(productRating);
              sentiments =findSentiment(productRating1.getProductName(),review);
              sentiment=sentimentResult(sentiments);
-             finalrating=generateRating(sentiment,productRating1,creditpoints);
-             updaterating(productRating1.getProductName(),finalrating);
+             rating=generateRating(sentiment,productRating1.getRating(),creditpoints);
+             updaterating(productRating1.getProductName(),rating);
              return  productRating1;
     }
 
@@ -155,7 +154,7 @@ public class productdetailserviceimpl implements  Productdetailservice {
     }
 
     @Override
-    public float generateRating(String sentiment,ProductRating productRating,int score) {
+    public float generateRating(String sentiment,float value,int score) {
         float nvalue1= Float.parseFloat(""+value1);
         float nvalue2= Float.parseFloat(""+value2);
         float nvalue3= Float.parseFloat(""+value3);
@@ -163,30 +162,6 @@ public class productdetailserviceimpl implements  Productdetailservice {
         float nvalue5= Float.parseFloat(""+value5);
         float nvalue6= Float.parseFloat(""+value6);
         float nvalue7= Float.parseFloat(""+value7);
-        float value=productRating.getRating();
-        System.out.println("recieved value"+value);
-        if(sentiment.equals(string1))
-        {
-            value=5;
-
-        }
-        else if(sentiment.equals(string3))
-        {
-            value=4;
-
-        }
-        else if(sentiment.equals(string5))
-        {
-            value=3;
-        }
-        else if(sentiment.equals(string4))
-        {
-            value=2;
-        }
-        else  if(sentiment.equals(string2))
-        {
-            value=1;
-        }
 
         if(value <5)
         {
@@ -203,7 +178,6 @@ public class productdetailserviceimpl implements  Productdetailservice {
               else if((sentiment).equals(string5))
                {
                   rating=value-nvalue7;
-
                }
                else if((sentiment).equals( string3))
                 {
@@ -236,7 +210,6 @@ public class productdetailserviceimpl implements  Productdetailservice {
                 {
 
                     rating=value+nvalue2;
-                    System.out.println(rating);
                 }
                 else if((sentiment).equals(string1))
                 {
@@ -297,15 +270,7 @@ public class productdetailserviceimpl implements  Productdetailservice {
           }
 
         }
-        else if (value<0)
-        {
-          rating=0;
-        }
-        else if(value>5)
-        {
-            rating=5;
-        }
-        else if(value == 5)
+        else if(rating == 5)
         {
             if(   score>=1000  &&  (sentiment).equals(string2))
             {
@@ -319,14 +284,10 @@ public class productdetailserviceimpl implements  Productdetailservice {
                    rating=value-nvalue4;
                 }
         }
-        System.out.println(productRating.getSum());
-        sum=productRating.getSum()+rating;
-        count=productRating.getCount()+1;
-        productRating.setSum(sum);
-        productRating.setCount(count);
-        productdetailrepository.save(productRating);
-        finalrating=(sum)/(float)(productRating.getCount());
-        return finalrating;
+
+        return rating;
+
+
     }
 
     @Override
@@ -382,8 +343,8 @@ public class productdetailserviceimpl implements  Productdetailservice {
             creditpoints=productRatingDTO.getCreditpoints();
             sentiments =findSentiment(productRatingDTO.getProductName(),review);
             sentiment=sentimentResult(sentiments);
-            finalrating=generateRating(sentiment,productRating2,creditpoints);
-            updaterating(productRatingDTO.getProductName(),finalrating);
+            rating=generateRating(sentiment,productRating2.getRating(),creditpoints);
+            updaterating(productRatingDTO.getProductName(),rating);
             }
           else
            {

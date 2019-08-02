@@ -4,9 +4,11 @@ import { SearchForReviewService } from '../search-for-review.service';
 import { ReviewerdetailsService } from '../reviewerdetails.service';
 import { Reviewerone } from '../reviewerone';
 import { ReviewService } from '../review.service';
-import { LandingpageService } from '../landingpage.service';
-import { HttpClient } from '@angular/common/http';
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
+
 import subs from '../../assets/json/subCategory.json';
+import { HttpClient } from '@angular/common/http';
+import { LandingpageService } from '../landingpage.service';
 @Component({
   selector: 'app-search-for-review',
   templateUrl: './search-for-review.component.html',
@@ -14,16 +16,17 @@ import subs from '../../assets/json/subCategory.json';
 })
 export class SearchForReviewComponent implements OnInit {
   reviews = [];
-
-
   productName = "";
   price = "";
   reviewedOn = "";
 
-  constructor(private router: Router, private searchforreview: SearchForReviewService, 
+  constructor(private router: Router, private searchforreview: SearchForReviewService,
     private activatedRoute: ActivatedRoute, private reviewerdetail: ReviewerdetailsService,
-     private reviewService: ReviewService,private landingpageservice:LandingpageService,
-     private http:HttpClient) { }
+     private reviewService: ReviewService,private config: NgbRatingConfig,
+     private http:HttpClient,private landingpageservice:LandingpageService) { 
+       config.max = 5;
+      config.readonly = true;
+  }
 
   revieweremail = "";
   reviewerinfo: any;
@@ -39,15 +42,16 @@ export class SearchForReviewComponent implements OnInit {
   ngOnInit() {
 
     this.http.get('./assets/json/subCategory.json').subscribe((data:any) => {
-      console.log(data, "Is this comming ???");
-      this.array = data;
+            console.log(data, "Is this comming ???");
+            this.array = data;
+      
+          })
+           this.landingpageservice.getAllSubCategories().subscribe((data: any) => {
+            console.log("inside get all ts file"+data);
+            this.array= data;
+            sessionStorage.setItem('sdata',data);
+          })
 
-    })
-     this.landingpageservice.getAllSubCategories().subscribe((data: any) => {
-      console.log("inside get all ts file"+data);
-      this.array= data;
-      sessionStorage.setItem('sdata',data);
-    })
     this.revieweremail = sessionStorage.getItem('reviewerEmail');
     console.log("email in write a review" + this.revieweremail);
 
@@ -95,7 +99,7 @@ export class SearchForReviewComponent implements OnInit {
   }
   yes(email) {
 
-    console.log("inside yes" + email);
+    console.log("inside yes " + email);
      this.reviewerdetail.getReviewer(email).subscribe((data: any) => {
       let a = JSON.stringify(data)
       console.log("reviewer data in yes method" + JSON.stringify(data));
@@ -112,11 +116,7 @@ export class SearchForReviewComponent implements OnInit {
         console.log("updated reviewer data in yes method" + JSON.stringify(data));
       })
 
-
-
     })
-
-
 
   }
 
@@ -139,11 +139,7 @@ export class SearchForReviewComponent implements OnInit {
         console.log("updated reviewer data in no method" + JSON.stringify(data));
       })
 
-
-
     })
-
-
 
   }
 
@@ -159,18 +155,12 @@ export class SearchForReviewComponent implements OnInit {
   lpage() {
     this.router.navigateByUrl("/");
   }
-
   onClickSubCategory(subCategory){
-    console.log("in landing page",subCategory);
-   this.landingpageservice.findAllProductsBySubcategory(subCategory).
-    subscribe(data=>{
-      console.log("Product list : ",data);
-       this.router.navigateByUrl("/productlist/"+subCategory);
-    })
-  }
-
+        console.log("in landing page",subCategory);
+       this.landingpageservice.findAllProductsBySubcategory(subCategory).
+        subscribe(data=>{
+          console.log("Product list : ",data);
+           this.router.navigateByUrl("/productlist/"+subCategory);
+        })
+      }
 }
-
-
-
-

@@ -135,20 +135,20 @@ footer a:hover{
     
 }
 
-#card1,#card2 {
+/* #card1,#card2 {
     margin-left: 4px;
     margin-right: 3px;
 	padding: 25px 15px;
     background: url('../../assets/img/i3.jpg') center center no-repeat;
     text-align: center;
-    /* position: relative; */
+    
     font-size: 12px;
     width: 300px;
     overflow: hidden;
     border: none;
 	border-radius: 9px;
     box-shadow: 1.5px 1.5px 3px rgba(0,0,0,2.5);
-}
+} */
 .img-box {
 	height: 120px;
 	margin-bottom: 20px;
@@ -301,9 +301,10 @@ ul.social-network li {
     padding-top: 66px;
     font-size:15px;
 }
+
 #searchbutton{
-  margin-right:330px;
-}
+    margin-right:330px;
+} 
   
 #searchbutton a{
       color: white;
@@ -374,7 +375,7 @@ hr.side {
         }
       }
       .card1.expanded {
-        height: 370px;
+        height: 420px;
       }
       .label1 {
         margin-top: 30px;
@@ -410,8 +411,8 @@ hr.side {
         padding: 0 20px;
       }
       #carimg{
-      max-width: 200px;
-      max-height: 200px;
+      width: 200px;
+      height: 200px;
       display: inline-block;
       bottom: 20;
       margin: 0 auto;

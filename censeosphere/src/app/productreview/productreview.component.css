@@ -76,6 +76,9 @@ nav .dropdown{
     
   }
 
+  #searchheading{
+      margin-top:0px;
+  }
   footer
 {
     margin-top: 80px;
@@ -194,7 +197,7 @@ ul.social-network {
       background-image:url(../../assets/img/header.png);  
  } */
  .image{
-    background:url('../../assets/img/addprod2.jpg') center center no-repeat;
+    background:url('../../assets/img/cbgi.jpeg') center center no-repeat;
     background-size: cover;
     height: 100%;
     overflow: hidden;
@@ -229,10 +232,23 @@ ul.social-network {
 }
 
  #mainbtn{
-    margin-left:480px; 
-    
+    margin-left:680px;
+    margin-bottom:100px; 
   }
-  .example-sidenav-container{
+  #searchheading{
+    text-align: center;
+    margin-top: 100px;
+  }
+
+ #productimage{
+    height: 350px;
+    width: 450px;
+    padding-left: 0px;
+  }
+h4 {
+	font-size: 18px;
+}
+.example-sidenav-container{
     top: 80px;   
 }
 .example-sidenav {
@@ -256,24 +272,3 @@ h4 {
      margin-left: 25px;
      color:midnightblue ;
  }
- #productimage{
-    height: 350px;
-    width: 450px;
-    padding-left: 0px;
-  }
-
-  .info,.item-price{
-      color: black;
-  }
-  .matlabel{
-      font-size: 50px;
-  }
-  #reviewimg{
-    height: 150px;
-    width: 250px;
-  }
-  hr.side {
-    border:solid;
-    border-width: 1px;
-
-}

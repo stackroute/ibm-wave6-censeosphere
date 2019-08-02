@@ -31,4 +31,6 @@ public interface ProductRepository extends Neo4jRepository<Product,String> {
     @Query("MATCH (r:Reviewer)-[:REVIEWS]->(p:Product)-[:isA]->"+"(s:SubCategory)<-[:isA]-(prod:Product) WHERE r.emailId={emailId}"+"RETURN prod")
     Collection<Product> getProduct(@Param("emailId")String emailId);
 
+
+
 }
