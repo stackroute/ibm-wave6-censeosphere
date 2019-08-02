@@ -64,16 +64,7 @@ private SubcategoryService subcategoryService;
         return responseEntity;
 
     }
-    @DeleteMapping("subcategory/{subCategory}")
-    public ResponseEntity<String> deleteProduct(@PathVariable("subCategory") String subCategory) {
 
-        try {
-
-            return new ResponseEntity<String>( subcategoryService.deleteSubcategory(subCategory), HttpStatus.OK);
-        } catch (SubcategoryNotFoundException e) {
-            return new ResponseEntity<String>("Details not found", HttpStatus.NOT_FOUND);
-        }
-    }
     @PostMapping("products")
     public  ResponseEntity<String> updateSubcategory(@RequestBody ProductDetails productDetails)
     {

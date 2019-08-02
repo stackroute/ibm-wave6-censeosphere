@@ -13,19 +13,18 @@
   <!-- end header -->
   <!-- side bar container -->
   <mat-sidenav-container class="example-sidenav-container">
-    <mat-sidenav #snav mode="side" class="example-sidenav">
-      <div *ngFor="let category of categories">
-        <mat-nav-list class="matlist">
-          <h3 id="sidebarheading">{{category.category}}</h3>
-          <ul>
-            <h4>
-              <li *ngFor="let subCategory of subCategories"><a href="#"
-                  class="subcategory">{{subCategory.subCategory}}</a></li>
-            </h4>
-          </ul>
+    <mat-sidenav #snav  mode="side" class="example-sidenav">
+      <div  class="matlist">
+        <mat-nav-list>
+                <div *ngFor="let x of array">
+                  
+                 <h4 class="subcategory" (click)="onClickSubCategory(x.subCategory)">{{x.subCategory}}</h4>
+               
+                </div>
         </mat-nav-list>
       </div>
     </mat-sidenav>
+    
   <!-- jumbotron start -->
   <div class="jumbotron jumbotron-fluid text-center">
     <div class="container">
@@ -109,11 +108,9 @@
        <div class="text-content">
          <h1 class="title">{{product.productName}}</h1>
          <div class="body-text">
-             <!-- <div class="star-rating">
-                 <h5>{{product.rating}}</h5>
-               </div> -->
+             
                <div class="rate">
-                <h5 class="info">{{product.rating}}</h5>
+                <h4 class="info">{{product.rating}}&#9733;</h4></div>
               </div>
               <ng-template #t let-fill="fill">
                 <span class="star" [class.full]="fill === 100">
@@ -123,13 +120,12 @@
               <ngb-rating  [starTemplate]="t" rate={{product.rating}}>
                 
               </ngb-rating>
-               <h5 class="item-price">${{product.price}}</h5>
+               <h5 class="item-price">{{product.price}} Rs</h5>
                <h6 class="info">{{product.size}} Reviews</h6>
          </div>
        </div>
      </div>
-     <!-- <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 35" width="30"><path d="M5 30L50 5l45 25" fill="none" stroke="#000" stroke-width="5"/></svg> -->
-   </div>
+   
  </div>
 
 
@@ -191,11 +187,8 @@
        <div class="text-content">
          <h1 class="title">{{product.productName}}</h1>
          <div class="body-text">
-             <!-- <div class="star-rating">
-                 <h5>{{product.rating}}</h5>
-               </div> -->
-               <div class="rate">
-                <h5 class="info">{{product.rating}}</h5>
+            <div class="rate">
+                <h4 class="info">{{product.rating}}&#9733;</h4></div>
               </div>
               <ng-template #t let-fill="fill">
                 <span class="star" [class.full]="fill === 100">
@@ -205,14 +198,13 @@
               <ngb-rating  [starTemplate]="t" rate={{product.rating}}>
                 
               </ngb-rating>
-               <h5 class="item-price">${{product.price}}</h5>
+               <h5 class="item-price">${{product.price}} Rs</h5>
                <h6 class="info">{{product.size}} Reviews</h6>
          </div>
        </div>
      </div>
-     <!-- <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 35" width="30"><path d="M5 30L50 5l45 25" fill="none" stroke="#000" stroke-width="5"/></svg> -->
    </div>
- </div>
+ 
 
       </ng-template>
     </div>

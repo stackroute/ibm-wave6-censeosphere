@@ -17,7 +17,7 @@ export class RecommendationService {
     getProductBySubCategory(emailId:string){
       console.log("data in recommendation service :",emailId);
         return this.http.get<Product>('http://13.126.244.58:8083/recommendation-service/api/v1/recommendedproducts/'+emailId);
-      
+       
     }
 
     

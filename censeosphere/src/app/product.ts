@@ -9,6 +9,6 @@ export class Product {
     description:String;
     image:String;
     uploadedOn:Date;
-    rating:Int16Array;
+    rating:Number;
     
 }

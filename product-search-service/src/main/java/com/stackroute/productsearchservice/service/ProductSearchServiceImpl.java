@@ -58,7 +58,8 @@ public class ProductSearchServiceImpl implements ProductSearchService {
         {
          throw new ProductAlreadyExistsException("Product already exists");
         }
-        else{
+        else
+            {
             ProductDetails savedProducts=productSearchRepository.save(productDetails);
             sendProduct(savedProducts);
             ProductDTO productDTO=new ProductDTO(savedProducts.getProductName(),savedProducts.getRating(),savedProducts.getPrice(),savedProducts.getProductFamily(),savedProducts.getSubCategory());
