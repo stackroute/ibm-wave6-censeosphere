@@ -7,7 +7,7 @@ import {Product} from './product'
 })
 export class ProductService {
 
-  _url = 'http://13.126.244.58:8083/product-search-service/api/v1/product';
+  //_url = 'http://13.126.244.58:8083/product-search-service/api/v1/product';
 
  httpOptions = {
    headers: new HttpHeaders({
@@ -19,7 +19,8 @@ export class ProductService {
   constructor(private _http: HttpClient) { }
 
   saveProduct(product:Product) {
-    return this._http.post<Product>(this._url, product, this.httpOptions);
+    console.log("value of product is"+product)
+    return this._http.post<Product>("http://13.126.244.58:8083/product-search-service/api/v1/product", product, this.httpOptions);
   }
 
   getProduct(productName){
