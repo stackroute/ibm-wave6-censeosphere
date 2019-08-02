@@ -4,7 +4,9 @@ import { SearchForReviewService } from '../search-for-review.service';
 import { ReviewerdetailsService } from '../reviewerdetails.service';
 import { Reviewerone } from '../reviewerone';
 import { ReviewService } from '../review.service';
-
+import { LandingpageService } from '../landingpage.service';
+import { HttpClient } from '@angular/common/http';
+import subs from '../../assets/json/subCategory.json';
 @Component({
   selector: 'app-search-for-review',
   templateUrl: './search-for-review.component.html',
@@ -18,7 +20,10 @@ export class SearchForReviewComponent implements OnInit {
   price = "";
   reviewedOn = "";
 
-  constructor(private router: Router, private searchforreview: SearchForReviewService, private activatedRoute: ActivatedRoute, private reviewerdetail: ReviewerdetailsService, private reviewService: ReviewService) { }
+  constructor(private router: Router, private searchforreview: SearchForReviewService, 
+    private activatedRoute: ActivatedRoute, private reviewerdetail: ReviewerdetailsService,
+     private reviewService: ReviewService,private landingpageservice:LandingpageService,
+     private http:HttpClient) { }
 
   revieweremail = "";
   reviewerinfo: any;
@@ -29,9 +34,20 @@ export class SearchForReviewComponent implements OnInit {
   reviewerinfo1 = [];
   products: [];
   emailId: any;
+  subs:any=subs;
+  array=[];
   ngOnInit() {
 
+    this.http.get('./assets/json/subCategory.json').subscribe((data:any) => {
+      console.log(data, "Is this comming ???");
+      this.array = data;
 
+    })
+     this.landingpageservice.getAllSubCategories().subscribe((data: any) => {
+      console.log("inside get all ts file"+data);
+      this.array= data;
+      sessionStorage.setItem('sdata',data);
+    })
     this.revieweremail = sessionStorage.getItem('reviewerEmail');
     console.log("email in write a review" + this.revieweremail);
 
@@ -142,6 +158,15 @@ export class SearchForReviewComponent implements OnInit {
   }
   lpage() {
     this.router.navigateByUrl("/");
+  }
+
+  onClickSubCategory(subCategory){
+    console.log("in landing page",subCategory);
+   this.landingpageservice.findAllProductsBySubcategory(subCategory).
+    subscribe(data=>{
+      console.log("Product list : ",data);
+       this.router.navigateByUrl("/productlist/"+subCategory);
+    })
   }
 
 }

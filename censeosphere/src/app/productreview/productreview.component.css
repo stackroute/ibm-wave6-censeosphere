@@ -232,18 +232,28 @@ ul.social-network {
     margin-left:480px; 
     
   }
-  #searchheading{
-    text-align: center;
-    margin-top: 100px;
-  }
-  .subcategory{
-    color: navy
- }
+  .example-sidenav-container{
+    top: 80px;   
+}
+.example-sidenav {
+    opacity:0.7;
+    /* background: rgba(170, 167, 167, 0.3); */
+    width: 300px; 
+}
+h4 {
+	font-size: 18px;
+}
  .subcategory:hover{
     color: #557a95;
  }
  #sidebarheading{
      padding-top: 30px;
+     color:midnightblue ;
+ }
+ 
+ .matlist{
+     margin-top: 20px;
+     margin-left: 25px;
      color:midnightblue ;
  }
  #productimage{

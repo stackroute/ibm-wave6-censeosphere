@@ -17,7 +17,7 @@ public interface SubcategoryService {
 
     public List<Products> findAllProductsBySubcategory(String subcategory) throws SubcategoryNotFoundException;
 
-    public String deleteSubcategory(String subcategory) throws SubcategoryNotFoundException;
+
 
     public void updateSubcategory(ProductDetails productDetails);
 
