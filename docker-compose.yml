@@ -207,6 +207,7 @@ services:
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
       - "--storage.tsdb.path=/prometheus"
+
   grafana:
     image: grafana/grafana
     ports:
