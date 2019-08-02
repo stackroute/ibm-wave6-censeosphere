@@ -76,6 +76,9 @@ nav .dropdown{
     
   }
 
+  #searchheading{
+      margin-top:0px;
+  }
   footer
 {
     margin-top: 80px;
@@ -194,7 +197,7 @@ ul.social-network {
       background-image:url(../../assets/img/header.png);  
  } */
  .image{
-    background:url('../../assets/img/addprod2.jpg') center center no-repeat;
+    background:url('../../assets/img/cbgi.jpeg') center center no-repeat;
     background-size: cover;
     height: 100%;
     overflow: hidden;
@@ -229,16 +232,33 @@ ul.social-network {
 }
 
  #mainbtn{
-    margin-left:480px; 
-    
+    margin-left:680px;
+    margin-bottom:100px; 
   }
   #searchheading{
     text-align: center;
     margin-top: 100px;
   }
-  .subcategory{
-    color: navy
- }
+
+ #productimage{
+    height: 350px;
+    width: 450px;
+    padding-left: 0px;
+  }
+h4 {
+	font-size: 18px;
+}
+.example-sidenav-container{
+    top: 80px;   
+}
+.example-sidenav {
+    opacity:0.7;
+    /* background: rgba(170, 167, 167, 0.3); */
+    width: 300px; 
+}
+h4 {
+	font-size: 18px;
+}
  .subcategory:hover{
     color: #557a95;
  }
@@ -267,7 +287,7 @@ ul.social-network {
     border-width: 1px;
 
 }
-star 
+.star 
 {
       position: relative;
       display: inline-block;
@@ -298,3 +318,10 @@ star
         #down:hover{
             color: red;
         }  
+
+ .matlist{
+     margin-top: 20px;
+     margin-left: 25px;
+     color:midnightblue ;
+ }
+

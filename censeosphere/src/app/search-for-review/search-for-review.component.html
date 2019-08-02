@@ -22,7 +22,20 @@
   </div>
   <!-- end header -->
 <div class="container">
-  
+  <mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav #snav mode="side" class="example-sidenav">
+      <div  class="matlist">
+        <mat-nav-list>
+                <div *ngFor="let x of array">
+                  
+                 <h4 class="subcategory" (click)="onClickSubCategory(x.subCategory)">{{x.subCategory}}</h4>
+               
+                </div>
+        </mat-nav-list>
+      </div>
+    </mat-sidenav>
+  </mat-sidenav-container>
+<!--end of side bar-->
     <h4 id="searchheading">Product Details</h4>
     <hr class="side">
 
@@ -38,7 +51,7 @@
         <div class="right">
           <div class="thumb-content">
             <h4>{{products.productName}}</h4>
-           
+
             <!-- <div class="rate">
                  <h4 class="info">{{product.rating}}&#9733;</h4></div> -->
                 <ng-template #t let-fill="fill">
@@ -128,6 +141,9 @@
        </mat-tab-group>
        <!-- tabbed panel end -->
     </div>
+
+
+
        <!-- footer -->
     <footer class="page-footer font-small mdb-color pt-4 bg-dark footer-dark">
     

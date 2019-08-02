@@ -8,9 +8,10 @@ import { Reviewer } from '../reviewer';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { error } from 'util';
-
+import subs from 'src/assets/json/subCategory.json';
 import { ReviewService } from '../review.service';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClient } from '@angular/common/http';
 
 const helper = new JwtHelperService();
 @Component({
@@ -31,6 +32,9 @@ export class LandingPageComponent implements OnInit {
   productname = "";
   // validatingForm: FormGroup;
   productDetails1 = [];
+  
+  subs: any=subs;
+  array=[];
   route: ActivatedRoute;
 
   form = new FormGroup({
@@ -41,7 +45,9 @@ export class LandingPageComponent implements OnInit {
   auth: Authentication = new Authentication();
 
 
-  constructor(private router: Router, private landingpageservice: LandingpageService, private loginvalidation: LoginvalidationService, private productService: ProductService,
+  constructor(
+    private http:HttpClient,private router: Router, private landingpageservice: LandingpageService,
+     private loginvalidation: LoginvalidationService, private productService: ProductService,
     private reviewService: ReviewService, private config: NgbRatingConfig) {
     config.max = 5;
     config.readonly = true;
@@ -83,22 +89,29 @@ export class LandingPageComponent implements OnInit {
       }
     })
 
-    this.landingpageservice.getTrendingProducts().subscribe((data: any) => {
-      console.log(data);
-      this.productDetails1 = data;
-      console.log("pooja", this.productDetails);
-
+   
+    this.http.get('./assets/json/subCategory.json').subscribe((data:any) => {
+      console.log(data, "Is this comming ???");
+      this.array = data;
+ 
     })
+    //  this.landingpageservice.getAllSubCategories().subscribe((data: any) => {
+    //   console.log("inside get all ts file"+data);
+    //   this.array= data;
+    //   sessionStorage.setItem('sdata',data);
+    // })
+  
+
     this.landingpageservice.getAllCategory().subscribe((data: any) => {
       console.log(data);
       this.categories = data;
     })
+    
     this.landingpageservice.getAllSubCategories().subscribe((data: any) => {
       console.log(data);
       this.subCategories = data;
     })
-
-
+ 
 
   }
 
@@ -219,7 +232,14 @@ export class LandingPageComponent implements OnInit {
         });
 
   }
-
+  onClickSubCategory(subCategory){
+    console.log("in landing page",subCategory);
+   this.landingpageservice.findAllProductsBySubcategory(subCategory).
+    subscribe(data=>{
+      console.log("Product list : ",data);
+       this.router.navigateByUrl("/productlistguest/"+subCategory);
+    })
+  }
   showComponent1: any;
   searchproductL(product) {
     console.log(product);

@@ -13,6 +13,8 @@ import { ReviewComponent } from './review/review.component';
 import { ReviewerdashboardComponent } from './reviewerdashboard/reviewerdashboard.component';
 import { CardComponent } from './card/card.component';
 import { ProductreviewComponent } from './productreview/productreview.component';
+import { ProductlistComponent } from './productlist/productlist.component';
+import { ProductlistGuestComponent } from './productlist-guest/productlist-guest.component';
 
 const routes: Routes = [  
   { path: '',component:LandingPageComponent},
@@ -35,11 +37,13 @@ const routes: Routes = [
   // {path:'rdashboard',component:ReviewerdashboardComponent},
   // { path: '**',component:LandingPageComponent}
   
+  {path:'productlist/:subCategory',component:ProductlistComponent},
+  {path:'productlistguest/:subCategory',component:ProductlistGuestComponent}
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

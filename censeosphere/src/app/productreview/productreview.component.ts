@@ -11,6 +11,8 @@ import { error } from 'util';
 import { ReviewService } from '../review.service';
 import { ReviewerdetailsService } from '../reviewerdetails.service';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
+import subs from  'src/assets/json/subCategory.json';
+import { HttpClient } from '@angular/common/http';
 
 const helper = new JwtHelperService();
 
@@ -30,6 +32,8 @@ export class ProductreviewComponent implements OnInit {
   reviewerinfo1 = [];
   // validatingForm: FormGroup;
 
+  subs:any=subs;
+  array = [];
 
   form=new FormGroup({
     emailId: new FormControl('',[Validators.required,Validators.email]),
@@ -37,15 +41,28 @@ export class ProductreviewComponent implements OnInit {
   })
   helper = new JwtHelperService();
   auth: Authentication = new Authentication();
+
   constructor(private router: Router, private landingpageservice: LandingpageService, private loginvalidation: LoginvalidationService,private productService:ProductService,
-    private  reviewService:ReviewService,private reviewerdetail: ReviewerdetailsService ,private config: NgbRatingConfig) {
+    private  reviewService:ReviewService,private reviewerdetail: ReviewerdetailsService ,private config: NgbRatingConfig,private http:HttpClient) {
       config.max = 5;
       config.readonly = true;
     }
 
   ngOnInit() {
 
-    // priyanka
+    this.landingpageservice.getAllSubCategories().subscribe((data: any) => {
+      console.log("inside get all ts file"+data);
+      this.array= data;
+      sessionStorage.setItem('sdata',data);
+    })
+  
+
+    this.http.get('./assets/json/subCategory.json').subscribe((data:any) => {
+      console.log(data, "Is this comming ???");
+      this.array = data;
+
+    })
+
     this.productname = JSON.parse(sessionStorage.getItem('data')).productName;
     console.log("productname in  write a review" + this.productname);
 
@@ -76,7 +93,7 @@ export class ProductreviewComponent implements OnInit {
 
     });
 
-    // priyanka
+
 
 
 
@@ -91,12 +108,6 @@ export class ProductreviewComponent implements OnInit {
     //   this.reviewdetails=data;
     //   console.log(JSON.stringify(this.reviewdetails));
     // });
-
-
-
-
-
-
 
   }
 
@@ -199,5 +210,12 @@ export class ProductreviewComponent implements OnInit {
   // if (event.target == modal) {
   //   modal.style.display = "none";
   // }
-
+  onClickSubCategory(subCategory){
+    console.log("in landing page",subCategory);
+   this.landingpageservice.findAllProductsBySubcategory(subCategory).
+    subscribe(data=>{
+      console.log("Product list : ",data);
+       this.router.navigateByUrl("/productlistguest/"+subCategory);
+    })
+  }
 }
