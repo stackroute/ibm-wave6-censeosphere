@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 
@@ -29,8 +28,8 @@ public class ProductDetails {
     private String productName;
     private String productFamily;
     private String image;
-    private Float price;
-    private Float rating;
+    private float price;
+    private float rating;
     private String specifications;
     private String description;
     //@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")

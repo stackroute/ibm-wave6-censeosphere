@@ -31,7 +31,7 @@ public class ProductSearchController {
 
         ResponseEntity responseEntity;
 
-        Date date=new Date();
+       Date date=new Date();
         long millies=date.getTime();
         Timestamp timestamp=new Timestamp(millies);
         productDetails.setUploadedOn(timestamp);

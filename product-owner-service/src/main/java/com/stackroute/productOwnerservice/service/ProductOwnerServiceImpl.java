@@ -114,7 +114,7 @@ public class ProductOwnerServiceImpl implements ProductOwnerService {
 
     @Override
     public void sendproductOwnner(ProductOwnerDTO productOwnerDTO) {
-
+        System.out.println("inside dto"+productOwnerDTO);
         rabbitTemplate.convertAndSend(exchange, routingkeytwo, productOwnerDTO);
     }
 
