@@ -138,26 +138,19 @@ public class ReviewerServiceImpl implements ReviewerService {
         Optional optional;
         Reviewer reviewer1;
         optional=reviewerRepository.findById(review.getReviewerEmail());
-
         List<Review> myreviewes;
-
-
         if(optional.isPresent())
         {
 
-              reviewer1=reviewerRepository.findById(review.getReviewerEmail()).get();
-
-              myreviewes =reviewer1.getRevieweswritten();
-
-              myreviewes.add(review);
-
-              reviewer1.setRevieweswritten(myreviewes);
+               reviewer1=reviewerRepository.findById(review.getReviewerEmail()).get();
+               myreviewes =reviewer1.getRevieweswritten();
+               myreviewes.add(review);
+               reviewer1.setRevieweswritten(myreviewes);
                point=reviewer1.getCreditpoints();
-              point=reviewer1.getCreditpoints();
+               point=reviewer1.getCreditpoints();
                point=point+5;
                reviewer1.setCreditpoints(point);
-
-              reviewerRepository.save(reviewer1);
+               reviewerRepository.save(reviewer1);
         }
     }
 

@@ -100,9 +100,13 @@ export class ProductownerdashboardComponent implements OnInit {
     console.log(product);
     
      this.productService.deleteProduct(product).
-     subscribe(data=>{
+     subscribe((data)=>{
          console.log("product info : ",data);
-     });
+     } );
+
+    this.listofproducts = this.listofproducts.filter(e => {
+      return e.productName !== product.productName
+    })
     //  this.listofproducts.pop();
     }
     account()
