@@ -109,11 +109,9 @@
        <div class="text-content">
          <h1 class="title">{{product.productName}}</h1>
          <div class="body-text">
-             <!-- <div class="star-rating">
-                 <h5>{{product.rating}}</h5>
-               </div> -->
+             
                <div class="rate">
-                <h5 class="info">{{product.rating}}</h5>
+                <h4 class="info">{{product.rating}}&#9733;</h4></div>
               </div>
               <ng-template #t let-fill="fill">
                 <span class="star" [class.full]="fill === 100">
@@ -128,8 +126,7 @@
          </div>
        </div>
      </div>
-     <!-- <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 35" width="30"><path d="M5 30L50 5l45 25" fill="none" stroke="#000" stroke-width="5"/></svg> -->
-   </div>
+   
  </div>
 
 
@@ -195,7 +192,7 @@
                  <h5>{{product.rating}}</h5>
                </div> -->
                <div class="rate">
-                <h5 class="info">{{product.rating}}</h5>
+                <h4 class="info">{{product.rating}}&#9733;</h4></div>
               </div>
               <ng-template #t let-fill="fill">
                 <span class="star" [class.full]="fill === 100">
@@ -210,9 +207,8 @@
          </div>
        </div>
      </div>
-     <!-- <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 35" width="30"><path d="M5 30L50 5l45 25" fill="none" stroke="#000" stroke-width="5"/></svg> -->
    </div>
- </div>
+ 
 
       </ng-template>
     </div>
