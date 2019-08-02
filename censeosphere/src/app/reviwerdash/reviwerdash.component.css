@@ -259,4 +259,24 @@ h5{
         width: fit-content;
         margin: 0 auto;
     }
-  
+    .example-sidenav-container{
+      top: 80px;   
+  }
+  .example-sidenav {
+      /* background: rgba(170, 167, 167, 0.3); */
+      width: 300px; 
+      opacity:0.7;
+      
+  }
+    .subcategory:hover{
+      color: #557a95;
+   }
+   #sidebarheading{
+       padding-top: 30px;
+       color:midnightblue ;
+   }
+   .matlist{
+     margin-top: 20px;
+     margin-left: 25px;
+     color: navy;
+   } 

@@ -6,6 +6,9 @@ import { Reviewerone } from '../reviewerone';
 import { ReviewService } from '../review.service';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
+import subs from '../../assets/json/subCategory.json';
+import { HttpClient } from '@angular/common/http';
+import { LandingpageService } from '../landingpage.service';
 @Component({
   selector: 'app-search-for-review',
   templateUrl: './search-for-review.component.html',
@@ -13,14 +16,15 @@ import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 })
 export class SearchForReviewComponent implements OnInit {
   reviews = [];
-
-
   productName = "";
   price = "";
   reviewedOn = "";
 
-  constructor(private router: Router, private searchforreview: SearchForReviewService, private activatedRoute: ActivatedRoute, private reviewerdetail: ReviewerdetailsService, private reviewService: ReviewService,private config: NgbRatingConfig) { 
-    config.max = 5;
+  constructor(private router: Router, private searchforreview: SearchForReviewService,
+    private activatedRoute: ActivatedRoute, private reviewerdetail: ReviewerdetailsService,
+     private reviewService: ReviewService,private config: NgbRatingConfig,
+     private http:HttpClient,private landingpageservice:LandingpageService) { 
+       config.max = 5;
       config.readonly = true;
   }
 
@@ -33,8 +37,20 @@ export class SearchForReviewComponent implements OnInit {
   reviewerinfo1 = [];
   products: [];
   emailId: any;
+  subs:any=subs;
+  array=[];
   ngOnInit() {
 
+    this.http.get('./assets/json/subCategory.json').subscribe((data:any) => {
+            console.log(data, "Is this comming ???");
+            this.array = data;
+      
+          })
+           this.landingpageservice.getAllSubCategories().subscribe((data: any) => {
+            console.log("inside get all ts file"+data);
+            this.array= data;
+            sessionStorage.setItem('sdata',data);
+          })
 
     this.revieweremail = sessionStorage.getItem('reviewerEmail');
     console.log("email in write a review" + this.revieweremail);
@@ -100,11 +116,7 @@ export class SearchForReviewComponent implements OnInit {
         console.log("updated reviewer data in yes method" + JSON.stringify(data));
       })
 
-
-
     })
-
-
 
   }
 
@@ -127,11 +139,7 @@ export class SearchForReviewComponent implements OnInit {
         console.log("updated reviewer data in no method" + JSON.stringify(data));
       })
 
-
-
     })
-
-
 
   }
 
@@ -147,9 +155,12 @@ export class SearchForReviewComponent implements OnInit {
   lpage() {
     this.router.navigateByUrl("/");
   }
-
+  onClickSubCategory(subCategory){
+        console.log("in landing page",subCategory);
+       this.landingpageservice.findAllProductsBySubcategory(subCategory).
+        subscribe(data=>{
+          console.log("Product list : ",data);
+           this.router.navigateByUrl("/productlist/"+subCategory);
+        })
+      }
 }
-
-
-
-

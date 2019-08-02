@@ -66,19 +66,6 @@ public class SubcategoryServiceImpl implements SubcategoryService {
 
     }
 
-    @Override
-    public String deleteSubcategory(String subCategory) throws SubcategoryNotFoundException {
-        if(subcategoryRepository.existsById(subCategory))
-        {
-            subcategoryRepository.deleteById(subCategory);
-            return "Subcategory deleted successfully!";
-        }
-        else {
-            throw new SubcategoryNotFoundException("Details not found!");
-        }
-
-    }
-
 
     @RabbitListener(queues="${stackroute.rabbitmq.queueeleven}")
     public void  Recieverating(ProductDetails productDetails)
