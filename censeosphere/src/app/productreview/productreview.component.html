@@ -48,10 +48,18 @@
     <div class="right">
       <div class="thumb-content">
         <h4><b>{{products.productName}}</b></h4>
-        <div class="star-rating">
-          <h5 class="info">{{products.rating}}</h5>
-        </div>
-        <h5 class="item-price" >${{products.price}}</h5>
+        <!-- <div class="rate">
+          <h4 class="info">{{product.rating}}&#9733;</h4>
+        </div> -->
+        <ng-template #t let-fill="fill">
+          <span class="star" [class.full]="fill === 100">
+            <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+          </span>
+        </ng-template>
+        <!-- <ngb-rating  [starTemplate]="t" rate={{product.rating}}> -->
+          
+        <!-- </ngb-rating> -->
+        <h5 class="item-price" >{{products.price}} Rs</h5>
 </div>
 </div>
 
@@ -87,8 +95,9 @@
                              <p class="h4">{{review.reviewTitle}}</p>
                    <p>{{review.reviewDescription}}</p>      
                    <div>
-                        <button class="btn-primary" type="button" (click)="yes(review.reviewerEmail)" name="useful">yse??</button>
-                        <button class="btn-primary" type="button" (click)="no(review.reviewerEmail)" name="useful">no??</button>
+                    <strong>Was this helpful??</strong> &nbsp;
+                    <button class="btn btn-light" id="up" type="button" (click)="yes(review.reviewerEmail)" name="useful"><i class="fas fa-thumbs-up"> YES</i></button> &nbsp;
+                    <button class="btn btn-light" id="down" type="button" (click)="no(review.reviewerEmail)" name="useful"><i class="fas fa-thumbs-down">NO</i></button>
                   </div>
                 </div>
                </div>

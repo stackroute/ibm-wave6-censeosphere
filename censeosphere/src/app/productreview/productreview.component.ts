@@ -10,6 +10,7 @@ import { ProductService } from '../product.service';
 import { error } from 'util';
 import { ReviewService } from '../review.service';
 import { ReviewerdetailsService } from '../reviewerdetails.service';
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
 const helper = new JwtHelperService();
 
@@ -37,7 +38,10 @@ export class ProductreviewComponent implements OnInit {
   helper = new JwtHelperService();
   auth: Authentication = new Authentication();
   constructor(private router: Router, private landingpageservice: LandingpageService, private loginvalidation: LoginvalidationService,private productService:ProductService,
-    private  reviewService:ReviewService,private reviewerdetail: ReviewerdetailsService) { }
+    private  reviewService:ReviewService,private reviewerdetail: ReviewerdetailsService ,private config: NgbRatingConfig) {
+      config.max = 5;
+      config.readonly = true;
+    }
 
   ngOnInit() {
 
@@ -45,7 +49,7 @@ export class ProductreviewComponent implements OnInit {
     this.productname = JSON.parse(sessionStorage.getItem('data')).productName;
     console.log("productname in  write a review" + this.productname);
 
-    this.reviewService.getAllReviewsbyName(this.productname).subscribe((data: any) => {
+      this.reviewService.getAllReviewsbyName(this.productname).subscribe((data: any) => {
       console.log("review details in search" + JSON.stringify(data));
       this.reviewdetails = data;
       console.log(JSON.stringify(this.reviewdetails));

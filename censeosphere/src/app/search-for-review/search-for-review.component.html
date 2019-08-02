@@ -38,18 +38,16 @@
         <div class="right">
           <div class="thumb-content">
             <h4>{{products.productName}}</h4>
-            <!-- <div class="star-rating">
-            <h5 class="info">{{products.rating}}</h5>
-            </div> -->
+           
             <!-- <div class="rate">
-                <h5 class="info">{{product.rating}}</h5></div> -->
+                 <h4 class="info">{{product.rating}}&#9733;</h4></div> -->
                 <ng-template #t let-fill="fill">
                   <span class="star" [class.full]="fill === 100">
                     <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
                   </span>
                 </ng-template>
-                <!-- <ngb-rating  [starTemplate]="t" rate={{product.rating}}></ngb-rating>	 -->
-            <h5 class="item-price">${{products.price}}</h5>
+                 <!-- <ngb-rating  [starTemplate]="t" rate={{product.rating}}></ngb-rating>	 -->
+                <h5 class="item-price">{{products.price}} Rs</h5>
             
           </div>
         </div>

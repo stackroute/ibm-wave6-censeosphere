@@ -5,7 +5,6 @@ import { LandingpageService } from '../landingpage.service';
 import {Reviewer} from '../reviewer'
 import { UpdateProfileService } from '../update-profile.service';
 import { ProductService } from '../product.service';
-import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 //import { getMaxListeners } from 'cluster';
 
 
@@ -29,10 +28,7 @@ export class ProductownerdashboardComponent implements OnInit {
   reviewer;
   constructor(private updates:UpdateProfileService,private route1:ActivatedRoute,
     private router:Router,private prodownerservice:ProdownerserviceService,
-    private landingpageservice:LandingpageService,private productService:ProductService,private config: NgbRatingConfig) { 
-      config.max = 5;
-      config.readonly = true;
-    }
+    private landingpageservice:LandingpageService,private productService:ProductService) { }
  
 
 
@@ -85,17 +81,13 @@ export class ProductownerdashboardComponent implements OnInit {
   
       this.updates.getProductOwnerDetails(emailId).subscribe((data: any) => {
       console.log(data);
-      sessionStorage.setItem("pdata", JSON.stringify(data));
+      // sessionStorage.setItem("pdata", JSON.stringify(data));
       console.log("inside update" + JSON.stringify(data));
            this.listofproducts= data.productsadded;   
            this.listofproducts.forEach((y:any) => { 
                console.log(y);
               })                     
-      //  this.products1=data;
-      //  console.log("from productowner"+this.products1);
-      // this.reviewer.name = data.name;
-      // this.reviewer.emailId=data.emailId;
-      // this.reviewer.reconfirmPassword=data.reconfirmPassword;
+   
    
     });
    }

@@ -121,7 +121,7 @@
               <ngb-rating  [starTemplate]="t" rate={{product.rating}}>
                 
               </ngb-rating>
-               <h5 class="item-price">${{product.price}}</h5>
+               <h5 class="item-price">{{product.price}} Rs</h5>
                <h6 class="info">{{product.size}} Reviews</h6>
          </div>
        </div>
@@ -188,10 +188,7 @@
        <div class="text-content">
          <h1 class="title">{{product.productName}}</h1>
          <div class="body-text">
-             <!-- <div class="star-rating">
-                 <h5>{{product.rating}}</h5>
-               </div> -->
-               <div class="rate">
+            <div class="rate">
                 <h4 class="info">{{product.rating}}&#9733;</h4></div>
               </div>
               <ng-template #t let-fill="fill">
@@ -202,7 +199,7 @@
               <ngb-rating  [starTemplate]="t" rate={{product.rating}}>
                 
               </ngb-rating>
-               <h5 class="item-price">${{product.price}}</h5>
+               <h5 class="item-price">${{product.price}} Rs</h5>
                <h6 class="info">{{product.size}} Reviews</h6>
          </div>
        </div>

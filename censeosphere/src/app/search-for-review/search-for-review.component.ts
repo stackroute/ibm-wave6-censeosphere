@@ -20,7 +20,7 @@ export class SearchForReviewComponent implements OnInit {
   reviewedOn = "";
 
   constructor(private router: Router, private searchforreview: SearchForReviewService, private activatedRoute: ActivatedRoute, private reviewerdetail: ReviewerdetailsService, private reviewService: ReviewService,private config: NgbRatingConfig) { 
-    config.max = 5;
+      config.max = 5;
       config.readonly = true;
   }
 
