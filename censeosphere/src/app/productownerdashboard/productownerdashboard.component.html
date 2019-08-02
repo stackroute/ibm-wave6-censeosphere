@@ -1,4 +1,4 @@
-
+<div class="image">
 <!-- header -->
 <div class="containerbody">
     <nav class="navbar navbar-expand-lg fixed-top">
@@ -9,7 +9,8 @@
       </div>&nbsp;&nbsp;
       <div class="dropdown">
         <a id="one" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         <span> <i class='fas fa-user-circle'></i>&nbsp;</span><strong class="caret">My Account</strong>
+         <span> <i class='fas fa-user-circle'></i>&nbsp;</span> My Account <strong class="caret"></strong>
+
         </a>
         <ul id="drop" class="dropdown-menu">
          <li><button class="dropdown-item" (click)="update()" ><span><i class="fa fa-refresh"></i></span>  Update profile</button></li>
@@ -40,16 +41,19 @@
     </div>
     <!-- end jumbotron -->
 
+
     <div class="onclick">
      <app-card2 *ngIf="showComponent"></app-card2>
       </div>
 
       <app-modelwindow *ngIf="showComponent1"></app-modelwindow> 
 
+
 <div class="container">
   <h3>My Products</h3>
   <hr class="side">
   <div *ngFor="let product of listofproducts">
+    <div class="flex-container">
   <div id="div2" class="row d-outline-block">
     <div class="col-sm-4">
         <div class="thumb-wrapper">
@@ -57,23 +61,23 @@
               <img src="./assets/img/{{product.image}}" class="img-responsive img-fluid" alt="">									
             </div>
             <div class="thumb-content">
-              <h4>{{product.productName}}</h4>									
-              <div class="star-rating">
-                <ul class="list-inline">
-                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                </ul>
+              <h4>{{product.productName}}</h4>			
+              <div class="rate">
+                  <h4 class="info">{{product.rating}}&#9733;</h4></div>
+                  <ng-template #t let-fill="fill">
+                    <span class="star" [class.full]="fill === 100">
+                      <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                    </span>
+                  </ng-template>
+                  <ngb-rating  [starTemplate]="t" rate={{product.rating}}></ngb-rating>			
                 <p class="item-price"><b>{{product.price}}</b></p>
-              </div>
             </div>						
-          </div>
+        </div>
           <br>
     </div>
+   
     <div class="col-sm-8"> 
-      <h5><b>{{product.productName}}</b></h5>
+      <h5 id="pname"><b>{{product.productName}}</b></h5>
       <p class="specification"><b>Product Specification : </b>{{product.specifications}}</p>
       <p><b>Product Description : </b>{{product.description}}</p>
       <p class="timestamp"><b>Uploaded On : </b>{{product.uploadedOn}}</p>
@@ -104,10 +108,11 @@
 
    </div>
   </div>
+</div>
+<br>
   </div>
   <div class="row-footer"><a href="productownerdashboard">View All</a></div>
 </div>
-
 
 <!-- footer -->
 <footer class="page-footer font-small mdb-color pt-4 bg-dark footer-dark">
@@ -236,3 +241,4 @@
   </div>  
 </footer>
 <!-- end footer -->
+</div>

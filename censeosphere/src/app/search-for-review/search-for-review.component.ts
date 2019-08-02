@@ -4,6 +4,7 @@ import { SearchForReviewService } from '../search-for-review.service';
 import { ReviewerdetailsService } from '../reviewerdetails.service';
 import { Reviewerone } from '../reviewerone';
 import { ReviewService } from '../review.service';
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-search-for-review',
@@ -18,7 +19,10 @@ export class SearchForReviewComponent implements OnInit {
   price = "";
   reviewedOn = "";
 
-  constructor(private router: Router, private searchforreview: SearchForReviewService, private activatedRoute: ActivatedRoute, private reviewerdetail: ReviewerdetailsService, private reviewService: ReviewService) { }
+  constructor(private router: Router, private searchforreview: SearchForReviewService, private activatedRoute: ActivatedRoute, private reviewerdetail: ReviewerdetailsService, private reviewService: ReviewService,private config: NgbRatingConfig) { 
+    config.max = 5;
+      config.readonly = true;
+  }
 
   revieweremail = "";
   reviewerinfo: any;
@@ -79,7 +83,7 @@ export class SearchForReviewComponent implements OnInit {
   }
   yes(email) {
 
-    console.log("inside yes" + email);
+    console.log("inside yes " + email);
      this.reviewerdetail.getReviewer(email).subscribe((data: any) => {
       let a = JSON.stringify(data)
       console.log("reviewer data in yes method" + JSON.stringify(data));

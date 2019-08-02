@@ -169,17 +169,20 @@ services:
       - 8085
 
   neo4j:
-    image: neo4j:latest
+    image: neo4j:3.0
     restart: always
+    hostname: localhost
     network_mode: "host"
     ports:
       - 7474:7474
+      - 7687:7687
     expose:
       - 7474
-#    volumes:
-#      - ./neo4J/data:/data
-#      - ./neo4J/import:/import
-
+    volumes:
+      - ./neo4J/data:/data
+      - ./neo4J/import:/import
+    environment:
+      - NEO4J_AUTH=neo4j/root123
 
   censeosphere:
     build:
@@ -193,3 +196,25 @@ services:
     restart: always
     environment:
       NG_CLI_ANYALYTICS: ci
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - 9090:9090
+    restart: always
+    network_mode: host
+    hostname: localhost
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+       - prometheus
+    network_mode: "host"
+    hostname: localhost

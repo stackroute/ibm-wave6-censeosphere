@@ -67,10 +67,13 @@ export class LandingPageComponent implements OnInit {
 
 
           this.productDetails = this.productDetails.map((e, j) => {
-            if (e.productName === data.productName) {
+            
+            if (e.productName === data[i].productName) {
+              console.log("in method",this.reviewsgiven.length)
               e.size = this.reviewsgiven.length;
 
             }
+          
             console.log(e, "list size")
             return e
           })
