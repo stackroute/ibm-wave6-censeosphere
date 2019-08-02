@@ -11,13 +11,13 @@ import java.util.Collection;
 @Repository
 public interface SubCategoryRepository extends Neo4jRepository<SubCategory,String> {
 
-    @Query("CREATE (s:SubCategory) SET s.subCategory={subCategory} RETURN s")
-    public SubCategory createNode(String subCategory);
+    @Query("CREATE (s:SubCategory) SET s.subCategoryName={subCategoryName} RETURN s")
+    public SubCategory createNode(String subCategoryName);
 
     @Query("MATCH (s:SubCategory) RETURN s")
     Collection<SubCategory> getAllSubCategories();
 
-    @Query("MATCH (s:SubCategory) WHERE s.subCategory={subCategory} DETACH DELETE s")
+    @Query("MATCH (s:SubCategory) WHERE s.subCategoryName={subCategoryName} DETACH DELETE s")
     public  SubCategory deleteNode(@Param("subCategory") String subCategory);
 
    }

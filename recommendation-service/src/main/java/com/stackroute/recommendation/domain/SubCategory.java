@@ -12,5 +12,5 @@ import org.neo4j.ogm.annotation.NodeEntity;
 @NodeEntity
 public class SubCategory {
     @Id
-    private String subCategory;
+    private String subCategoryName;
 }

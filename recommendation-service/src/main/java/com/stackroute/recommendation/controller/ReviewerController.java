@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 
 @RestController
-@RequestMapping("/rest/neo4j/reviewer")
+@RequestMapping(value = "api/v1")
 public class ReviewerController {
 
 
@@ -21,7 +21,7 @@ public class ReviewerController {
     }
 
     @GetMapping("reviewers")
-    public Collection<Reviewer> getAll() throws Exception
+    public Collection<Reviewer> getAll() throws ReviewerNotFoundException
     {
         return reviewerService.getAll();
     }
@@ -30,7 +30,6 @@ public class ReviewerController {
     public Reviewer saveReviewer(@RequestBody Reviewer reviewer) {
         Reviewer reviewer1=null;
         reviewer1=reviewerService.saveReviewer(reviewer);
-        System.out.println(reviewer1.getEmailId());
         return reviewer1;
 
     }

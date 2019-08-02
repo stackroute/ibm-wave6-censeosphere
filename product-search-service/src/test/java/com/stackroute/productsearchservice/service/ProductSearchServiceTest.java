@@ -34,7 +34,6 @@ public class ProductSearchServiceTest {
 
     @Before
     public void setUp() {
-        //Initialising the mock object
         MockitoAnnotations.initMocks(this);
         productDetails = new ProductDetails();
         productDetails.setAddedby("r@gmail.com");

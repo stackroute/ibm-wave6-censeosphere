@@ -5,6 +5,7 @@ import{ LandingpageService }from '../landingpage.service';
 import { Writereview } from '../writereview';
 import { RecommendationService } from '../recommendation.service';
 import { UpdateProfileService } from '../update-profile.service';
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-review',
@@ -28,7 +29,9 @@ export class ReviewComponent implements OnInit {
   constructor(private reviewService:ReviewService,private router:Router,private landingservice:LandingpageService,
     private activatedRoute:ActivatedRoute,private updates:UpdateProfileService,
     private route1:ActivatedRoute,
-                 private recommendationService:RecommendationService) { 
+                 private recommendationService:RecommendationService,private config: NgbRatingConfig) {
+                  config.max = 5;
+                  config.readonly = true;            
     // this.reviews=[];
    }
   //  productDetails: [];

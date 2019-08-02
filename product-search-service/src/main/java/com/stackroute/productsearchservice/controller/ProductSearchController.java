@@ -4,6 +4,7 @@ import com.stackroute.productsearchservice.exception.ProductAlreadyExistsExcepti
 import com.stackroute.productsearchservice.exception.ProductNotFoundException;
 import com.stackroute.productsearchservice.domain.ProductDetails;
 import com.stackroute.productsearchservice.service.ProductSearchService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,14 +21,14 @@ import java.util.Optional;
 public class ProductSearchController {
 
     ProductSearchService productSearchService;
-
+    @Autowired
     public ProductSearchController(ProductSearchService productSearchService)
     {
         this.productSearchService=productSearchService;
     }
 
     @PostMapping("product")
-    public ResponseEntity<?> saveProduct(@RequestBody ProductDetails productDetails){
+    public ResponseEntity<String> saveProduct(@RequestBody ProductDetails productDetails){
 
         ResponseEntity responseEntity;
 
@@ -49,15 +50,14 @@ public class ProductSearchController {
 
 
     @GetMapping("product")
-    public ResponseEntity<?> getAllProducts()
+    public ResponseEntity<List<ProductDetails>> getAllProducts()
     {
-        return new ResponseEntity<List<ProductDetails>>(productSearchService.getAllProducts(), HttpStatus.OK);
+        return new ResponseEntity<>(productSearchService.getAllProducts(), HttpStatus.OK);
     }
 
     @DeleteMapping("products/{productName}")
-    public ResponseEntity<?> deleteProduct(@PathVariable("productName") String productName) {
-        //return new ResponseEntity<String>(trackService.deleteTrack(id),HttpStatus.OK);
 
+    public ResponseEntity<?> deleteProduct(@PathVariable("productName") String productName) {
         try {
             ProductDetails productDetails = productSearchService.deleteProduct(productName);
             return new ResponseEntity<String>("Details Deleted", HttpStatus.OK);
@@ -68,7 +68,7 @@ public class ProductSearchController {
 
 
     @PutMapping("product/{productName}")
-    public ResponseEntity<?> updateComments(@RequestBody ProductDetails productDetails,@PathVariable String productName) {
+    public ResponseEntity<String> updateComments(@RequestBody ProductDetails productDetails,@PathVariable String productName) {
         try {
             ProductDetails productDetails1 = productSearchService.updateProduct(productDetails, productName);
             return new ResponseEntity<String>("Details updated", HttpStatus.OK);
@@ -109,6 +109,12 @@ public class ProductSearchController {
         } catch (Exception e) {
             return new ResponseEntity<String>("No products", HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("search/{emailId}/{prodcutName}")
+    public ResponseEntity<?> getProductByEmailId(@PathVariable("emailId") String emailId,@PathVariable("prodcutName") String prodcutName) {
+        ProductDetails productDetails = productSearchService.searchProductByProductOwner(emailId, prodcutName);
+        return new ResponseEntity<ProductDetails>(productDetails, HttpStatus.OK);
     }
 
 

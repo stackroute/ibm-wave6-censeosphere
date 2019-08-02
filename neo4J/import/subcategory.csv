@@ -1,0 +1,9 @@
+nodeid,subCategory,parentnodeid,nodetype,nodeclass,parentrelation
+SUBCATEGORY:0,Mobile Phone,CATEGORY:0,subCategory,subCategory,hasA
+SUBCATEGORY:1,Television,CATEGORY:0,subCategory,subCategory,hasA
+SUBCATEGORY:2,Air Conditioner,CATEGORY:0,subCategory,subCategory,hasA
+SUBCATEGORY:3,Washing Machine,CATEGORY:0,subCategory,subCategory,hasA
+SUBCATEGORY:4,Speaker,CATEGORY:0,subCategory,subCategory,hasA
+SUBCATEGORY:5,Refrigerator,CATEGORY:0,subCategory,subCategory,hasA
+SUBCATEGORY:6,Camera,CATEGORY:0,subCategory,subCategory,hasA
+SUBCATEGORY:7,Home Audio,CATEGORY:0,subCategory,subCategory,hasA

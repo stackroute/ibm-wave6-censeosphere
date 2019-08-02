@@ -11,6 +11,7 @@ public class RecommendationApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		//Main test class
 	}
 
 }

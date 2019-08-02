@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router , ActivatedRoute} from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { LandingpageService } from '../landingpage.service';
 import { Authentication } from '../authentication';
 import { LoginvalidationService } from '../loginvalidation.service';
@@ -8,16 +8,17 @@ import { Reviewer } from '../reviewer';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { error } from 'util';
-
+import subs from 'src/assets/json/subCategory.json';
 import { ReviewService } from '../review.service';
-import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClient } from '@angular/common/http';
 
 const helper = new JwtHelperService();
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.css'],
- 
+
 })
 
 export class LandingPageComponent implements OnInit {
@@ -26,75 +27,92 @@ export class LandingPageComponent implements OnInit {
   categories = [];
   subCategories = [];
   job = "";
-  showComponent:any;
+  showComponent: any;
   reviewsgiven = [];
   productname = "";
   // validatingForm: FormGroup;
   productDetails1 = [];
- route: ActivatedRoute;
+  
+  subs: any=subs;
+  array=[];
+  route: ActivatedRoute;
 
-  form=new FormGroup({
-    emailId: new FormControl('',[Validators.required,Validators.email]),
-    password:new FormControl('',Validators.required)
+  form = new FormGroup({
+    emailId: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', Validators.required)
   })
   helper = new JwtHelperService();
   auth: Authentication = new Authentication();
 
 
-  constructor(private router: Router, private landingpageservice: LandingpageService, private loginvalidation: LoginvalidationService,private productService:ProductService,
-    private reviewService: ReviewService,private config: NgbRatingConfig) {  config.max = 5;
-      config.readonly = true; }
-  
+  constructor(
+    private http:HttpClient,private router: Router, private landingpageservice: LandingpageService,
+     private loginvalidation: LoginvalidationService, private productService: ProductService,
+    private reviewService: ReviewService, private config: NgbRatingConfig) {
+    config.max = 5;
+    config.readonly = true;
+  }
+
 
   ngOnInit() {
 
     this.landingpageservice.getRecentProducts().subscribe((data: any) => {
       console.log(data);
       this.productDetails = data;
-      console.log("pooja",this.productDetails);
-      
-      for (let i = 0; i < (this.productDetails).length; i++){
+      console.log("pooja", this.productDetails);
+
+      for (let i = 0; i < (this.productDetails).length; i++) {
         this.productname = this.productDetails[i].productName;
 
 
         this.reviewService.getAllReviewsbyName(this.productname).subscribe((data: any) => {
-          console.log("priyanka" + JSON.stringify(data));
+          console.log("priyanka111112222222" + JSON.stringify(data));
           this.reviewsgiven = data;
-          
+
           console.log("length of product list", this.reviewsgiven.length);
-    
-    
+
+
           this.productDetails = this.productDetails.map((e, j) => {
-            if (e.productName === data[0].productName) {
+            
+            if (e.productName === data[i].productName) {
+              console.log("in method",this.reviewsgiven.length)
               e.size = this.reviewsgiven.length;
-    
+
             }
+          
             console.log(e, "list size")
             return e
           })
-    
+
         });
-      
+
       }
     })
 
-    this.landingpageservice.getTrendingProducts().subscribe((data:any)=>{
-      console.log(data);
-      this.productDetails1 = data;
-      console.log("pooja",this.productDetails);
-      
+   
+    this.http.get('./assets/json/subCategory.json').subscribe((data:any) => {
+      console.log(data, "Is this comming ???");
+      this.array = data;
+ 
     })
+    //  this.landingpageservice.getAllSubCategories().subscribe((data: any) => {
+    //   console.log("inside get all ts file"+data);
+    //   this.array= data;
+    //   sessionStorage.setItem('sdata',data);
+    // })
+  
+
     this.landingpageservice.getAllCategory().subscribe((data: any) => {
       console.log(data);
       this.categories = data;
     })
+    
     this.landingpageservice.getAllSubCategories().subscribe((data: any) => {
       console.log(data);
       this.subCategories = data;
     })
+ 
 
-
-  
   }
 
   onClick(role) {
@@ -122,8 +140,8 @@ export class LandingPageComponent implements OnInit {
           console.log("in if print password   " + password);
           console.log("in if print role   ", role);
 
-          sessionStorage.setItem('reviewerEmail',emailId);
-          
+          sessionStorage.setItem('reviewerEmail', emailId);
+
           if (role == this.job) {
             console.log(role);
             console.log("in if1");
@@ -153,12 +171,12 @@ export class LandingPageComponent implements OnInit {
           console.log("in if print password   " + password);
           console.log("in if print role   ", role);
 
-          sessionStorage.setItem('productOwnerEmail',emailId);
+          sessionStorage.setItem('productOwnerEmail', emailId);
           if (role == this.job) {
             console.log(role);
             console.log("in if1");
             console.log(emailId);
-            this.router.navigateByUrl("/productownerdashboard/"+ emailId);
+            this.router.navigateByUrl("/productownerdashboard/" + emailId);
 
           }
           else {
@@ -200,10 +218,11 @@ export class LandingPageComponent implements OnInit {
           if (role == 'reviewer') {
             console.log(role);
             console.log("in if1");
-
+            sessionStorage.setItem('reviewerEmail', lemailId);
             this.router.navigateByUrl("/reviewerdash");
           }
           else if (role == 'product-owner') {
+            sessionStorage.setItem('productOwnerEmail', lemailId);
             this.router.navigateByUrl("/productownerdashboard");
           }
         }
@@ -213,27 +232,37 @@ export class LandingPageComponent implements OnInit {
         });
 
   }
+  onClickSubCategory(subCategory){
+    console.log("in landing page",subCategory);
+   this.landingpageservice.findAllProductsBySubcategory(subCategory).
+    subscribe(data=>{
+      console.log("Product list : ",data);
+       this.router.navigateByUrl("/productlistguest/"+subCategory);
+    })
+  }
+  showComponent1: any;
+  searchproductL(product) {
+    console.log(product);
+    this.productService.getProduct(product).
+      subscribe(data => {
 
-  
-  searchproductL(product){
-     console.log(product);
-      this.productService.getProduct(product).
-      subscribe(data=>{
-          console.log("product info : ",data);
-          let a = JSON.stringify(data)
-          sessionStorage.setItem('data123', a);
+        console.log("product info : ", data);
+        let a = JSON.stringify(data)
+        sessionStorage.setItem('data123', a);
+        this.showComponent = true;
+      },
+        error => {
+          this.showComponent1 = true;
+        });
+  }
 
-          this.showComponent = true;
-                });
-  } 
-
-  imageclick(product){
+  imageclick(product) {
     let a = JSON.stringify(product)
     console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-    console.log("product info in card : "+JSON.stringify(product));
+    console.log("product info in card : " + JSON.stringify(product));
     sessionStorage.setItem('data', a);
-    this.router.navigateByUrl("/productreview"); 
-   } 
+    this.router.navigateByUrl("/productreview");
+  }
 }
 
 

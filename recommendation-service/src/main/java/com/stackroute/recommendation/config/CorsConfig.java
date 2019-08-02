@@ -6,7 +6,6 @@ import java.io.IOException;
 
 public class CorsConfig implements Filter {
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
-        System.out.println("Filtering on...........................................................");
         HttpServletResponse response = (HttpServletResponse) res;
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Credentials", "true");
@@ -17,8 +16,10 @@ public class CorsConfig implements Filter {
         chain.doFilter(req, res);
     }
 
+    @Override
     public void init(FilterConfig filterConfig) {}
 
+    @Override
     public void destroy() {}
 
 }

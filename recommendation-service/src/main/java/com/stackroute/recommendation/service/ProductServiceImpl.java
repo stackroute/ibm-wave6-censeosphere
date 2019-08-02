@@ -7,6 +7,7 @@ import com.stackroute.recommendation.exception.ProductNotFoundException;
 import com.stackroute.recommendation.repository.ProductRepository;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -24,11 +25,14 @@ public class ProductServiceImpl implements ProductService {
         this.productRepository = productRepository;
     }
 
+    @Value("${productNotFound}")
+    String productNotFound;
+
     @Override
-    public Collection<Product> getAll()throws Exception {
+    public Collection<Product> getAll()throws ProductNotFoundException {
         Collection<Product> productCollection=productRepository.getAllProducts();
             if(productCollection.isEmpty()){
-                throw  new Exception("Products not available");
+                throw  new ProductNotFoundException(productNotFound);
             }
         else {
                 return productRepository.getAllProducts();
@@ -39,7 +43,6 @@ public class ProductServiceImpl implements ProductService {
     public Product saveProduct(String productName, float rating, float price, String productFamily,String subCategory) {
         Product savedProduct=null;
         savedProduct=productRepository.createNode(productName,rating,price,productFamily,subCategory);
-        System.out.println(savedProduct);
         return savedProduct;
     }
 
@@ -47,7 +50,7 @@ public class ProductServiceImpl implements ProductService {
     public Collection<Product> getByFamily(String productFamily) throws ProductNotFoundException {
        Collection<Product> productCollection=productRepository.getNode(productFamily);
            if(productCollection.isEmpty()){
-               throw  new ProductNotFoundException("Products not available");
+               throw  new ProductNotFoundException(productNotFound);
            }
            else {
                return productRepository.getNode(productFamily);
@@ -58,7 +61,7 @@ public class ProductServiceImpl implements ProductService {
     public Collection<Product> getBySubCategory(String subCategory) throws ProductNotFoundException {
         Collection<Product> productCollection=productRepository.getBysubCategory(subCategory);
         if(productCollection.isEmpty()){
-            throw  new ProductNotFoundException("Products not available");
+            throw  new ProductNotFoundException(productNotFound);
         }
         else{
             return productRepository.getBysubCategory(subCategory);
@@ -73,8 +76,7 @@ public class ProductServiceImpl implements ProductService {
         }
         else
         {
-            throw  new ProductNotFoundException("Products not available");
-
+            throw  new ProductNotFoundException(productNotFound);
         }
     }
 
@@ -92,18 +94,9 @@ public class ProductServiceImpl implements ProductService {
 
     @RabbitListener(queues="${stackroute.rabbitmq.queuesix}")
     public void  recieveproductowner(ProductDTO productDTO) {
+            saveProduct(productDTO.getProductName(),productDTO.getRating(),productDTO.getPrice(),productDTO.getProductFamily(),productDTO.getSubCategory());
+            saveRelation(productDTO.getProductName(),productDTO.getSubCategory());
 
-        System.out.println("recieved msg  from productowner= " + productDTO.toString());
-        Product product=new Product(productDTO.getProductName(),productDTO.getRating(),productDTO.getPrice(),productDTO.getProductFamily(),productDTO.getSubCategory());
-        if(productRepository.existsById(product.getProductName())){
-            System.out.println("Already exist");
-        }
-        else {
-            saveProduct(product.getProductName(), product.getRating(), product.getPrice(), product.getProductFamily(), product.getSubCategory());
-            System.out.println("Product node creadted");
-            saveRelation(product.getProductName(),product.getSubCategory());
-            System.out.println("Product to subcategory relation created");
-        }
     }
 
 

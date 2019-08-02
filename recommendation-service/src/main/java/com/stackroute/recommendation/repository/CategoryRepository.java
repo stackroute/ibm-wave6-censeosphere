@@ -11,15 +11,15 @@ import java.util.Collection;
 @Repository
 public interface CategoryRepository extends Neo4jRepository<Category,String> {
 
-    @Query("CREATE (c:Category) SET c.category={category} RETURN c")
+    @Query("CREATE (c:Category) SET c.categoryName={categoryName} RETURN c")
     public Category createNode(String category);
 
     @Query("MATCH (c:Category) RETURN c")
     Collection<Category> getAllCategories();
 
-    @Query("MATCH (c:Category) WHERE c.category={category} DETACH DELETE c")
-    public  Category deleteNode(@Param("category") String category);
+    @Query("MATCH (c:Category) WHERE c.categoryName={categoryName} DETACH DELETE c")
+    public  Category deleteNode(@Param("categoryName") String categoryName);
 
-    @Query("MATCH (x:Category),(y:SubCategory) WHERE x.category={category} and y.subCategory={subCategory} CREATE (x)-[r:hasA]->(y) RETURN x")
-    public Category createRelation(@Param("category")String category, @Param("subCategory")String subCategory);
+    @Query("MATCH (x:Category),(y:SubCategory) WHERE x.categoryName={categoryName} and y.subCategory={subCategory} CREATE (x)-[r:hasA]->(y) RETURN x")
+    public Category createRelation(@Param("categoryName")String categoryName, @Param("subCategory")String subCategory);
 }

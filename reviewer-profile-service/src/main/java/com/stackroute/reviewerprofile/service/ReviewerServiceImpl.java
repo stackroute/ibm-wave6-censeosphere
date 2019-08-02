@@ -51,12 +51,7 @@ public class ReviewerServiceImpl implements ReviewerService {
         Reviewer savedReviewer=reviewerRepository.save(reviewer);
         ReviewerDTO reviewerDTO=new ReviewerDTO(reviewer.getEmailId(),reviewer.getReconfirmPassword(),reviewer.getRole());
          sendreviewer(reviewerDTO);
-        if(savedReviewer==null)
-        {
-            throw new ReviewerAlreadyExistsException("Reviewer already exists");
-        }
-
-        return savedReviewer;
+         return savedReviewer;
     }
 
     @Override
@@ -69,7 +64,9 @@ public class ReviewerServiceImpl implements ReviewerService {
         Reviewer foundReviewer=null;
         if(reviewerRepository.existsById(emailId)){
             Optional optional=reviewerRepository.findById(emailId);
-            foundReviewer=(Reviewer) optional.get();
+            if(optional.isPresent()) {
+                foundReviewer = (Reviewer) optional.get();
+            }
         }
         else {
 
@@ -102,11 +99,9 @@ public class ReviewerServiceImpl implements ReviewerService {
         Reviewer reviewer1=null;
         Optional optional;
         optional=reviewerRepository.findById(emailId);
-        if(optional != null)
+        if(optional.isPresent())
         {
-
-
-           reviewer1=reviewerRepository.findById(emailId).get();
+            reviewer1=reviewerRepository.findById(emailId).get();
 
             reviewer1.setName(reviewer.getName());
             reviewer1.setImage(reviewer.getImage());
@@ -142,26 +137,19 @@ public class ReviewerServiceImpl implements ReviewerService {
         Optional optional;
         Reviewer reviewer1;
         optional=reviewerRepository.findById(review.getReviewerEmail());
-
         List<Review> myreviewes;
-
-
         if(optional.isPresent())
         {
 
-              reviewer1=reviewerRepository.findById(review.getReviewerEmail()).get();
-
-              myreviewes =reviewer1.getRevieweswritten();
-
-              myreviewes.add(review);
-
-              reviewer1.setRevieweswritten(myreviewes);
+               reviewer1=reviewerRepository.findById(review.getReviewerEmail()).get();
+               myreviewes =reviewer1.getRevieweswritten();
+               myreviewes.add(review);
+               reviewer1.setRevieweswritten(myreviewes);
                point=reviewer1.getCreditpoints();
-              point=reviewer1.getCreditpoints();
+               point=reviewer1.getCreditpoints();
                point=point+5;
                reviewer1.setCreditpoints(point);
-
-              reviewerRepository.save(reviewer1);
+               reviewerRepository.save(reviewer1);
         }
     }
 

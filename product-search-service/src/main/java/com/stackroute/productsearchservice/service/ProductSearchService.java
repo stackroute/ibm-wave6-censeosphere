@@ -21,11 +21,13 @@ public interface ProductSearchService {
     public ProductDetails getProductByName(String productName) throws ProductNotFoundException;
 
 
-    public List<ProductDetails> getRecentProducts() throws Exception;
-    public List<ProductDetails> getTrendingProducts() throws Exception;
+    public List<ProductDetails> getRecentProducts() throws ProductNotFoundException;
+    public List<ProductDetails> getTrendingProducts() throws ProductNotFoundException;
 
     public void sendProduct(ProductDetails productDetails);
     public void sendToRecommendation(ProductDTO productDTO);
     public void sendRemove(ProductDetails productDetails);
     public  void sendToSearch(ProductDetails productDetails);
+    public ProductDetails searchProductByProductOwner(String emailId, String ProductName);
+
 }

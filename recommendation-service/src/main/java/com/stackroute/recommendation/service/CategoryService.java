@@ -5,7 +5,7 @@ import com.stackroute.recommendation.domain.Category;
 import java.util.Collection;
 
 public interface CategoryService {
-    public Category saveCategory(Category category);
+    public Category saveCategory(Category categoryName);
 
     public Collection<Category> getAll();
 

@@ -20,7 +20,7 @@ export class CardComponent implements OnInit {
 
 
     this.reviewService.getAllReviewsbyName(this.product.productName).subscribe((data: any) => {
-      console.log("priyanka" + JSON.stringify(data));
+      console.log( JSON.stringify(data));
       this.reviewsgiven = data.length;
       console.log("length of product list", this.reviewsgiven);
     });

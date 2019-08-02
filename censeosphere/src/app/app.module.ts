@@ -27,6 +27,10 @@ import { CardComponent } from './card/card.component';
 import { ProductreviewComponent } from './productreview/productreview.component';
 import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { Card2Component } from './card2/card2.component';
+import { ModelwindowComponent } from './modelwindow/modelwindow.component';
+import { ProductlistComponent } from './productlist/productlist.component';
+import { ProductlistGuestComponent } from './productlist-guest/productlist-guest.component';
 
 // import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
@@ -47,7 +51,11 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     ReviewComponent,
     ReviewerdashboardComponent,
     CardComponent,
-    ProductreviewComponent
+    ProductreviewComponent,
+    Card2Component,
+    ModelwindowComponent,
+    ProductlistComponent,
+    ProductlistGuestComponent
 
   ],
   imports: [

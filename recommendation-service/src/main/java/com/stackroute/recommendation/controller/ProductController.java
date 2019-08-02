@@ -10,7 +10,7 @@ import java.util.Collection;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/rest/neo4j/product")
+@RequestMapping(value = "api/v1")
 public class ProductController {
 
 
@@ -22,12 +22,12 @@ public class ProductController {
     }
 
     @GetMapping("products")
-    public Collection<Product> getAll()throws Exception{
+    public Collection<Product> getAll()throws ProductNotFoundException{
         return productService.getAll();
     }
 
 
-    @PostMapping("productsave")
+    @PostMapping("product")
     public Product saveProduct(@RequestBody Product product) {
 
         return  productService.saveProduct(product.getProductName(),product.getRating(),product.getPrice(),product.getProductFamily(),product.getSubCategory());
@@ -38,7 +38,7 @@ public class ProductController {
         return productService.getByFamily(productfamily);
     }
 
-    @GetMapping("subcategory/{subcategory}")
+    @GetMapping("productsubcategory/{subcategory}")
     public Collection<Product> getProductBySubCategory(@PathVariable String subcategory) throws ProductNotFoundException{
         return productService.getBySubCategory(subcategory);
     }
@@ -54,7 +54,7 @@ public class ProductController {
         return productService.saveRelation(productname,subcategory);
     }
 
-    @GetMapping("recommendedproduct/{emailid}")
+    @GetMapping("recommendedproducts/{emailid}")
     public Collection<Product> getRecommendedProduct(@PathVariable String emailid){
         return productService.getProduct(emailid);
     }

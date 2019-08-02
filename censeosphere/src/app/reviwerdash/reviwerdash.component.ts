@@ -7,7 +7,8 @@ import { ProductService } from '../product.service';
 import { RecommendationService } from '../recommendation.service';
 import { ReviewService } from '../review.service';
 import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
-
+import subs from '../../assets/json/subCategory.json';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-reviwerdash',
   templateUrl: './reviwerdash.component.html',
@@ -22,24 +23,42 @@ export class ReviwerdashComponent implements OnInit {
   reviewsgiven = [];
   route: ActivatedRoute;
 
+  subs:any=subs;
+  array=[];
 
-  constructor(private router: Router, private landingpageservice: LandingpageService, private updates: UpdateProfileService,
-    private route1: ActivatedRoute, private prodownerservice: ProdownerserviceService, private productService: ProductService,
-    private recommendationService: RecommendationService,private reviewService: ReviewService,private config: NgbRatingConfig) {  config.max = 5;
+  constructor(private router: Router, private landingpageservice: LandingpageService, 
+    private updates: UpdateProfileService,private route1: ActivatedRoute, 
+    private prodownerservice: ProdownerserviceService, private productService: ProductService,
+    private recommendationService: RecommendationService,private reviewService: ReviewService,
+    private config: NgbRatingConfig,private http:HttpClient) {  config.max = 5;
       config.readonly = true;}
 
   ngOnInit() {
-    this.landingpageservice.getAllProducts().subscribe((data: any) => {
+    this.landingpageservice.getAllProducts().subscribe((data:any) => {
       console.log(data);
-      this.productDetails = data;
+      this.productDetails=data;
     })
+    this.reviewerDetails();
+     
+
+    this.http.get('./assets/json/subCategory.json').subscribe((data:any) => {
+      console.log(data, "Is this comming ???");
+      this.array = data;
+
+    })
+     this.landingpageservice.getAllSubCategories().subscribe((data: any) => {
+      console.log("inside get all ts file"+data);
+      this.array= data;
+      sessionStorage.setItem('sdata',data);
+    })
+
     this.reviewerDetails();
 
     this.recommendationService.getProductBySubCategory(sessionStorage.getItem('reviewerEmail')).
       subscribe((data: any) => {
-        console.log(data);
+        console.log("ppppppppppppppprrrrrrrrrrrrriiiiiiiiii",data);
 
-
+    
         for (let i = 0; i < data.length; i++) {
           this.productService.getProduct(data[i].productName).
             subscribe((data: any) => {
@@ -80,7 +99,15 @@ export class ReviwerdashComponent implements OnInit {
     this.router.navigateByUrl("/");
   }
 
-
+  onClickSubCategory(subCategory){
+    console.log("in landing page",subCategory);
+   this.landingpageservice.findAllProductsBySubcategory(subCategory).
+    subscribe(data=>{
+      console.log("Product list : ",data);
+       this.router.navigateByUrl("/productlist/"+subCategory);
+    })
+  } 
+  
   search(product) {
     console.log(product);
     this.productService.getProduct(product).subscribe(data => {

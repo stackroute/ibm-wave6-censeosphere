@@ -69,7 +69,7 @@ public class ProductControllerTest {
     @Test
     public void testGetAll() throws Exception {
         when(productService.getAll()).thenReturn(list);
-        mockMvc.perform(MockMvcRequestBuilders.get("/rest/neo4j/product/products")
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/products")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(product)))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print());
@@ -78,7 +78,7 @@ public class ProductControllerTest {
     @Test
     public void testGetProductByFamily() throws Exception{
         when(productService.getByFamily("Redmi")).thenReturn(list);
-        mockMvc.perform(MockMvcRequestBuilders.get("/rest/neo4j/product/productfamily/Redmi")
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/productfamily/Redmi")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(product)))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print());
@@ -87,7 +87,7 @@ public class ProductControllerTest {
     @Test
     public void testGetProductBySubCategory() throws Exception{
         when(productService.getBySubCategory("Mobile")).thenReturn(list);
-        mockMvc.perform(MockMvcRequestBuilders.get("/rest/neo4j/product/subcategory/Mobile")
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/productsubcategory/Mobile")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(product)))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print());

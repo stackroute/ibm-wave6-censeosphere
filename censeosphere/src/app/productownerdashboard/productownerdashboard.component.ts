@@ -22,7 +22,8 @@ export class ProductownerdashboardComponent implements OnInit {
   productDetails=[];
   myproducts:any;
   listofproducts=[];
- 
+  showComponent:any;
+  showComponent1:any;
 
   reviewer;
   constructor(private updates:UpdateProfileService,private route1:ActivatedRoute,
@@ -80,34 +81,50 @@ export class ProductownerdashboardComponent implements OnInit {
   
       this.updates.getProductOwnerDetails(emailId).subscribe((data: any) => {
       console.log(data);
-      sessionStorage.setItem("pdata", JSON.stringify(data));
+      // sessionStorage.setItem("pdata", JSON.stringify(data));
       console.log("inside update" + JSON.stringify(data));
            this.listofproducts= data.productsadded;   
            this.listofproducts.forEach((y:any) => { 
                console.log(y);
               })                     
-      //  this.products1=data;
-      //  console.log("from productowner"+this.products1);
-      // this.reviewer.name = data.name;
-      // this.reviewer.emailId=data.emailId;
-      // this.reviewer.reconfirmPassword=data.reconfirmPassword;
+   
    
     });
    }
    
   deleteProduct(product){
     console.log(product);
-    sessionStorage.removeItem('pdata');
-    sessionStorage.clear();
+    
      this.productService.deleteProduct(product).
-     subscribe(data=>{
+     subscribe((data)=>{
          console.log("product info : ",data);
-     });
-     this.listofproducts.pop();
+     } );
+
+    this.listofproducts = this.listofproducts.filter(e => {
+      return e.productName !== product.productName
+    })
+    //  this.listofproducts.pop();
     }
     account()
     {
       this.router.navigateByUrl("/productownerdashboard");
     }
 
-}
+    searchproductO(product){
+      
+      this.productService.searchProductByProductOwner(sessionStorage.getItem('productOwnerEmail'),product).
+      subscribe(data=>{
+        if(data==null){
+          this.showComponent1 = true;
+        }
+        else{
+          console.log("product info  : ",data);
+          let a = JSON.stringify(data)
+          sessionStorage.setItem('data123', a);
+          this.showComponent = true;
+        }
+      });
+
+    }
+
+  }

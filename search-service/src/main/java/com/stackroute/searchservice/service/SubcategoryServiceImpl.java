@@ -58,22 +58,11 @@ public class SubcategoryServiceImpl implements SubcategoryService {
         if(fetchedSubCategory!= null){
             return fetchedSubCategory.getProducts();
         }
-        else{
+        else
+            {
             throw new SubcategoryNotFoundException("SubCategory not found");
-        }
+            }
 
-    }
-
-    @Override
-    public String deleteSubcategory(String subCategory) throws SubcategoryNotFoundException {
-        if(subcategoryRepository.existsById(subCategory))
-        {
-            subcategoryRepository.deleteById(subCategory);
-            return "Subcategory deleted successfully!";
-        }
-        else {
-            throw new SubcategoryNotFoundException("Details not found!");
-        }
 
     }
 
@@ -86,16 +75,19 @@ public class SubcategoryServiceImpl implements SubcategoryService {
 
         if(fetchedSubcategory!=null){
 
-            List<Products> newProductsList = fetchedSubcategory.getProducts();
+              System.out.println("inside if");
+              List<Products> newProductsList = fetchedSubcategory.getProducts();
 
-            for (int i=0;i< newProductsList.size();i++){
-
-                if(((newProductsList.get(i)).getProductName()).equals(productDetails.getProductName())) {
-
-                    (newProductsList.get(i)).setRating(productDetails.getRating());
-                    fetchedSubcategory.setProducts(newProductsList);
-                    subcategoryRepository.save(fetchedSubcategory);
-                }
+                    for (int i=0;i< newProductsList.size();i++){
+                    System.out.println("inside for");
+                       Products products=newProductsList.get(i);
+                    if(((products).getProductName()).equals(productDetails.getProductName()))
+                     {
+                       System.out.println("inside equals");
+                       products.setRating(productDetails.getRating());
+                       fetchedSubcategory.setProducts(newProductsList);
+                       subcategoryRepository.save(fetchedSubcategory);
+                    }
             }
 
         }
@@ -130,7 +122,6 @@ public class SubcategoryServiceImpl implements SubcategoryService {
 
          Subcategory fetchedSubcategory1=new Subcategory();
          fetchedSubcategory1.setSubCategoryName(productDetails.getSubCategory());
-         subcategoryRepository.save(fetchedSubcategory1);
          newProduct.setUploadedOn(productDetails.getUploadedOn());
          newProduct.setPrice(productDetails.getPrice());
          newProduct.setSpecifications(productDetails.getSpecifications());
@@ -139,7 +130,6 @@ public class SubcategoryServiceImpl implements SubcategoryService {
          newProduct.setProductFamily(productDetails.getProductFamily());
          newProduct.setProductName(productDetails.getProductName());
          newProduct.setImage(productDetails.getImage());
-
          productsList.add(newProduct);
          fetchedSubcategory1.setProducts(productsList);
          subcategoryRepository.save(fetchedSubcategory1);

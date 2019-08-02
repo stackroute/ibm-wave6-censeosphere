@@ -12,5 +12,5 @@ import org.neo4j.ogm.annotation.NodeEntity;
 @NodeEntity
 public class Category {
     @Id
-    private String category;
+    private String categoryName;
 }
