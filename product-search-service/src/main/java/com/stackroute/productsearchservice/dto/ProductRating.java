@@ -14,7 +14,9 @@ import org.springframework.data.annotation.Id;
 public class ProductRating {
 
     @Id
-     String productName;
-     float rating;
+    String productName;
+    float rating;
+    float sum;
+    int count;
 }
 

@@ -6,6 +6,7 @@ import {Reviewer} from '../reviewer'
 import { UpdateProfileService } from '../update-profile.service';
 import { ProductService } from '../product.service';
 //import { getMaxListeners } from 'cluster';
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -28,7 +29,13 @@ export class ProductownerdashboardComponent implements OnInit {
   reviewer;
   constructor(private updates:UpdateProfileService,private route1:ActivatedRoute,
     private router:Router,private prodownerservice:ProdownerserviceService,
-    private landingpageservice:LandingpageService,private productService:ProductService) { }
+    private landingpageservice:LandingpageService,private productService:ProductService,private config: NgbRatingConfig) {
+        config.max = 5;
+        config.readonly = true;
+      }
+    
+
+     
  
 
 

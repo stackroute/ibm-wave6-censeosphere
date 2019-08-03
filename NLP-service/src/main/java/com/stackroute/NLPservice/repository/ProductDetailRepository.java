@@ -5,5 +5,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface Productdetailrepository extends MongoRepository<ProductRating,String> {
+public interface ProductDetailRepository extends MongoRepository<ProductRating,String> {
 }
