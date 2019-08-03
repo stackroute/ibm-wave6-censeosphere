@@ -27,8 +27,8 @@ public class Review {
     private String reviewTitle;
     private String reviewDescription;
     private String productName;
-    private Float price;
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private float price;
+
     private Date reviewedOn;
     private String subCategory;
     private  int creditpoints;

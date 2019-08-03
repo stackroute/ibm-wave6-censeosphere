@@ -52,6 +52,7 @@ services:
       - eureka-server
       - zuul-api
       - rabbitmq
+      - config-service
     ports:
       - 8089:8089
 
@@ -64,6 +65,7 @@ services:
       - eureka-server
       - zuul-api
       - rabbitmq
+      - config-service
     ports:
       - 8090:8090
 
@@ -99,6 +101,7 @@ services:
       - eureka-server
       - zuul-api
       - rabbitmq
+      - config-service
     ports:
       - 8087:8087
 
@@ -111,6 +114,7 @@ services:
       - eureka-server
       - zuul-api
       - rabbitmq
+      - config-service
     ports:
       - 8060:8060
 
@@ -123,6 +127,7 @@ services:
       - eureka-server
       - zuul-api
       - rabbitmq
+      - config-service
     ports:
       - 8877:8877
 
@@ -135,6 +140,7 @@ services:
         - eureka-server
         - zuul-api
         - rabbitmq
+        - config-service
       ports:
         - 8081:8081
 
@@ -163,6 +169,7 @@ services:
       - eureka-server
       - zuul-api
       - rabbitmq
+      - config-service
     ports:
       - 8085:8085
     expose:

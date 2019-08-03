@@ -63,7 +63,4 @@ public class Productconfig {
         return rabbitTemplate;
     }
 
-
-
-
 }

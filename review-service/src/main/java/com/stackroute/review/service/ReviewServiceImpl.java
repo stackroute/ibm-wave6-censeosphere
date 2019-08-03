@@ -83,6 +83,8 @@ public class ReviewServiceImpl implements ReviewService {
     @Override
     public void sendReviewer(Review review)
     {
+
+        System.out.println("inside reviewer"+review);
         rabbitTemplate.convertAndSend(exchange, routingkeyfive, review);
     }
 
