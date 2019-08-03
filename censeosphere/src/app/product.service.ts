@@ -28,7 +28,7 @@ export class ProductService {
     return this._http.get("http://13.126.244.58:8083/product-search-service/api/v1/product/"+productName, this.httpOptions);
   }
 
-  deleteProduct(productName:String)
+  deleteProduct(productName)
   {
     console.log("from service :"+productName);
     return this._http.delete<Product>("http://13.126.244.58:8083/product-search-service/api/v1/product/"+productName, this.httpOptions);

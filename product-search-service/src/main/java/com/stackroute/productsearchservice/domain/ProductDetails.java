@@ -21,8 +21,8 @@ public class ProductDetails {
     private String productName;
     private String productFamily;
     private String image;
-    private Float price;
-    private Float rating;
+    private float price;
+    private float rating;
     private String specifications;
     private String description;
     private Date uploadedOn;

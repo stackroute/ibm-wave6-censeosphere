@@ -31,7 +31,9 @@ public class ProductSearchController {
     @PostMapping("product")
     public ResponseEntity<String> saveProduct(@RequestBody ProductDetails productDetails){
         ResponseEntity responseEntity;
-        Date date=new Date();
+
+       Date date=new Date();
+
         long millies=date.getTime();
         Timestamp timestamp=new Timestamp(millies);
         productDetails.setUploadedOn(timestamp);

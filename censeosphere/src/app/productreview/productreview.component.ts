@@ -10,8 +10,10 @@ import { ProductService } from '../product.service';
 import { error } from 'util';
 import { ReviewService } from '../review.service';
 import { ReviewerdetailsService } from '../reviewerdetails.service';
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import subs from  'src/assets/json/subCategory.json';
 import { HttpClient } from '@angular/common/http';
+
 const helper = new JwtHelperService();
 
 @Component({
@@ -39,10 +41,12 @@ export class ProductreviewComponent implements OnInit {
   })
   helper = new JwtHelperService();
   auth: Authentication = new Authentication();
-  constructor(private router: Router, private landingpageservice: LandingpageService, 
-    private loginvalidation: LoginvalidationService,private productService:ProductService,
-    private  reviewService:ReviewService,private reviewerdetail: ReviewerdetailsService,
-    private http:HttpClient) { }
+
+  constructor(private router: Router, private landingpageservice: LandingpageService, private loginvalidation: LoginvalidationService,private productService:ProductService,
+    private  reviewService:ReviewService,private reviewerdetail: ReviewerdetailsService ,private config: NgbRatingConfig,private http:HttpClient) {
+      config.max = 5;
+      config.readonly = true;
+    }
 
   ngOnInit() {
 
@@ -58,11 +62,11 @@ export class ProductreviewComponent implements OnInit {
       this.array = data;
 
     })
-    // priyanka
+
     this.productname = JSON.parse(sessionStorage.getItem('data')).productName;
     console.log("productname in  write a review" + this.productname);
 
-    this.reviewService.getAllReviewsbyName(this.productname).subscribe((data: any) => {
+      this.reviewService.getAllReviewsbyName(this.productname).subscribe((data: any) => {
       console.log("review details in search" + JSON.stringify(data));
       this.reviewdetails = data;
       console.log(JSON.stringify(this.reviewdetails));
@@ -89,7 +93,7 @@ export class ProductreviewComponent implements OnInit {
 
     });
 
-    // priyanka
+
 
 
 

@@ -34,6 +34,12 @@ public class ReviewServiceImpl implements ReviewService {
     @Value("${stackroute.rabbitmq.routingkeyseven}")
     private String routingkeyseven;
 
+
+    @Value("${value}")
+    private String  value;
+
+    int   max= Integer.parseInt(""+value);
+
     @Autowired
     public ReviewServiceImpl(ReviewRepository reviewRepository)
     {
@@ -44,14 +50,14 @@ public class ReviewServiceImpl implements ReviewService {
     @Override
     public Review addReview(Review review) {
         Review savedReview=null;
-        if(((review.getReviewDescription()).length())>=20) {
+        if(((review.getReviewDescription()).length())>=max) {
             savedReview = reviewRepository.save(review);
             ReviewDTO reviewDTO = new ReviewDTO(review.getProductName(), review.getReviewDescription(), review.getCreditpoints());
             sendRating(reviewDTO);
             sendReviewer(savedReview);
             RecommendationDTO recommendationDTO = new RecommendationDTO(review.getReviewerEmail(), review.getProductName(), review.getSubCategory());
             sendRecommendation(recommendationDTO);
-        }
+           }
         return savedReview;
     }
 
@@ -78,6 +84,8 @@ public class ReviewServiceImpl implements ReviewService {
     @Override
     public void sendReviewer(Review review)
     {
+
+        System.out.println("inside reviewer"+review);
         rabbitTemplate.convertAndSend(exchange, routingkeyfive, review);
     }
 

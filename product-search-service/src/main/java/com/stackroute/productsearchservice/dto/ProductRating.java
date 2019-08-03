@@ -15,5 +15,8 @@ public class ProductRating {
     @Id
     String productName;
     float rating;
+    float sum;
+    int count;
+
 }
 

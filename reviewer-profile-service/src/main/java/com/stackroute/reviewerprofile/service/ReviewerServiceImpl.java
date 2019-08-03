@@ -30,9 +30,12 @@ public class ReviewerServiceImpl implements ReviewerService {
     @Value("${stackroute.rabbitmq.routingkeyone}")
     private String routingkeyone;
 
-     int point;
+    @Value("${value}")
+    private String  value;
 
-     @Autowired
+    int   point= Integer.parseInt(""+value);
+
+    @Autowired
     public ReviewerServiceImpl(ReviewerRepository reviewerRepository)
     {
         this.reviewerRepository=reviewerRepository;
@@ -94,27 +97,32 @@ public class ReviewerServiceImpl implements ReviewerService {
     //service implementation to update reviewer profile
     @Override
     public Reviewer updateReviewer(Reviewer reviewer,String emailId) throws ReviewerNotFoundException{
-         Reviewer reviewer1=null;
-         Optional optional;
-         optional=reviewerRepository.findById(emailId);
-         if(optional.isPresent())
-         {
-             reviewer1=reviewerRepository.findById(emailId).get();
-             reviewer1.setName(reviewer.getName());
-             reviewer1.setImage(reviewer.getImage());
-             reviewer1.setReconfirmPassword(reviewer.getReconfirmPassword());
-             reviewerRepository.save(reviewer1);
-             ReviewerDTO reviewerDTO1=new ReviewerDTO(reviewer1.getEmailId(),reviewer1.getReconfirmPassword(),reviewer1.getRole());
-             sendreviewer(reviewerDTO1);
-         }
-         else
-         {
-             throw new ReviewerNotFoundException("Details not found");
-         }
-         return reviewer1;
-     }
+        Reviewer reviewer1=null;
+        Optional optional;
+        optional=reviewerRepository.findById(emailId);
+        if(optional.isPresent())
+        {
+            reviewer1=reviewerRepository.findById(emailId).get();
 
-     //method to send reviewer through rabbitmq
+            reviewer1.setName(reviewer.getName());
+            reviewer1.setImage(reviewer.getImage());
+            reviewer1.setReconfirmPassword(reviewer.getReconfirmPassword());
+            reviewer1.setCreditpoints(reviewer.getCreditpoints());
+            reviewerRepository.save(reviewer1);
+            ReviewerDTO reviewerDTO1=new ReviewerDTO(reviewer1.getEmailId(),reviewer1.getReconfirmPassword(),reviewer1.getRole());
+            sendreviewer(reviewerDTO1);
+
+        }
+        else
+        {
+            throw new ReviewerNotFoundException("Details not found");
+        }
+
+        return reviewer1;
+    }
+
+
+    //method to send reviewer through rabbitmq
     @Override
     public void sendreviewer(ReviewerDTO reviewerDTO) {
         rabbitTemplate.convertAndSend(exchange, routingkeyone, reviewerDTO);
