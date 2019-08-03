@@ -30,10 +30,8 @@ public class ReviewerServiceImpl implements ReviewerService {
     @Value("${stackroute.rabbitmq.routingkeyone}")
     private String routingkeyone;
 
-    @Value("${value}")
-    private String  value;
 
-    int   point= Integer.parseInt(""+value);
+    int   point;
 
     @Autowired
     public ReviewerServiceImpl(ReviewerRepository reviewerRepository)

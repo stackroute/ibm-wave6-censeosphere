@@ -35,10 +35,7 @@ public class ReviewServiceImpl implements ReviewService {
     private String routingkeyseven;
 
 
-    @Value("${value}")
-    private String  value;
 
-    int   max= Integer.parseInt(""+value);
 
     @Autowired
     public ReviewServiceImpl(ReviewRepository reviewRepository)
@@ -50,7 +47,7 @@ public class ReviewServiceImpl implements ReviewService {
     @Override
     public Review addReview(Review review) {
         Review savedReview=null;
-        if(((review.getReviewDescription()).length())>=max) {
+        if(((review.getReviewDescription()).length())>=20) {
             savedReview = reviewRepository.save(review);
             ReviewDTO reviewDTO = new ReviewDTO(review.getProductName(), review.getReviewDescription(), review.getCreditpoints());
             sendRating(reviewDTO);
