@@ -19,10 +19,7 @@ import java.util.Optional;
 
 @Service
 public class ProductSearchServiceImpl implements ProductSearchService {
-
-    @Autowired
     private ProductSearchRepository productSearchRepository;
-
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
@@ -50,12 +47,10 @@ public class ProductSearchServiceImpl implements ProductSearchService {
         this.productSearchRepository=productSearchRepository;
     }
 
-
+   //service implementation to save product
     @Override
     public ProductDetails saveProduct(ProductDetails productDetails) throws ProductAlreadyExistsException {
-
-        if(productSearchRepository.existsById(productDetails.getProductName()))
-        {
+        if(productSearchRepository.existsById(productDetails.getProductName())) {
          throw new ProductAlreadyExistsException("Product already exists");
         }
         else{
@@ -65,14 +60,15 @@ public class ProductSearchServiceImpl implements ProductSearchService {
             sendToRecommendation(productDTO);
             return savedProducts;
         }
-
     }
 
+    //service implmentation to get all products
     @Override
     public List<ProductDetails> getAllProducts() {
         return productSearchRepository.findAll();
     }
 
+    //service implementation to delete product
     @Override
     public ProductDetails deleteProduct(String productName) throws ProductNotFoundException {
 
@@ -95,45 +91,42 @@ public class ProductSearchServiceImpl implements ProductSearchService {
 
     }
 
+    //service implementation to update product
     @Override
     public ProductDetails updateProduct(ProductDetails productDetails,String productName) throws ProductNotFoundException {
         ProductDetails productDetails1=null;
-        if(productSearchRepository.existsById(productName))
-        {
+        if(productSearchRepository.existsById(productName)) {
             productDetails.setDescription(productDetails.getDescription());
             productDetails1=productSearchRepository.save(productDetails);
-
         }
-        else
-        {
+        else {
             throw new ProductNotFoundException("Details not found");
         }
-
         return productDetails1;
     }
 
+    //service implementation for get product by product name
     @Override
     public ProductDetails getProductByName(String productName) throws ProductNotFoundException {
          Optional optional=null;
          optional=productSearchRepository.findById(productName);
          ProductDetails productDetails1=null;
-         if(optional.isPresent())
-          {
+         if(optional.isPresent()) {
               productDetails1=productSearchRepository.findById(productName).get();
           }
-        else
-          {
+        else {
             throw new ProductNotFoundException("Details not found");
           }
-
         return productDetails1;
     }
 
+    //service implementation to get recent products
     @Override
     public List<ProductDetails> getRecentProducts() throws ProductNotFoundException {
         return productSearchRepository.findAll(Sort.by(Sort.Direction.DESC, "uploadedOn"));
     }
 
+    //service implementation get trending products
     @Override
     public List<ProductDetails> getTrendingProducts() throws ProductNotFoundException {
         return productSearchRepository.findAll(Sort.by(Sort.Direction.DESC, "rating"));

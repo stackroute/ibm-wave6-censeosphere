@@ -21,89 +21,67 @@ public class SubcategoryServiceImpl implements SubcategoryService {
     private SubcategoryRepository subcategoryRepository;
 
     List<Products> productsList= new ArrayList<>();
-
     Products products;
-
     Subcategory subcategory;
 
     @Autowired
-    public SubcategoryServiceImpl(SubcategoryRepository subcategoryRepository1)
-    {
+    public SubcategoryServiceImpl(SubcategoryRepository subcategoryRepository1) {
         this.subcategoryRepository=subcategoryRepository1;
     }
 
-
+    //service implementation to save subcategory
     @Override
     public Subcategory saveSubcategory(Subcategory subcategory) throws SubcategoryAlreadyExistsExceptions {
-        if (subcategoryRepository.existsById(subcategory.getSubCategoryName()))
-        {
-
+        if (subcategoryRepository.existsById(subcategory.getSubCategoryName())) {
             throw new SubcategoryAlreadyExistsExceptions("Subcategory already exists!");
         }
-        else
-        {
-             return subcategoryRepository.save(subcategory);
+        else {
+            return subcategoryRepository.save(subcategory);
         }
     }
 
-
+    //service implementation to get all subcategories
     @Override
     public List<Subcategory> getAllSubcategories() {
         return subcategoryRepository.findAll();
     }
 
+    //service implementation to get products by subcategory
     @Override
     public List<Products> findAllProductsBySubcategory(String subCategory) throws SubcategoryNotFoundException {
         Subcategory fetchedSubCategory = subcategoryRepository.findBySubCategoryName(subCategory);
         if(fetchedSubCategory!= null){
             return fetchedSubCategory.getProducts();
         }
-        else
-            {
+        else {
             throw new SubcategoryNotFoundException("SubCategory not found");
-            }
-
-
+        }
     }
 
-
     @RabbitListener(queues="${stackroute.rabbitmq.queueeleven}")
-    public void  Recieverating(ProductDetails productDetails)
-    {
-
+    public void  Recieverating(ProductDetails productDetails) {
         Subcategory fetchedSubcategory= subcategoryRepository.findBySubCategoryName(productDetails.getSubCategory());
-
         if(fetchedSubcategory!=null){
-
-              System.out.println("inside if");
-              List<Products> newProductsList = fetchedSubcategory.getProducts();
-
-                    for (int i=0;i< newProductsList.size();i++){
-                    System.out.println("inside for");
-                       Products products=newProductsList.get(i);
-                    if(((products).getProductName()).equals(productDetails.getProductName()))
-                     {
-                       System.out.println("inside equals");
-                       products.setRating(productDetails.getRating());
-                       fetchedSubcategory.setProducts(newProductsList);
-                       subcategoryRepository.save(fetchedSubcategory);
-                    }
+            System.out.println("inside if");
+            List<Products> newProductsList = fetchedSubcategory.getProducts();
+            for (int i=0;i< newProductsList.size();i++){
+                System.out.println("inside for");
+                Products products=newProductsList.get(i);
+                if(((products).getProductName()).equals(productDetails.getProductName())) {
+                    System.out.println("inside equals");
+                    products.setRating(productDetails.getRating());
+                    fetchedSubcategory.setProducts(newProductsList);
+                    subcategoryRepository.save(fetchedSubcategory);
+                }
             }
-
         }
-
-
     }
 
     @RabbitListener(queues="${stackroute.rabbitmq.queueten}")
     public void updateSubcategory(ProductDetails productDetails) {
-
         Products newProduct = new Products();
         Subcategory fetchedSubcategory= subcategoryRepository.findBySubCategoryName(productDetails.getSubCategory());
-
         if(fetchedSubcategory!=null){
-
-
             List<Products> newProductsList = fetchedSubcategory.getProducts();
             newProduct.setUploadedOn(productDetails.getUploadedOn());
             newProduct.setPrice(productDetails.getPrice());
@@ -116,27 +94,21 @@ public class SubcategoryServiceImpl implements SubcategoryService {
             newProductsList.add(newProduct);
             fetchedSubcategory.setProducts(newProductsList);
             subcategoryRepository.save(fetchedSubcategory);
-
-         }
-    else {
-
-         Subcategory fetchedSubcategory1=new Subcategory();
-         fetchedSubcategory1.setSubCategoryName(productDetails.getSubCategory());
-         newProduct.setUploadedOn(productDetails.getUploadedOn());
-         newProduct.setPrice(productDetails.getPrice());
-         newProduct.setSpecifications(productDetails.getSpecifications());
-         newProduct.setDescription(productDetails.getDescription());
-         newProduct.setRating(productDetails.getRating());
-         newProduct.setProductFamily(productDetails.getProductFamily());
-         newProduct.setProductName(productDetails.getProductName());
-         newProduct.setImage(productDetails.getImage());
-         productsList.add(newProduct);
-         fetchedSubcategory1.setProducts(productsList);
-         subcategoryRepository.save(fetchedSubcategory1);
-
         }
-
+        else {
+            Subcategory fetchedSubcategory1=new Subcategory();
+            fetchedSubcategory1.setSubCategoryName(productDetails.getSubCategory());
+            newProduct.setUploadedOn(productDetails.getUploadedOn());
+            newProduct.setPrice(productDetails.getPrice());
+            newProduct.setSpecifications(productDetails.getSpecifications());
+            newProduct.setDescription(productDetails.getDescription());
+            newProduct.setRating(productDetails.getRating());
+            newProduct.setProductFamily(productDetails.getProductFamily());
+            newProduct.setProductName(productDetails.getProductName());
+            newProduct.setImage(productDetails.getImage());
+            productsList.add(newProduct);
+            fetchedSubcategory1.setProducts(productsList);
+            subcategoryRepository.save(fetchedSubcategory1);
+        }
     }
-
-
 }

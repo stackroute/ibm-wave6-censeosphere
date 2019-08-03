@@ -7,10 +7,9 @@ import org.springframework.data.mongodb.repository.Query;
 import java.util.List;
 
 public interface ReviewRepository extends MongoRepository<Review,String> {
-
-
+    //get all reviews by specific product name
     @Query("{ 'productName' : ?0 }")
-    List<Review> getAllReviewsbyProduct(String pname);
+    List<Review> getAllReviewsbyProduct(String productname);
 
 
 }

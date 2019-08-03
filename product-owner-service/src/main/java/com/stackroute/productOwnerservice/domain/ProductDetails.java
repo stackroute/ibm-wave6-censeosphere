@@ -15,8 +15,6 @@ import java.util.Date;
 @AllArgsConstructor
 @Document
 public class ProductDetails {
-
-
     private  String addedby;
     private String category;
     private String subCategory;

@@ -30,8 +30,10 @@ export class LandingPageComponent implements OnInit {
   showComponent: any;
   reviewsgiven = [];
   productname = "";
+  productname1= "";
   // validatingForm: FormGroup;
   productDetails1 = [];
+  reviewsgiven1 = [];
   
   subs: any=subs;
   array=[];
@@ -57,58 +59,78 @@ export class LandingPageComponent implements OnInit {
   ngOnInit() {
 
     this.landingpageservice.getRecentProducts().subscribe((data: any) => {
-      console.log(data);
-      this.productDetails = data;
-      console.log("pooja", this.productDetails);
-
-      for (let i = 0; i < (this.productDetails).length; i++) {
-        this.productname = this.productDetails[i].productName;
-
-
-        this.reviewService.getAllReviewsbyName(this.productname).subscribe((data: any) => {
-          console.log("priyanka111112222222" + JSON.stringify(data));
-          this.reviewsgiven = data;
-
-          console.log("length of product list", this.reviewsgiven.length);
-
-
-          this.productDetails = this.productDetails.map((e, j) => {
-            
-            if (e.productName === data[i].productName) {
-              console.log("in method",this.reviewsgiven.length)
-              e.size = this.reviewsgiven.length;
-
-            }
-          
-            console.log(e, "list size")
-            return e
-          })
-
-        });
-
-      }
+        console.log(data)
+         data.map((e, i) => {
+          this.reviewService.getAllReviewsbyName(e.productName).subscribe((review: Array<{}>) => {
+            e.size = review.length
+            this.productDetails.push(e)
+          });
+        })
     })
 
-   
+
+    this.landingpageservice.getTrendingProducts().subscribe((data1: any) => {
+      console.log(data1)
+       data1.map((e, i) => {
+        this.reviewService.getAllReviewsbyName(e.productName).subscribe((reviews: Array<{}>) => {
+          e.size = reviews.length
+          this.productDetails1.push(e)
+        });
+      })
+  })
+
+    // this.landingpageservice.getTrendingProducts().subscribe((data: any) => {
+    //   // // console.log(data);
+    //   this.productDetails1 = data;
+    //   // // console.log("pooja", this.productDetails1);
+    
+    //   for (let i = 0; i < (this.productDetails1).length; i++) {
+    //     this.productname1 = this.productDetails1[i].productName;
+
+
+    //     this.reviewService.getAllReviewsbyName(this.productname1).subscribe((data: any) => {
+    //       // console.log( JSON.stringify(data));
+    //       this.reviewsgiven1 = data;
+
+    //       // console.log("length of product list", this.reviewsgiven1.length);
+
+
+    //       this.productDetails1 = this.productDetails1.map((e, i) => {
+            
+            
+    //           // console.log("in method",this.reviewsgiven1.length)
+    //           e.size = this.reviewsgiven1.length;
+
+       
+          
+    //         // console.log(e, "list size in trending products")
+    //         return e
+    //       })
+
+    //     });
+
+    //   }
+    // });
+
     this.http.get('./assets/json/subCategory.json').subscribe((data:any) => {
-      console.log(data, "Is this comming ???");
+      // console.log(data, "Is this comming ???");
       this.array = data;
  
     })
     //  this.landingpageservice.getAllSubCategories().subscribe((data: any) => {
-    //   console.log("inside get all ts file"+data);
+    //   // console.log("inside get all ts file"+data);
     //   this.array= data;
     //   sessionStorage.setItem('sdata',data);
     // })
   
 
     this.landingpageservice.getAllCategory().subscribe((data: any) => {
-      console.log(data);
+      // console.log(data);
       this.categories = data;
     })
     
     this.landingpageservice.getAllSubCategories().subscribe((data: any) => {
-      console.log(data);
+      // console.log(data);
       this.subCategories = data;
     })
  
@@ -116,11 +138,11 @@ export class LandingPageComponent implements OnInit {
   }
 
   onClick(role) {
-    console.log(role);
+    // console.log(role);
     this.router.navigateByUrl("/account/" + role);
   }
   onClickPO(role1) {
-    console.log(role1);
+    // console.log(role1);
     this.router.navigateByUrl("/account/" + role1);
   }
   reviewer(emailId, password): any {
@@ -129,22 +151,22 @@ export class LandingPageComponent implements OnInit {
     this.auth.password = password;
     this.loginvalidation.login(this.auth).
       subscribe((data: any) => {
-        console.log("data from backend ", data.token);
+        // console.log("data from backend ", data.token);
         if (data.token) {
-          console.log("in if");
+          // console.log("in if");
 
           let role = this.helper.decodeToken(data.token).sub;
-          console.log("we are having this......", data.token);
+          // console.log("we are having this......", data.token);
 
-          console.log("in if print email   " + emailId);
-          console.log("in if print password   " + password);
-          console.log("in if print role   ", role);
+          // console.log("in if print email   " + emailId);
+          // console.log("in if print password   " + password);
+          // console.log("in if print role   ", role);
 
           sessionStorage.setItem('reviewerEmail', emailId);
 
           if (role == this.job) {
-            console.log(role);
-            console.log("in if1");
+            // console.log(role);
+            // console.log("in if1");
             this.router.navigateByUrl("/reviewerdash");
 
           }
@@ -160,22 +182,22 @@ export class LandingPageComponent implements OnInit {
     this.auth.password = password;
     this.loginvalidation.login(this.auth).
       subscribe((data: any) => {
-        console.log("data from backend ", data.token);
+        // console.log("data from backend ", data.token);
         if (data.token) {
-          console.log("in if");
+          // console.log("in if");
 
           let role = this.helper.decodeToken(data.token).sub;
-          console.log("we are having this......", data.token);
+          // console.log("we are having this......", data.token);
 
-          console.log("in if print email   " + emailId);
-          console.log("in if print password   " + password);
-          console.log("in if print role   ", role);
+          // console.log("in if print email   " + emailId);
+          // console.log("in if print password   " + password);
+          // console.log("in if print role   ", role);
 
           sessionStorage.setItem('productOwnerEmail', emailId);
           if (role == this.job) {
-            console.log(role);
-            console.log("in if1");
-            console.log(emailId);
+            // console.log(role);
+            // console.log("in if1");
+            // console.log(emailId);
             this.router.navigateByUrl("/productownerdashboard/" + emailId);
 
           }
@@ -190,11 +212,11 @@ export class LandingPageComponent implements OnInit {
   }
 
   onclick(rrole) {
-    console.log(rrole);
+    // console.log(rrole);
     this.job = rrole;
   }
   onclick1(prole) {
-    console.log(prole);
+    // console.log(prole);
     this.job = prole;
   }
 
@@ -204,20 +226,20 @@ export class LandingPageComponent implements OnInit {
     this.auth.password = lpassword;
     this.loginvalidation.login(this.auth).
       subscribe((data: any) => {
-        console.log("data from backend ", data.token);
+        // console.log("data from backend ", data.token);
         if (data.token) {
-          console.log("in if");
+          // console.log("in if");
 
           let role = this.helper.decodeToken(data.token).sub;
-          console.log("we are having this......", data.token);
+          // console.log("we are having this......", data.token);
 
-          console.log("in if print email   " + lemailId);
-          console.log("in if print password   " + lpassword);
-          console.log("in if print role   ", role);
+          // console.log("in if print email   " + lemailId);
+          // console.log("in if print password   " + lpassword);
+          // console.log("in if print role   ", role);
 
           if (role == 'reviewer') {
-            console.log(role);
-            console.log("in if1");
+            // console.log(role);
+            // console.log("in if1");
             sessionStorage.setItem('reviewerEmail', lemailId);
             this.router.navigateByUrl("/reviewerdash");
           }
@@ -233,20 +255,20 @@ export class LandingPageComponent implements OnInit {
 
   }
   onClickSubCategory(subCategory){
-    console.log("in landing page",subCategory);
+    // console.log("in landing page",subCategory);
    this.landingpageservice.findAllProductsBySubcategory(subCategory).
     subscribe(data=>{
-      console.log("Product list : ",data);
+      // console.log("Product list : ",data);
        this.router.navigateByUrl("/productlistguest/"+subCategory);
     })
   }
   showComponent1: any;
   searchproductL(product) {
-    console.log(product);
+    // console.log(product);
     this.productService.getProduct(product).
       subscribe(data => {
 
-        console.log("product info : ", data);
+        // console.log("product info : ", data);
         let a = JSON.stringify(data)
         sessionStorage.setItem('data123', a);
         this.showComponent = true;
@@ -258,8 +280,8 @@ export class LandingPageComponent implements OnInit {
 
   imageclick(product) {
     let a = JSON.stringify(product)
-    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-    console.log("product info in card : " + JSON.stringify(product));
+    // console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    // console.log("product info in card : " + JSON.stringify(product));
     sessionStorage.setItem('data', a);
     this.router.navigateByUrl("/productreview");
   }

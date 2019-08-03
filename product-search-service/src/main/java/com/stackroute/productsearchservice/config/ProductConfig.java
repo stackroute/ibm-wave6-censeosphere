@@ -1,8 +1,9 @@
+package com.stackroute.productsearchservice.config;
 
-package com.stackroute.recommendation.config;
 
-
-import org.springframework.amqp.core.*;
+import org.springframework.amqp.core.BindingBuilder;
+import org.springframework.amqp.core.Exchange;
+import org.springframework.amqp.core.ExchangeBuilder;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -13,35 +14,21 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class Configconsumeproduct {
+public class ProductConfig {
 
-
-    @Value("${stackroute.rabbitmq.queuesix}")
-    String queueSix;
+    @Value("${stackroute.rabbitmq.queueeight}")
+    String queueEight;
 
     @Value("${stackroute.rabbitmq.exchange}")
     String exchangeName;
 
-    @Value("${stackroute.rabbitmq.routingkeysix}")
-    private String routingkeySix;
+    @Value("${stackroute.rabbitmq.routingkeyeight}")
+    private String routingkeyEight;
 
-
-    @Value("${stackroute.rabbitmq.queueseven}")
-    String queueSeven;
-
-    @Value("${stackroute.rabbitmq.routingkeyseven}")
-    private String routingkeySeven;
 
     @Bean
-    Queue queueMethod() {
-        return new Queue(queueSix, true);
-
-    }
-
-    @Bean
-    Queue queueMethod1() {
-        return new Queue(queueSeven, true);
-
+    org.springframework.amqp.core.Queue queueMethod() {
+        return new org.springframework.amqp.core.Queue(queueEight, true);
     }
 
     @Bean
@@ -50,20 +37,15 @@ public class Configconsumeproduct {
     }
 
     @Bean
-    Binding binding() {
-        return BindingBuilder.bind(queueMethod()).to(exchangeMethod()).with(routingkeySix).noargs();
+    org.springframework.amqp.core.Binding binding() {
+        return BindingBuilder.bind(queueMethod()).to(exchangeMethod()).with(routingkeyEight).noargs();
     }
-
-    @Bean
-    Binding binding1() {
-        return BindingBuilder.bind(queueMethod1()).to(exchangeMethod()).with(routingkeySeven).noargs();
-    }
-
 
     @Bean
     public MessageConverter jsonMessageConverter() {
         return new Jackson2JsonMessageConverter();
     }
+
     @Bean
     ConnectionFactory connectionFactory(){
         //we want connection to be stable,so that we needn't close or open connection
@@ -72,6 +54,7 @@ public class Configconsumeproduct {
         cachingConnectionFactory.setPassword("guest");
         return cachingConnectionFactory;
     }
+
 
     @Bean
     public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
@@ -84,5 +67,3 @@ public class Configconsumeproduct {
 
 
 }
-
-

@@ -12,9 +12,8 @@ import org.springframework.data.annotation.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductRating {
-
     @Id
-     String productName;
-     float rating;
+    String productName;
+    float rating;
 }
 

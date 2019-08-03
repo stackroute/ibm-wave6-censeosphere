@@ -35,10 +35,10 @@ const routes: Routes = [
   {path:'searchreview',component:SearchForReviewComponent},
   { path:'prodownerupdateprofile/:name/:emailId/:reconfirmPassword',component:ProdownerupdateprofileComponent},
   // {path:'rdashboard',component:ReviewerdashboardComponent},
-  // { path: '**',component:LandingPageComponent}
   
   {path:'productlist/:subCategory',component:ProductlistComponent},
-  {path:'productlistguest/:subCategory',component:ProductlistGuestComponent}
+  {path:'productlistguest/:subCategory',component:ProductlistGuestComponent},
+  { path: '**',component:LandingPageComponent}
 
 ];
 

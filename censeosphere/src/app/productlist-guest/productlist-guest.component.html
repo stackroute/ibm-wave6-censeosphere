@@ -35,7 +35,7 @@
     <div class="my-row" id="">
       <div *ngFor="let pro of listofproducts">
         <div class="card">
-            <img class="card-img-top" src="../../assets/img/{{pro.image}}" alt="It is picture"  routerLink="/productreview">
+            <img class="card-img-top" src="../../assets/img/{{pro.image}}" alt="It is picture"  (click)="imageclickguest(pro)">
             <div class="card-body">
             <div class="card-title"><b>{{pro.productName}}</b></div>
              

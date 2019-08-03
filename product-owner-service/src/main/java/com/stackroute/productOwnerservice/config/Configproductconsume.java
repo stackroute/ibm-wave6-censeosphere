@@ -25,17 +25,14 @@ public class Configproductconsume {
     @Value("${stackroute.rabbitmq.routingkeynine}")
     private String routingkeyNine;
 
-
-
     @Bean
     org.springframework.amqp.core.Queue queueMethod() {
         return new org.springframework.amqp.core.Queue(queueFour, true);
-
     }
+
     @Bean
     org.springframework.amqp.core.Queue queueMethodTwo() {
         return new org.springframework.amqp.core.Queue(queueNine, true);
-
     }
 
     @Bean
@@ -54,7 +51,4 @@ public class Configproductconsume {
     {
         return BindingBuilder.bind(queueMethodTwo()).to(exchangeMethod()).with(routingkeyNine).noargs();
     }
-
-
-
 }

@@ -149,13 +149,13 @@ footer a:hover{
 	border-radius: 9px;
     box-shadow: 1.5px 1.5px 3px rgba(0,0,0,2.5);
 } */
-.img-box {
+/* .img-box {
 	height: 120px;
 	margin-bottom: 20px;
 	width: 100%;
 	position: relative;
-}
- .img-box img {	
+} */
+ /* .img-box img {	
 	max-width: 100%;
 	max-height: 100%;
 	display: inline-block;
@@ -164,7 +164,7 @@ footer a:hover{
 	margin: 0 auto;
 	left: 0;
 	right: 0;
-}
+} */
 h4 {
 	font-size: 18px;
 }
@@ -351,7 +351,7 @@ hr.side {
         width: fit-content;
         margin: 0 auto;
     }
-    .card1 {
+    /* .card1 {
         background:  url('../../assets/img/i3.jpg') center center no-repeat;
         border-radius: 9px;
         box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -367,7 +367,7 @@ hr.side {
         text-align: center;
         transition: height 1000ms;
         width: 280px;
-      }
+      } */
       @media (max-width: 767px) {
         .card1 {
           left: calc(50% - 0px);
@@ -411,11 +411,32 @@ hr.side {
         padding: 0 20px;
       }
       #carimg{
-      width: 200px;
-      height: 200px;
+      width: 300px;
+      height: 190px;
       display: inline-block;
       bottom: 20;
       margin: 0 auto;
       left: 0;
       right: 0;
       }
+      .card {
+        margin-left: 4px;
+        margin-right: 3px;
+      padding: 25px 15px;
+        background: url('../../assets/img/i3.jpg') center center no-repeat;
+        text-align: center;
+        /* position: relative; */
+        font-size: 12px;
+        width: 250px;
+        overflow: hidden;
+        border: none;
+      border-radius: 9px;
+        box-shadow: 1.5px 1.5px 3px rgba(0,0,0,2.5);
+       
+    }
+    .card:hover {
+      transform: scale(0.9, 0.9);
+      box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25),
+        -5px -5px 30px 15px rgba(0,0,0,0.22);
+    }
+    

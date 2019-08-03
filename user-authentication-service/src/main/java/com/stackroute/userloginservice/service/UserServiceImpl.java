@@ -15,8 +15,6 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl implements UserService {
     UserRepository userRepository;
-
-
     private User user;
 
     @Autowired
@@ -24,20 +22,18 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
     }
 
+    //method to get user byemailid
     @Override
     public User findByEmailId(String emailId) {
-
         Optional optional=null;
         optional=userRepository.findById(emailId);
-        if(optional.isPresent())
-        {
+        if(optional.isPresent()) {
             user=userRepository.findById(emailId).get();
-
         }
         return  user;
-
     }
 
+    //method to save user
     @Override
     public User saveUser(User user) throws UserAlreadyExistsException {
         if (userRepository.existsById(user.getEmailId())) {
@@ -51,23 +47,20 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll();
     }
 
+    //method to updateuser
     @Override
     public void updateUser(User user) {
       Optional optional;
       User user1=null;
       optional=userRepository.findById(user.getEmailId());
-      if(optional.isPresent())
-      {
+      if(optional.isPresent()) {
           user1=userRepository.findById(user.getEmailId()).get();
           user1.setPassword(user.getPassword());
           userRepository.save(user1);
       }
-
     }
 
-
-
-
+    //method to recieve the user from  reviewerprofile
     @RabbitListener(queues="${stackroute.rabbitmq.queueone}")
     public  void recievereviewer(ReviewerDTO reviewerdto)throws  UserAlreadyExistsException
     {
@@ -79,12 +72,12 @@ public class UserServiceImpl implements UserService {
         else{
             saveUser(user);
         }
-
     }
+
+    //method  to recieve  the user from productownerprofile
     @RabbitListener(queues="${stackroute.rabbitmq.queuetwo}")
     public void  recieveproductowner(ProductOwnerDTO productOwnerDTO)throws  UserAlreadyExistsException
     {
-
         System.out.println("recieved msg  from productowner= " + productOwnerDTO.toString());
         User user=new User(productOwnerDTO.getEmailId(),productOwnerDTO.getReconfirmPassword(),productOwnerDTO.getRole());
         if(userRepository.existsByEmailId(user.getEmailId())){

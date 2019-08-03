@@ -17,7 +17,6 @@ public class SubCategoryServiceImpl implements SubCategoryService{
         this.subCategoryRepository = subCategoryRepository;
     }
 
-
     @Override
     public SubCategory saveSubCategory(SubCategory subCategory) {
         SubCategory savedSubCategory=null;

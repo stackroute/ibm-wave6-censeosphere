@@ -17,14 +17,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@id", scope = ProductDTO.class)
 public class ProductDTO {
-
-
     private String productName;
     private float rating;
     private float price;
     private String productFamily;
     private String subCategory;
-
-
-
 }

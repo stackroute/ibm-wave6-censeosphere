@@ -17,7 +17,6 @@ import java.util.Collection;
 @Service
 public class ProductServiceImpl implements ProductService {
     private ProductRepository productRepository;
-
     Product product;
 
     @Autowired
@@ -28,17 +27,19 @@ public class ProductServiceImpl implements ProductService {
     @Value("${productNotFound}")
     String productNotFound;
 
+    //service implementation to get all products
     @Override
     public Collection<Product> getAll()throws ProductNotFoundException {
         Collection<Product> productCollection=productRepository.getAllProducts();
-            if(productCollection.isEmpty()){
-                throw  new ProductNotFoundException(productNotFound);
-            }
+        if(productCollection.isEmpty()){
+            throw  new ProductNotFoundException(productNotFound);
+        }
         else {
-                return productRepository.getAllProducts();
-            }
+            return productRepository.getAllProducts();
+        }
     }
 
+    //service implementation to save product
     @Override
     public Product saveProduct(String productName, float rating, float price, String productFamily,String subCategory) {
         Product savedProduct=null;
@@ -46,17 +47,19 @@ public class ProductServiceImpl implements ProductService {
         return savedProduct;
     }
 
+    //service implementation to get product by product family
     @Override
     public Collection<Product> getByFamily(String productFamily) throws ProductNotFoundException {
        Collection<Product> productCollection=productRepository.getNode(productFamily);
-           if(productCollection.isEmpty()){
-               throw  new ProductNotFoundException(productNotFound);
-           }
-           else {
-               return productRepository.getNode(productFamily);
-           }
+       if(productCollection.isEmpty()){
+           throw  new ProductNotFoundException(productNotFound);
+       }
+       else {
+           return productRepository.getNode(productFamily);
+       }
     }
 
+    //service implementation to get product by subcategory
     @Override
     public Collection<Product> getBySubCategory(String subCategory) throws ProductNotFoundException {
         Collection<Product> productCollection=productRepository.getBysubCategory(subCategory);
@@ -68,37 +71,34 @@ public class ProductServiceImpl implements ProductService {
         }
     }
 
-
+    //service implementation to delete product by product name
     @Override
     public void deleteProduct(String productName) throws ProductNotFoundException {
         if(productRepository.existsById(productName)) {
             productRepository.deleteNode(productName);
         }
-        else
-        {
+        else {
             throw  new ProductNotFoundException(productNotFound);
         }
     }
 
-
+    //service implementation to save relation between product and subcategory
     @Override
     public Product saveRelation(String productName, String subCategory) {
         return productRepository.createRelation(productName,subCategory);
     }
 
+    //service implementation to get recommended products by reviewer emailId
     @Override
     public Collection<Product> getProduct(String emailId) {
         return productRepository.getProduct(emailId);
     }
 
-
+    //method to receive product information through rabbitmq and save product and create relation between product and subcategory
     @RabbitListener(queues="${stackroute.rabbitmq.queuesix}")
     public void  recieveproductowner(ProductDTO productDTO) {
             saveProduct(productDTO.getProductName(),productDTO.getRating(),productDTO.getPrice(),productDTO.getProductFamily(),productDTO.getSubCategory());
             saveRelation(productDTO.getProductName(),productDTO.getSubCategory());
 
     }
-
-
-
 }

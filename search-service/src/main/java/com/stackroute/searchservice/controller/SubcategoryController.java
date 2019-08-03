@@ -19,20 +19,17 @@ import java.util.List;
 @RequestMapping("api/v1")
 @CrossOrigin(origins = "*")
 public class SubcategoryController {
-
-private SubcategoryService subcategoryService;
+    private SubcategoryService subcategoryService;
 
     @Autowired
-    public SubcategoryController(SubcategoryService subcategoryService1)
-    {
+    public SubcategoryController(SubcategoryService subcategoryService1) {
         this.subcategoryService=subcategoryService1;
     }
 
+    //method to save subcategory
     @PostMapping("subcategory")
     public ResponseEntity<Subcategory> saveSubcategory(@RequestBody Subcategory subcategory){
-
         ResponseEntity responseEntity;
-
         try {
             subcategoryService.saveSubcategory(subcategory);
             responseEntity = new ResponseEntity("Subcategory saved successfully", HttpStatus.CREATED);
@@ -43,14 +40,13 @@ private SubcategoryService subcategoryService;
         return responseEntity;
     }
 
-
-
+    //method to get all subcategories
     @GetMapping("subcategories")
-    public ResponseEntity<List<Subcategory>> getAllSubcategory()
-    {
+    public ResponseEntity<List<Subcategory>> getAllSubcategory() {
         return new ResponseEntity<List<Subcategory>>(subcategoryService.getAllSubcategories(), HttpStatus.OK);
     }
 
+    //method to get all products by subcategory
     @GetMapping("products/{subCategory}")
     public ResponseEntity<List<Products>> findAllProductsBySubcategory(@PathVariable("subCategory") String subCategory)throws SubcategoryNotFoundException
     {
@@ -62,22 +58,16 @@ private SubcategoryService subcategoryService;
             s.printStackTrace();
         }
         return responseEntity;
-
     }
 
+    //method to update subcategory
     @PostMapping("products")
-    public  ResponseEntity<String> updateSubcategory(@RequestBody ProductDetails productDetails)
-    {
-
+    public  ResponseEntity<String> updateSubcategory(@RequestBody ProductDetails productDetails) {
         Date date=new Date();
         long millies=date.getTime();
         Timestamp timestamp=new Timestamp(millies);
         productDetails.setUploadedOn(timestamp);
-
-
-            subcategoryService.updateSubcategory(productDetails);
-            return new ResponseEntity<>("Subcategory updated successfully!", HttpStatus.OK);
-
+        subcategoryService.updateSubcategory(productDetails);
+        return new ResponseEntity<>("Subcategory updated successfully!", HttpStatus.OK);
     }
-
 }

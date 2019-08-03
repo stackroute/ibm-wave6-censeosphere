@@ -8,7 +8,7 @@ import java.util.List;
 public interface ReviewService {
     public Review addReview(Review review);
     public List<Review> getAllReviews();
-    public List<Review> getAllReviewsbyProduct(String pname);
+    public List<Review> getAllReviewsbyProduct(String productname);
     public void sendRating(ReviewDTO reviewDTO);
     public void sendReviewer(Review review);
     public void sendRecommendation(RecommendationDTO recommendationDTO);

@@ -25,6 +25,7 @@ public class ReviewerController {
         this.reviewerService=reviewerService;
     }
 
+    //method to save reviewer profile
     @PostMapping("reviewer")
     public ResponseEntity<String> saveReviewers(@RequestBody Reviewer reviewer) throws ReviewerAlreadyExistsException   {
         ResponseEntity responseEntity;
@@ -35,35 +36,33 @@ public class ReviewerController {
         return responseEntity;
     }
 
+    //method to get reviewer by reviewer emailId
     @GetMapping("reviewer/{emailId}")
     public ResponseEntity<?> getReviewerByEmailId(@PathVariable("emailId") String emailId){
-
-
         try {
             Reviewer reviewer=reviewerService.getReviewerByEmailId(emailId);
             return new ResponseEntity<Reviewer>(reviewer, HttpStatus.OK);
         } catch (ReviewerNotFoundException e) {
             return new ResponseEntity<String>("Reviewer not found", HttpStatus.NOT_FOUND);
         }
-
     }
 
+    //method to delete reviewer by emaild
     @DeleteMapping("reviewer/{emailId}")
     public ResponseEntity<List<Reviewer>> deleteReviewer(@PathVariable("emailId") String emailId) throws ReviewerNotFoundException {
         return new ResponseEntity<List<Reviewer>>(reviewerService.deleteReviewer(emailId),HttpStatus.OK);
     }
 
-
+    //method to get all reviewer
     @GetMapping("reviewers")
     public ResponseEntity<List<Reviewer>> displayAllReviewers() throws ReviewerNotFoundException {
         return new ResponseEntity<List<Reviewer>>(reviewerService.displayAllReviewers(), HttpStatus.OK);
     }
 
+    //method to update reviewer profile
     @PutMapping("reviewer/{emailId}")
     public ResponseEntity<Reviewer> updateReviewer(@RequestBody Reviewer reviewer,@PathVariable("emailId") String emailId) throws ReviewerNotFoundException {
-
-
-       Reviewer reviewer1 = reviewerService.updateReviewer(reviewer,emailId);
+        Reviewer reviewer1 = reviewerService.updateReviewer(reviewer,emailId);
         return new ResponseEntity<Reviewer>(reviewer1, HttpStatus.OK);
     }
 }

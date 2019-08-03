@@ -21,10 +21,7 @@ public class Reviewer
     private String name;
     private String reconfirmPassword;
     private String role;
-
-   private String image;
-
-   private int creditpoints;
-
+    private String image;
+    private int creditpoints;
     private List<Review> revieweswritten;
 }

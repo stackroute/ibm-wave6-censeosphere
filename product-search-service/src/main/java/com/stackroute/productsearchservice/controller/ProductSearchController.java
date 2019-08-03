@@ -20,23 +20,21 @@ import java.util.Optional;
 @RequestMapping("api/v1")
 public class ProductSearchController {
 
-    ProductSearchService productSearchService;
+    private ProductSearchService productSearchService;
+
     @Autowired
-    public ProductSearchController(ProductSearchService productSearchService)
-    {
+    public ProductSearchController(ProductSearchService productSearchService) {
         this.productSearchService=productSearchService;
     }
 
+    //method to save product added by product owner
     @PostMapping("product")
     public ResponseEntity<String> saveProduct(@RequestBody ProductDetails productDetails){
-
         ResponseEntity responseEntity;
-
         Date date=new Date();
         long millies=date.getTime();
         Timestamp timestamp=new Timestamp(millies);
         productDetails.setUploadedOn(timestamp);
-
         try {
             productSearchService.saveProduct(productDetails);
             responseEntity = new ResponseEntity("Product saved successfully", HttpStatus.CREATED);
@@ -47,16 +45,14 @@ public class ProductSearchController {
         return responseEntity;
     }
 
-
-
+    //method to get all products
     @GetMapping("product")
-    public ResponseEntity<List<ProductDetails>> getAllProducts()
-    {
+    public ResponseEntity<List<ProductDetails>> getAllProducts() {
         return new ResponseEntity<>(productSearchService.getAllProducts(), HttpStatus.OK);
     }
 
+    //method to delete product by product name
     @DeleteMapping("products/{productName}")
-
     public ResponseEntity<?> deleteProduct(@PathVariable("productName") String productName) {
         try {
             ProductDetails productDetails = productSearchService.deleteProduct(productName);
@@ -66,7 +62,7 @@ public class ProductSearchController {
         }
     }
 
-
+    //method to update product
     @PutMapping("product/{productName}")
     public ResponseEntity<String> updateComments(@RequestBody ProductDetails productDetails,@PathVariable String productName) {
         try {
@@ -77,8 +73,8 @@ public class ProductSearchController {
         }
     }
 
+    //method to get product by product name
     @GetMapping("product/{productName}")
-
     public ResponseEntity<?> getProductByName(@PathVariable String productName)
     {
         try {
@@ -89,35 +85,32 @@ public class ProductSearchController {
         }
     }
 
+    //method to get recently added products
     @GetMapping("recentproducts")
     public ResponseEntity<?> getRecentProducts() {
         try {
-            return new ResponseEntity<List<ProductDetails>>
-                    (productSearchService.getRecentProducts(), HttpStatus.OK);
-
+            return new ResponseEntity<List<ProductDetails>>(productSearchService.getRecentProducts(), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<String>("No products", HttpStatus.NOT_FOUND);
         }
     }
 
+    //method to get trending products
     @GetMapping("trendingproducts")
     public ResponseEntity<?> getTrendingProducts() {
         try {
-            return new ResponseEntity<List<ProductDetails>>
-                    (productSearchService.getTrendingProducts(), HttpStatus.OK);
-
+            return new ResponseEntity<List<ProductDetails>>(productSearchService.getTrendingProducts(), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<String>("No products", HttpStatus.NOT_FOUND);
         }
     }
 
+    //method to get product by product owner emailId
     @GetMapping("search/{emailId}/{prodcutName}")
     public ResponseEntity<?> getProductByEmailId(@PathVariable("emailId") String emailId,@PathVariable("prodcutName") String prodcutName) {
         ProductDetails productDetails = productSearchService.searchProductByProductOwner(emailId, prodcutName);
         return new ResponseEntity<ProductDetails>(productDetails, HttpStatus.OK);
     }
-
-
 }
 
 

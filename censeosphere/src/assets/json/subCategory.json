@@ -1,11 +1,11 @@
 [
         {
            
-            "subCategory":"Air conditioner"
+            "subCategory":"Air Conditioner"
         }
         ,{
           
-            "subCategory":"Mobile"
+            "subCategory":"Mobile Phone"
         },
         {
            
@@ -17,6 +17,7 @@
         },
         {
            
-            "subCategory":"Laptop"
+            "subCategory":"Television"
         }
+        
     ]

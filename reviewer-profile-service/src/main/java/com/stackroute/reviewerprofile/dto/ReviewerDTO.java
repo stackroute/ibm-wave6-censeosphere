@@ -15,7 +15,6 @@ import org.springframework.data.annotation.Id;
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@id", scope = ReviewerDTO.class)
 public class ReviewerDTO
 {
-
     @Id //Primary Key
     private String emailId;
     private String reconfirmPassword;

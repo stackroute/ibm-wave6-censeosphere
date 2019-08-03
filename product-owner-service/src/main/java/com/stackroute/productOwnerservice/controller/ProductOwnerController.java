@@ -14,16 +14,16 @@ import java.util.List;
 @RestController
 @RequestMapping(value="api/v1")
 public class ProductOwnerController {
+    private ProductOwnerService productownerService;
 
-
-    ProductOwnerService productownerService;
-
+    @Autowired
     public ProductOwnerController(ProductOwnerService productownerService) {
         this.productownerService = productownerService;
     }
 
+    //method to save product owner profile
     @PostMapping("product")
-    public ResponseEntity<String> saveTrack(@RequestBody ProductOwner productowner) {
+    public ResponseEntity<String> saveProductOwner(@RequestBody ProductOwner productowner) {
         ResponseEntity responseEntity;
         try {
             productownerService.saveDetails(productowner);
@@ -35,10 +35,9 @@ public class ProductOwnerController {
         return responseEntity;
     }
 
+    //method to delete product owner profile by product owner emailId
     @DeleteMapping("product/{emailId}")
     public ResponseEntity<String> deleteProduct(@PathVariable("emailId") String emailId) {
-
-
         try {
             ProductOwner productowner = productownerService.deleteDetails(emailId);
             return new ResponseEntity<String>("Details Deleted", HttpStatus.OK);
@@ -47,23 +46,22 @@ public class ProductOwnerController {
         }
     }
 
+    //method to get all products
     @GetMapping("product")
     public ResponseEntity<?> getAllProducts() {
         return new ResponseEntity<List<ProductOwner>>(productownerService.getAllDetails(), HttpStatus.OK);
     }
 
+    //method to update profile of product owner
     @PutMapping("products/{emailId}")
     public ResponseEntity<?> updateDetails(@RequestBody ProductOwner productowner,@PathVariable("emailId") String emailId) throws ProductOwnerDetailsNotFoundException {
-
-         ProductOwner productowner1 = productownerService.updateDetails(productowner, emailId);
-          return new ResponseEntity<ProductOwner>(productowner1, HttpStatus.OK);
-
+        ProductOwner productowner1 = productownerService.updateDetails(productowner, emailId);
+        return new ResponseEntity<ProductOwner>(productowner1, HttpStatus.OK);
     }
 
-
+    //method to get product owner by emailId
     @GetMapping("product/{emailId}")
     public ResponseEntity<?> getProductOwnerByEmailId(@PathVariable("emailId") String emailId) {
-
         try {
             ProductOwner productOwner = productownerService.getProductOwnerByEmailId(emailId);
             return new ResponseEntity<ProductOwner>(productOwner, HttpStatus.OK);

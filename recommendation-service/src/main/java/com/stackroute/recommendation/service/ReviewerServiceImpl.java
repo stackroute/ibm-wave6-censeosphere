@@ -22,6 +22,8 @@ public class ReviewerServiceImpl implements ReviewerService {
 
     @Value("${reviewerNotFound}")
     String reviewerNotFound;
+
+    //service implementation to save reviewer
     @Override
     public Reviewer saveReviewer(Reviewer reviewer) {
         Reviewer  savedReviewer=null;
@@ -29,6 +31,7 @@ public class ReviewerServiceImpl implements ReviewerService {
         return savedReviewer;
     }
 
+    //service implementation to get all reviewer
     @Override
     public Collection<Reviewer> getAll() throws ReviewerNotFoundException {
         Collection<Reviewer> reviewerCollection=reviewerRepository.getAllReviewers();
@@ -38,17 +41,18 @@ public class ReviewerServiceImpl implements ReviewerService {
         return reviewerRepository.getAllReviewers();
     }
 
+    //service implementation to delete reviewer
     @Override
     public void deleteReviewer(String emailId) throws ReviewerNotFoundException {
         if(reviewerRepository.existsById(emailId)) {
             reviewerRepository.deleteNode(emailId);
         }
-        else
-        {
+        else {
             throw new ReviewerNotFoundException(reviewerNotFound);
         }
     }
 
+    //service implementation to get reviewer
     @Override
     public Reviewer getByName(String emailId) throws ReviewerNotFoundException{
         if(reviewerRepository.existsById(emailId)) {
@@ -59,12 +63,11 @@ public class ReviewerServiceImpl implements ReviewerService {
         }
     }
 
+    //service implementation to create relation between reviewer and product
     @Override
     public Reviewer saveRelation(String emailId, String productName) {
         return reviewerRepository.createRelation(emailId,productName);
     }
-
-
 
     @RabbitListener(queues="${stackroute.rabbitmq.queueseven}")
     public void  recievereviw(ReviewDTO reviewDTO) {

@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class configconsumer {
+public class ConfigConsumer {
 
     @Value("${stackroute.rabbitmq.queueone}")
     String queueOne;

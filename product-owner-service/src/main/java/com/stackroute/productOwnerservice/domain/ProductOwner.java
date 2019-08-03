@@ -13,9 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductOwner {
-
     private String name;
-
     @Id
     private String emailId;
     private String image;

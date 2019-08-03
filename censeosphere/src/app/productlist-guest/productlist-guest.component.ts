@@ -155,4 +155,12 @@ newlogin(lemailId, lpassword): any {
 
 }
 
+imageclickguest(pro){
+  
+  let a = JSON.stringify(pro);
+    sessionStorage.setItem('data', a);
+    this.router.navigateByUrl("/productreview");
+
+}
+
 }
