@@ -32,8 +32,8 @@
 		<module>user-authentication-service</module>
 		<module>review-service</module>
 		<module>reviewer-profile-service</module>
-		<module>product-owner-service</module>
-		<module>NLP-service</module>
+		<module>product-owner-service </module>
+		<module> NLP-service</module>
 		<module>product-search-service</module>
 		<module>recommendation-service</module>
 		<module>search-service</module>
