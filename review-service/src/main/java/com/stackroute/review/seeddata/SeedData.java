@@ -2,6 +2,8 @@ package com.stackroute.review.seeddata;
 
 
 import com.stackroute.review.domain.Review;
+import com.stackroute.review.dto.RecommendationDTO;
+import com.stackroute.review.dto.ReviewDTO;
 import com.stackroute.review.repository.ReviewRepository;
 import com.stackroute.review.service.ReviewService;
 import org.apache.poi.ss.usermodel.Cell;
@@ -68,13 +70,24 @@ review.setPrice(new Float(workbook.getSheetAt(0).getRow(i).getCell(j + 4).getRaw
 review.setSubCategory(workbook.getSheetAt(0).getRow(i).getCell(j + 6).toString());
 review.setCreditpoints(new Integer(workbook.getSheetAt(0).getRow(i).getCell(j + 7).getRawValue()));
 
+                         reviewRepository.save(review);
+
+                         reviewService.sendReviewer(review);
+
+                         ReviewDTO reviewDTO=new ReviewDTO();
+                         reviewDTO.setProductName(workbook.getSheetAt(0).getRow(i).getCell(j + 3).toString());
+                         reviewDTO.setReviewDescription(workbook.getSheetAt(0).getRow(i).getCell(j + 2).toString());
+                         reviewDTO.setCreditpoints(new Integer(workbook.getSheetAt(0).getRow(i).getCell(j + 7).getRawValue()));
+                         reviewService.sendRating(reviewDTO);
 
 
-
-reviewRepository.save(review);
-
-reviewService.sendReviewer(review);
+                          RecommendationDTO recommendationDTO=new RecommendationDTO();
+                          recommendationDTO.setReviewerEmail(workbook.getSheetAt(0).getRow(i).getCell(j + 0).toString());
+                          recommendationDTO.setProductName(workbook.getSheetAt(0).getRow(i).getCell(j + 3).toString());
+                          recommendationDTO.setSubCategory(workbook.getSheetAt(0).getRow(i).getCell(j + 6).toString());
+                          reviewService.sendRecommendation(recommendationDTO);
                          System.out.println(review);
+
 
                      }
 

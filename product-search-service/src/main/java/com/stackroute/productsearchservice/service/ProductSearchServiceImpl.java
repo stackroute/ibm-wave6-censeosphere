@@ -57,6 +57,7 @@ public class ProductSearchServiceImpl implements ProductSearchService {
             {
             ProductDetails savedProducts=productSearchRepository.save(productDetails);
             sendProduct(savedProducts);
+            sendToSearch(savedProducts);
             ProductDTO productDTO=new ProductDTO(savedProducts.getProductName(),savedProducts.getRating(),savedProducts.getPrice(),savedProducts.getProductFamily(),savedProducts.getSubCategory());
             sendToRecommendation(productDTO);
             return savedProducts;

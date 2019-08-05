@@ -1,115 +1,126 @@
 <div class="image">
-<div class="containerbody">
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <img src="../../assets/img/logo14.png">
-    <div class="dropdown">
-      <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
-      </a>
-      <ul id="drop" class="dropdown-menu">
-        <li><button class="dropdown-item" (click)="update()"><span><i class="fa fa-refresh"></i></span>Profile</button></li>
-        <li><button class="dropdown-item" (click)="lpage()"><span><i class="fa fa-power-off"></i></span> Log
-            Out</button></li>
-      </ul>
-    </div>
-  </nav>
-</div>
-<mat-tab-group animationDuration="0ms">
-  <mat-tab label="Edit Profile">
-    <div class="container ">
-      <h3 id="heading">Edit Profile</h3>
-      <hr>
-      <div id="rowcontainer" class="row">
-        <div class="col-md-12">
-          <form [formGroup]="firstFormGroup" id="editform">
-            <!-- left column -->
-            <div class="col-md-3">
-              <div class="form-group">
-                <div class="text-center">
-                  <img src="./assets/img/{{reviewer.image}}" class="avatar img-circle" alt="avatar">
-                  <h6>Upload a different photo...</h6>
-                  <input class="aligns" type="file" (change)="selectVideo($event)" accept=".jpg,.jpeg,.gif,.png/*">
-                  <button id="uploadbutton" class="btn btn-outline-dark" (click)="uploadVideo()">Upload Photo</button>
-                </div>
-              </div>
+    <div class="containerbody">
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <img src="../../assets/img/logo14.png">
+            <div class="dropdown">
+                <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
+                </a>
+                <ul id="drop" class="dropdown-menu">
+                    <li><button class="dropdown-item" (click)="update()"><span><i class="fa fa-refresh"></i></span>Profile</button></li>
+                    <li><button class="dropdown-item" (click)="lpage()"><span><i class="fa fa-power-off"></i></span> Log
+              Out</button></li>
+                </ul>
             </div>
-            <!-- edit form column -->
-            <div class="col-md-9 personal-info">
-              
-                <div class="form-group">
-                    <label class="col-lg-3 control-label">Reviewer Score: {{reviewer.creditpoints}}
+        </nav>
+    </div>
+
+    <br>
+
+    <div id="main">
+
+
+        <mat-tab-group animationDuration="0ms">
+            <br>
+            <mat-tab label="Edit Profile">
+                <div class="containerform ">
+                    <br>
+                    <section class="mainheader">
+                        <h2 id="searchheading">
+                            Edit Profile
+                        </h2>
+                    </section>
+
+                    <hr class="shine">
+                    <hr class="side">
+                    <div id="rowcontainer" class="row">
+                        <div class="col-md-12">
+                            <form [formGroup]="firstFormGroup" id="editform">
+                                <!-- left column -->
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <div class="text-center">
+                                            <img src="./assets/img/{{reviewer.image}}" class="avatar img-circle" alt="avatar">
+                                            <h6>Upload a different photo...</h6>
+                                            <input class="aligns" type="file" (change)="selectVideo($event)" accept=".jpg,.jpeg,.gif,.png/*">
+                                            <button id="uploadbutton" class="btn btn-outline-dark" (click)="uploadVideo()">Upload Photo</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- edit form column -->
+                                <div class="col-md-9 personal-info">
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Reviewer Score: {{reviewer.creditpoints}}
                        <i class="fa fa-trophy" style="font-size:20px;color:gold"></i></label>
 
-                   <!-- <div class="col-lg-3">
+                                        <!-- <div class="col-lg-3">
     
                       <input class="form-control" formControlName="cPointsCtrl" type="text" value="{{reviewer.creditpoints}}">
                      
                    </div> -->
-                  </div>
+                                    </div>
 
-              <div class="form-group">
-                <label class="col-lg-3 control-label">Name:</label>
-                <div class="col-lg-8">
-                  <!-- <input class="form-control" formControlName="NameCtrl" type="text" placeholder="enter your name" #name [ngClass]="{ 'is-invalid': submitted && f.NameCtrl.errors }">
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Name:</label>
+                                        <div class="col-lg-8">
+                                            <!-- <input class="form-control" formControlName="NameCtrl" type="text" placeholder="enter your name" #name [ngClass]="{ 'is-invalid': submitted && f.NameCtrl.errors }">
                   <div *ngIf="submitted && f.NameCtrl.errors" class="invalid-feedback">
                       <div *ngIf="f.NameCtrl.errors.required"> Name is required</div>
                   </div>                -->
-                  <input class="form-control" formControlName="NameCtrl" type="text" value="{{reviewer.name}}">
-                </div>
-              </div>
+                                            <input class="form-control" formControlName="NameCtrl" type="text" value="{{reviewer.name}}">
+                                        </div>
+                                    </div>
 
-              <div class="form-group">
-                <label class="col-lg-3 control-label">Email:</label>
-                <div class="col-lg-8">
-                  <!-- <input class="form-control" formControlName="emailCtrl" type="text" placeholder="enter your mailId" #email [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Email:</label>
+                                        <div class="col-lg-8">
+                                            <!-- <input class="form-control" formControlName="emailCtrl" type="text" placeholder="enter your mailId" #email [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
                   <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                       <div *ngIf="f.email.errors.required">Email is required</div>
                       <div *ngIf="f.email.errors.email">Enter a valid mailId</div>
                   </div> -->
-                  <input class="form-control" formControlName="emailCtrl" type="text" value="{{reviewer.emailId}}">
-                </div>
-              </div>
+                                            <input class="form-control" formControlName="emailCtrl" type="text" value="{{reviewer.emailId}}">
+                                        </div>
+                                    </div>
 
-              <div class="form-group">
-                <label class="col-md-3 control-label">Password:</label>
-                <div class="col-md-8">
-                  <!-- <input class="form-control" type="password" formControlName="passwordCtrl" placeholder="enter your password" #password [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Password:</label>
+                                        <div class="col-md-8">
+                                            <!-- <input class="form-control" type="password" formControlName="passwordCtrl" placeholder="enter your password" #password [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
                   <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                       <div *ngIf="f.password.errors.required">Password is required</div>
                       <div *ngIf="f.password.errors.minlength">Password must be at least 5 characters</div>
                   </div>               -->
-                  <input class="form-control" type="password" value="{{reviewer.reconfirmPassword}}">
-                </div>
-              </div>
+                                            <input class="form-control" type="password" value="{{reviewer.reconfirmPassword}}">
+                                        </div>
+                                    </div>
 
-              <div class="form-group">
-                <label class="col-md-3 control-label">Confirm password:</label>
-                <div class="col-md-8">
-                  <!-- <input class="form-control" formControlName="ReConfirmPasswordCtrl" type="password" placeholder="reconfirm your password" required> -->
-                  <input class="form-control" formControlName="ReConfirmPasswordCtrl" type="password"
-                    value="{{reviewer.reconfirmPassword}}">
-                </div>
-              </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Confirm password:</label>
+                                        <div class="col-md-8">
+                                            <!-- <input class="form-control" formControlName="ReConfirmPasswordCtrl" type="password" placeholder="reconfirm your password" required> -->
+                                            <input class="form-control" formControlName="ReConfirmPasswordCtrl" type="password" value="{{reviewer.reconfirmPassword}}">
+                                        </div>
+                                    </div>
 
-              <div class="form-group">
-                <label class="col-md-3 control-label"></label>
-                <div class="col-md-8">
-                  <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal" 
-                  (click)="updateDetails()">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label"></label>
+                                        <div class="col-md-8">
+                                            <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal" (click)="updateDetails()">
                     Save Profile
-                  </button>
-                  &nbsp;
-                  <!-- <button type="button" class="btn btn-outline-dark" (click)="account()">Cancel</button> -->
-                  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"
+                  </button> &nbsp;
+                                            <!-- <button type="button" class="btn btn-outline-dark" (click)="account()">Cancel</button> -->
+                                            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"
                    (click)="updateDetails()">
                     Save Profile
                   </button>
                   &nbsp;
                   <button type="button" class="btn btn-primary" (click)="close()">Cancel</button> -->
-                </div>
-              </div>
+                                        </div>
+                                    </div>
 
-              <!-- <div class="modal fade" id="myModal">
+                                    <!-- <div class="modal fade" id="myModal">
                 <div class="modal-dialog modal-sm">
                   <div class="modal-content">
                   
@@ -127,186 +138,174 @@
 
 
 
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </mat-tab>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </mat-tab>
 
-  <mat-tab label="My reviews">
-    <div class="container">
-      <h3>Your reviews</h3>
-      <hr>
-      <br>
-       <div *ngFor="let review of reviews"> 
-         <div class="flex-container">
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="thumb-wrapper">
-            <div class="img-box">
-              <img src="./assets/img/{{review.image}}" class="img-responsive img-fluid" alt="Image not available">
-            </div>
-            <div class="thumb-content">
-              <h4><b>{{review.productName}}</b></h4>
-              <div class="rate">
+            <mat-tab label="My reviews">
 
-                <!-- <h5 class="info">{{review.rating}}</h5></div> -->
-                 <h4 class="info">{{review.rating}}&#9733;</h4></div>
-                 <ng-template #t let-fill="fill">
-                 <span class="star" [class.full]="fill === 100">
+                <div class="containerform">
+                    <br>
+                    <section class="mainheader">
+                        <h2 id="searchheading">Your reviews</h2>
+                    </section>
+                    <hr class="shine">
+                    <hr class="side">
+                    <br>
+                    <div *ngFor="let review of reviews">
+                        <div class="flex-container">
+                            <div class="w3-container w3-purple"></div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="card">
+                                        <div class="card-img-top">
+                                            <img src="./assets/img/{{review.image}}" class="img-responsive img-fluid" alt="Image not available">
+                                        </div>
+                                        <div class="card-body">
+                                            <h4><b>{{review.productName}}</b></h4>
+                                            <div class="rate">
+
+                                                <h4 class="info">{{review.rating}}&#9733;</h4>
+                                            </div>
+                                            <ng-template #t let-fill="fill">
+                                                <span class="star" [class.full]="fill === 100">
                     <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
-                  </span>
-                </ng-template>
-                <ngb-rating  [starTemplate]="t" rate={{review.rating}}></ngb-rating>
-              <h5 class="item-price">${{review.price}}</h5>
-              <h5 class="item-price">{{review.size}} Reviews</h5>
+                                                </span>
+                                            </ng-template>
+                                            <ngb-rating [starTemplate]="t" rate={{review.rating}}></ngb-rating>
+                                            <h5 class="item-price">${{review.price}}</h5>
+                                            <h5 class="item-price">{{review.size}} Reviews</h5>
+                                        </div>
+                                    </div>
+                                    <br>
+                                </div>
+                                <div class="col-sm-8">
+                                    <div id="productinfo">
+                                        <h3>{{review.reviewTitle}}</h3>
+                                        <p>{{review.reviewDescription}}</p>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                <hr class="side">
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="page-footer font-small mdb-color pt-3 bg-dark footer-dark">
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left" id="footerone">
+            <!-- Footer links -->
+            <div class="row text-center text-md-left mt-3 pb-3">
+                <!-- Grid column -->
+                <!-- <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+          <img style="margin-top: 20px; height:100px;width: 50px;" class="card-img-top" src="assets/img/logo5.png" alt="image"> 
+          <h2 id="two" style="color: white"><strong>Censeosphere</strong></h2>
+          <a href="#" style='font-size:24px'><i class='fas fa-home'></i></a>
+        </div> -->
+                <!-- Grid column -->
+                <hr class="w-100 clearfix d-md-none">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-3 mx-auto mt-3">
+                    <ul class="list-unstyled lead">
+                        <li>
+                            <h5><strong>About us</strong></h5>
+                        </li>
+                        <li>
+                            <a href="#"><strong> Vision & Goals </strong></a>
+                        </li>
+                        <li>
+                            <a href="#"><strong> Company </strong></a>
+                        </li>
+                        <!-- <li>
+              <a href="#"><strong> Blog </strong></a>
+            </li> -->
+                        <!-- <li>
+              <a href="#"><strong> Careers </strong></a>
+            </li> -->
+                    </ul>
+                </div>
+                <!-- Grid column -->
+                <hr class="w-100 clearfix d-md-none">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-3  mx-auto mt-3">
+                    <ul class="list-unstyled lead">
+                        <li>
+                            <h5><strong>Contact us</strong></h5>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-map-marker"></i>&nbsp;<Strong>Location</Strong></a>
+                        </li>
+                        <!-- <li>
+              <a href="#"><i class="fa fa-phone"></i>&nbsp;<Strong>9874563129</Strong></a>
+            </li> -->
+                        <li>
+                            <a href="#"> <i class="fa fa-envelope"></i>&nbsp;
+                                <Strong>niitstkrt@gmail.com</Strong>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Grid column -->
+                <hr class="w-100 clearfix d-md-none">
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <ul class="list-unstyled lead">
+                        <li>
+                            <h5><strong>Insights</strong></h5>
+                        </li>
+                        <li>
+                            <a href="#"><Strong>Privacy policy</Strong></a>
+                        </li>
+                        <!-- <li>
+              <a href="#"><Strong>Terms & Conditions </Strong></a>
+            </li> -->
+                        <!-- <li>
+              <a href="#"><Strong>FAQs</Strong></a>
+            </li> -->
+                        <li>
+                            <a href="#"><Strong>Support</Strong></a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Grid column -->
             </div>
-          </div>
-          <br>
+            <!-- Footer links -->
+            <hr class="side">
+            <!-- Grid row -->
+            <div class="row d-flex align-items-center">
+                <!-- Grid column -->
+                <div class="col-md-7 col-lg-8">
+                    <div class="col-md-12">
+                        <ul class="social-network social-circle">
+                            <li><a href="#"><i class="fab fa-facebook" id="facebook"></i></a></li>
+                            <li></li>
+                            <li><a href="#"><i class="fab fa-twitter" id="twitter"></i></a></li>
+                            <li></li>
+                            <li><a href="#"><i class="fab fa-instagram" id="instagram"></i></a></li>
+                            <li></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in" id="linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                    <!--Copyright-->
+                    <p class="text-center text-md-right">Copyright © All Rights Reserved by
+                        <strong>Censeosphere</strong>
+                    </p>
+                </div>
+            </div>
+            <!-- Grid column -->
         </div>
-        <div class="col-sm-8">
-          <div id="productinfo">
-            <h3>{{review.reviewTitle}}</h3>
-            <p>{{review.reviewDescription}}</p>
-            <br>
-          </div>
-        </div>
-      </div>
-    </div>
-      </div> 
-          </div>
-    <hr>
-  </mat-tab>
-</mat-tab-group>
-
-<!-- footer -->
-<footer class="page-footer font-small mdb-color pt-4 bg-dark footer-dark">
+    </footer>
+    <!-- end footer -->
 
 
-
-  <!-- Footer Links -->
-  <div class="container text-center text-md-left">
-
-    <!-- Footer links -->
-    <div class="row text-center text-md-left mt-3 pb-3">
-
-      <!-- Grid column -->
-      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-        <!-- <img style="margin-top: 20px; height:100px;width: 50px;" class="card-img-top" src="assets/img/logo5.png" alt="image"> -->
-        <h2 style="color: white"><strong>CenseoSphere</strong></h2>
-        <a href="#" style='font-size:24px'><i class='fas fa-home'></i></a>
-      </div>
-      <!-- Grid column -->
-
-      <hr class="w-100 clearfix d-md-none">
-
-      <!-- Grid column -->
-      <div class="col-md-3 col-lg-3 mx-auto mt-3">
-        <ul class="list-unstyled lead">
-          <li>
-            <h5><strong>About us</strong></h5>
-          </li>
-          <li>
-            <a href="#"><strong> Vision & Goals </strong></a>
-          </li>
-          <li>
-            <a href="#"><strong> Company </strong></a>
-          </li>
-          <li>
-            <a href="#"><strong> Blog </strong></a>
-          </li>
-          <li>
-            <a href="#"><strong> Careers </strong></a>
-          </li>
-        </ul>
-
-      </div>
-      <!-- Grid column -->
-
-      <hr class="w-100 clearfix d-md-none">
-
-      <!-- Grid column -->
-      <div class="col-md-3 col-lg-3  mx-auto mt-3">
-        <ul class="list-unstyled lead">
-          <li>
-            <h5><strong>Contact us</strong></h5>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-map-marker"></i>&nbsp;<Strong>Location</Strong></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-phone"></i>&nbsp;<Strong>9874563129</Strong></a>
-          </li>
-          <li>
-            <a href="#"> <i class="fa fa-envelope"></i>&nbsp;<Strong>niitstkrt@gmail.com</Strong></a>
-          </li>
-        </ul>
-
-      </div>
-
-      <!-- Grid column -->
-      <hr class="w-100 clearfix d-md-none">
-
-      <!-- Grid column -->
-      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-        <ul class="list-unstyled lead">
-          <li>
-            <h5><strong>Insights</strong></h5>
-          </li>
-          <li>
-            <a href="#"><Strong>Privacy policy</Strong></a>
-          </li>
-          <li>
-            <a href="#"><Strong>Terms & Conditions </Strong></a>
-          </li>
-          <li>
-            <a href="#"><Strong>FAQs</Strong></a>
-          </li>
-          <li>
-            <a href="#"><Strong>Support</Strong></a>
-          </li>
-        </ul>
-      </div>
-      <!-- Grid column -->
-
-    </div>
-    <!-- Footer links -->
-
-    <hr>
-
-    <!-- Grid row -->
-    <div class="row d-flex align-items-center">
-
-
-      <!-- Grid column -->
-      <div class="col-md-7 col-lg-8">
-
-
-        <div class="col-md-12">
-          <ul class="social-network social-circle">
-            <li><a href="#"><i class="fab fa-facebook" id="facebook"></i></a></li>
-            <li></li>
-            <li><a href="#"><i class="fab fa-twitter" id="twitter"></i></a></li>
-            <li></li>
-            <li><a href="#"><i class="fab fa-instagram" id="instagram"></i></a></li>
-            <li></li>
-            <li><a href="#"><i class="fab fa-linkedin-in" id="linkedin"></i></a></li>
-
-          </ul>
-        </div>
-
-
-        <!--Copyright-->
-
-        <p class="text-center text-md-right">Copyright © All Rights Reserved by
-          <strong>CenseoSphere</strong>
-        </p>
-
-      </div>
-    </div>
-    <!-- Grid column -->
-  </div>
-</footer>
-<!-- end footer -->
 </div>

@@ -1,7 +1,7 @@
 <!-- header -->
 <div class="image">
   <nav class="navbar navbar-expand-lg fixed-top">
-    <img src="../../assets/img/logo14.png">
+    <img id="logo" src="../../assets/img/logo14.png">
     <div class="dropdown">
       <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
@@ -15,10 +15,14 @@
     </div>
   </nav>
 
-  <div class="container" id="main">
+<br>
+  <div class="containerform" id="main">
     <br>
-      <h2>Add a Product</h2> 
-    <hr class="side">
+    <section  class="mainheader">
+        <h2>Add a Product</h2> 
+      </section>
+      
+    <hr class="shine">
 
 
     <!-- <form class="form-horizontal" #myForm="ngForm"> -->
@@ -117,10 +121,8 @@
           <input class="aligns" type="file" (change)="selectVideo($event)" accept=".jpg,.jpeg,.gif,.png/*">
           <br><br>
           <div id="upload">
-            <button class="btn btn-outline-dark" (click)="uploadVideo()">Upload Photo</button>
+            <button class="w3-btn w3-round-xxlarge" (click)="uploadVideo()">Upload Photo</button>
           </div>
-
-
         </div>
       </div>
 
@@ -129,7 +131,7 @@
       <div class="form-group">
         <div class="col-sm-offset-3 col-sm-9">
           <!-- <button type="submit" class="btn btn-primary" (click)="saveProduct()">Save Product</button> -->
-          <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal"
+          <button type="button" class="w3-btn w3-round-xxlarge"  data-toggle="modal" data-target="#myModal"
             (click)="saveProduct()">
             Save Product
           </button>
@@ -147,7 +149,9 @@
             </div>
 
             <div class="modal-footer">
-              <button type="button" class="btn btn-outline-dark" data-dismiss="modal" (click)="account()">Close</button>
+              <button type="button" class="btn btn-outline-dark" data-dismiss="modal" (click)="account()">
+                Close
+              </button>
             </div>
 
           </div>
@@ -157,25 +161,21 @@
     </form>
   </div>
 
-  <!-- footer -->
-  <footer class="page-footer font-small mdb-color pt-4 bg-dark footer-dark">
 
+<!-- Footer -->
+<footer class="page-footer font-small mdb-color pt-3 bg-dark footer-dark">
     <!-- Footer Links -->
     <div class="container text-center text-md-left">
-
       <!-- Footer links -->
       <div class="row text-center text-md-left mt-3 pb-3">
-
         <!-- Grid column -->
-        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-          <!-- <img style="margin-top: 20px; height:100px;width: 50px;" class="card-img-top" src="assets/img/logo5.png" alt="image"> -->
-          <h2 style="color: white"><strong>CenseoSphere</strong></h2>
+        <!-- <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+          <img style="margin-top: 20px; height:100px;width: 50px;" class="card-img-top" src="assets/img/logo5.png" alt="image"> 
+          <h2 id="two" style="color: white"><strong>Censeosphere</strong></h2>
           <a href="#" style='font-size:24px'><i class='fas fa-home'></i></a>
-        </div>
+        </div> -->
         <!-- Grid column -->
-
         <hr class="w-100 clearfix d-md-none">
-
         <!-- Grid column -->
         <div class="col-md-3 col-lg-3 mx-auto mt-3">
           <ul class="list-unstyled lead">
@@ -188,19 +188,16 @@
             <li>
               <a href="#"><strong> Company </strong></a>
             </li>
-            <li>
+            <!-- <li>
               <a href="#"><strong> Blog </strong></a>
-            </li>
-            <li>
+            </li> -->
+            <!-- <li>
               <a href="#"><strong> Careers </strong></a>
-            </li>
+            </li> -->
           </ul>
-
         </div>
         <!-- Grid column -->
-
         <hr class="w-100 clearfix d-md-none">
-
         <!-- Grid column -->
         <div class="col-md-3 col-lg-3  mx-auto mt-3">
           <ul class="list-unstyled lead">
@@ -210,19 +207,16 @@
             <li>
               <a href="#"><i class="fa fa-map-marker"></i>&nbsp;<Strong>Location</Strong></a>
             </li>
-            <li>
+            <!-- <li>
               <a href="#"><i class="fa fa-phone"></i>&nbsp;<Strong>9874563129</Strong></a>
-            </li>
+            </li> -->
             <li>
               <a href="#"> <i class="fa fa-envelope"></i>&nbsp;<Strong>niitstkrt@gmail.com</Strong></a>
             </li>
           </ul>
-
         </div>
-
         <!-- Grid column -->
         <hr class="w-100 clearfix d-md-none">
-
         <!-- Grid column -->
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
           <ul class="list-unstyled lead">
@@ -232,34 +226,25 @@
             <li>
               <a href="#"><Strong>Privacy policy</Strong></a>
             </li>
-            <li>
+            <!-- <li>
               <a href="#"><Strong>Terms & Conditions </Strong></a>
-            </li>
-            <li>
+            </li> -->
+            <!-- <li>
               <a href="#"><Strong>FAQs</Strong></a>
-            </li>
+            </li> -->
             <li>
               <a href="#"><Strong>Support</Strong></a>
             </li>
           </ul>
         </div>
         <!-- Grid column -->
-
       </div>
       <!-- Footer links -->
-
-    
       <hr class="side">
-  
-
       <!-- Grid row -->
       <div class="row d-flex align-items-center">
-
-
         <!-- Grid column -->
         <div class="col-md-7 col-lg-8">
-
-
           <div class="col-md-12">
             <ul class="social-network social-circle">
               <li><a href="#"><i class="fab fa-facebook" id="facebook"></i></a></li>
@@ -269,22 +254,16 @@
               <li><a href="#"><i class="fab fa-instagram" id="instagram"></i></a></li>
               <li></li>
               <li><a href="#"><i class="fab fa-linkedin-in" id="linkedin"></i></a></li>
-
             </ul>
           </div>
-
-
           <!--Copyright-->
-
           <p class="text-center text-md-right">Copyright © All Rights Reserved by
-            <strong>CenseoSphere</strong>
+            <strong>Censeosphere</strong>
           </p>
-
         </div>
       </div>
       <!-- Grid column -->
     </div>
   </footer>
-
   <!-- end footer -->
 </div>

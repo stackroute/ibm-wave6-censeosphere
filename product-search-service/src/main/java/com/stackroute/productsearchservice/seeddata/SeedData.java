@@ -77,6 +77,17 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
                         productSearchRepository.save(productDetails);
 
                         productSearchService.sendProduct(productDetails);
+                        productSearchService.sendToSearch(productDetails);
+
+
+                        ProductDTO productDTO=new ProductDTO();
+                        productDTO.setProductName(workbook.getSheetAt(0).getRow(i).getCell(j + 3).toString());
+                        productDTO.setRating(0);
+                        productDTO.setPrice(new Float(workbook.getSheetAt(0).getRow(i).getCell(j + 6).getRawValue()));
+                        productDTO.setProductFamily(workbook.getSheetAt(0).getRow(i).getCell(j + 4).toString());
+                        productDTO.setSubCategory(workbook.getSheetAt(0).getRow(i).getCell(j + 2).toString());
+                        productSearchService.sendToRecommendation(productDTO);
+
                         System.out.println(productDetails);
 
 

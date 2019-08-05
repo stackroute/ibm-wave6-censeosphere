@@ -8,6 +8,7 @@ import { LandingpageService } from '../landingpage.service';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Authentication } from '../authentication';
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-productlist-guest',
   templateUrl: './productlist-guest.component.html',
@@ -29,7 +30,10 @@ export class ProductlistGuestComponent implements OnInit {
   auth: Authentication = new Authentication();
   constructor(private router: Router, private landingpageservice: LandingpageService,
      private loginvalidation: LoginvalidationService,private productService:ProductService,
-     private http:HttpClient,private activatedRoute:ActivatedRoute) { }
+     private http:HttpClient,private activatedRoute:ActivatedRoute,private config: NgbRatingConfig) {
+      config.max = 5;
+      config.readonly = true;
+      }
 
   ngOnInit() {
 
@@ -155,12 +159,11 @@ newlogin(lemailId, lpassword): any {
 
 }
 
+
 imageclickguest(pro){
-  
   let a = JSON.stringify(pro);
     sessionStorage.setItem('data', a);
     this.router.navigateByUrl("/productreview");
-
-}
+ }
 
 }

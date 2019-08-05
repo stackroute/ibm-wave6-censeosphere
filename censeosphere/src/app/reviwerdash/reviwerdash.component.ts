@@ -9,13 +9,14 @@ import { ReviewService } from '../review.service';
 import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 import subs from '../../assets/json/subCategory.json';
 import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-reviwerdash',
   templateUrl: './reviwerdash.component.html',
   styleUrls: ['./reviwerdash.component.css']
 })
 export class ReviwerdashComponent implements OnInit {
-
+ 
   productDetails = [];
   productByFamily = [];
   products = [];

@@ -1,59 +1,70 @@
-
 <!-- header -->
 <div class="containerbody">
     <nav class="navbar navbar-expand-lg fixed-top">
-      <div class="example-sidenav-content">
-        <button id="sidebar" class="hamburger mat-button" mat-button (click)="snav.toggle()" style="color: white">
+        <div class="example-sidenav-content">
+            <button id="sidebar" class="hamburger mat-button" mat-button (click)="snav.toggle()" style="color: white">
           <i class="fa fa-bars" aria-hidden="true"></i>
         </button>
-      </div>
-      <img src="../../assets/img/logo14.png">
-        <button class="btn btn-outline-light" data-toggle="modal" href="#signup" id="login">Login</button>
-    </nav>
-  </div>
-  <!-- end header -->
-  
-
-    <!--start of side nav-->
-
-    <mat-sidenav-container class="example-sidenav-container"> 
-      <mat-sidenav #snav opened="true" disableClose="true" mode="side" class="example-sidenav">
-        <div  class="matlist">
-          <mat-nav-list>
-                  <div *ngFor="let x of array">
-                    <h5 class="subcategory" (click)="onClickSubCategory(x.subCategory)">{{x.subCategory}}</h5>
-                  </div>
-          </mat-nav-list>
         </div>
-      </mat-sidenav>
-      
+        <img src="../../assets/img/logo14.png">
+        <button class="w3-btn w3-round-xxlarge" data-toggle="modal" href="#signup" id="login">Login</button>
+    </nav>
+</div>
+<!-- end header -->
+
+
+<!--start of side nav-->
+
+<mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav #snav opened="true" disableClose="true" mode="side" class="example-sidenav">
+        <div class="matlist">
+            <mat-nav-list>
+                <div *ngFor="let x of array">
+                    <h5 class="subcategory" (click)="onClickSubCategory(x.subCategory)">{{x.subCategory}}</h5>
+                </div>
+            </mat-nav-list>
+        </div>
+    </mat-sidenav>
+
     <!--end of side nav-->
-    
-   <h3 class="subheader">{{subCategory}}</h3>
-    <hr>
-        <!--starting product list-->
+    <section class="mainheader">
+        <h2 class="subheader" id="searchheading">{{subCategory}}</h2>
+    </section>
+    <hr class="shine">
+    <!-- <h3 class="subheader">{{subCategory}}</h3> -->
+    <hr class="side">
+    <!--starting product list-->
     <div class="my-row" id="">
-      <div *ngFor="let pro of listofproducts">
-        <div class="card">
-            <img class="card-img-top" src="../../assets/img/{{pro.image}}" alt="It is picture"  (click)="imageclickguest(pro)">
-            <div class="card-body">
-            <div class="card-title"><b>{{pro.productName}}</b></div>
-             
-              <div class="card-title"><span>{{pro.price|currency:"&#8377;"}}</span></div>
-             
-              <div class="card-title">
-                <span>{{pro.rating}}
+        <div *ngFor="let pro of listofproducts">
+            <div class="card">
+                <img class="card-img-top" src="../../assets/img/{{pro.image}}" alt="It is picture" (click)="imageclickguest(pro)">
+                <div class="card-body">
+                    <div class="card-title"><b>{{pro.productName}}</b></div>
+
+                    <div class="card-title"><span>{{pro.price|currency:"&#8377;"}}</span></div>
+
+                    <div class="card-title">
+                        <!-- <span>{{pro.rating}}
                   <span>
                     <i class="fa fa-star" ></i>
                   </span>
-                </span>
-              </div>
+                </span> -->
+                        <div class="rate">
+                            <h4 class="info">{{pro.rating}}&#9733;</h4>
+                        </div>
+                        <ng-template #t let-fill="fill">
+                            <span class="star" [class.full]="fill === 100">
+                        <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                            </span>
+                        </ng-template>
+                        <ngb-rating [starTemplate]="t" rate={{pro.rating}}></ngb-rating>
+                    </div>
+                </div>
             </div>
         </div>
-      </div>
     </div>
-     <!--end of product list-->
-     <!--modal window group start-->
+    <!--end of product list-->
+    <!--modal window group start-->
     <!--Sign in modal start-->
 
     <!-- <div class="example-container">
@@ -76,221 +87,216 @@
             <a mat-raised-button routerLink=".">Sign in</a>
         </div>
       </div>  -->
-  
+
     <!--Sign in modal end-->
-<!--modal window group end-->
- <!-- sign up modal window for login -->
-  
- <div class="modal fade" data-backdrop="" id="signup" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
- tabindex="-1">
- <div class="modal-dialog modal-sm modal-dialog-centered">
-   <div class="modal-content">
-     <div class="modal-header">
-       <h2 class="modal-title" id="Title">Sign In</h2>
-       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <!--modal window group end-->
+    <!-- sign up modal window for login -->
+
+    <div class="modal fade" data-backdrop="" id="signup" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" tabindex="-1">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="Title">Sign In</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
          <span aria-hidden="true">&times;</span>
        </button>
-     </div>
-     <div class="modal-body">
-       <form  #myForm="ngForm"  (ngSubmit)="newlogin(lemailId.value,lpassword.value)">
-         <div class="form-group">
-           <label for="emailId">Email-Id</label>
-           <input type="text" #lemailId id="emailId" class="form-control fas fa-user" placeholder="&#61447;enter your mailId"
-           [ngClass]=" {'is-invalid':form.get('emailId').touched && form.get('emailId').invalid}" required>
-           <div class="invalid-feedback">
-             <div *ngIf="form.get('emailId').errors">Enter a valid email </div>
-           </div>
-         </div>
-         <div class="form-group">
-           <label for="password">Password</label>
-           <input type="password" #lpassword name="password" id="password" class="form-control fas fa-key" placeholder="&#xf084;enter your password" 
-           [ngClass]=" {'is-invalid':form.get('password').touched && form.get('password').invalid}" required>
-           <div class="invalid-feedback">
-             <div *ngIf="form.get('password').errors">Password mismatch </div>
-           </div>
-         </div>
-         <button type="submit" class="btn btn-dark" id="signinbutton">Sign In</button>
-       </form>
-     </div>
-     <div class="modal-footer">
-         <label for="rsubmitbutton" id="newaccountlabel">New Account </label>
-       <button type="button" #role value="reviewer"  class="btn btn-dark" data-dismiss="modal" (click)="onClick(role.value)">Reviewer</button>
-       <button type="button" #role1 value="product-owner"  class="btn btn-dark" data-dismiss="modal" (click)="onClickPO(role1.value)">Product
+                </div>
+                <div class="modal-body">
+                    <form #myForm="ngForm" (ngSubmit)="newlogin(lemailId.value,lpassword.value)">
+                        <div class="form-group">
+                            <label for="emailId">Email-Id</label>
+                            <input type="text" #lemailId id="emailId" class="form-control fas fa-user" placeholder="&#61447;enter your mailId" [ngClass]=" {'is-invalid':form.get('emailId').touched && form.get('emailId').invalid}" required>
+                            <div class="invalid-feedback">
+                                <div *ngIf="form.get('emailId').errors">Enter a valid email </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" #lpassword name="password" id="password" class="form-control fas fa-key" placeholder="&#xf084;enter your password" [ngClass]=" {'is-invalid':form.get('password').touched && form.get('password').invalid}" required>
+                            <div class="invalid-feedback">
+                                <div *ngIf="form.get('password').errors">Password mismatch </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-dark" id="signinbutton">Sign In</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <label for="rsubmitbutton" id="newaccountlabel">New Account </label>
+                    <button type="button" #role value="reviewer" class="btn btn-dark" data-dismiss="modal" (click)="onClick(role.value)">Reviewer</button>
+                    <button type="button" #role1 value="product-owner" class="btn btn-dark" data-dismiss="modal" (click)="onClickPO(role1.value)">Product
          Owner</button>
-     </div>
-   </div>
- </div>
-</div> 
-<!-- end sign up modal window -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end sign up modal window -->
 
-<!-- sign up 1 modal window for reviewer -->
-<div class="modal fade" data-backdrop="" id="signup1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
- tabindex="-1">
- <div class="modal-dialog modal-sm modal-dialog-centered">
-   <div class="modal-content" >
-     <div class="modal-header">
-       <h2 class="modal-title" id="title">Sign In</h2>
-       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <!-- sign up 1 modal window for reviewer -->
+    <div class="modal fade" data-backdrop="" id="signup1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" tabindex="-1">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="title">Sign In</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
          <span aria-hidden="true">&times;</span>
        </button>
-     </div>
-     <div class="modal-body">
-       <form #myForm="ngForm"  (ngSubmit)="reviewer(emailId.value,password.value)">
-         <div class="form-group">
-           <label for="revieweremailId">Email-Id</label>
-           <input   #emailId type="text" id="revieweremailId" class="form-control fas fa-user" placeholder="&#61447;enter your mailId">
-         </div>
-         <div class="form-group">
-           <label for="reviewerpassword">Password</label>
-           <input   #password type="password" name="password" id="reviewerpassword" class="form-control fas fa-key" placeholder="&#xf084;enter your password">
-         </div>
-         <button type="submit"  class="btn btn-dark" id="reviewersigninbutton" >Sign
+                </div>
+                <div class="modal-body">
+                    <form #myForm="ngForm" (ngSubmit)="reviewer(emailId.value,password.value)">
+                        <div class="form-group">
+                            <label for="revieweremailId">Email-Id</label>
+                            <input #emailId type="text" id="revieweremailId" class="form-control fas fa-user" placeholder="&#61447;enter your mailId">
+                        </div>
+                        <div class="form-group">
+                            <label for="reviewerpassword">Password</label>
+                            <input #password type="password" name="password" id="reviewerpassword" class="form-control fas fa-key" placeholder="&#xf084;enter your password">
+                        </div>
+                        <button type="submit" class="btn btn-dark" id="reviewersigninbutton">Sign
            In</button>
-       </form>
-     </div>
-     <div class="modal-footer">
-       <label for="rsubmitbutton" id="newaccountlabel">New Account </label>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <label for="rsubmitbutton" id="newaccountlabel">New Account </label>
 
-       <button type="button"  class="btn btn-dark" #role value="reviewer" data-dismiss="modal" (click)="onClick(role.value)"
-         id="rsubmitbutton">Reviewer</button>
+                    <button type="button" class="btn btn-dark" #role value="reviewer" data-dismiss="modal" (click)="onClick(role.value)" id="rsubmitbutton">Reviewer</button>
 
-     </div>
-   </div>
- </div>
-</div>
-<!-- end sign up 1 modal window -->
-
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end sign up 1 modal window -->
 
 
-<!-- end side bar container -->
-  </mat-sidenav-container>
-       
-    
+
+    <!-- end side bar container -->
+</mat-sidenav-container>
+
+
 <!-- Footer -->
 <footer class="page-footer font-small mdb-color pt-4 bg-dark footer-dark">
 
     <!-- Footer Links -->
-    <div class="container text-center text-md-left">
-  
-      <!-- Footer links -->
-      <div class="row text-center text-md-left mt-3 pb-3">
-  
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-          <!-- <img style="margin-top: 20px; height:100px;width: 50px;" class="card-img-top" src="assets/img/logo5.png" alt="image"> -->
+    <div class="container text-center text-md-left" id="footerone">
+
+        <!-- Footer links -->
+        <div class="row text-center text-md-left mt-3 pb-3">
+
+            <!-- Grid column -->
+            <!-- <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
         <h2 style="color: white"><strong>CenseoSphere</strong></h2>
         <a href="#" style='font-size:24px'><i class='fas fa-home'></i></a>
+        </div> -->
+            <!-- Grid column -->
+
+            <hr class="w-100 clearfix d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-3 mx-auto mt-3">
+                <ul class="list-unstyled lead">
+                    <li>
+                        <h5><strong>About us</strong></h5>
+                    </li>
+                    <li>
+                        <a href="#"><strong> Vision & Goals </strong></a>
+                    </li>
+                    <li>
+                        <a href="#"><strong> Company </strong></a>
+                    </li>
+                    <li>
+                        <a href="#"><strong> Blog </strong></a>
+                    </li>
+                    <li>
+                        <a href="#"><strong> Careers </strong></a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="w-100 clearfix d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-3  mx-auto mt-3">
+                <ul class="list-unstyled lead">
+                    <li>
+                        <h5><strong>Contact us</strong></h5>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-map-marker"></i>&nbsp;<Strong>Location</Strong></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-phone"></i>&nbsp;<Strong>9874563129</Strong></a>
+                    </li>
+                    <li>
+                        <a href="#"> <i class="fa fa-envelope"></i>&nbsp;
+                            <Strong>niitstkrt@gmail.com</Strong>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <!-- Grid column -->
+            <hr class="w-100 clearfix d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                <ul class="list-unstyled lead">
+                    <li>
+                        <h5><strong>Insights</strong></h5>
+                    </li>
+                    <li>
+                        <a href="#"><Strong>Privacy policy</Strong></a>
+                    </li>
+                    <li>
+                        <a href="#"><Strong>Terms & Conditions </Strong></a>
+                    </li>
+                    <li>
+                        <a href="#"><Strong>FAQs</Strong></a>
+                    </li>
+                    <li>
+                        <a href="#"><Strong>Support</Strong></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Footer links -->
+
+        <hr class="side">
+
+        <!-- Grid row -->
+        <div class="row d-flex align-items-center">
+
+
+            <!-- Grid column -->
+            <div class="col-md-7 col-lg-8">
+
+
+                <div class="col-md-12">
+                    <ul class="social-network social-circle">
+                        <li><a href="#"><i class="fab fa-facebook" id="facebook"></i></a></li>
+                        <li></li>
+                        <li><a href="#"><i class="fab fa-twitter" id="twitter"></i></a></li>
+                        <li></li>
+                        <li><a href="#"><i class="fab fa-instagram" id="instagram"></i></a></li>
+                        <li></li>
+                        <li><a href="#"><i class="fab fa-linkedin-in" id="linkedin"></i></a></li>
+
+                    </ul>
+                </div>
+
+
+                <!--Copyright-->
+
+                <p class="text-center text-md-right">Copyright © All Rights Reserved by
+                    <strong>CenseoSphere</strong>
+                </p>
+
+            </div>
         </div>
         <!-- Grid column -->
-  
-        <hr class="w-100 clearfix d-md-none">
-  
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-3 mx-auto mt-3">
-          <ul class="list-unstyled lead">
-            <li>
-                <h5><strong>About us</strong></h5>
-            </li>
-            <li>
-                <a href="#"><strong> Vision & Goals </strong></a>
-              </li>
-              <li>
-                <a href="#"><strong> Company </strong></a>
-              </li>
-              <li>
-                <a href="#"><strong> Blog </strong></a>
-              </li>
-              <li>
-                <a href="#"><strong> Careers </strong></a>
-              </li>
-        </ul>
-  
-        </div>
-        <!-- Grid column -->
-  
-        <hr class="w-100 clearfix d-md-none">
-  
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-3  mx-auto mt-3">
-          <ul class="list-unstyled lead">
-            <li>
-                <h5><strong>Contact us</strong></h5>
-            </li>
-              <li>
-                <a href="#"><i class="fa fa-map-marker"></i>&nbsp;<Strong>Location</Strong></a>
-              </li>
-              <li>
-                <a href="#"><i class="fa fa-phone"></i>&nbsp;<Strong>9874563129</Strong></a>
-              </li>
-              <li> 
-                <a href="#"> <i class="fa fa-envelope"></i>&nbsp;<Strong>niitstkrt@gmail.com</Strong></a>
-              </li> 
-        </ul>
-  
-        </div>
-  
-        <!-- Grid column -->
-        <hr class="w-100 clearfix d-md-none">
-  
-        <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-          <ul class="list-unstyled lead">
-            <li>
-                <h5><strong>Insights</strong></h5>
-            </li>
-            <li>
-                <a href="#"><Strong>Privacy policy</Strong></a>
-              </li>
-              <li>
-                <a href="#"><Strong>Terms & Conditions </Strong></a>
-              </li>
-              <li>
-                <a href="#"><Strong>FAQs</Strong></a>
-              </li>
-              <li>
-                <a href="#"><Strong>Support</Strong></a>
-              </li>
-        </ul>
-        </div>
-        <!-- Grid column -->
-  
-      </div>
-      <!-- Footer links -->
-    
-      <hr>
-  
-      <!-- Grid row -->
-      <div class="row d-flex align-items-center">
-  
-  
-        <!-- Grid column -->
-        <div class="col-md-7 col-lg-8">
-  
-  
-          <div class="col-md-12">
-            <ul class="social-network social-circle">
-              <li><a href="#"><i class="fab fa-facebook" id="facebook"></i></a></li>
-              <li></li>
-              <li><a href="#"><i class="fab fa-twitter" id="twitter"></i></a></li>
-              <li></li>
-              <li><a href="#"><i class="fab fa-instagram" id="instagram"></i></a></li>
-              <li></li>
-              <li><a href="#"><i class="fab fa-linkedin-in" id="linkedin"></i></a></li>
-  
-            </ul>
-          </div>
-  
-  
-          <!--Copyright-->
-  
-          <p class="text-center text-md-right">Copyright © All Rights Reserved by
-            <strong>CenseoSphere</strong>
-          </p>
-  
-         </div>
-        </div>
-        <!-- Grid column -->
-      </div>
-    </footer>
-  <!-- end footer -->
-  
+    </div>
+</footer>
+<!-- end footer -->

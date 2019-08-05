@@ -10,7 +10,6 @@ import { ProductownerdashboardComponent } from './productownerdashboard/producto
 import { ProdownerupdateprofileComponent } from './prodownerupdateprofile/prodownerupdateprofile.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { ReviewComponent } from './review/review.component';
-import { ReviewerdashboardComponent } from './reviewerdashboard/reviewerdashboard.component';
 import { CardComponent } from './card/card.component';
 import { ProductreviewComponent } from './productreview/productreview.component';
 import { ProductlistComponent } from './productlist/productlist.component';

@@ -2,12 +2,12 @@
 <div class="containerbody">
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="example-sidenav-content">
-      <button id="sidebar" class="hamburger mat-button" mat-button (click)="snav.toggle()" style="color: white">
+      <button id="sidebar" class="hamburger mat-button" mat-button (click)="snav.toggle()">
         <i class="fa fa-bars" aria-hidden="true"></i>
       </button>
     </div>
-    <img src="../../assets/img/logo14.png">
-    <button class="btn btn-outline-light" data-toggle="modal" href="#signup" id="login">SignIn</button>
+    <img id="logo" src="../../assets/img/logo14.png">
+    <button class="w3-btn w3-round-xxlarge" data-toggle="modal" href="#signup" id="login">Sign In</button>
   </nav>
 </div>
 <!-- end header -->
@@ -15,16 +15,13 @@
 <mat-sidenav-container class="example-sidenav-container">
   <mat-sidenav #snav mode="side" class="example-sidenav">
     <div class="matlist">
-      <mat-nav-list>
-        <div *ngFor="let x of array">
-
-          <h4 class="subcategory" (click)="onClickSubCategory(x.subCategory)">{{x.subCategory}}</h4>
-
-        </div>
-      </mat-nav-list>
+        <mat-nav-list>
+            <div *ngFor="let x of array">
+                <h4 class="subcategory" (click)="onClickSubCategory(x.subCategory)">{{x.subCategory}}</h4>
+            </div>
+        </mat-nav-list>
     </div>
-  </mat-sidenav>
-
+</mat-sidenav>
   <!-- jumbotron start -->
   <div class="jumbotron jumbotron-fluid text-center">
     <div class="container">
@@ -33,141 +30,113 @@
         <div class="input-group">
           <input type="search" #inputsearch class="form-control col-md-6" placeholder="Search here" name="search"
             id="jumbotroninput">
-          <button class="btn btn-secondary" type="submit" id="searchbutton" (click)="searchproductL(inputsearch.value)"
-            data-toggle="modal" data-target="#myModal">
+          <button class="btn btn-outline-light" type="submit" id="searchbutton" (click)="searchproductL(inputsearch.value)" data-toggle="modal" data-target="#myModal">
             <a href="#"><i class="fa fa-search"></i></a>
           </button><br>
         </div>
-        <button type="submit" class="btn btn-outline-light" id="reviewbutton" data-toggle="modal" #rrole
-          value="reviewer" (click)="onclick(rrole.value)" data-target="#signup1">Write a Review</button>&nbsp;
-        <button type="submit" class="btn btn-outline-light" id="productbutton" data-toggle="modal" #prole
-          value="product-owner" (click)="onclick1(prole.value)" data-target="#signup2">Post a Product</button>
+        <button type="submit" class="w3-btn w3-round-xxlarge" id="reviewbutton" data-toggle="modal" #rrole
+          value="reviewer" (click)="onclick(rrole.value)" data-target="#signup1"><b>Write a Review</b></button>&nbsp;
+        <button type="submit" class="w3-btn w3-round-xxlarge" id="productbutton" data-toggle="modal" #prole
+          value="product-owner" (click)="onclick1(prole.value)" data-target="#signup2"><b>Post a Product</b></button>
       </form>
     </div>
   </div>
-  <!-- jumbotron end -->
-
+  
   <app-modelwindow *ngIf="showComponent1"></app-modelwindow>
   <div class="onclick">
-
     <app-card *ngIf="showComponent"></app-card>
   </div>
-
-  <!--  start carousel for recent productDetails -->
-
-  <div id="container">
-    <h2>Recent Products</h2>
-    <div ng2-carouselamos class="slides-wrapper" [items]="productDetails" [width]="1150" [$prev]="prev" [$next]="next"
-      [$item]="product">
-    </div>
-
-    <ng-template #prev>
-      <img src="../../assets/img/iconfinder_icon-ios7-arrow-back_211686.png" class="arrow">
-    </ng-template>
-
-    <ng-template #next>
-      <img src="../../assets/img/iconfinder_icon-ios7-arrow-forward_211688.png" class="arrow">
-    </ng-template>
-
-    <ng-template #product let-product let-i="index">
-      <div class="productDetails">
-
-        <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
-          <div class="card" id="card1">
-            <div class="img-box">
-
-              <img id="carimg" src="./assets/img/{{product.image}}" class="img-responsive img-fluid"
-                alt="Image not available" (click)="imageclick(product)">
-
-
+<br>
+ <!--  start carousel for recent productDetails -->
+ <div id="container">
+  <h2 id="Recent_Products">Recent Products</h2>
+  <div class="shine"></div>
+  <br>
+  <div ng2-carouselamos class="slides-wrapper" [items]="productDetails" [width]="1150" [$prev]="prev" [$next]="next"
+    [$item]="product">
+  </div>
+  <ng-template #prev>
+    <img src="../../assets/img/iconfinder_icon-ios7-arrow-back_211686.png" class="arrow">
+  </ng-template>
+  <ng-template #next>
+    <img src="../../assets/img/iconfinder_icon-ios7-arrow-forward_211688.png" class="arrow">
+  </ng-template>
+  <ng-template #product let-product let-i="index">
+    <div class="productDetails">
+      <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+        <div class="card" id="card1">
+          <div class="img-box">
+            <img id="carimg" src="./assets/img/{{product.image}}" class="img-responsive img-fluid"
+              alt="Image not available" (click)="imageclick(product)">
+          </div>
+          <div class="card-block">
+            <h4><b>{{product.productName}}</b></h4>
+            <div class="rate">
+              <h5 class="info">{{product.rating}}</h5>
             </div>
-            <div class="card-block">
-              <h4><b>{{product.productName}}</b></h4>
-              <div class="rate">
-                <h5 class="info">{{product.rating}}</h5>
-              </div>
-              <ng-template #t let-fill="fill">
-                <span class="star" [class.full]="fill === 100">
-                  <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
-                </span>
-              </ng-template>
-              <ngb-rating [starTemplate]="t" rate={{product.rating}}>
-
-              </ngb-rating>
-
-               <h5 class="item-price">{{product.price}} Rs</h5>
-               <h6 class="info">{{product.size}} Reviews</h6>
-         
-            </div>
+            <ng-template #t let-fill="fill">
+              <span class="star" [class.full]="fill === 100">
+                <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+              </span>
+            </ng-template>
+            <ngb-rating [starTemplate]="t" rate={{product.rating}}>
+            </ngb-rating>
+             <h5 class="item-price">{{product.price}} Rs</h5>
+             <h6 class="info">{{product.size}} Reviews</h6>
           </div>
         </div>
       </div>
-    </ng-template>
-  </div>
-  <!-- end carousel for recent productDetails -->
-
-  <app-modelwindow *ngIf="showComponent1"></app-modelwindow>
-
-  <!--  start carousel for trending productDetails -->
-
-  <div id="container1">
-    <h2>Trending Products</h2>
-    <div ng2-carouselamos class="slides-wrapper" [items]="productDetails1" [width]="1150" [$prev]="prev" [$next]="next"
-      [$item]="product">
     </div>
-
-    <ng-template #prev>
-      <img src="../../assets/img/iconfinder_icon-ios7-arrow-back_211686.png" class="arrow">
-    </ng-template>
-
-    <ng-template #next>
-      <img src="../../assets/img/iconfinder_icon-ios7-arrow-forward_211688.png" class="arrow">
-    </ng-template>
-
-    <ng-template #product let-product let-i="index">
-      <div class="productDetails">
-
-
-        <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
-          <div class="card" id="card2">
-            <div class="img-box">
-              <img id="carimg" src="./assets/img/{{product.image}}" class="img-responsive img-fluid"
-                alt="Image not available" (click)="imageclick(product)">
-            </div>
-
-            <div class="card-block">
-              <h4><b>{{product.productName}}</b></h4>
-              <div class="rate">
-                <h4 class="info">{{product.rating}}&#9733;</h4>
-<!-- 
-  <div class="card1" onclick="this.classList.toggle('expanded')">
-     <div class="label1" viewBox="0 0 100 100" height="50" width="50">
-       <img id="carimg" src="../assets/img/{{product.image}}" class="img-responsive img-fluid" alt="Image not available" (click)="imageclick(product)">
-     </div>
-     <div class="text1">
-       <div class="text-content">
-         <h1 class="title">{{product.productName}}</h1>
-         <div class="body-text">
+  </ng-template>
+</div>
+<!-- end carousel for recent productDetails -->
+<br>
+<br>
+ <!--  start carousel for trending productDetails -->
+ <div id="container1">
+  <h2 id="Trending_Products">Trending Products</h2>
+  <div class="shine"></div>
+  <br>
+  <div ng2-carouselamos class="slides-wrapper" [items]="productDetails1" [width]="1150" [$prev]="prev" [$next]="next"
+    [$item]="product">
+  </div>
+  <ng-template #prev>
+    <img src="../../assets/img/iconfinder_icon-ios7-arrow-back_211686.png" class="arrow">
+  </ng-template>
+  <ng-template #next>
+    <img src="../../assets/img/iconfinder_icon-ios7-arrow-forward_211688.png" class="arrow">
+  </ng-template>
+  <ng-template #product let-product let-i="index">
+    <div class="productDetails">
+      <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+        <div class="card" id="card2">
+          <div class="img-box">
+            <img id="carimg" src="./assets/img/{{product.image}}" class="img-responsive img-fluid"
+              alt="Image not available" (click)="imageclick(product)">
+          </div>
+          <div class="card-block">
+            <h4><b>{{product.productName}}</b></h4>
             <div class="rate">
-                <h4 class="info">{{product.rating}}&#9733;</h4></div>
--->
-              </div>
-              <ng-template #t let-fill="fill">
-                <span class="star" [class.full]="fill === 100">
-                  <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
-                </span>
-              </ng-template>
-             <ngb-rating [starTemplate]="t" rate={{product.rating}}></ngb-rating>
-
-               <h5 class="item-price">{{product.price}} Rs</h5>
-               <h6 class="info">{{product.size}} Reviews</h6>
-         </div>
+              <h4 class="info">{{product.rating}}&#9733;</h4>
+            </div>
+            <ng-template #t let-fill="fill">
+              <span class="star" [class.full]="fill === 100">
+                <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+              </span>
+            </ng-template>
+           <ngb-rating [starTemplate]="t" rate={{product.rating}}></ngb-rating>
+             <h5 class="item-price">{{product.price}} Rs</h5>
+             <h6 class="info">{{product.size}} Reviews</h6>
        </div>
      </div>
    </div>
-     </ng-template>
-  </div>
-  <!-- end carousel for trending products -->
+ </div>
+   </ng-template>
+</div>
+<!-- end carousel for trending products -->
+
+
+
   <!-- sign up modal window for login -->
   <div class="modal fade" data-backdrop="" id="signup" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
     tabindex="-1">
@@ -204,9 +173,9 @@
         </div>
         <div class="modal-footer">
           <button type="button" #role value="reviewer" class="btn btn-dark" data-dismiss="modal"
-            (click)="onClick(role.value)">Reviewer</button>
+            (click)="onClick(role.value)" id="two">Reviewer</button>
           <button type="button" #role1 value="product-owner" class="btn btn-dark" data-dismiss="modal"
-            (click)="onClickPO(role1.value)">Product
+            (click)="onClickPO(role1.value)" id="two">Product
             Owner</button>
         </div>
       </div>
@@ -283,23 +252,33 @@
     </div>
   </div>
   <!-- end sign up 2 modal window -->
-
 </mat-sidenav-container>
 <!-- end side bar container -->
-
-
+<br>
+<br>
+<div class="d-flex justify-content-center">
+  <div class="grid-section-divider">
+    <img src="../../assets/img/mat.png">
+  </div>
+  </div>
+   <div class="texts">
+    <h4>What makes Censeosphere so unique?</h4>
+    <p class="text-center text-md-center">
+      Standout is a striking free email app website template with a modern look and advanced features and assets. While this is a very niche-specific tool, Standout is still versatile enough for you to use it for all sorts of different intentions. There is no need to stick to its default purpose although it will work with all varieties of email-related applications best.
+    </p>
+   </div>
 <!-- Footer -->
-<footer class="page-footer font-small mdb-color pt-4 bg-dark footer-dark">
+<footer class="page-footer font-small mdb-color pt-3 bg-dark footer-dark">
   <!-- Footer Links -->
-  <div class="container text-center text-md-left">
+  <div class="container text-center text-md-left" id="footerone">
     <!-- Footer links -->
     <div class="row text-center text-md-left mt-3 pb-3">
       <!-- Grid column -->
-      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-        <!-- <img style="margin-top: 20px; height:100px;width: 50px;" class="card-img-top" src="assets/img/logo5.png" alt="image"> -->
-        <h2 style="color: white"><strong>CenseoSphere</strong></h2>
+      <!-- <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+        <img style="margin-top: 20px; height:100px;width: 50px;" class="card-img-top" src="assets/img/logo5.png" alt="image"> 
+        <h2 id="two" style="color: white"><strong>Censeosphere</strong></h2>
         <a href="#" style='font-size:24px'><i class='fas fa-home'></i></a>
-      </div>
+      </div> -->
       <!-- Grid column -->
       <hr class="w-100 clearfix d-md-none">
       <!-- Grid column -->
@@ -314,12 +293,12 @@
           <li>
             <a href="#"><strong> Company </strong></a>
           </li>
-          <li>
+          <!-- <li>
             <a href="#"><strong> Blog </strong></a>
-          </li>
-          <li>
+          </li> -->
+          <!-- <li>
             <a href="#"><strong> Careers </strong></a>
-          </li>
+          </li> -->
         </ul>
       </div>
       <!-- Grid column -->
@@ -333,9 +312,9 @@
           <li>
             <a href="#"><i class="fa fa-map-marker"></i>&nbsp;<Strong>Location</Strong></a>
           </li>
-          <li>
+          <!-- <li>
             <a href="#"><i class="fa fa-phone"></i>&nbsp;<Strong>9874563129</Strong></a>
-          </li>
+          </li> -->
           <li>
             <a href="#"> <i class="fa fa-envelope"></i>&nbsp;<Strong>niitstkrt@gmail.com</Strong></a>
           </li>
@@ -352,12 +331,12 @@
           <li>
             <a href="#"><Strong>Privacy policy</Strong></a>
           </li>
-          <li>
+          <!-- <li>
             <a href="#"><Strong>Terms & Conditions </Strong></a>
-          </li>
-          <li>
+          </li> -->
+          <!-- <li>
             <a href="#"><Strong>FAQs</Strong></a>
-          </li>
+          </li> -->
           <li>
             <a href="#"><Strong>Support</Strong></a>
           </li>
@@ -371,24 +350,24 @@
     <div class="row d-flex align-items-center">
       <!-- Grid column -->
       <div class="col-md-7 col-lg-8">
-        <div class="col-md-12">
-          <ul class="social-network social-circle">
-            <li><a href="#"><i class="fab fa-facebook" id="facebook"></i></a></li>
-            <li></li>
-            <li><a href="#"><i class="fab fa-twitter" id="twitter"></i></a></li>
-            <li></li>
-            <li><a href="#"><i class="fab fa-instagram" id="instagram"></i></a></li>
-            <li></li>
-            <li><a href="#"><i class="fab fa-linkedin-in" id="linkedin"></i></a></li>
-          </ul>
-        </div>
-        <!--Copyright-->
-        <p class="text-center text-md-right">Copyright © All Rights Reserved by
-          <strong>CenseoSphere</strong>
-        </p>
+          <div class="col-md-12" id="iconss">
+              <ul class="social-network social-circle" id="ulist">
+                  <li><a id="faceb" href="#"><i class="fab fa-facebook" id="facebook"></i></a></li>
+                  <li></li>
+                  <li><a id="twit" href="#"><i class="fab fa-twitter" id="twitter"></i></a></li>
+                  <li></li>
+                  <li><a id="insta" href="#"><i class="fab fa-instagram" id="instagram"></i></a></li>
+                  <li></li>
+                  <li><a id="link" href="#"><i class="fab fa-linkedin-in" id="linkedin"></i></a></li>
+              </ul>
+          </div>
+          <!--Copyright-->
+          <p class="text-center text-md-right" id="paragraph">Copyright © All Rights Reserved by
+              <strong>Censeosphere</strong>
+          </p>
       </div>
-    </div>
-    <!-- Grid column -->
+  </div>
+  <!-- Grid column -->
   </div>
 </footer>
 <!-- end footer -->

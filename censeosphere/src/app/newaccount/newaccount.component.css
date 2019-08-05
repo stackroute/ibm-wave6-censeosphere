@@ -1,159 +1,220 @@
-
-a{
+a {
     text-decoration: none;
 }
-.navbar{
-    background-color:#222930;
+
+.navbar {
+    background: linear-gradient(to right, #45166a, #83157b 75%, #bc158a);
     position: relative;
     height: 80px;
     position: fixed;
 }
-nav img{
+
+nav img {
     height: 55px;
     width: 280px;
     position: fixed;
     margin-left: 70px;
 }
-h2{
+
+h2 {
     margin-left: 10px;
 }
 
-.container{
+.container {
     padding-top: 80px;
     text-align: center;
 }
 
-.containerbody{
-    font-family: 'Work Sans', sans-serif;
+.containerbody {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-#submitbutton{
-margin: auto;
-/* margin-left: 350px; */
+#stepperimg {
+    width: 100px;
+    height: 100px;
+    opacity: 0.5;
 }
-form{
+
+#submitbutton {
+    margin: auto;
+    /* margin-left: 350px; */
+}
+
+form {
     margin-left: 150px;
-    font-family: 'Work Sans', sans-serif;
-    margin-top:100px;
-    
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-top: 100px;
 }
 
-footer
-{
+footer {
     margin-top: 80px;
     padding-top: 25px;
-    background-color: #222930;
+    background: linear-gradient(to right, #45166a, #83157b 75%, #bc158a);
     font-size: 14px;
     height: 100%;
     position: relative;
     display: block;
     line-height: 28px;
 }
-footer a{
+
+footer a {
     color: white;
     position: relative;
 }
-footer a:hover{
-    color:darkgoldenrod;
+
+footer a:hover {
+    color: #72f4bf;
     font-size: 18px;
 }
-h5{
-    color:white;
+
+h5 {
+    color: white;
 }
-#newheading{
+
+.mat-button {
+    color: #45166a;
+    /* background-color: #bc158a; */
+}
+
+.container,
+#newheading,
+.thumb-wrapper,
+h2,
+h5,
+p,
+button,
+h3,
+h1,
+input,
+b,
+.full-width {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#newheading {
     padding-top: 25px;
     margin: auto;
 }
+
+
 /* .bodyy{
     background: url('../../assets/img/newaccountback.jpg') center center no-repeat;
 } */
+
 .thumb-wrapper {
-    background: url('../../assets/img/header.png');
-	padding: 25px 15px;
-	/* background: #fff; */
-	border-radius: 6px;
-	text-align: center;
-	position: relative;
-	box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+    background: url('../../assets/img/see.jpg')center center no-repeat;
+    padding: 25px 15px;
+    /* background: #fff; */
+    border-radius: 6px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 
 ul.social-network {
-	list-style: none;
-	display: inline;
-	margin-left:0 !important;
-	padding: 0;
+    list-style: none;
+    display: inline;
+    margin-left: 0 !important;
+    padding: 0;
 }
 
 ul.social-network li {
-	display: inline;
-	margin: 0 5px;
-} 
-#facebook:hover{
-  color: #3b5998;
+    display: inline;
+    margin: 0 5px;
 }
-#twitter:hover{
-    color:#33b5e5;
+
+#facebook:hover {
+    color: #3b5998;
 }
-#instagram:hover{
-    color:palevioletred;
+
+#twitter:hover {
+    color: #33b5e5;
 }
-#linkedin:hover{
-    color:#0077B5;
+
+#instagram:hover {
+    color: palevioletred;
 }
+
+#linkedin:hover {
+    color: #0077B5;
+}
+
 .social-circle li a {
-	display:inline-block;
-	position:relative;
-	margin:0 auto 0 auto;
-	-moz-border-radius:50%;
-	-webkit-border-radius:50%;
-	border-radius:50%;
-	text-align:center;
-	width: 50px;
-	height: 50px;
-    font-size:20px;
+    display: inline-block;
+    position: relative;
+    margin: 0 auto 0 auto;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
     margin-right: 30px;
     /* background-color: #D3D3D3; */
 }
+
 .social-circle li i {
-	margin:0;
-	line-height:50px;
+    margin: 0;
+    line-height: 50px;
     text-align: center;
-    
 }
 
-.social-circle li a:hover i, .triggeredHover {
-	-moz-transform: rotate(360deg);
-	-webkit-transform: rotate(360deg);
-	-ms--transform: rotate(360deg);
-	transform: rotate(360deg);
-	-webkit-transition: all 0.2s;
-	-moz-transition: all 0.2s;
-	-o-transition: all 0.2s;
-	-ms-transition: all 0.2s;
-	transition: all 0.2s;
+#footerone {
+    padding-top: 0%;
 }
+
+.social-circle li a:hover i,
+.triggeredHover {
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -ms--transform: rotate(360deg);
+    transform: rotate(360deg);
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
 .social-circle i {
-	color: #fff;
-	-webkit-transition: all 0.8s;
-	-moz-transition: all 0.8s;
-	-o-transition: all 0.8s;
-	-ms-transition: all 0.8s;
+    color: #fff;
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    -ms-transition: all 0.8s;
     transition: all 0.8s;
     font-size: 30px;
 }
 
-.col-md-12 ul{
-   float: right;
-} 
+.col-md-12 ul {
+    float: right;
+}
 
-.col-md-3 h2{
+.col-md-3 h2 {
     padding-top: 40px;
 }
-.col-md-3 .fas{
+
+.col-md-3 .fas {
     margin-left: 90px;
 }
-.text-md-right{
+
+.text-md-right {
     color: white;
     padding-top: 66px;
-    font-size:15px;
+    font-size: 15px;
+}
+
+p {
+    padding-right: 50px;
+}
+
+hr.side {
+    border: solid;
+    border-width: 1px;
+}
+
+.container,
+#newheading {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }

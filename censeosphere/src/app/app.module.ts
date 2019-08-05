@@ -22,7 +22,6 @@ import { ProductownerdashboardComponent } from './productownerdashboard/producto
 import { ProdownerupdateprofileComponent } from './prodownerupdateprofile/prodownerupdateprofile.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { ReviewComponent } from './review/review.component';
-import { ReviewerdashboardComponent } from './reviewerdashboard/reviewerdashboard.component';
 import { CardComponent } from './card/card.component';
 import { ProductreviewComponent } from './productreview/productreview.component';
 import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
@@ -49,7 +48,6 @@ import { ProductlistGuestComponent } from './productlist-guest/productlist-guest
     SearchForReviewComponent,
     AddProductComponent,
     ReviewComponent,
-    ReviewerdashboardComponent,
     CardComponent,
     ProductreviewComponent,
     Card2Component,

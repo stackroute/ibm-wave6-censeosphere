@@ -20,6 +20,7 @@ export class LandingpageService {
 
   getRecentProducts(){
     return this.http.get('http://13.126.244.58:8083/product-search-service/api/v1/recentproducts', this.httpOptions);
+  
   }
 
   getTrendingProducts()

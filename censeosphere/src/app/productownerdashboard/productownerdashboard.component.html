@@ -1,246 +1,243 @@
 <div id="outercontainer">
-<div class="image">
-<!-- header -->
-<div class="containerbody">
-    <nav class="navbar navbar-expand-lg fixed-top">
-     
-      <img src="../../assets/img/logo14.png">
-      <div class="addclass">
-      <button type="submit" class="btn btn-outline-light" id="addproduct" (click)="add()" >Add Product</button>
-      </div>&nbsp;&nbsp;
-      <div class="dropdown">
-        <a id="one" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         <span> <i class='fas fa-user-circle'></i>&nbsp;</span> My Account <strong class="caret"></strong>
+    <div class="image">
+        <!-- header -->
+        <div class="containerbody">
+            <nav class="navbar navbar-expand-lg fixed-top">
 
-        </a>
-        <ul id="drop" class="dropdown-menu">
-         <li><button class="dropdown-item" (click)="update()" ><span><i class="fa fa-refresh"></i></span>  Update profile</button></li>
-         <li><button class="dropdown-item" (click)="lpage()" ><span><i class="fa fa-power-off"></i></span> Log out</button></li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-  <!-- end header -->
+                <img src="../../assets/img/logo14.png">
+                <div class="addclass">
+                    <button type="submit" class="btn btn-outline-light" id="addproduct" (click)="add()">Add Product</button>
+                </div>&nbsp;&nbsp;
+                <div class="dropdown">
+                    <a id="one" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span> <i class='fas fa-user-circle'></i>&nbsp;</span> My Account <strong class="caret"></strong>
 
-  <!-- jumbotron start -->
-  <div class="jumbotron jumbotron-fluid text-center">
-      <div class="container" >
-        <h1 id="jumbotronheading">India's Largest Review Platform</h1>
-        <form>
+                    </a>
+                    <ul id="drop" class="dropdown-menu">
+                        <li><button class="dropdown-item" (click)="update()"><span><i class="fa fa-refresh"></i></span>  Update profile</button></li>
+                        <li><button class="dropdown-item" (click)="lpage()"><span><i class="fa fa-power-off"></i></span> Log out</button></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- end header -->
 
-            <div class="input-group">
+        <!-- jumbotron start -->
+        <div class="jumbotron jumbotron-fluid text-center">
+            <div class="container">
+                <h1 id="jumbotronheading">India's Largest Review Platform</h1>
+                <form>
 
-                <input type="search" #inputsearch class="form-control col-md-6" placeholder="Search products" name="search" id="jumbotroninput">
-   
-                   <button class="btn btn-secondary" type="submit" id="searchbutton" (click)="searchproductO(inputsearch.value)">
+                    <div class="input-group">
+
+                        <input type="search" #inputsearch class="form-control col-md-6" placeholder="Search products" name="search" id="jumbotroninput">
+
+                        <button class="btn btn-secondary" type="submit" id="searchbutton" (click)="searchproductO(inputsearch.value)">
 
                       <a href="#"><i class="fa fa-search"></i></a>
                   </button>
-              </div>
-        </form>
-      </div>
-    </div>
-    <!-- end jumbotron -->
-
-
-    <div class="onclick">
-     <app-card2 *ngIf="showComponent"></app-card2>
-      </div>
-
-      <app-modelwindow *ngIf="showComponent1"></app-modelwindow> 
-
-
-<div class="container">
-  <h3>My Products</h3>
-  <hr class="side">
-  <div *ngFor="let product of listofproducts">
-    <div class="flex-container">
-  <div id="div2" class="row d-outline-block">
-    <div class="col-sm-4">
-        <div class="thumb-wrapper">
-            <div class="img-box">
-              <img src="./assets/img/{{product.image}}" class="img-responsive img-fluid" alt="">									
+                    </div>
+                </form>
             </div>
-            <div class="thumb-content">
-              <h4>{{product.productName}}</h4>			
-              <div class="rate">
-                  <h4 class="info">{{product.rating}}&#9733;</h4></div>
-                  <ng-template #t let-fill="fill">
-                    <span class="star" [class.full]="fill === 100">
-                      <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
-                    </span>
-                  </ng-template>
-                  <ngb-rating  [starTemplate]="t" rate={{product.rating}}></ngb-rating>			
-                <p class="item-price"><b>{{product.price}}</b></p>
-            </div>						
         </div>
-          <br>
-    </div>
-   
-    <div class="col-sm-8"> 
-      <h5 id="pname"><b>{{product.productName}}</b></h5>
-      <p class="specification"><b>Product Specification : </b>{{product.specifications}}</p>
-      <p><b>Product Description : </b>{{product.description}}</p>
-      <p class="timestamp"><b>Uploaded On : </b>{{product.uploadedOn}}</p>
-      <br>
-
-      <!-- <button type="submit" class="btn btn-dark" id="editproduct" data-target="#edit">Edit</button> -->
-      <button type="submit" ng-click="removeDIV()"class="btn btn-outline-dark" id="deleteproduct"  (click)="deleteProduct(product)"data-toggle="modal" data-target="#myModal">Delete</button>
-
-      <!-- <button type="submit"  id="deleteproduct" class="btn btn-info" id="deleteproduct" data-toggle="modal" data-target="#myModal"
-       (click)="deleteProduct(product.productName)">Delete</button> -->
-
-       <div class="modal fade" id="myModal">
-        <div class="modal-dialog modal-sm">
-          <div class="modal-content">
-          
-            <div class="modal-body">
-              Deleted Successfully..
-            </div>
-          
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="account()">Close</button>
-            </div>
-            
-          </div>
-        </div>
-      </div>
+        <!-- end jumbotron -->
 
 
-   </div>
-  </div>
-</div>
-<br>
-  </div>
-  <div class="row-footer"><a href="productownerdashboard">View All</a></div>
-</div>
-
-<!-- footer -->
-<footer class="page-footer font-small mdb-color pt-4 bg-dark footer-dark">
-
-  <!-- Footer Links -->
-  <div class="container text-center text-md-left">
-
-    <!-- Footer links -->
-    <div class="row text-center text-md-left mt-3 pb-3">
-
-      <!-- Grid column -->
-      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-        <h2 style="color: white"><strong>CenseoSphere</strong></h2>
-        <a href="#" style='font-size:24px'><i class='fas fa-home'></i></a>
-      </div>
-      <!-- Grid column -->
-
-      <hr class="w-100 clearfix d-md-none">
-
-      <!-- Grid column -->
-      <div class="col-md-3 col-lg-3 mx-auto mt-3">
-        <ul class="list-unstyled lead">
-          <li>
-              <h5><strong>About us</strong></h5>
-          </li>
-          <li>
-              <a href="#"><strong> Vision & Goals </strong></a>
-            </li>
-            <li>
-              <a href="#"><strong> Company </strong></a>
-            </li>
-            <li>
-              <a href="#"><strong> Blog </strong></a>
-            </li>
-            <li>
-              <a href="#"><strong> Careers </strong></a>
-            </li>
-      </ul>
-
-      </div>
-      <!-- Grid column -->
-
-      <hr class="w-100 clearfix d-md-none">
-
-      <!-- Grid column -->
-      <div class="col-md-3 col-lg-3  mx-auto mt-3">
-        <ul class="list-unstyled lead">
-          <li>
-              <h5><strong>Contact us</strong></h5>
-          </li>
-            <li>
-              <a href="#"><i class="fa fa-map-marker"></i>&nbsp;<Strong>Location</Strong></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-phone"></i>&nbsp;<Strong>9874563129</Strong></a>
-            </li>
-            <li> 
-              <a href="#"> <i class="fa fa-envelope"></i>&nbsp;<Strong>niitstkrt@gmail.com</Strong></a>
-            </li> 
-      </ul>
-
-      </div>
-
-      <!-- Grid column -->
-      <hr class="w-100 clearfix d-md-none">
-
-      <!-- Grid column -->
-      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-        <ul class="list-unstyled lead">
-          <li>
-              <h5><strong>Insights</strong></h5>
-          </li>
-          <li>
-              <a href="#"><Strong>Privacy policy</Strong></a>
-            </li>
-            <li>
-              <a href="#"><Strong>Terms & Conditions </Strong></a>
-            </li>
-            <li>
-              <a href="#"><Strong>FAQs</Strong></a>
-            </li>
-            <li>
-              <a href="#"><Strong>Support</Strong></a>
-            </li>
-      </ul>
-      </div>
-      <!-- Grid column -->
-
-    </div>
-    <!-- Footer links -->
-  
-    <hr class="side">
-
-    <!-- Grid row -->
-    <div class="row d-flex align-items-center">
-
-
-      <!-- Grid column -->
-      <div class="col-md-7 col-lg-8">
-
-
-        <div class="col-md-12">
-          <ul class="social-network social-circle">
-            <li><a href="#"><i class="fab fa-facebook" id="facebook"></i></a></li>
-            <li></li>
-            <li><a href="#"><i class="fab fa-twitter" id="twitter"></i></a></li>
-            <li></li>
-            <li><a href="#"><i class="fab fa-instagram" id="instagram"></i></a></li>
-            <li></li>
-            <li><a href="#"><i class="fab fa-linkedin-in" id="linkedin"></i></a></li>
-
-          </ul>
+        <div class="onclick">
+            <app-card2 *ngIf="showComponent"></app-card2>
         </div>
 
+        <app-modelwindow *ngIf="showComponent1"></app-modelwindow>
 
-        <!--Copyright-->
+        <div class="container">
+            <section class="mainheader">
+                <h2 id="searchheading">My Products</h2>
+            </section>
+            <hr class="shine">
+            <hr class="side">
+            <div *ngFor="let product of listofproducts">
+                <div class="flex-container">
+                    <div class="w3-container w3-purple">
+                    </div>
+                    <div id="div2" class="row d-outline-block">
+                        <div class="col-sm-4">
+                            <div class="card">
+                                <div class="card-img-top">
+                                    <img src="./assets/img/{{product.image}}" class="img-responsive img-fluid" id="size" alt="Image not available">
+                                </div>
+                                <div class="card-body">
+                                    <h4>{{product.productName}}</h4>
+                                    <div class="rate">
+                                        <h4 class="info">{{product.rating}}&#9733;</h4>
+                                    </div>
+                                    <ng-template #t let-fill="fill">
+                                        <span class="star" [class.full]="fill === 100">
+                          <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                                        </span>
+                                    </ng-template>
+                                    <ngb-rating [starTemplate]="t" rate={{product.rating}}></ngb-rating>
+                                    <p class="item-price"><b>{{product.price|currency:"&#8377;"}}</b></p>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                        <div class="col-sm-8">
+                            <h5 id="pname"><b>{{product.productName}}</b></h5>
+                            <p class="specification"><b>Product Specification : </b>{{product.specifications}}</p>
+                            <p><b>Product Description : </b>{{product.description}}</p>
+                            <p class="timestamp"><b>Uploaded On : </b>{{product.uploadedOn}}</p>
+                            <br>
+                            <!-- <button type="submit" class="btn btn-dark" id="editproduct" data-target="#edit">Edit</button> -->
+                            <button type="submit" ng-click="removeDIV()" class="w3-btn w3-round-xxlarge" id="deleteproduct" (click)="deleteProduct(product)" data-toggle="modal" data-target="#myModal">Delete</button>
+                            <!-- <button type="submit"  id="deleteproduct" class="btn btn-info" id="deleteproduct" data-toggle="modal" data-target="#myModal"
+           (click)="deleteProduct(product.productName)">Delete</button> -->
+                            <div class="modal fade" id="myModal">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            Deleted Successfully..
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="account()">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <div class="row-footer"><a href="productownerdashboard">View All</a></div>
+        </div>
+        <!-- footer -->
+        <footer class="page-footer font-small mdb-color pt-4 bg-dark footer-dark">
 
-        <p class="text-center text-md-right">Copyright © All Rights Reserved by
-          <strong>CenseoSphere</strong>
-        </p>
+            <!-- Footer Links -->
+            <div class="container text-center text-md-left" id="footerone">
+
+                <!-- Footer links -->
+                <div class="row text-center text-md-left mt-3 pb-3">
+
+                    <!-- Grid column -->
+                    <!-- <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h2 style="color: white"><strong>CenseoSphere</strong></h2>
+                        <a href="#" style='font-size:24px'><i class='fas fa-home'></i></a>
+                    </div> -->
+                    <!-- Grid column -->
+
+                    <hr class="w-100 clearfix d-md-none">
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-3 mx-auto mt-3">
+                        <ul class="list-unstyled lead">
+                            <li>
+                                <h5><strong>About us</strong></h5>
+                            </li>
+                            <li>
+                                <a href="#"><strong> Vision & Goals </strong></a>
+                            </li>
+                            <li>
+                                <a href="#"><strong> Company </strong></a>
+                            </li>
+                            <li>
+                                <a href="#"><strong> Blog </strong></a>
+                            </li>
+                            <li>
+                                <a href="#"><strong> Careers </strong></a>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="w-100 clearfix d-md-none">
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-3  mx-auto mt-3">
+                        <ul class="list-unstyled lead">
+                            <li>
+                                <h5><strong>Contact us</strong></h5>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-map-marker"></i>&nbsp;<Strong>Location</Strong></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-phone"></i>&nbsp;<Strong>9874563129</Strong></a>
+                            </li>
+                            <li>
+                                <a href="#"> <i class="fa fa-envelope"></i>&nbsp;
+                                    <Strong>niitstkrt@gmail.com</Strong>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <!-- Grid column -->
+                    <hr class="w-100 clearfix d-md-none">
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <ul class="list-unstyled lead">
+                            <li>
+                                <h5><strong>Insights</strong></h5>
+                            </li>
+                            <li>
+                                <a href="#"><Strong>Privacy policy</Strong></a>
+                            </li>
+                            <li>
+                                <a href="#"><Strong>Terms & Conditions </Strong></a>
+                            </li>
+                            <li>
+                                <a href="#"><Strong>FAQs</Strong></a>
+                            </li>
+                            <li>
+                                <a href="#"><Strong>Support</Strong></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Footer links -->
+
+                <hr class="side">
+
+                <!-- Grid row -->
+                <div class="row d-flex align-items-center">
 
 
-      </div>
+                    <!-- Grid column -->
+                    <div class="col-md-7 col-lg-8">
+
+
+                        <div class="col-md-12">
+                            <ul class="social-network social-circle">
+                                <li><a href="#"><i class="fab fa-facebook" id="facebook"></i></a></li>
+                                <li></li>
+                                <li><a href="#"><i class="fab fa-twitter" id="twitter"></i></a></li>
+                                <li></li>
+                                <li><a href="#"><i class="fab fa-instagram" id="instagram"></i></a></li>
+                                <li></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in" id="linkedin"></i></a></li>
+
+                            </ul>
+                        </div>
+
+
+                        <!--Copyright-->
+
+                        <p class="text-center text-md-right">Copyright © All Rights Reserved by
+                            <strong>CenseoSphere</strong>
+                        </p>
+
+
+                    </div>
+                </div>
+                <!-- Grid column -->
+            </div>
+        </footer>
+        <!-- end footer -->
     </div>
-      <!-- Grid column -->
-  </div>  
-</footer>
-<!-- end footer -->
-</div>
 </div>

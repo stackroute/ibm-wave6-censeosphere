@@ -13,7 +13,7 @@ import { ReviewerdetailsService } from '../reviewerdetails.service';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import subs from  'src/assets/json/subCategory.json';
 import { HttpClient } from '@angular/common/http';
-
+import { Reviewerone } from '../reviewerone';
 const helper = new JwtHelperService();
 
 @Component({
@@ -30,6 +30,8 @@ export class ProductreviewComponent implements OnInit {
   reviewdetails:any;
   productname="";
   reviewerinfo1 = [];
+  score: any;
+  reviewerone = new Reviewerone();
   // validatingForm: FormGroup;
 
   subs:any=subs;
@@ -93,22 +95,8 @@ export class ProductreviewComponent implements OnInit {
 
     });
 
-
-
-
-
-
-    this.products=JSON.parse(sessionStorage.getItem('data'));
-    // get modalFormDarkPassword() {
-    //   return this.validatingForm.get('modalFormDarkPassword');
-    // }
-    // this.productname=JSON.parse(sessionStorage.getItem('data')).productName;
-    // this.reviewService.getAllReviewsbyName(this.productname).subscribe((data:any) => {
-    //   console.log("review details in search"+JSON.stringify(data));
-    //   this.reviewdetails=data;
-    //   console.log(JSON.stringify(this.reviewdetails));
-    // });
-
+this.products=JSON.parse(sessionStorage.getItem('data'));
+    
   }
 
   onClick(role) {
@@ -205,17 +193,51 @@ export class ProductreviewComponent implements OnInit {
      
      
   }
-  // When the user clicks anywhere outside of the modal, close it
-  // onClickw(event) {
-  // if (event.target == modal) {
-  //   modal.style.display = "none";
-  // }
+  
   onClickSubCategory(subCategory){
     console.log("in landing page",subCategory);
    this.landingpageservice.findAllProductsBySubcategory(subCategory).
     subscribe(data=>{
       console.log("Product list : ",data);
        this.router.navigateByUrl("/productlistguest/"+subCategory);
+    })
+  }
+
+
+  yes(email) {
+    console.log("inside yes " + email);
+     this.reviewerdetail.getReviewer(email).subscribe((data: any) => {
+      let a = JSON.stringify(data)
+      console.log("reviewer data in yes method" + JSON.stringify(data));
+      sessionStorage.setItem('rdata', a);
+      this.reviewerone = data;
+      console.log("reviewer data in yes method " + JSON.stringify(this.reviewerone));
+      this.score = JSON.parse(sessionStorage.getItem('rdata')).creditpoints;
+      console.log("reviewer score" + this.score)
+      this.score = this.score + 5;
+      this.reviewerone.creditpoints = this.score;
+      console.log("reviewer score after adding" + this.score)
+      this.reviewerdetail.updateReviewer(this.reviewerone, email).subscribe((data: any) => {
+        console.log("updated reviewer data in yes method" + JSON.stringify(data));
+      })
+    })
+  }
+  no(email) {
+    console.log("inside yes" + email);
+    this.reviewerdetail.getReviewer(email).subscribe((data: any) => {
+      let a = JSON.stringify(data)
+      console.log("reviewer data in no method" + JSON.stringify(data));
+      sessionStorage.setItem('rdata', a);
+      this.reviewerone = data;
+      console.log("reviewer data in no method " + JSON.stringify(this.reviewerone));
+      this.score = JSON.parse(sessionStorage.getItem('rdata')).creditpoints;
+      console.log("reviewer score" + this.score)
+      this.score = this.score - 5;
+      this.reviewerone.creditpoints = this.score;
+      console.log("reviewer score after adding" + this.score)
+      this.reviewerdetail.updateReviewer(this.reviewerone, email).subscribe((data: any) => {
+        console.log("updated reviewer data in no method" + JSON.stringify(data));
+      })
     })
   }
 }
