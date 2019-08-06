@@ -28,8 +28,7 @@
         <div class="matlist">
             <mat-nav-list>
                 <div *ngFor="let x of array">
-                    <h5 class="subcategory" (click)="onClickSubCategory(x.subCategory)">{{x.subCategory}}</h5>
-                    <br>
+                    <h4 class="subcategory" (click)="onClickSubCategory(x.subCategory)"> <span id="icons"><i class={{x.icon}} ></i></span> {{x.subCategory}}</h4> <br>
                     <br>
                 </div>
             </mat-nav-list>

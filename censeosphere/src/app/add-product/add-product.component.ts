@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http'
 import { FormGroup } from '@angular/forms';
 import {FormBuilder, Validators, FormControl, NgForm, AbstractControl} from '@angular/forms';
 import {Product} from '../product';
 import { ProductService } from '../product.service';
-
-
-
+import { Observable } from 'rxjs/internal/Observable';
+import {map, startWith} from 'rxjs/operators';
+import subs from 'src/assets/json/subCategory.json';
 
 @Component({
   selector: 'app-add-product',
@@ -17,14 +17,47 @@ import { ProductService } from '../product.service';
 export class AddProductComponent implements OnInit {
   
 firstFormGroup:FormGroup;
+controls = new FormControl();
+options: string[]=['Air Conditioner','Mobile Phone','Camera','Headphone',
+'Laptop','Refrigerator','Washing Machine','Speaker'];
+filteredOptions: Observable<string[]>;
+
+control = new FormControl();
+ categorys: string[] = ['Electronic Devices', 'Education', 'Hospital', 'Banking','Business'];
+ filteredCategorys: Observable<string[]>;
+
 
 product=new Product();
-
+array=[];
 hide:true;
 
-  constructor(private router:Router,private http:HttpClient,private _formBuilder: FormBuilder,private productDetails:ProductService) { }
+
+
+  constructor(private router:Router,private http:HttpClient,
+    private _formBuilder: FormBuilder,private productDetails:ProductService,
+    private route: ActivatedRoute) { }
+
+    private _filter2(value: string): string[] {
+      const filterValue = value.toLowerCase();
+      return this.options.filter(option => option.toLowerCase().includes(filterValue));
+     }
+    private _filter1(value: string): string[] {
+      const filterValue = value.toLowerCase();
+      return this.categorys.filter(category => category.toLowerCase().includes(filterValue));
+     }
 
   ngOnInit() {
+    this.filteredOptions = this.controls.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter2(value))
+    );
+
+    this.filteredCategorys = this.control.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter1(value))
+    );
+
+   
     this.firstFormGroup = this._formBuilder.group({
       CategoryCtrl: ['', Validators.required],
       SubCategoryCtrl: ['', Validators.required],
@@ -35,7 +68,7 @@ hide:true;
       ProductDescriptionCtrl: ['', Validators.required],
       ProductImageCtrl: ['', Validators.required],
    });
-
+  
   }
 
 saveProduct()
@@ -77,16 +110,16 @@ update()
 
   
   currentFileUpload:File;
-  selectedVideo:FileList;
+  selectedPhoto:FileList;
   mediaName:any;
 
-  selectVideo(event){
-    this.selectedVideo=event.target.files;
+  selectPhoto(event){
+    this.selectedPhoto=event.target.files;
   }
-  uploadVideo(){
+  uploadPhoto(){
     
-    this.currentFileUpload = this.selectedVideo.item(0)
+    this.currentFileUpload = this.selectedPhoto.item(0)
     this.mediaName=this.currentFileUpload.name;
    }
-
+  
 }

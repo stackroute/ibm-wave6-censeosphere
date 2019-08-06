@@ -10,13 +10,16 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-
+@CacheConfig(cacheNames = {"product"})
 @Service
 public class ProductSearchServiceImpl implements ProductSearchService {
     private ProductSearchRepository productSearchRepository;
@@ -48,6 +51,7 @@ public class ProductSearchServiceImpl implements ProductSearchService {
     }
 
    //service implementation to save product
+    @CacheEvict(allEntries = true)
     @Override
     public ProductDetails saveProduct(ProductDetails productDetails) throws ProductAlreadyExistsException {
         if(productSearchRepository.existsById(productDetails.getProductName())) {
@@ -65,12 +69,14 @@ public class ProductSearchServiceImpl implements ProductSearchService {
     }
 
     //service implmentation to get all products
+    @Cacheable(value="product")
     @Override
     public List<ProductDetails> getAllProducts() {
         return productSearchRepository.findAll();
     }
 
     //service implementation to delete product
+    @CacheEvict(allEntries = true)
     @Override
     public ProductDetails deleteProduct(String productName) throws ProductNotFoundException {
 
@@ -94,6 +100,7 @@ public class ProductSearchServiceImpl implements ProductSearchService {
     }
 
     //service implementation to update product
+    @CacheEvict(allEntries = true)
     @Override
     public ProductDetails updateProduct(ProductDetails productDetails,String productName) throws ProductNotFoundException {
         ProductDetails productDetails1=null;
@@ -123,6 +130,7 @@ public class ProductSearchServiceImpl implements ProductSearchService {
     }
 
     //service implementation to get recent products
+    @Cacheable(value="recentproduct")
     @Override
     public List<ProductDetails> getRecentProducts() throws ProductNotFoundException {
         return productSearchRepository.findAll(Sort.by(Sort.Direction.DESC, "uploadedOn"));
@@ -130,6 +138,7 @@ public class ProductSearchServiceImpl implements ProductSearchService {
 
     //service implementation get trending products
     @Override
+    @Cacheable(value="trendingproduct")
     public List<ProductDetails> getTrendingProducts() throws ProductNotFoundException {
         return productSearchRepository.findAll(Sort.by(Sort.Direction.DESC, "rating"));
     }

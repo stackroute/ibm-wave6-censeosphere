@@ -32,10 +32,6 @@ h2,
     font-family: 'Work Sans', sans-serif;
 }
 
-.addclass {
-    margin-left: 1060px;
-}
-
 .jumbotron {
     height: 500px;
     background: url('../../assets/img/rbop.jpg') center center no-repeat;
@@ -194,16 +190,16 @@ ul {
 }
 
 .dropdown {
-    font-size: 20px;
-    color: yellow;
-}
-
-#one {
-    padding-left: 125px;
+    margin-left: 1250px;
+    font-size: 22px;
 }
 
 #drop {
-    margin-left: 105px;
+    margin-left: 40px;
+}
+
+#addproduct {
+    margin-left: 1200px;
 }
 
 h5 {
@@ -310,8 +306,11 @@ ul.social-network li {
 }
 
 #addproduct {
-    background-color: #e1e1eb;
-    color: black;
+    /* background-color: #e1e1eb;
+    color: black; */
+    height: 65px;
+    width: 65px;
+    margin-top: -30px;
 }
 
 .w3-btn {
@@ -416,6 +415,12 @@ hr {
     color: white;
     margin-top: 80px;
     font-size: 50px;
+    -webkit-animation-name: tracking-in-expand-fwd;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 3s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: tracking-in-expand-fwd;
+    animation-duration: 3s;
 }
 
 #searchbutton {
@@ -424,4 +429,133 @@ hr {
 
 #searchbutton a {
     color: #45166a;
+}
+
+@-webkit-keyframes tracking-in-expand-fwd {
+    0% {
+        letter-spacing: -.5em;
+        -webkit-transform: translateZ(-700px);
+        transform: translateZ(-700px);
+        opacity: 0
+    }
+    40% {
+        opacity: .6
+    }
+    100% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        opacity: 1
+    }
+}
+
+@keyframes tracking-in-expand-fwd {
+    0% {
+        letter-spacing: -.5em;
+        -webkit-transform: translateZ(-700px);
+        transform: translateZ(-700px);
+        opacity: 0
+    }
+    40% {
+        opacity: .6
+    }
+    100% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        opacity: 1
+    }
+}
+
+@media (max-width: 768px) {
+    html,
+    body,
+    header {
+        height: 1000px;
+    }
+    #insta,
+    #faceb,
+    #twit,
+    #link {
+        margin-right: 0px;
+        height: 30px;
+        width: 30px;
+    }
+    #iconss {
+        margin-left: 80px;
+    }
+    #paragraph {
+        width: 570px;
+    }
+    #jumbotroninput {
+        margin-left: 150px;
+        width: 75px;
+    }
+    #searchbutton {
+        margin-right: 0px;
+    }
+    .dropdown {
+        margin-left: 500px;
+        font-size: 22px;
+    }
+    #drop {
+        margin-left: 40px;
+    }
+    #addproduct {
+        margin-top: -27px;
+        margin-left: 450px;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 850px) {
+    html,
+    body,
+    header,
+    .view {
+        height: 600px;
+    }
+}
+
+@media (max-width: 320px) {
+    .navbar {
+        height: 100px;
+    }
+    #logo {
+        width: -50px;
+        margin-left: -10px;
+        padding: 0px;
+    }
+    #dropd {
+        margin-top: 25px;
+        margin-left: 230px;
+        margin-right: 0px;
+    }
+    #drop {
+        margin-right: 80px;
+    }
+    p {
+        padding-right: 50px;
+    }
+    #iconss {
+        margin-left: -20px;
+    }
+    #paragraph {
+        width: 300px;
+        font-size: 12px;
+    }
+    #jumbotroninput {
+        margin-left: 0px;
+        width: 5px;
+    }
+    #searchbutton {
+        margin-right: 0px;
+    }
+    #jumbotroncontainer {
+        height: 300px;
+    }
+    #jumbotronheading {
+        margin-top: 20px;
+    }
+    #jumbotron {
+        height: 300px;
+        margin-top: 0px;
+    }
 }

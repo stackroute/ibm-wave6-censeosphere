@@ -72,9 +72,7 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
                         Timestamp timestamp=new Timestamp(millies);
                         productDetails.setUploadedOn(timestamp);
 
-
-
-                        productSearchRepository.save(productDetails);
+                        productSearchService.saveProduct(productDetails);
 
                         productSearchService.sendProduct(productDetails);
                         productSearchService.sendToSearch(productDetails);
@@ -86,6 +84,7 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
                         productDTO.setPrice(new Float(workbook.getSheetAt(0).getRow(i).getCell(j + 6).getRawValue()));
                         productDTO.setProductFamily(workbook.getSheetAt(0).getRow(i).getCell(j + 4).toString());
                         productDTO.setSubCategory(workbook.getSheetAt(0).getRow(i).getCell(j + 2).toString());
+
                         productSearchService.sendToRecommendation(productDTO);
 
                         System.out.println(productDetails);

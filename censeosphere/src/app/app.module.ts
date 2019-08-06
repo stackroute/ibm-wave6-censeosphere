@@ -4,7 +4,7 @@ import { CustomMaterialModule } from './core/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatStepperModule, MatInputModule, MatButtonModule, MatCheckboxModule} from '@angular/material'
+import {MatStepperModule, MatInputModule, MatButtonModule, MatCheckboxModule, MatAutocompleteModule, MAT_AUTOCOMPLETE_DEFAULT_OPTIONS} from '@angular/material'
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -72,11 +72,12 @@ import { ProductlistGuestComponent } from './productlist-guest/productlist-guest
     ReactiveFormsModule,
     MatTabsModule,
     Ng2CarouselamosModule,
+    MatAutocompleteModule,
     NgbModule
     
    
   ],
-  providers: [LoginService,NgbRatingConfig],
+  providers: [{provide: MAT_AUTOCOMPLETE_DEFAULT_OPTIONS, useValue: {autoActiveFirstOption: false}},LoginService,NgbRatingConfig],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [MatButtonModule, MatCheckboxModule]

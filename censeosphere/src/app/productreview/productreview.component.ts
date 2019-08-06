@@ -240,4 +240,6 @@ this.products=JSON.parse(sessionStorage.getItem('data'));
       })
     })
   }
+
+
 }

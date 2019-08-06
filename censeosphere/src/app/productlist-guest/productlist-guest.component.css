@@ -55,12 +55,30 @@ h2 {
     padding-left: 80px;
 }
 
+.modal-header {
+    /* background: url('../../assets/img/see.jpg'); */
+    background: linear-gradient(to right, #75578f, #c079ba 75%, #dbb4cf);
+    width: 600px;
+}
+
 .modal-header h3 {
     margin: 0;
 }
 
 .modal-body {
-    background: url('../../assets/img/pink.jpeg');
+    /* background: url('../../assets/img/see.jpg'); */
+    height: 300px;
+    width: 600px;
+}
+
+.modal-content {
+    width: 602px;
+}
+
+.modal-footer {
+    /* background: url('../../assets/img/see.jpg'); */
+    background: linear-gradient(to right, #75578f, #c079ba 75%, #dbb4cf);
+    width: 600px;
 }
 
 label {
@@ -175,11 +193,6 @@ footer h5 {
 .matlist {
     margin-top: 20px;
     margin-left: 25px;
-}
-
-.modal-header,
-.modal-footer {
-    background: lightgrey;
 }
 
 ul.social-network {
@@ -363,4 +376,58 @@ hr {
 
 #searchheading {
     text-align: center;
+}
+
+#emailId,
+#password {
+    width: 50%;
+}
+
+.input-group-text {
+    background-color: rgba(192, 121, 186, 0.5);
+}
+
+#signinbutton {
+    margin-left: 220px;
+    margin-top: 20px;
+    background-color: #83157b;
+    color: white;
+}
+
+.form-group {
+    padding-left: 150px;
+    margin-top: 20px;
+}
+
+#newaccountlabel {
+    font-size: 20px;
+    padding-top: 7px;
+}
+
+#rsubmitbutton,
+#two {
+    font-size: 15px;
+    background-color: #83157b;
+    color: white;
+}
+
+.subcategory {
+    color: #45166a;
+    cursor: pointer;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    padding-left: 0px;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+#icons {
+    min-height: 70px;
+    min-width: 50px;
+    margin-left: 20px;
+}
+
+.subcategory:hover {
+    color: #bc158a;
+    background-color: #87b8e0;
 }

@@ -363,3 +363,24 @@ hr {
 #searchheading {
     text-align: center;
 }
+
+.subcategory {
+    color: #45166a;
+    cursor: pointer;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    padding-left: 0px;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+#icons {
+    min-height: 70px;
+    min-width: 50px;
+    margin-left: 20px;
+}
+
+.subcategory:hover {
+    color: #bc158a;
+    background-color: #87b8e0;
+}

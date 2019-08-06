@@ -58,35 +58,15 @@ export class ReviwerdashComponent implements OnInit {
     this.recommendationService.getProductBySubCategory(sessionStorage.getItem('reviewerEmail')).
       subscribe((data: any) => {
         console.log("ppppppppppppppprrrrrrrrrrrrriiiiiiiiii",data);
-
-    
-        for (let i = 0; i < data.length; i++) {
-          this.productService.getProduct(data[i].productName).
-            subscribe((data: any) => {
-              console.log("Products from recommendation by productSubCategory", data);
-
-              this.productDetails.push(data);
-            });
-
-            // p
-            this.reviewService.getAllReviewsbyName(data[i].productName).subscribe((data: any) => {
-              this.reviewsgiven = data;
-              console.log("length of product list", this.reviewsgiven.length);
         
-        
-              this.productDetails = this.productDetails.map((e, j) => {
-                if (e.productName === data[0].productName) {
-                  e.size = this.reviewsgiven.length;
-        
-                }
-                console.log(e, "list size")
-                return e
+          data.map((e , i)=> {
+              this.productService.getProduct(e.productName).subscribe((productDetails:any) => {
+                this.reviewService.getAllReviewsbyName(productDetails.productName).subscribe((allReviews:any) => {
+                  productDetails.size = allReviews.length
+                  this.productDetails.push(productDetails)
+                })
               })
-        
-            });
-            // p
-
-        }
+          })
 
         console.log("in product by family  : ", this.productDetails);
       });

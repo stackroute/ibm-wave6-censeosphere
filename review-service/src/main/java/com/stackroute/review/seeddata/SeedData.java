@@ -70,7 +70,7 @@ review.setPrice(new Float(workbook.getSheetAt(0).getRow(i).getCell(j + 4).getRaw
 review.setSubCategory(workbook.getSheetAt(0).getRow(i).getCell(j + 6).toString());
 review.setCreditpoints(new Integer(workbook.getSheetAt(0).getRow(i).getCell(j + 7).getRawValue()));
 
-                         reviewRepository.save(review);
+                         reviewService.addReview(review);
 
                          reviewService.sendReviewer(review);
 
@@ -86,7 +86,7 @@ review.setCreditpoints(new Integer(workbook.getSheetAt(0).getRow(i).getCell(j + 
                           recommendationDTO.setProductName(workbook.getSheetAt(0).getRow(i).getCell(j + 3).toString());
                           recommendationDTO.setSubCategory(workbook.getSheetAt(0).getRow(i).getCell(j + 6).toString());
                           reviewService.sendRecommendation(recommendationDTO);
-                         System.out.println(review);
+                          System.out.println(review);
 
 
                      }

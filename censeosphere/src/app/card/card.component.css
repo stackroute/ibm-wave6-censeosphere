@@ -1,13 +1,13 @@
 #card {
     padding: 25px 15px;
-    background: url('../../assets/img/i3.jpg') center center no-repeat;
+    background-color: white;
     text-align: center;
     font-size: 12px;
     width: 250px;
     overflow: hidden;
     border: none;
     border-radius: 9px;
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 4.5);
+    box-shadow: 2px 1.5px 3px 2px rgba(69, 22, 106, 1);
     display: inline-block;
 }
 
@@ -45,4 +45,38 @@
     /* Safari 4.0 - 8.0 */
     animation-name: scale-up-center;
     animation-duration: 1s;
+}
+
+#productimg {
+    width: 300px;
+    height: 190px;
+    display: inline-block;
+    bottom: 20;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+
+.star {
+    position: relative;
+    display: inline-block;
+    font-size: 2rem;
+    color: #d3d3d3;
+}
+
+.full {
+    color: #83157b;
+}
+
+.half {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    color: #83157b;
+}
+
+.rate {
+    margin: 0 auto;
+    background-color: rgba(0, 70, 128, 0.5);
+    width: fit-content;
 }

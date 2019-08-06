@@ -1,23 +1,21 @@
-[
-        {
-           
-            "subCategory":"Air Conditioner"
-        }
-        ,{
-          
-            "subCategory":"Mobile Phone"
-        },
-        {
-           
-            "subCategory":"Camera"
-        },
-        {
-         
-            "subCategory":"Headphone"
-        },
-        {
-           
-            "subCategory":"Television"
-        }
-        
-    ]
+[{
+        "subCategory": "Air Conditioner",
+        "icon": "fas fa-temperature-low"
+    },
+    {
+        "subCategory": "Mobile Phone",
+        "icon": "fas fa-mobile-alt"
+    },
+    {
+        "subCategory": "Camera",
+        "icon": "fas fa-camera-retro"
+    },
+    {
+        "subCategory": "Headphone",
+        "icon": "fas fa-headphones-alt"
+    },
+    {
+        "subCategory": "Television",
+        "icon": "fas fa-tv"
+    }
+]
