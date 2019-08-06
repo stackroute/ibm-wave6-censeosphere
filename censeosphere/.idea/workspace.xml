@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e550382-b763-4af2-a629-d786415f77c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/app/card/card.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/card/card.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/card2/card2.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/card2/card2.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/landing-page/landing-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/landing-page/landing-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/landingpage.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/landingpage.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/product.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/productlist-guest/productlist-guest.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/productlist-guest/productlist-guest.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/productreview/productreview.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/productreview/productreview.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/productreview/productreview.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/productreview/productreview.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/productreview/productreview.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/productreview/productreview.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/review/review.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/review/review.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/search-for-review/search-for-review.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/search-for-review/search-for-review.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/search-for-review/search-for-review.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/search-for-review/search-for-review.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../product-search-service/src/main/java/com/stackroute/productsearchservice/seeddata/SeedData.java" beforeDir="false" afterPath="$PROJECT_DIR$/../product-search-service/src/main/java/com/stackroute/productsearchservice/seeddata/SeedData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product-search-service/src/main/java/com/stackroute/productsearchservice/service/ProductSearchServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../product-search-service/src/main/java/com/stackroute/productsearchservice/service/ProductSearchServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/seeddata/SeedData.java" beforeDir="false" afterPath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/seeddata/SeedData.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
