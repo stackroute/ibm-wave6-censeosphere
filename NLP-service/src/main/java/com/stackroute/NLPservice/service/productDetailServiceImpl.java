@@ -371,7 +371,7 @@ public class productDetailServiceImpl implements ProductDetailService {
     @RabbitListener(queues="${stackroute.rabbitmq.queuethree}")
     public  void recieveReview(ProductRatingDTO productRatingDTO)
     {
-
+        System.out.println("inside nlpservice "+productRatingDTO);
         ProductRating productRating=new ProductRating();
         if(productdetailrepository.existsById(productRatingDTO.getProductName())) {
 

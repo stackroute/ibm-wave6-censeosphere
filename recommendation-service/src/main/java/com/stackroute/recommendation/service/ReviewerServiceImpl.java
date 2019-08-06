@@ -71,13 +71,14 @@ public class ReviewerServiceImpl implements ReviewerService {
 
     @RabbitListener(queues="${stackroute.rabbitmq.queueseven}")
     public void  recievereviw(ReviewDTO reviewDTO) {
+        System.out.println("Inside recommendation review "+reviewDTO);
         Reviewer reviewer1=new Reviewer(reviewDTO.getReviewerEmail(),reviewDTO.getProductName());
         if(reviewerRepository.existsById(reviewDTO.getReviewerEmail())){
-            saveRelation(reviewDTO.getReviewerEmail(),reviewDTO.getProductName());
+            reviewerRepository.createRelation(reviewDTO.getReviewerEmail(),reviewDTO.getProductName());
         }
         else {
-            saveReviewer(reviewer1);
-            saveRelation(reviewDTO.getReviewerEmail(),reviewDTO.getProductName());
+            reviewerRepository.createNode(reviewer1.getEmailId());
+            reviewerRepository.createRelation(reviewer1.getEmailId(),reviewer1.getProductName());
         }
     }
 }
