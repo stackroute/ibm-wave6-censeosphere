@@ -97,11 +97,9 @@ public class ProductServiceImpl implements ProductService {
     //method to receive product information through rabbitmq and save product and create relation between product and subcategory
     @RabbitListener(queues="${stackroute.rabbitmq.queuesix}")
     public void  recieveproductowner(ProductDTO productDTO) {
-        System.out.println("Inside recommnedation product"+productDTO);
-        Product product = new Product();
-        product.setProductName(productDTO.getProductName());
-
-            productRepository.createNode(productDTO.getProductName(),productDTO.getRating(),productDTO.getPrice(),productDTO.getProductFamily(),productDTO.getSubCategory());
+        System.out.println("Inside recommnedation product" +
+                "ct"+productDTO);
+             productRepository.createNode(productDTO.getProductName(),productDTO.getRating(),productDTO.getPrice(),productDTO.getProductFamily(),productDTO.getSubCategory());
             productRepository.createRelation(productDTO.getProductName(),productDTO.getSubCategory());
 
     }
