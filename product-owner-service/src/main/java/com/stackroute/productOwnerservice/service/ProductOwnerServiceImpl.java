@@ -110,6 +110,7 @@ public class ProductOwnerServiceImpl implements ProductOwnerService {
     //method to send product owner information through rabbitmq
     @Override
     public void sendproductOwnner(ProductOwnerDTO productOwnerDTO) {
+        System.out.println("send to authentication service "+ productOwnerDTO);
         rabbitTemplate.convertAndSend(exchange, routingkeytwo, productOwnerDTO);
     }
 
@@ -133,6 +134,7 @@ public class ProductOwnerServiceImpl implements ProductOwnerService {
 
     @RabbitListener(queues = "${stackroute.rabbitmq.queuefour}")
     public void recievproduct (ProductDetails productDetails) {
+        System.out.println("from product search service "+productDetails);
         Optional optional;
         ProductOwner productOwner1;
         optional = productownerRepository.findById(productDetails.getAddedby());

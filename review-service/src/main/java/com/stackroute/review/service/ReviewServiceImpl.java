@@ -103,6 +103,8 @@ public class ReviewServiceImpl implements ReviewService {
     @Override
     public void sendRating(ReviewDTO reviewDTO)
     {
+
+        System.out.println("send to nlp "+reviewDTO);
         rabbitTemplate.convertAndSend(exchange, routingkeythree, reviewDTO);
     }
 
@@ -110,12 +112,15 @@ public class ReviewServiceImpl implements ReviewService {
     @Override
     public void sendReviewer(Review review)
     {
+
+        System.out.println("send to reviewer profile"+ review);
         rabbitTemplate.convertAndSend(exchange, routingkeyfive, review);
     }
 
     //service implementation to send data to recommendation service
     @Override
     public void sendRecommendation(RecommendationDTO recommendationDTO) {
+        System.out.println("send to recommendation "+recommendationDTO);
         rabbitTemplate.convertAndSend(exchange, routingkeyseven, recommendationDTO);
     }
 }

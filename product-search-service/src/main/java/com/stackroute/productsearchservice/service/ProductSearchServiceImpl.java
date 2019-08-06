@@ -147,18 +147,20 @@ public class ProductSearchServiceImpl implements ProductSearchService {
     @Override
     public void sendProduct(ProductDetails productDetails)
     {
+
+        System.out.println("send to productownerprofile"+productDetails);
         rabbitTemplate.convertAndSend(exchange, routingkeyfour, productDetails);
     }
     @Override
     public void sendToSearch(ProductDetails productDetails)
     {
-
+        System.out.println("send to serach service "+productDetails);
         rabbitTemplate.convertAndSend(exchange, routingkeyeleven, productDetails);
     }
 
     @Override
     public void sendToRecommendation(ProductDTO productDTO) {
-
+        System.out.println("send to recommendation "+productDTO);
         rabbitTemplate.convertAndSend(exchange, routingkeysix,productDTO);
     }
 

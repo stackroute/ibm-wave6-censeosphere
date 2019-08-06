@@ -123,11 +123,13 @@ public class ReviewerServiceImpl implements ReviewerService {
     //method to send reviewer through rabbitmq
     @Override
     public void sendreviewer(ReviewerDTO reviewerDTO) {
+        System.out.println("send to user login "+reviewerDTO);
         rabbitTemplate.convertAndSend(exchange, routingkeyone, reviewerDTO);
     }
 
     @RabbitListener(queues="${stackroute.rabbitmq.queuefive}")
     public  void recievereview(Review review) {
+        System.out.println("from review service "+review);
          Optional optional;
          Reviewer reviewer1;
          optional=reviewerRepository.findById(review.getReviewerEmail());
