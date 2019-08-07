@@ -67,27 +67,12 @@ review.setPrice(new Float(workbook.getSheetAt(0).getRow(i).getCell(j + 4).getRaw
                          Timestamp timestamp=new Timestamp(millies);
                          review.setReviewedOn(timestamp);
 
-review.setSubCategory(workbook.getSheetAt(0).getRow(i).getCell(j + 6).toString());
-review.setCreditpoints(new Integer(workbook.getSheetAt(0).getRow(i).getCell(j + 7).getRawValue()));
+review.setSubCategory(workbook.getSheetAt(0).getRow(i).getCell(j + 5).toString());
+review.setCreditpoints(new Integer(workbook.getSheetAt(0).getRow(i).getCell(j + 6).getRawValue()));
 
                          reviewService.addReview(review);
 
-                         reviewService.sendReviewer(review);
-
-                         ReviewDTO reviewDTO=new ReviewDTO();
-                         reviewDTO.setProductName(workbook.getSheetAt(0).getRow(i).getCell(j + 3).toString());
-                         reviewDTO.setReviewDescription(workbook.getSheetAt(0).getRow(i).getCell(j + 2).toString());
-                         reviewDTO.setCreditpoints(new Integer(workbook.getSheetAt(0).getRow(i).getCell(j + 7).getRawValue()));
-                         reviewService.sendRating(reviewDTO);
-
-
-                          RecommendationDTO recommendationDTO=new RecommendationDTO();
-                          recommendationDTO.setReviewerEmail(workbook.getSheetAt(0).getRow(i).getCell(j + 0).toString());
-                          recommendationDTO.setProductName(workbook.getSheetAt(0).getRow(i).getCell(j + 3).toString());
-                          recommendationDTO.setSubCategory(workbook.getSheetAt(0).getRow(i).getCell(j + 6).toString());
-                          reviewService.sendRecommendation(recommendationDTO);
-                          System.out.println(review);
-
+//
 
                      }
 
