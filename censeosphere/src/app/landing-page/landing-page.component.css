@@ -527,6 +527,7 @@ hr.side {
 }
 
 .rate {
+    margin: 0 auto;
     background-color: rgba(0, 70, 128, 0.5);
     width: fit-content;
 }
