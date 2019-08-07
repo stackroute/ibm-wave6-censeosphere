@@ -57,15 +57,15 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
                         productOwner.setRole(workbook.getSheetAt(0).getRow(i).getCell(j + 3).toString());
                         productOwnerService.saveDetails(productOwner);
 
-                        System.out.println(productOwner);
-                        ProductOwnerDTO productOwnerDTO = new ProductOwnerDTO();
-                        productOwnerDTO.setEmailId(workbook.getSheetAt(0).getRow(i).getCell(j + 1).toString());
-                        productOwnerDTO.setReconfirmPassword(workbook.getSheetAt(0).getRow(i).getCell(j + 2).toString());
-                        productOwnerDTO.setRole(workbook.getSheetAt(0).getRow(i).getCell(j + 3).toString());
-
-
-                        productOwnerService.sendproductOwnner(productOwnerDTO);
-                        System.out.println(productOwnerDTO);
+//                        System.out.println(productOwner);
+//                        ProductOwnerDTO productOwnerDTO = new ProductOwnerDTO();
+//                        productOwnerDTO.setEmailId(workbook.getSheetAt(0).getRow(i).getCell(j + 1).toString());
+//                        productOwnerDTO.setReconfirmPassword(workbook.getSheetAt(0).getRow(i).getCell(j + 2).toString());
+//                        productOwnerDTO.setRole(workbook.getSheetAt(0).getRow(i).getCell(j + 3).toString());
+//
+//
+//                        productOwnerService.sendproductOwnner(productOwnerDTO);
+//                        System.out.println(productOwnerDTO);
 
                     }
 

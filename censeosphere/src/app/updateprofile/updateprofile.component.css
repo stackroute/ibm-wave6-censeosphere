@@ -7,11 +7,22 @@ a {
     text-decoration: none;
 }
 
+#productimage {
+    height: 200px;
+    width: 200px;
+    padding-top: 0px;
+}
+
 .navbar {
     background: linear-gradient(to right, #45166a, #83157b 75%, #bc158a);
     position: relative;
     height: 80px;
     position: fixed;
+}
+
+#saveprofile {
+    background-color: #83157b;
+    color: white;
 }
 
 nav img {
@@ -328,6 +339,8 @@ p {
 
 #uploadbutton {
     margin-top: 20px;
+    background-color: #83157b;
+    color: white;
 }
 
 .info,
@@ -351,14 +364,14 @@ p {
 }
 
 .full {
-    color: yellow;
+    color: #83157b;
 }
 
 .half {
     position: absolute;
     display: inline-block;
     overflow: hidden;
-    color: yellow;
+    color: #83157b;
 }
 
 .rate {

@@ -88,7 +88,11 @@
                             <p class="timestamp"><b>Uploaded On : </b>{{product.uploadedOn}}</p>
                             <br>
                             <!-- <button type="submit" class="btn btn-dark" id="editproduct" data-target="#edit">Edit</button> -->
-                            <button type="submit" ng-click="removeDIV()" class="w3-btn w3-round-xxlarge" id="deleteproduct" (click)="deleteProduct(product)" data-toggle="modal" data-target="#myModal">Delete</button>
+
+                            <button type="submit" ng-click="removeDIV()" class="w3-btn w3-round-xxlarge" id="deleteproduct" (click)="deleteProduct(product)" data-toggle="modal" data-target="#myModal"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
+
+                            <button type="submit" class="w3-btn w3-round-xxlarge" id="editproduct" disabled><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button>
+
                             <!-- <button type="submit"  id="deleteproduct" class="btn btn-info" id="deleteproduct" data-toggle="modal" data-target="#myModal"
            (click)="deleteProduct(product.productName)">Delete</button> -->
                             <div class="modal fade" id="myModal">
@@ -108,7 +112,7 @@
                 </div>
                 <br>
             </div>
-            <div class="row-footer"><a href="productownerdashboard">View All</a></div>
+            <!-- <div class="row-footer"><a href="productownerdashboard">View All</a></div> -->
         </div>
         <!-- footer -->
         <footer class="page-footer font-small mdb-color pt-4 bg-dark footer-dark">

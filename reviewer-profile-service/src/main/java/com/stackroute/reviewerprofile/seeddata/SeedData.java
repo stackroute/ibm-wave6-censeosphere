@@ -58,14 +58,14 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
 
                         reviewerService.saveReviewers(reviewer);
 
-                        System.out.println(reviewer);
-
-                        ReviewerDTO reviewerDTO = new ReviewerDTO();
-                        reviewerDTO.setEmailId(workbook.getSheetAt(0).getRow(i).getCell(j + 1).toString());
-                        reviewerDTO.setReconfirmPassword(workbook.getSheetAt(0).getRow(i).getCell(j + 2).toString());
-                        reviewerDTO.setRole(workbook.getSheetAt(0).getRow(i).getCell(j + 3).toString());
-
-                        reviewerService.sendreviewer(reviewerDTO);
+//                        System.out.println(reviewer);
+//
+//                        ReviewerDTO reviewerDTO = new ReviewerDTO();
+//                        reviewerDTO.setEmailId(workbook.getSheetAt(0).getRow(i).getCell(j + 1).toString());
+//                        reviewerDTO.setReconfirmPassword(workbook.getSheetAt(0).getRow(i).getCell(j + 2).toString());
+//                        reviewerDTO.setRole(workbook.getSheetAt(0).getRow(i).getCell(j + 3).toString());
+//
+//                        reviewerService.sendreviewer(reviewerDTO);
 
                     }
 

@@ -173,8 +173,8 @@ label {
 
 #reviewbutton {
     margin-top: 10px;
-    background-color: #72f4bf;
-    color: #45166a;
+    background-color: #83157b;
+    color: white;
     letter-spacing: 1px;
     line-height: 1.33;
     border-radius: 2em;
@@ -223,8 +223,8 @@ hr {
 
 #productbutton {
     margin-top: 10px;
-    background-color: #72f4bf;
-    color: #45166a;
+    background-color: #83157b;
+    color: white;
     letter-spacing: 1px;
     line-height: 1.33;
     border-radius: 2em;
@@ -516,14 +516,14 @@ hr.side {
 }
 
 .full {
-    color: yellow;
+    color: #83157b;
 }
 
 .half {
     position: absolute;
     display: inline-block;
     overflow: hidden;
-    color: yellow;
+    color: #83157b;
 }
 
 .rate {

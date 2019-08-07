@@ -85,12 +85,13 @@ saveProduct()
   this.product.rating=0;
   this.product.addedby=sessionStorage.getItem('productOwnerEmail');
   console.log(this.product);    environment:
-
+  
   return this.productDetails.saveProduct(this.product).subscribe(data =>
     {
       console.log(data);
+      this.router.navigateByUrl("/productownerdashboard");
     });
-
+    
 }
 lpage()
  {

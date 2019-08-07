@@ -314,13 +314,12 @@ ul.social-network li {
 }
 
 .w3-btn {
-    background-color: #72f4bf;
-    color: #45166a;
+    background-color: #83157b;
+    color: white;
 }
 
 #deleteproduct a:hover {
     color: midnightblue;
-    ;
 }
 
 .col-sm-8 {
@@ -421,6 +420,12 @@ hr {
     /* Safari 4.0 - 8.0 */
     animation-name: tracking-in-expand-fwd;
     animation-duration: 3s;
+}
+
+#editproduct {
+    margin-left: 30px;
+    background-color: #83157b;
+    color: white;
 }
 
 #searchbutton {

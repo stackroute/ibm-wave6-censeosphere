@@ -107,7 +107,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label"></label>
                                         <div class="col-md-8">
-                                            <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal" (click)="updateDetails()">
+                                            <button type="button" id="saveprofile" class="w3-btn w3-round-xxlarge" data-toggle="modal" data-target="#myModal" (click)="updateDetails()">
                     Save Profile
                   </button> &nbsp;
                                             <!-- <button type="button" class="btn btn-outline-dark" (click)="account()">Cancel</button> -->
@@ -162,7 +162,7 @@
                                 <div class="col-sm-4">
                                     <div class="card">
                                         <div class="card-img-top">
-                                            <img src="./assets/img/{{review.image}}" class="img-responsive img-fluid" alt="Image not available">
+                                            <img id="productimage" src="./assets/img/{{review.image}}" class="img-responsive img-fluid" alt="Image not available">
                                         </div>
                                         <div class="card-body">
                                             <h4><b>{{review.productName}}</b></h4>
@@ -176,7 +176,7 @@
                                                 </span>
                                             </ng-template>
                                             <ngb-rating [starTemplate]="t" rate={{review.rating}}></ngb-rating>
-                                            <h5 class="item-price">${{review.price}}</h5>
+                                            <h5 class="item-price">{{review.price|currency:"&#8377;"}}</h5>
                                             <h5 class="item-price">{{review.size}} Reviews</h5>
                                         </div>
                                     </div>

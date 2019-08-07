@@ -1,13 +1,12 @@
 #card {
     padding: 25px 15px;
-    background: url('../../assets/img/i3.jpg') center center no-repeat;
     text-align: center;
     font-size: 12px;
     width: 300px;
     overflow: hidden;
     border: none;
     border-radius: 9px;
-    box-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 2.5);
+    /* box-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 2.5); */
     margin: 0 auto;
     display: inline-block;
     left: 230%;
@@ -18,6 +17,13 @@
     /* Safari 4.0 - 8.0 */
     animation-name: scale-up-center;
     animation-duration: 1s;
+    background-color: white;
+    box-shadow: 2px 1.5px 3px 2px rgba(69, 22, 106, 1);
+}
+
+#productimages {
+    height: 200px;
+    width: 200px;
 }
 
 @-webkit-keyframes scale-up-center {
