@@ -52,6 +52,7 @@ export class ProductreviewComponent implements OnInit {
 
   ngOnInit() {
 
+
     this.landingpageservice.getAllSubCategories().subscribe((data: any) => {
       console.log("inside get all ts file"+data);
       this.array= data;
@@ -125,11 +126,20 @@ this.products=JSON.parse(sessionStorage.getItem('data'));
           console.log("in if print role   ", role);
 
           sessionStorage.setItem('reviewerEmail',emailId);
-          sessionStorage.setItem('rdata',emailId);
+          
           
           if (role == this.job) {
             console.log(role);
             console.log("in if1");
+
+
+            this.reviewerdetail.getReviewer(emailId).subscribe((data: any) => {
+              let a = JSON.stringify(data)
+              console.log("reviewer data in search componenttttttttttttttttttttttttttttttt" + JSON.stringify(data));
+              sessionStorage.setItem('rdata', a);
+              
+            })
+            
             this.router.navigateByUrl("/writereview/"+ emailId);
 
           }
@@ -139,6 +149,10 @@ this.products=JSON.parse(sessionStorage.getItem('data'));
         }
 
       })
+
+
+
+   
   }
   
   onclick(rrole) {
