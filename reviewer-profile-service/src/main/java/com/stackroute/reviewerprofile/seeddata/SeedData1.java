@@ -45,7 +45,7 @@ public class SeedData1 implements ApplicationListener<ContextRefreshedEvent> {
                         reviewer.setReconfirmPassword(workbook.getSheetAt(0).getRow(i).getCell(j + 2).toString());
                         reviewer.setRole(workbook.getSheetAt(0).getRow(i).getCell(j + 3).toString());
                         reviewer.setImage(workbook.getSheetAt(0).getRow(i).getCell(j + 4).toString());
-                        reviewerService.updateReviewer(reviewer,reviewer.getEmailId());
+                        reviewerService.saveReviewers(reviewer);
                         System.out.println(reviewer);
                     }
                 }
