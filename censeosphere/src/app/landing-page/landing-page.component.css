@@ -795,6 +795,15 @@ p {
     #paragraph {
         width: 550px;
     }
+    #para {
+        margin-left: -100px;
+    }
+    .text-md-left {
+        margin-left: -20px;
+    }
+    .wrappers {
+        margin-left: -50px;
+    }
 }
 
 @media (min-width: 800px) and (max-width: 850px) {
