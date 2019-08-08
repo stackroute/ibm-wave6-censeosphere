@@ -61,11 +61,11 @@
         <div class="container">
             <form name="reviewForm" class="reviewForm" #myForm="ngForm" (ngSubmit)="onSubmit(reviewtitle.value,reviewdesc.value)">
                 <div class="form-group">
-                    <label id="text" for="title">Title</label>
+                    <label id="text" for="title">Review Title</label>
                     <input type="text" #reviewtitle class="form-control" id="title" required>
                 </div>
                 <div class="form-group">
-                    <label id="text" for="review">Review</label>
+                    <label id="text" for="review">Review Description</label>
                     <textarea type="text" class="form-control" #reviewdesc id="review" required> </textarea>
                 </div>
 

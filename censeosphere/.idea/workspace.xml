@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e550382-b763-4af2-a629-d786415f77c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../product-search-service/src/main/java/com/stackroute/productsearchservice/seeddata/SeedData.java" beforeDir="false" afterPath="$PROJECT_DIR$/../product-search-service/src/main/java/com/stackroute/productsearchservice/seeddata/SeedData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/landing-page/landing-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/landing-page/landing-page.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/seeddata/SeedData.java" beforeDir="false" afterPath="$PROJECT_DIR$/../review-service/src/main/java/com/stackroute/review/seeddata/SeedData.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
