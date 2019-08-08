@@ -331,14 +331,14 @@ hr.side {
 }
 
 .full {
-    color: navy;
+    color: #45166a;
 }
 
 .half {
     position: absolute;
     display: inline-block;
     overflow: hidden;
-    color: navy;
+    color: #45166a;
 }
 
 .rate {

@@ -36,9 +36,16 @@ export class ReviwerdashComponent implements OnInit {
       config.readonly = true;}
 
   ngOnInit() {
-    this.creditpoints=JSON.parse(sessionStorage.getItem('data1')).creditpoints;
-    console.log("shaaaaaaaaaaaaa",this.creditpoints);
-  
+    // this.creditpoints=JSON.parse(sessionStorage.getItem('data1')).creditpoints;
+    // console.log("shaaaaaaaaaaaaa",this.creditpoints);
+    this.updates.getReviewerDetails(sessionStorage.getItem('reviewerEmail')).subscribe((data: any) => {
+      // console.log(data);
+      // sessionStorage.setItem("data1", JSON.stringify(data));
+      console.log("inside reviewerdash" + data);
+      this.creditpoints=data.creditpoints;
+      console.log("proriririirir",this.creditpoints);
+
+    });
 
     this.landingpageservice.getAllProducts().subscribe((data:any) => {
       console.log(data);

@@ -125,6 +125,7 @@ this.products=JSON.parse(sessionStorage.getItem('data'));
           console.log("in if print role   ", role);
 
           sessionStorage.setItem('reviewerEmail',emailId);
+          sessionStorage.setItem('rdata',emailId);
           
           if (role == this.job) {
             console.log(role);
