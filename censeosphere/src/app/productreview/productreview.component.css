@@ -286,9 +286,12 @@ h4 {
 }
 
 #productimage {
-    height: 300px;
-    width: 450px;
-    padding-left: 0px;
+    height: 400px;
+    width: 300px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 0px;
 }
 
 .info,
@@ -564,4 +567,9 @@ hr {
     font-size: 15px;
     background-color: #83157b;
     color: white;
+}
+
+ngb-rating {
+    font-size: 25px;
+    color: #83157b;
 }

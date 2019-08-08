@@ -178,6 +178,7 @@ this.http.get('./assets/json/subCategory.json').subscribe((data:any) => {
     console.log(prole);
     this.job = prole;
   }
+  
 
   newlogin(lemailId, lpassword): any {
 

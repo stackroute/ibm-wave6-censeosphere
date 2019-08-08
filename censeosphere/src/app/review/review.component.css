@@ -304,8 +304,8 @@ h5,
 
 #submit {
     margin-top: 10px;
-    background-color: #72f4bf;
-    color: #45166a;
+    background-color: #83157b;
+    color: white;
     letter-spacing: 1px;
     line-height: 1.33;
     border-radius: 2em;
@@ -329,7 +329,6 @@ h5,
 
 .mainheader {
     background: linear-gradient(to right, #45166a, #83157b 75%, #bc158a);
-    ;
     opacity: 0.4;
     color: #fff;
     width: 1070px;
@@ -358,4 +357,77 @@ hr {
     left: 0;
     right: 0;
     background-image: linear-gradient( 90deg, hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, 0.75) 50%, hsla(0, 0%, 0%, 0));
+}
+
+@media (max-width: 768px) {
+    html,
+    body,
+    header {
+        height: 1000px;
+    }
+    #text {
+        margin-left: -100px;
+    }
+    #title {
+        margin-left: -100px;
+        width: 500px;
+    }
+    #review {
+        margin-left: -100px;
+        width: 500px;
+    }
+    .mainheader {
+        margin-left: -150px;
+    }
+    .flex-container {
+        max-width: 600px;
+        margin-left: -150px;
+    }
+    #insta,
+    #faceb,
+    #twit,
+    #link {
+        margin-right: 0px;
+        height: 30px;
+        width: 30px;
+    }
+    #iconss {
+        margin-left: 80px;
+    }
+    #paragraph {
+        width: 600px;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 850px) {
+    html,
+    body,
+    header {
+        height: 600px;
+    }
+}
+
+@media (max-width: 320px) {
+    .flex-container {
+        max-width: 300px;
+    }
+    .navbar {
+        height: 150px;
+    }
+    #logo {
+        width: 150px;
+        margin-left: 20px;
+    }
+    #iconss {
+        margin-left: -30px;
+    }
+    #paragraph {
+        width: 350px;
+        font-size: 12px;
+    }
+}
+
+ngb-rating {
+    font-size: 25px;
+    color: #83157b;
 }
