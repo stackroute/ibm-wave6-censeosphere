@@ -241,5 +241,7 @@ this.products=JSON.parse(sessionStorage.getItem('data'));
     })
   }
 
-
+  logoclick(){
+    this.router.navigateByUrl("/");
+   }
 }

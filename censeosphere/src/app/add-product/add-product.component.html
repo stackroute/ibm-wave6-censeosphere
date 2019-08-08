@@ -1,238 +1,232 @@
 <!-- header -->
 <div class="image">
     <nav class="navbar navbar-expand-lg fixed-top">
-      <img id="logo" src="../../assets/img/logo14.png">
-      <div class="dropdown">
-        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
-        </a>
-        <ul id="drop" class="dropdown-menu">
-          <li><button class="dropdown-item" (click)="update()"><span><i class="fa fa-refresh"></i></span> Update
+        <img id="logo" src="../../assets/img/logo14.png" (click)="logoclick()">
+        <div class="dropdown">
+            <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
+            </a>
+            <ul id="drop" class="dropdown-menu">
+                <li><button class="dropdown-item" (click)="update()"><span><i class="fa fa-refresh"></i></span> Update
               profile</button></li>
-          <li><button class="dropdown-item" (click)="lpage()"><span><i class="fa fa-power-off"></i></span> Log
+                <li><button class="dropdown-item" (click)="lpage()"><span><i class="fa fa-power-off"></i></span> Log
               out</button></li>
-        </ul>
-      </div>
+            </ul>
+        </div>
     </nav>
-  
-  <br>
-  <div class="containerform" >
-      <br>
-      <section  class="mainheader">
-          <h2>Add a Product</h2> 
+
+    <br>
+    <div class="containerform">
+        <br>
+        <section class="mainheader">
+            <h2>Add a Product</h2>
         </section>
-        
-      <hr class="shine">
-      
-          <form  [formGroup]="firstFormGroup">
+
+        <hr class="shine">
+
+        <form [formGroup]="firstFormGroup">
             <div class="row">
 
-              <div class="col-sm-6">
-                <!--Product category-->
-                <mat-label class="lbl">Product Category :</mat-label>
-                   <br>
-                   <mat-form-field>
-                     
-                    <input type="text" placeholder="category" [formControl]="control"
-                    formControlName="CategoryCtrl" [(ngModel)]="category" matInput required [matAutocomplete]="auto" required>
-                    <mat-autocomplete  #auto="matAutocomplete">
+                <div class="col-sm-6">
+                    <!--Product category-->
+                    <mat-label class="lbl">Product Category :</mat-label>
+                    <br>
+                    <mat-form-field>
 
-                        <mat-option *ngFor="let category of filteredCategorys | async" [value]="category">
-                          {{category}}
-                        </mat-option>
-                      </mat-autocomplete>
-                   </mat-form-field>
-                  <br>
-                  <!--Product Family-->
-                  <mat-label class="lbl">Product Family :</mat-label>
-                   <br>
-                   <mat-form-field appearance="legacy" >
-                      <input type="text" class="form-control" matInput placeholder="Enter Product Family" [(ngModel)]="productFamily"
-          formControlName="ProductFamilyCtrl" required>
-                   </mat-form-field>
-               
-                  <br>
-                  <!--Product Specification-->
-                  <mat-label class="lbl">Specification :</mat-label>
-                   <br>
-                   <mat-form-field appearance="legacy">
-                      <textarea matInput class="form-control" [(ngModel)]="productSpecifications"
-                      formControlName="ProductSpecificationsCtrl" placeholder="Enter Product Specification" required></textarea>
-                 </mat-form-field>
-                  <br>
-                  <!--Product Image-->
-                  <mat-label class="lbl" for="file_img">
-                      Add a Product Image (jpg/png/jpeg/gif):
-                  </mat-label>
-                  <br>
-                   <input class="aligns" type="file" (change)="selectPhoto($event)" accept=".jpg,.jpeg,.gif,.png/*">
-                   <br>
-                  <div class="uploadbtn">
-                      <button class="w3-btn w3-round-xxlarge" (click)="uploadPhoto()">
+                        <input type="text" placeholder="category" [formControl]="control" formControlName="CategoryCtrl" [(ngModel)]="category" matInput required [matAutocomplete]="auto" required>
+                        <mat-autocomplete #auto="matAutocomplete">
+
+                            <mat-option *ngFor="let category of filteredCategorys | async" [value]="category">
+                                {{category}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                    <br>
+                    <!--Product Family-->
+                    <mat-label class="lbl">Product Family :</mat-label>
+                    <br>
+                    <mat-form-field appearance="legacy">
+                        <input type="text" class="form-control" matInput placeholder="Enter Product Family" [(ngModel)]="productFamily" formControlName="ProductFamilyCtrl" required>
+                    </mat-form-field>
+
+                    <br>
+                    <!--Product Specification-->
+                    <mat-label class="lbl">Specification :</mat-label>
+                    <br>
+                    <mat-form-field appearance="legacy">
+                        <textarea matInput class="form-control" [(ngModel)]="productSpecifications" formControlName="ProductSpecificationsCtrl" placeholder="Enter Product Specification" required></textarea>
+                    </mat-form-field>
+                    <br>
+                    <!--Product Image-->
+                    <mat-label class="lbl" for="file_img">
+                        Add a Product Image (jpg/png/jpeg/gif):
+                    </mat-label>
+                    <br>
+                    <input class="aligns" type="file" (change)="selectPhoto($event)" accept=".jpg,.jpeg,.gif,.png/*">
+                    <br>
+                    <div class="uploadbtn">
+                        <button class="w3-btn w3-round-xxlarge" (click)="uploadPhoto()">
                           Upload Photo
                         </button>
-                  </div>
-                  
-              </div>
+                    </div>
 
-              <div class="col-sm-6">
-                 <!--Product Subcategory-->
-                 <mat-label class="lbl">Product Subcategory :</mat-label>
-                   <br>
-                  <mat-form-field >
-                    <input type="text" [(ngModel)]="subCategory"  matInput [formControl]="controls"  formControlName="SubCategoryCtrl" placeholder="subcategory"
-                     [matAutocomplete]="auto2" required >
-                     <mat-autocomplete  #auto2="matAutocomplete">
-                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                          {{option}}
-                        </mat-option>
-                      </mat-autocomplete>
-                  </mat-form-field> 
-                  <br>
-                   <!--Product Name-->
-                   <mat-label class="lbl">Product Name :</mat-label>
-                   <br>
-                   <mat-form-field appearance="legacy">
-                      <input type="text" matInput class="form-control" placeholder="Enter Product Name" [(ngModel)]="productName"
-                      formControlName="ProductNameCtrl" required>
-          
-                  </mat-form-field>
-                   <br>
-                  <!--Product Description-->
-                  <mat-label class="lbl">Description :</mat-label>
-                   <br>
-                  <mat-form-field appearance="legacy">
-                      <textarea matInput class="form-control" [(ngModel)]="productDescription"
-                      formControlName="ProductDescriptionCtrl" placeholder="Enter Product Description" required></textarea>
-                  </mat-form-field>
-                  <br>
-                  <!--Product Price-->
-                  <mat-label class="lbl">Price :</mat-label>
-                   <br>
-                  <mat-form-field appearance="legacy">
-                      <input type="text" class="form-control" matInput placeholder="Enter Product Price" [(ngModel)]="productPrice"
-                      formControlName="ProductPriceCtrl" required>
-                  </mat-form-field>
-              </div>
+                </div>
 
-            </div> 
+                <div class="col-sm-6">
+                    <!--Product Subcategory-->
+                    <mat-label class="lbl">Product Subcategory :</mat-label>
+                    <br>
+                    <mat-form-field>
+                        <input type="text" [(ngModel)]="subCategory" matInput [formControl]="controls" formControlName="SubCategoryCtrl" placeholder="subcategory" [matAutocomplete]="auto2" required>
+                        <mat-autocomplete #auto2="matAutocomplete">
+                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                {{option}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                    <br>
+                    <!--Product Name-->
+                    <mat-label class="lbl">Product Name :</mat-label>
+                    <br>
+                    <mat-form-field appearance="legacy">
+                        <input type="text" matInput class="form-control" placeholder="Enter Product Name" [(ngModel)]="productName" formControlName="ProductNameCtrl" required>
+
+                    </mat-form-field>
+                    <br>
+                    <!--Product Description-->
+                    <mat-label class="lbl">Description :</mat-label>
+                    <br>
+                    <mat-form-field appearance="legacy">
+                        <textarea matInput class="form-control" [(ngModel)]="productDescription" formControlName="ProductDescriptionCtrl" placeholder="Enter Product Description" required></textarea>
+                    </mat-form-field>
+                    <br>
+                    <!--Product Price-->
+                    <mat-label class="lbl">Price :</mat-label>
+                    <br>
+                    <mat-form-field appearance="legacy">
+                        <input type="text" class="form-control" matInput placeholder="Enter Product Price" [(ngModel)]="productPrice" formControlName="ProductPriceCtrl" required>
+                    </mat-form-field>
+                </div>
+
+            </div>
             <br>
             <br>
             <div class="savebtn">
-                <button class="w3-btn w3-round-xxlarge"  data-toggle="modal" data-target="#myModal"
-                (click)="saveProduct()">
+                <button class="w3-btn w3-round-xxlarge" data-toggle="modal" data-target="#myModal" (click)="saveProduct()">
                 Save Product
               </button>
-            </div>       
-          </form>
-          
-        </div>
+            </div>
+        </form>
 
-    
-  
+    </div>
 
-  <!-- Footer -->
-  <footer class="page-footer font-small mdb-color pt-3 bg-dark footer-dark">
-      <!-- Footer Links -->
-      <div class="container text-center text-md-left">
-        <!-- Footer links -->
-        <div class="row text-center text-md-left mt-3 pb-3">
-          <!-- Grid column -->
-          <!-- <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+
+
+
+    <!-- Footer -->
+    <footer class="page-footer font-small mdb-color pt-3 bg-dark footer-dark">
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left">
+            <!-- Footer links -->
+            <div class="row text-center text-md-left mt-3 pb-3">
+                <!-- Grid column -->
+                <!-- <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
             <img style="margin-top: 20px; height:100px;width: 50px;" class="card-img-top" src="assets/img/logo5.png" alt="image"> 
             <h2 id="two" style="color: white"><strong>Censeosphere</strong></h2>
             <a href="#" style='font-size:24px'><i class='fas fa-home'></i></a>
           </div> -->
-          <!-- Grid column -->
-          <hr class="w-100 clearfix d-md-none">
-          <!-- Grid column -->
-          <div class="col-md-3 col-lg-3 mx-auto mt-3">
-            <ul class="list-unstyled lead">
-              <li>
-                <h5><strong>About us</strong></h5>
-              </li>
-              <li>
-                <a href="#"><strong> Vision & Goals </strong></a>
-              </li>
-              <li>
-                <a href="#"><strong> Company </strong></a>
-              </li>
-              <!-- <li>
+                <!-- Grid column -->
+                <hr class="w-100 clearfix d-md-none">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-3 mx-auto mt-3">
+                    <ul class="list-unstyled lead">
+                        <li>
+                            <h5><strong>About us</strong></h5>
+                        </li>
+                        <li>
+                            <a href="#"><strong> Vision & Goals </strong></a>
+                        </li>
+                        <li>
+                            <a href="#"><strong> Company </strong></a>
+                        </li>
+                        <!-- <li>
                 <a href="#"><strong> Blog </strong></a>
               </li> -->
-              <!-- <li>
+                        <!-- <li>
                 <a href="#"><strong> Careers </strong></a>
               </li> -->
-            </ul>
-          </div>
-          <!-- Grid column -->
-          <hr class="w-100 clearfix d-md-none">
-          <!-- Grid column -->
-          <div class="col-md-3 col-lg-3  mx-auto mt-3">
-            <ul class="list-unstyled lead">
-              <li>
-                <h5><strong>Contact us</strong></h5>
-              </li>
-              <li>
-                <a href="#"><i class="fa fa-map-marker"></i>&nbsp;<Strong>Location</Strong></a>
-              </li>
-              <!-- <li>
+                    </ul>
+                </div>
+                <!-- Grid column -->
+                <hr class="w-100 clearfix d-md-none">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-3  mx-auto mt-3">
+                    <ul class="list-unstyled lead">
+                        <li>
+                            <h5><strong>Contact us</strong></h5>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-map-marker"></i>&nbsp;<Strong>Location</Strong></a>
+                        </li>
+                        <!-- <li>
                 <a href="#"><i class="fa fa-phone"></i>&nbsp;<Strong>9874563129</Strong></a>
               </li> -->
-              <li>
-                <a href="#"> <i class="fa fa-envelope"></i>&nbsp;<Strong>niitstkrt@gmail.com</Strong></a>
-              </li>
-            </ul>
-          </div>
-          <!-- Grid column -->
-          <hr class="w-100 clearfix d-md-none">
-          <!-- Grid column -->
-          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-            <ul class="list-unstyled lead">
-              <li>
-                <h5><strong>Insights</strong></h5>
-              </li>
-              <li>
-                <a href="#"><Strong>Privacy policy</Strong></a>
-              </li>
-              <!-- <li>
+                        <li>
+                            <a href="#"> <i class="fa fa-envelope"></i>&nbsp;
+                                <Strong>niitstkrt@gmail.com</Strong>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Grid column -->
+                <hr class="w-100 clearfix d-md-none">
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <ul class="list-unstyled lead">
+                        <li>
+                            <h5><strong>Insights</strong></h5>
+                        </li>
+                        <li>
+                            <a href="#"><Strong>Privacy policy</Strong></a>
+                        </li>
+                        <!-- <li>
                 <a href="#"><Strong>Terms & Conditions </Strong></a>
               </li> -->
-              <!-- <li>
+                        <!-- <li>
                 <a href="#"><Strong>FAQs</Strong></a>
               </li> -->
-              <li>
-                <a href="#"><Strong>Support</Strong></a>
-              </li>
-            </ul>
-          </div>
-          <!-- Grid column -->
-        </div>
-        <!-- Footer links -->
-        <hr class="side">
-        <!-- Grid row -->
-        <div class="row d-flex align-items-center">
-          <!-- Grid column -->
-          <div class="col-md-7 col-lg-8">
-            <div class="col-md-12">
-              <ul class="social-network social-circle">
-                <li><a href="#"><i class="fab fa-facebook" id="facebook"></i></a></li>
-                <li></li>
-                <li><a href="#"><i class="fab fa-twitter" id="twitter"></i></a></li>
-                <li></li>
-                <li><a href="#"><i class="fab fa-instagram" id="instagram"></i></a></li>
-                <li></li>
-                <li><a href="#"><i class="fab fa-linkedin-in" id="linkedin"></i></a></li>
-              </ul>
+                        <li>
+                            <a href="#"><Strong>Support</Strong></a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Grid column -->
             </div>
-            <!--Copyright-->
-            <p class="text-center text-md-right">Copyright © All Rights Reserved by
-              <strong>Censeosphere</strong>
-            </p>
-          </div>
+            <!-- Footer links -->
+            <hr class="side">
+            <!-- Grid row -->
+            <div class="row d-flex align-items-center">
+                <!-- Grid column -->
+                <div class="col-md-7 col-lg-8">
+                    <div class="col-md-12">
+                        <ul class="social-network social-circle">
+                            <li><a href="#"><i class="fab fa-facebook" id="facebook"></i></a></li>
+                            <li></li>
+                            <li><a href="#"><i class="fab fa-twitter" id="twitter"></i></a></li>
+                            <li></li>
+                            <li><a href="#"><i class="fab fa-instagram" id="instagram"></i></a></li>
+                            <li></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in" id="linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                    <!--Copyright-->
+                    <p class="text-center text-md-right">Copyright © All Rights Reserved by
+                        <strong>Censeosphere</strong>
+                    </p>
+                </div>
+            </div>
+            <!-- Grid column -->
         </div>
-        <!-- Grid column -->
-      </div>
     </footer>
     <!-- end footer -->
-  </div>
+</div>

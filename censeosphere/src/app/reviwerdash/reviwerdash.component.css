@@ -333,7 +333,6 @@ h5 {
 }
 
 .rate {
-    background-color: rgba(0, 128, 0, 0.5);
     width: fit-content;
     margin: 0 auto;
 }
@@ -579,4 +578,11 @@ h5 {
 .subcategory:hover {
     color: #bc158a;
     background-color: #87b8e0;
+}
+
+#creditpoints {
+    margin-left: 1070px;
+    font-size: 25px;
+    background-color: #83157b;
+    color: white;
 }

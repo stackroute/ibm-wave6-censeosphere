@@ -151,7 +151,9 @@ export class UpdateprofileComponent implements OnInit {
   }
 
 
-
+  logoclick(){
+    this.router.navigateByUrl("/");
+   }
   // account()
   // {
   //   this.router.navigateByUrl("./reviewerdashboard");

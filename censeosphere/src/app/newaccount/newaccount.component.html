@@ -1,16 +1,16 @@
 <div class="bodyy">
 
-<!-- header -->
-<div class="containerbody">
-  <nav class="navbar navbar-expand-lg fixed-top">
-    
-    <img src="../../assets/img/logo14.png">
-  </nav>
-</div>
+    <!-- header -->
+    <div class="containerbody">
+        <nav class="navbar navbar-expand-lg fixed-top">
 
-<!-- end header -->
+            <img src="../../assets/img/logo14.png" (click)="logoclick()">
+        </nav>
+    </div>
 
-<!-- <form class="form-horizontal" #myForm="ngForm" (ngSubmit)="onClickS(name.value,emailId.value,rpassword.value)">
+    <!-- end header -->
+
+    <!-- <form class="form-horizontal" #myForm="ngForm" (ngSubmit)="onClickS(name.value,emailId.value,rpassword.value)">
  
   <h2 id="newheading">Create New Account</h2>  
   <div class="form-group">
@@ -45,90 +45,90 @@
     <button class="btn btn-danger" type="submit" id="cancelbutton" (click)="onClickC()">cancel</button>
 
   </form>  -->
-  <!-- header -->
- 
+    <!-- header -->
 
-  <div class="container">
-  <h2 id="newheading">Create New Account</h2>
-  <br/>
-  <br/>
 
-  <mat-horizontal-stepper linear >
-    <!-- 1st Form-->
-      <mat-step [stepControl]="profileFormGroup">
-        <ng-template matStepLabel>
-          <mat-icon aria-hidden="false" aria-label="Example account_box icon">person_pin</mat-icon>
-          <b>Fill your details </b>
-        </ng-template>
-          <div class="thumb-wrapper" >
-            <form [formGroup]="profileFormGroup" >
-                <mat-form-field class="full-width">
-                  <input matInput placeholder="Name:" formControlName="name" [(ngModel)]="name" required>
-                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                    <mat-error *ngFor="let validation of validation_messages.name">
-                      <mat-error class="error-message" *ngIf="profileFormGroup.get('name').hasError(validation.type) && (profileFormGroup.get('name').dirty || profileFormGroup.get('name').touched)">{{validation.message}}
-                      </mat-error>
-                    </mat-error>
-                </mat-form-field> <br/>
-                <br>
-                <mat-form-field class="full-width">
-                  <input matInput placeholder="Email-Id:" formControlName="emailId" [(ngModel)]="emailId" required>
-                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                  <mat-error *ngFor="let validation of validation_messages.emailId">
-                      <mat-error class="error-message" *ngIf="profileFormGroup.get('emailId').hasError(validation.type) && (profileFormGroup.get('emailId').dirty || profileFormGroup.get('emailId').touched)">{{validation.message}}
-                      </mat-error>
-                    </mat-error>
-                </mat-form-field>
-                <div>
-                  <button mat-button class="w3-btn w3-round-xxlarge" matStepperNext (click)="saveReviewer()"><b>Next</b></button>
+    <div class="container">
+        <h2 id="newheading">Create New Account</h2>
+        <br/>
+        <br/>
+
+        <mat-horizontal-stepper linear>
+            <!-- 1st Form-->
+            <mat-step [stepControl]="profileFormGroup">
+                <ng-template matStepLabel>
+                    <mat-icon aria-hidden="false" aria-label="Example account_box icon">person_pin</mat-icon>
+                    <b>Fill your details </b>
+                </ng-template>
+                <div class="thumb-wrapper">
+                    <form [formGroup]="profileFormGroup">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Name:" formControlName="name" [(ngModel)]="name" required>
+                            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                            <mat-error *ngFor="let validation of validation_messages.name">
+                                <mat-error class="error-message" *ngIf="profileFormGroup.get('name').hasError(validation.type) && (profileFormGroup.get('name').dirty || profileFormGroup.get('name').touched)">{{validation.message}}
+                                </mat-error>
+                            </mat-error>
+                        </mat-form-field> <br/>
+                        <br>
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Email-Id:" formControlName="emailId" [(ngModel)]="emailId" required>
+                            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                            <mat-error *ngFor="let validation of validation_messages.emailId">
+                                <mat-error class="error-message" *ngIf="profileFormGroup.get('emailId').hasError(validation.type) && (profileFormGroup.get('emailId').dirty || profileFormGroup.get('emailId').touched)">{{validation.message}}
+                                </mat-error>
+                            </mat-error>
+                        </mat-form-field>
+                        <div>
+                            <button mat-button class="w3-btn w3-round-xxlarge" matStepperNext (click)="saveReviewer()"><b>Next</b></button>
+                        </div>
+                    </form>
                 </div>
-            </form>
-          </div>
-      </mat-step>
-      <!--1st Form ends-->
-      
-      <!--2nd form -->
-      <mat-step [stepControl]="verifyFormGroup">
-          <ng-template matStepLabel>
-              <mat-icon aria-hidden="false" aria-label="Example lock icon">lock</mat-icon>
-              <b>Give your password</b>
-            </ng-template>
-          <div class="thumb-wrapper">
-            <form [formGroup]="verifyFormGroup">  
-                <mat-form-field class="full-width">
-                    <input matInput placeholder="Password:" formControlName="password" [type]="hide ? 'password' : 'text'" [(ngModel)]="password" required>
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            </mat-step>
+            <!--1st Form ends-->
+
+            <!--2nd form -->
+            <mat-step [stepControl]="verifyFormGroup">
+                <ng-template matStepLabel>
+                    <mat-icon aria-hidden="false" aria-label="Example lock icon">lock</mat-icon>
+                    <b>Give your password</b>
+                </ng-template>
+                <div class="thumb-wrapper">
+                    <form [formGroup]="verifyFormGroup">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Password:" formControlName="password" [type]="hide ? 'password' : 'text'" [(ngModel)]="password" required>
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
-                    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-                    <mat-error *ngFor="let validation of validation_messages.password">
-                        <mat-error class="error-message" *ngIf="verifyFormGroup.get('password').hasError(validation.type) && (verifyFormGroup.get('password').dirty || verifyFormGroup.get('password').touched)">{{validation.message}}
-                        </mat-error>
-                    </mat-error>
-                  </mat-form-field>  <br/>
-                  <br>
-                <mat-form-field class="full-width">
-                    <input matInput placeholder="Reconfirm Password:" formControlName="reconfirmPassword" [type]="hide ? 'password' : 'text'" [(ngModel)]="reconfirmPassword" required>
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                            <mat-error *ngFor="let validation of validation_messages.password">
+                                <mat-error class="error-message" *ngIf="verifyFormGroup.get('password').hasError(validation.type) && (verifyFormGroup.get('password').dirty || verifyFormGroup.get('password').touched)">{{validation.message}}
+                                </mat-error>
+                            </mat-error>
+                        </mat-form-field> <br/>
+                        <br>
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Reconfirm Password:" formControlName="reconfirmPassword" [type]="hide ? 'password' : 'text'" [(ngModel)]="reconfirmPassword" required>
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
-                    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-                    <mat-error *ngFor="let validation of validation_messages.password">
-                        <mat-error class="error-message" *ngIf="verifyFormGroup.get('password').hasError(validation.type) && (verifyFormGroup.get('password').dirty || verifyFormGroup.get('password').touched)">{{validation.message}}
-                        </mat-error>
-                    </mat-error>
-                  </mat-form-field>
-                <div>
-                  <!-- <button mat-button matStepperPrevious (ngSubmit)="onClickS(profileFormGroup.value)">Previous</button> -->
-                  <button mat-button class="w3-btn w3-round-xxlarge" matStepperPrevious><b>Previous</b></button>&nbsp;
-                  <button mat-button class="w3-btn w3-round-xxlarge" matStepperNext (click)="saveReviewer1()"><b>Submit</b></button> 
+                            <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                            <mat-error *ngFor="let validation of validation_messages.password">
+                                <mat-error class="error-message" *ngIf="verifyFormGroup.get('password').hasError(validation.type) && (verifyFormGroup.get('password').dirty || verifyFormGroup.get('password').touched)">{{validation.message}}
+                                </mat-error>
+                            </mat-error>
+                        </mat-form-field>
+                        <div>
+                            <!-- <button mat-button matStepperPrevious (ngSubmit)="onClickS(profileFormGroup.value)">Previous</button> -->
+                            <button mat-button class="w3-btn w3-round-xxlarge" matStepperPrevious><b>Previous</b></button>&nbsp;
+                            <button mat-button class="w3-btn w3-round-xxlarge" matStepperNext (click)="saveReviewer1()"><b>Submit</b></button>
+                        </div>
+                    </form>
                 </div>
-            </form>
-          </div>
-      </mat-step>
-      <!-- 2nd form ends-->
+            </mat-step>
+            <!-- 2nd form ends-->
 
-      <!-- <mat-step label="Done">
+            <!-- <mat-step label="Done">
         <div class="thumb-wrapper">
           <h3 style="text-align: center;margin-top:80px;">You are successfully Registered..!!</h3>
           <div>
@@ -137,28 +137,28 @@
         </div>
       </mat-step> -->
 
-      <mat-step label="Done" >
-          <div class="thumb-wrapper">
-              <ng-template matStepLabel>
-                <mat-icon aria-hidden="false" aria-label="Example sentiment_very_satisfied icon">sentiment_very_satisfied</mat-icon>
-                  <b>Done!</b>
-              </ng-template>
-              <img id="stepperimg" src="../../assets/img/winner.jpg">
-  
-              <h1>
-                  Thank you!!!
-              </h1>
-              <h3>You are successfully Registered!!!</h3>
-              <button mat-button class="w3-btn w3-round-xxlarge" type="submit" (click)="follow()"><b>Follow Me</b></button>
-              <br>
-              <br>
-          </div>
-      </mat-step>
-  </mat-horizontal-stepper>
+            <mat-step label="Done">
+                <div class="thumb-wrapper">
+                    <ng-template matStepLabel>
+                        <mat-icon aria-hidden="false" aria-label="Example sentiment_very_satisfied icon">sentiment_very_satisfied</mat-icon>
+                        <b>Done!</b>
+                    </ng-template>
+                    <img id="stepperimg" src="../../assets/img/winner.jpg">
 
-</div>
-<!-- footer -->
-<!-- <footer class="page-footer font-small blue pt-4">
+                    <h1>
+                        Thank you!!!
+                    </h1>
+                    <h3>You are successfully Registered!!!</h3>
+                    <button mat-button class="w3-btn w3-round-xxlarge" type="submit" (click)="follow()"><b>Follow Me</b></button>
+                    <br>
+                    <br>
+                </div>
+            </mat-step>
+        </mat-horizontal-stepper>
+
+    </div>
+    <!-- footer -->
+    <!-- <footer class="page-footer font-small blue pt-4">
   <div class="container">
     <div class="row">
 
@@ -241,114 +241,116 @@
   </div>
 
 </footer> -->
-<!-- end footer -->
+    <!-- end footer -->
 
 
-<footer class="page-footer font-small mdb-color pt-4 bg-dark footer-dark">
+    <footer class="page-footer font-small mdb-color pt-4 bg-dark footer-dark">
 
-  <!-- Footer Links -->
-  <div class="container text-center text-md-left" id="footerone">
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left" id="footerone">
 
-    <!-- Footer links -->
-    <div class="row text-center text-md-left mt-3 pb-3">
-      <!-- Grid column -->
+            <!-- Footer links -->
+            <div class="row text-center text-md-left mt-3 pb-3">
+                <!-- Grid column -->
 
-      <hr class="w-100 clearfix d-md-none">
+                <hr class="w-100 clearfix d-md-none">
 
-      <!-- Grid column -->
-      <div class="col-md-3 col-lg-3 mx-auto mt-3">
-        <ul class="list-unstyled lead">
-          <li>
-              <h5><strong>About us</strong></h5>
-          </li>
-          <li>
-              <a href="#"><strong> Vision & Goals </strong></a>
-            </li>
-            <li>
-              <a href="#"><strong> Company </strong></a>
-            </li>
-            
-      </ul>
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-3 mx-auto mt-3">
+                    <ul class="list-unstyled lead">
+                        <li>
+                            <h5><strong>About us</strong></h5>
+                        </li>
+                        <li>
+                            <a href="#"><strong> Vision & Goals </strong></a>
+                        </li>
+                        <li>
+                            <a href="#"><strong> Company </strong></a>
+                        </li>
 
-      </div>
-      <!-- Grid column -->
+                    </ul>
 
-      <hr class="w-100 clearfix d-md-none">
+                </div>
+                <!-- Grid column -->
 
-      <!-- Grid column -->
-      <div class="col-md-3 col-lg-3  mx-auto mt-3">
-        <ul class="list-unstyled lead">
-          <li>
-              <h5><strong>Contact us</strong></h5>
-          </li>
-            <li>
-              <a href="#"><i class="fa fa-map-marker"></i>&nbsp;<Strong>Location</Strong></a>
-            </li>
-            
-            <li> 
-              <a href="#"> <i class="fa fa-envelope"></i>&nbsp;<Strong>niitstkrt@gmail.com</Strong></a>
-            </li> 
-      </ul>
+                <hr class="w-100 clearfix d-md-none">
 
-      </div>
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-3  mx-auto mt-3">
+                    <ul class="list-unstyled lead">
+                        <li>
+                            <h5><strong>Contact us</strong></h5>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-map-marker"></i>&nbsp;<Strong>Location</Strong></a>
+                        </li>
 
-      <!-- Grid column -->
-      <hr class="w-100 clearfix d-md-none">
+                        <li>
+                            <a href="#"> <i class="fa fa-envelope"></i>&nbsp;
+                                <Strong>niitstkrt@gmail.com</Strong>
+                            </a>
+                        </li>
+                    </ul>
 
-      <!-- Grid column -->
-      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-        <ul class="list-unstyled lead">
-          <li>
-              <h5><strong>Insights</strong></h5>
-          </li>
-          <li>
-              <a href="#"><Strong>Privacy policy</Strong></a>
-            </li>
-           
-            <li>
-              <a href="#"><Strong>Support</Strong></a>
-            </li>
-      </ul>
-      </div>
-      <!-- Grid column -->
+                </div>
 
-    </div>
-    <!-- Footer links -->
- 
-    <hr class="side">
+                <!-- Grid column -->
+                <hr class="w-100 clearfix d-md-none">
 
-    <!-- Grid row -->
-    <div class="row d-flex align-items-center">
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <ul class="list-unstyled lead">
+                        <li>
+                            <h5><strong>Insights</strong></h5>
+                        </li>
+                        <li>
+                            <a href="#"><Strong>Privacy policy</Strong></a>
+                        </li>
 
+                        <li>
+                            <a href="#"><Strong>Support</Strong></a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Grid column -->
 
-      <!-- Grid column -->
-      <div class="col-md-7 col-lg-8">
+            </div>
+            <!-- Footer links -->
+
+            <hr class="side">
+
+            <!-- Grid row -->
+            <div class="row d-flex align-items-center">
 
 
-        <div class="col-md-12">
-          <ul class="social-network social-circle">
-            <li><a href="#"><i class="fab fa-facebook" id="facebook"></i></a></li>
-            <li></li>
-            <li><a href="#"><i class="fab fa-twitter" id="twitter"></i></a></li>
-            <li></li>
-            <li><a href="#"><i class="fab fa-instagram" id="instagram"></i></a></li>
-            <li></li>
-            <li><a href="#"><i class="fab fa-linkedin-in" id="linkedin"></i></a></li>
+                <!-- Grid column -->
+                <div class="col-md-7 col-lg-8">
 
-          </ul>
+
+                    <div class="col-md-12">
+                        <ul class="social-network social-circle">
+                            <li><a href="#"><i class="fab fa-facebook" id="facebook"></i></a></li>
+                            <li></li>
+                            <li><a href="#"><i class="fab fa-twitter" id="twitter"></i></a></li>
+                            <li></li>
+                            <li><a href="#"><i class="fab fa-instagram" id="instagram"></i></a></li>
+                            <li></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in" id="linkedin"></i></a></li>
+
+                        </ul>
+                    </div>
+
+
+                    <!--Copyright-->
+
+                    <p class="text-center text-md-right">Copyright © All Rights Reserved by
+                        <strong>CenseoSphere</strong>
+                    </p>
+
+
+                </div>
+                <!-- Grid column -->
+            </div>
+
+
         </div>
-
-
-        <!--Copyright-->
-
-        <p class="text-center text-md-right">Copyright © All Rights Reserved by
-          <strong>CenseoSphere</strong>
-        </p>
-
-
-      </div>
-      <!-- Grid column -->
-    </div>
-
-
-</div>

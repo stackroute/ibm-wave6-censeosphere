@@ -133,5 +133,8 @@ export class ProductownerdashboardComponent implements OnInit {
       });
 
     }
+    logoclick(){
+      this.router.navigateByUrl("/");
+     }
 
   }

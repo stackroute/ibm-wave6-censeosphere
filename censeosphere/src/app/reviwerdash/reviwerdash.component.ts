@@ -26,6 +26,7 @@ export class ReviwerdashComponent implements OnInit {
 
   subs:any=subs;
   array=[];
+  creditpoints:any;
 
   constructor(private router: Router, private landingpageservice: LandingpageService, 
     private updates: UpdateProfileService,private route1: ActivatedRoute, 
@@ -35,6 +36,10 @@ export class ReviwerdashComponent implements OnInit {
       config.readonly = true;}
 
   ngOnInit() {
+    this.creditpoints=JSON.parse(sessionStorage.getItem('data1')).creditpoints;
+    console.log("shaaaaaaaaaaaaa",this.creditpoints);
+  
+
     this.landingpageservice.getAllProducts().subscribe((data:any) => {
       console.log(data);
       this.productDetails=data;
@@ -120,5 +125,7 @@ export class ReviwerdashComponent implements OnInit {
     sessionStorage.setItem('data', a);
     this.router.navigateByUrl("/rsearch");
   }
-
+  logoclick(){
+    this.router.navigateByUrl("/");
+   }
 }

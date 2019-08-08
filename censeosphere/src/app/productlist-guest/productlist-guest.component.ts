@@ -58,7 +58,7 @@ export class ProductlistGuestComponent implements OnInit {
     this.landingpageservice.findAllProductsBySubcategory(value).
     subscribe(data=>{
       this.listofproducts=data;
-      console.log("inside  method call"+this.listofproducts)
+      console.log("inside  method call",this.listofproducts)
      
     });
   }
@@ -70,6 +70,7 @@ export class ProductlistGuestComponent implements OnInit {
     subscribe(data=>{
       this.listofproducts=data;
       console.log("inside  method onclick"+this.listofproducts)
+
      
   });
 
@@ -164,6 +165,9 @@ imageclickguest(pro){
   let a = JSON.stringify(pro);
     sessionStorage.setItem('data', a);
     this.router.navigateByUrl("/productreview");
+ }
+ logoclick(){
+  this.router.navigateByUrl("/");
  }
 
 }

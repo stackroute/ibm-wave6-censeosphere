@@ -98,16 +98,7 @@ account()
 {
   this.router.navigateByUrl("/")
 }
-
-// reviewerDetails(){
-//   const emailId=this.route1.snapshot.paramMap.get('emailId');
-//   console.log("Reviewer profile " +emailId);
-//   sessionStorage.setItem("pemailId",emailId);
-
-//   this.updates.getReviewerDetails(emailId).subscribe((data: any) => {
-//     console.log("inside reviewerdash"+data);
-//     sessionStorage.setItem("data", JSON.stringify(data));
-   
-//   });
-//  }
+logoclick(){
+  this.router.navigateByUrl("/");
+ }
 }

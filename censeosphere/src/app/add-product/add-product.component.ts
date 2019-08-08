@@ -122,5 +122,9 @@ update()
     this.currentFileUpload = this.selectedPhoto.item(0)
     this.mediaName=this.currentFileUpload.name;
    }
+
+  logoclick(){
+    this.router.navigateByUrl("/");
+   }
   
 }

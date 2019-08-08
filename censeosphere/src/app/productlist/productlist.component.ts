@@ -89,5 +89,7 @@ imageclickguest(pro){
     sessionStorage.setItem('data', a);
     this.router.navigateByUrl("/productreview");
  }
-
+ logoclick(){
+  this.router.navigateByUrl("/");
+ }
 }

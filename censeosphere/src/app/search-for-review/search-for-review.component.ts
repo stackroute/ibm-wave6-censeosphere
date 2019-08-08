@@ -134,4 +134,8 @@ export class SearchForReviewComponent implements OnInit {
            this.router.navigateByUrl("/productlist/"+subCategory);
         })
       }
+
+      logoclick(){
+        this.router.navigateByUrl("/");
+       }
 }

@@ -3,7 +3,7 @@
 
     <div class="containerbody">
         <nav class="navbar navbar-expand-lg fixed-top">
-            <img id="logo" src="../../assets/img/logo14.png">
+            <img id="logo" src="../../assets/img/logo14.png" (click)="logoclick()">
             <div class="dropdown">
                 <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
@@ -87,11 +87,11 @@
                     </div>
 
                     <div class="col-md-8">
-                        <p class="h4">{{review.reviewTitle}}</p>
-                        <p>{{review.reviewDescription}}</p>
+                        <h4 class="reviewheadingg"><b>{{review.reviewTitle}}</b></h4>
+                        <p id="descrip">{{review.reviewDescription}}</p>
                         <div>
 
-                            <strong>Was this helpful?</strong> &nbsp;
+                            <strong id="ques">Was this helpful?</strong> &nbsp;
                             <button class="btn btn-light" id="up" type="button" (click)="yes(review.reviewerEmail)" name="useful"><i
                   class="fas fa-thumbs-up"> YES</i></button> &nbsp;
                             <button class="btn btn-light" id="down" type="button" (click)="no(review.reviewerEmail)" name="useful"><i

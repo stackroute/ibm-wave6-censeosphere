@@ -154,4 +154,7 @@ follow()
     this.router.navigateByUrl("/");
   }
   
+  logoclick(){
+    this.router.navigateByUrl("/");
+   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router , ActivatedRoute} from '@angular/router';
 import { LandingpageService } from '../landingpage.service';
 import { Authentication } from '../authentication';
@@ -22,7 +22,7 @@ const helper = new JwtHelperService();
  
 })
 
-export class LandingPageComponent implements OnInit {
+export class LandingPageComponent implements OnInit, AfterViewInit {
   showFiller = false;
   productDetails = [];
   categories = [];
@@ -51,7 +51,9 @@ export class LandingPageComponent implements OnInit {
      private loginvalidation: LoginvalidationService,private productService:ProductService,
     private reviewService: ReviewService,private config: NgbRatingConfig) {  config.max = 5;
       config.readonly = true; }
-  
+  ngAfterViewInit() {
+    console.log(this.productDetails1.sort((e, f)=> parseFloat(e.rating) - parseFloat(f.rating)))
+  }
 
   ngOnInit() {
     this.landingpageservice.getRecentProducts().subscribe((data: any) => {
@@ -59,7 +61,9 @@ export class LandingPageComponent implements OnInit {
        data.map((e, i) => {
         this.reviewService.getAllReviewsbyName(e.productName).subscribe((review: Array<{}>) => {
           e.size = review.length
+          e.rating = parseFloat(e.rating).toFixed(1)
           this.productDetails.push(e)
+          this.productDetails = this.productDetails.sort((e, f)=>  Date.parse(f.uploadedOn) - Date.parse(e.uploadedOn))
         });
       })
   })
@@ -68,7 +72,9 @@ export class LandingPageComponent implements OnInit {
      data1.map((e, i) => {
       this.reviewService.getAllReviewsbyName(e.productName).subscribe((reviews: Array<{}>) => {
         e.size = reviews.length
+        e.rating = parseFloat(e.rating).toFixed(1)
         this.productDetails1.push(e)
+        this.productDetails1 = this.productDetails1.sort((e, f)=>  parseFloat(f.rating) - parseFloat(e.rating))
       });
     })
 })
@@ -77,11 +83,7 @@ this.http.get('./assets/json/subCategory.json').subscribe((data:any) => {
   // console.log(data, "Is this comming ???");
   this.array = data;
 })
-//  this.landingpageservice.getAllSubCategories().subscribe((data: any) => {
-//   // console.log("inside get all ts file"+data);
-//   this.array= data;
-//   sessionStorage.setItem('sdata',data);
-// })
+
 
     this.landingpageservice.getAllCategory().subscribe((data: any) => {
       console.log(data);
@@ -129,9 +131,7 @@ this.http.get('./assets/json/subCategory.json').subscribe((data:any) => {
             this.router.navigateByUrl("/reviewerdash");
 
           }
-          else {
-            alert("provide valid credentailds");
-          }
+         
         }
 
       })
@@ -160,9 +160,7 @@ this.http.get('./assets/json/subCategory.json').subscribe((data:any) => {
             this.router.navigateByUrl("/productownerdashboard/"+ emailId);
 
           }
-          else {
-            alert("provide valid credentailds");
-          }
+          
         }
 
       })
@@ -209,10 +207,7 @@ this.http.get('./assets/json/subCategory.json').subscribe((data:any) => {
             this.router.navigateByUrl("/productownerdashboard");
           }
         }
-      },
-        error => {
-          alert("Invalid credential");
-        });
+      });
 
   }
 
@@ -246,6 +241,9 @@ this.http.get('./assets/json/subCategory.json').subscribe((data:any) => {
     sessionStorage.setItem('data', a);
     this.router.navigateByUrl("/productreview");
   } 
+  logoclick(){
+    this.router.navigateByUrl("/");
+  }
 }
 
 

@@ -91,6 +91,8 @@ export class ProdownerupdateprofileComponent implements OnInit {
     this.currentFileUpload = this.selectedVideo.item(0)
     this.mediaName=this.currentFileUpload.name;
    }
-
+   logoclick(){
+    this.router.navigateByUrl("/");
+   }
 
 }

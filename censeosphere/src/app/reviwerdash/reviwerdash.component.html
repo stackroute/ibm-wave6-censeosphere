@@ -5,14 +5,18 @@
 					  <i class="fa fa-bars" aria-hidden="true"></i>
 					</button>
         </div>
-        <img id="logo" src="../../assets/img/logo14.png">
+        <img id="logo" src="../../assets/img/logo14.png" (click)="logoclick()">
+        <button type="submit" id="creditpoints" class="w3-btn w3-round-xxlarge"><b>{{creditpoints}} <i class="fa fa-trophy" style="font-size:20px;color:gold"></i></b></button>&nbsp;
+
+
+
         <div class="dropdown" id="dropd">
             <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span> <i class='fas fa-user-circle' id="user-circle"></i></span> My Account
             </a>
             <ul id="drop" class="dropdown-menu">
-                <li><button class="dropdown-item" (click)="update()"><span><i class="fa fa-refresh"></i></span> Update
-						profile</button></li>
+                <li><button class="dropdown-item" (click)="update()"><span><i class="fa fa-refresh"></i></span> My
+						Profile</button></li>
                 <li><button class="dropdown-item" (click)="lpage()"><span><i class="fa fa-power-off"></i></span> Log
 						out</button></li>
             </ul>
@@ -29,7 +33,7 @@
             <mat-nav-list>
                 <div *ngFor="let x of array">
 
-                    <h5 class="subcategory" (click)="onClickSubCategory(x.subCategory)">{{x.subCategory}}</h5>
+                    <h5 class="subcategory" (click)="onClickSubCategory(x.subCategory)"> <span id="icons"><i class={{x.icon}} ></i></span> {{x.subCategory}}</h5>
 
                 </div>
             </mat-nav-list>
