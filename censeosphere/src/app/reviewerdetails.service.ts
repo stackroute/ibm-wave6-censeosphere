@@ -18,13 +18,13 @@ getReviewer(email)
 {
 
   console.log("in Reviwerdetailservice ", email);
-  return this.http.get("http://140.238.167.40:8083/reviewer-profile-service/api/v1/reviewer/" +email);
+  return this.http.get("http://140.238.162.66:8083/reviewer-profile-service/api/v1/reviewer/" +email);
 }
 
 updateReviewer(reviewerone:Reviewerone,email)
   {
     console.log("data in reviewdetrail service in update :",reviewerone);
-    return this.http.put<Reviewerone>("http://140.238.167.40:8083/reviewer-profile-service/api/v1/reviewer/"+email,reviewerone);
+    return this.http.put<Reviewerone>("http://140.238.162.66:8083/reviewer-profile-service/api/v1/reviewer/"+email,reviewerone);
 
   }
 
