@@ -19,13 +19,13 @@ export class LandingpageService {
 
 
   getRecentProducts(){
-    return this.http.get('http://140.238.167.40:8083/product-search-service/api/v1/recentproducts', this.httpOptions);
+    return this.http.get('http://140.238.162.66:8083/product-search-service/api/v1/recentproducts', this.httpOptions);
   
   }
 
   getTrendingProducts()
   {
-    return this.http.get('http://140.238.167.40:8083/product-search-service/api/v1/trendingproducts', this.httpOptions);
+    return this.http.get('http://140.238.162.66:8083/product-search-service/api/v1/trendingproducts', this.httpOptions);
   }
 
   
@@ -43,13 +43,13 @@ export class LandingpageService {
   findAllProductsBySubcategory(searchConn:string)
   {
     console.log("in landing servie suncategory:",searchConn);
-    return this.http.get('http://140.238.167.40:8083/search-service/api/v1/products/'+searchConn);
+    return this.http.get('http://140.238.162.66:8083/search-service/api/v1/products/'+searchConn);
    
   } 
   
   getAllSubcategories()
   {
     console.log("inside getallsubcategories");
-    return this.http.get('http://140.238.167.40:8083/search-service/api/v1/subcategories',this.httpOptions);
+    return this.http.get('http://140.238.162.66:8083/search-service/api/v1/subcategories',this.httpOptions);
   }
 }
