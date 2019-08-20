@@ -20,22 +20,22 @@ export class ProductService {
 
   saveProduct(product: Product) {
     console.log("value of product is" + product)
-    return this._http.post<Product>("http://13.126.244.58:8083/product-search-service/api/v1/product", product, this.httpOptions);
+    return this._http.post<Product>("http://140.238.167.169:8083/product-search-service/api/v1/product", product, this.httpOptions);
   }
 
   getProduct(productName) {
     console.log("from service : " + productName);
-    return this._http.get("http://13.126.244.58:8083/product-search-service/api/v1/product/" + productName, this.httpOptions);
+    return this._http.get("http://140.238.167.169:8083/product-search-service/api/v1/product/" + productName, this.httpOptions);
   }
 
   deleteProduct(productName) {
     console.log("from service :" + productName);
-    return this._http.delete<Product>("http://13.126.244.58:8083/product-search-service/api/v1/product/" + productName, this.httpOptions);
+    return this._http.delete<Product>("http://140.238.167.169:8083/product-search-service/api/v1/product/" + productName, this.httpOptions);
   }
 
   searchProductByProductOwner(emailId: string, product: String) {
     console.log("product owner email for search", emailId);
     console.log("Product name for search ", product);
-    return this._http.get("http://13.126.244.58:8083/product-search-service/api/v1/search/" + emailId + "/" + product, this.httpOptions);
+    return this._http.get("http://140.238.167.169:8083/product-search-service/api/v1/search/" + emailId + "/" + product, this.httpOptions);
   }
 }
