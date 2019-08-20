@@ -14,15 +14,15 @@ export class ReviewService {
 
   addReview(writereview:Writereview){
     console.log("data in review service :",writereview);
-    return this.http.post<Writereview>('http://13.126.244.58:8083/review-service/api/v1/review',writereview);
+    return this.http.post<Writereview>('http://140.238.167.169:8083/review-service/api/v1/review',writereview);
   }
   getAllReviews(){
-    return this.http.get('http://13.126.244.58:8083/review-service/api/v1/reviews', this.httpOptions);
+    return this.http.get('http://140.238.167.169:8083/review-service/api/v1/reviews', this.httpOptions);
   }
 
   getAllReviewsbyName(productname)
   {
     console.log(productname);
-    return this.http.get('http://13.126.244.58:8083/review-service/api/v1/byname/'+productname);
+    return this.http.get('http://140.238.167.169:8083/review-service/api/v1/byname/'+productname);
   }
 }
