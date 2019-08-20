@@ -15,22 +15,22 @@ export class UpdateProfileService {
  
    updateProductOwnerDetails(update:UpdateProfile,emailId) {
      console.log("from service : ",emailId);
-     return this._http.put<UpdateProfile>("http://13.126.244.58:8083/product-owner-service/api/v1/products/"+emailId,update);
+     return this._http.put<UpdateProfile>("http://140.238.167.169:8083/product-owner-service/api/v1/products/"+emailId,update);
    }
 
    updateReviewerDetails(update1:UpdateProfile,emailId){
     console.log("from service : ",emailId);
-     return this._http.put<UpdateProfile>("http://13.126.244.58:8083/reviewer-profile-service/api/v1/reviewer/"+emailId,update1);
+     return this._http.put<UpdateProfile>("http://140.238.167.169:8083/reviewer-profile-service/api/v1/reviewer/"+emailId,update1);
    }
 
    getProductOwnerDetails(emailId:String){
     console.log("from service : ",emailId);
-    return this._http.get("http://13.126.244.58:8083/product-owner-service/api/v1/product/"+emailId);
+    return this._http.get("http://140.238.167.169:8083/product-owner-service/api/v1/product/"+emailId);
    }
 
    getReviewerDetails(emailId:String){
     console.log("from service : ",emailId);
-    return this._http.get("http://13.126.244.58:8083/reviewer-profile-service/api/v1/reviewer/"+emailId);
+    return this._http.get("http://140.238.167.169:8083/reviewer-profile-service/api/v1/reviewer/"+emailId);
    }
 
 
